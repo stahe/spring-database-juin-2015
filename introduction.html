@@ -1,0 +1,1301 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Exploiter une base de données relationnelle avec l'écosystème Spring">
+      
+      
+        <meta name="author" content="Serge Tahé">
+      
+      
+        <link rel="canonical" href="https://stahe.github.io/spring-database-juin-2015/introduction.html">
+      
+      
+        <link rel="prev" href="index.html">
+      
+      
+        <link rel="next" href="introduction-au-framework-spring.html">
+      
+      
+        
+      
+      
+      <link rel="icon" href="assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
+    
+    
+      
+        <title>1. Introduction - Exploiter une base de données relationnelle avec l'écosystème Spring</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/main.618322db.min.css">
+      
+        
+        <link rel="stylesheet" href="assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="stylesheets/focus.css">
+    
+    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-EBZC3JVJNR"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    var siteName = "Exploiter une base de données relationnelle avec l'écosystème Spring";
+    gtag('config', 'G-EBZC3JVJNR', {
+        'page_title': siteName
+    });
+  </script>
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="purple">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#1-introduction" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="index.html" title="Exploiter une base de données relationnelle avec l&#39;écosystème Spring" class="md-header__button md-logo" aria-label="Exploiter une base de données relationnelle avec l'écosystème Spring" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Exploiter une base de données relationnelle avec l'écosystème Spring
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              1. Introduction
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="purple"  aria-label="Passer au mode sombre"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Passer au mode sombre" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="purple"  aria-label="Passer au mode clair"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Passer au mode clair" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://stahe.github.io/spring-database-juin-2015" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="index.html" title="Exploiter une base de données relationnelle avec l&#39;écosystème Spring" class="md-nav__button md-logo" aria-label="Exploiter une base de données relationnelle avec l'écosystème Spring" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Exploiter une base de données relationnelle avec l'écosystème Spring
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://stahe.github.io/spring-database-juin-2015" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Accueil
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Introduction
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="introduction.html" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Introduction
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#11-contenu" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1. Contenu
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12-sources" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2. Sources
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#13-les-outils-utilises" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.3. Les outils utilisés
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#14-les-exemples" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.4. Les exemples
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="introduction-au-framework-spring.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Introduction au framework Spring
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="introduction-a-lapi-jdbc.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Introduction à l'API JDBC
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="introduction-a-spring-jdbc.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. Introduction à Spring JDBC
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="introduction-a-spring-data-jpa.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. Introduction à Spring Data JPA
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="spring-data-jpa-hibernate.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. Spring Data JPA Hibernate
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="spring-data-jpa-eclipselink.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. Spring Data JPA EclipseLink
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="spring-data-jpa-openjpa.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8. Spring Data JPA OpenJpa
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="generation-des-bases-de-donnees-a-partir-des-entites-jpa.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    9. Génération des bases de données à partir des entités JPA
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="oracle-express-11g-release-2.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10. Oracle Express 11g release 2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="postgresql-94.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    11. PostgreSQL 9.4
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="ibm-db2-express-c-105.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    12. IBM DB2 Express-C 10.5
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="sql-server-2014.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    13. SQL Server 2014
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="firebird-254.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    14. Firebird 2.5.4
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="performances.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    15. Performances
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="introduction-a-spring-mvc.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    16. Introduction à Spring MVC
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="exposer-une-base-de-donnees-sur-le-web.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    17. Exposer une base de données sur le web
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="un-client-programme-pour-le-service-web--json.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    18. Un client programmé pour le service web / jSON
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="securiser-lacces-a-un-service-web-avec-spring-security.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    19. Sécuriser l'accès à un service web avec Spring Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="securisation-du-service-web-dacces-a-la-base-dbproduitscategories.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    20. Sécurisation du service web d'accès à la base [dbproduitscategories]
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="gestion-des-acces-inter-domaines.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    21. Gestion des accès inter-domaines
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="conclusion.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    22. Conclusion
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="annexes.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    23. Annexes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<p><a id="refheading261305838046689"></a></p>
+<h1 id="1-introduction">1. Introduction</h1>
+<p><a id="refheading1051242082896917"></a></p>
+<h2 id="11-contenu">1.1. Contenu</h2>
+<p>Nous nous proposons dans ce document d&#x27;étudier différentes configurations d&#x27;exploitation d&#x27;une base de données. Considérons l&#x27;architecture en couches suivante :</p>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000007080000017A09403716.png" style="display:inline-block; margin:4px;width:17.999cm;height:3.778cm;" /></td></tr></table>
+
+<p>Le flux d&#x27;exécution va de la gauche vers la droite :</p>
+<ul>
+<li>c&#x27;est l&#x27;une des classes de la couche [ui] (Use Interface) qui est exécutée en premier. Elle va instancier les couches [metier] et [dao]. Si la couche [ui] est une interface graphique, elle attend ensuite les actions de l&#x27;utilisateur. Une action de celui-ci peut provoquer l&#x27;exécution de méthodes dans toutes les couches de l&#x27;architecture jusqu&#x27;à la base de données. Le résultat de ces exécutions est rendu à l&#x27;utilisateur sous une forme ou une autre ;</li>
+</ul>
+<p>Le rôle des différentes couches pourrait être celui-ci :</p>
+<ul>
+<li>la couche [JDBC] (Java DataBase Connectivity) est une interface d&#x27;accès universelle aux bases de données. Elle présente toujours la même interface à la couche [DAO]. Si on change de SGBD, il suffit de changer le pilote JDBC. La couche [DAO] ne change pas si on a pris soin de respecter un certain nombre de règles. Il est cependant difficile d&#x27;assurer une portabilité à 100% entre SGBD car ceux-ci ont souvent une part importante de SQL propriétaire qu&#x27;il est difficile d&#x27;ignorer car il amène souvent des gains de performance. Dès qu&#x27;on utilise du SQL propriétaire, la portabilité entre SGBD n&#x27;est plus possible. Par ailleurs, les SGBD ont souvent des politiques différentes de génération automatique de clés primaires, des mots réservés qui ne sont pas les mêmes ici ou là. Dans ce document, on a quand même réussi à porter l&#x27;architecture JDBC étudiée, sur six SGBD différents en acceptant qu&#x27;il y ait un projet de configuration pour chacun d&#x27;eux ;</li>
+<li>la couche [DAO] expose une interface d&#x27;accès aux données de la base de données particulière utilisée (à différencier de l&#x27;interface JDBC qui expose des méthodes valables pour tout SGBD) ;</li>
+<li>la couche [métier] implémente les règles de gestion ou règles métier de l&#x27;application.<ul>
+<li>elle a pour données d&#x27;entrée, celles provenant de la base de données via la couche [dao] et / ou celles de l&#x27;utilisateur que lui transmet la couche [ui] ;</li>
+<li>elle produit des données qu&#x27;elle peut sauvegarder en base via la couche [dao] et / ou rendre à la couche [ui] qui l&#x27;a interrogée, pour affichage à l&#x27;utilisateur ;</li>
+</ul>
+</li>
+<li>la couche [ui] est la couche qui exécute les actions de l&#x27;utilisateur et lui rend les résultats de celles-ci ;</li>
+</ul>
+<p>Ci-dessus, la couche [DAO] envoie des requêtes SQL à la couche [JDBC] pour exécution dans le SGBD. Depuis quelques années (2006) cette architecture peut évoluer de la façon suivante :</p>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000006FE000001774C207100.png" style="display:inline-block; margin:4px;width:17.999cm;height:3.771cm;" /></td></tr></table>
+
+<p>C&#x27;est désormais la couche JPA (Java Persistence API) qui émet des requêtes SQL vers la couche JDBC et en reçoit les résultats. La couche [JPA] présente à la couche [DAO] des opérations pour persister / modifier / supprimer / obtenir des objets. La couche [DAO] n&#x27;émet plus d&#x27;ordres SQL. Cette approche est davantage portable car les implémentations JPA gèrent les différences entre SGBD mais elle est plus lente que la technologie JDBC. Nous ferons des tests de performance pour le montrer. La technologie JPA formalise le travail fait par le framework Hibernate [<a href="http://hibernate.org/">http://hibernate.org/</a>] des années auparavant.</p>
+<p>Nous étudierons deux couches [DAO] avec l&#x27;une des deux architectures suivantes :</p>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000006E4000001759C9090B7.png" style="display:inline-block; margin:4px;width:17.999cm;height:3.806cm;" /></td></tr></table>
+
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000006E10000016947159BE8.png" style="display:inline-block; margin:4px;width:17.999cm;height:3.69cm;" /></td></tr></table>
+
+<p>On imposera aux couches [DAO1] et [DAO2] d&#x27;implémenter la même interface [IDAO]. Aussi le test [JUnitTestsDao] sera le même pour les deux configuration et nous permettra de comparer les performances. La couche [DAO1] sera implémentée avec <strong>Spring JDBC</strong> et la couche [DAO2] avec <strong>Spring JPA</strong> ;</p>
+<p>Ceci fait, nous exposerons l&#x27;interface [IDAO] sur le web de la façon suivante :</p>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000006B7000003C06070A4E3.png" style="display:inline-block; margin:4px;width:17.999cm;height:10.051cm;" /></td></tr></table>
+
+<ul>
+<li>en [1], la couche [IDAO] est exposée sur le web au travers d&#x27;une couche web [2] implémentée par <strong>Spring MVC</strong>. C&#x27;est bien l&#x27;interface [IDAO] qui est exposée et nous construirons deux versions du service web selon que cette interface est implémentée avec une architecture [DAO-JDBC] ou [DAO-JPA-JDBC] ;</li>
+<li>en [B], un client distant utilise les URL exposées par le service web et qui donnent accès aux méthodes de la couche [IDAO-serveur]. On fera en sorte que la couche [DAO-Client] [3] implémente l&#x27;interface [IDAO-serveur] [1]. Ceci nous permettra d&#x27;utiliser le même test [JUnitTestsDao] déjà utilisé deux fois [4] ;</li>
+<li>en [3], la couche [DAO-client] sera implémentée avec <strong>Spring RestTemplate</strong> ;</li>
+</ul>
+<p>Ceci fait, nous sécuriserons l&#x27;accès au service web :</p>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/100000000000071B000003E52277B936.png" style="display:inline-block; margin:4px;width:17.999cm;height:9.865cm;" /></td></tr></table>
+
+<ul>
+<li>en [5], la requête HTTP du client traverse une couche d&#x27;authentification implémentée avec <strong>Spring Security</strong> ;</li>
+</ul>
+<p>Ceci fait, nous ferons évoluer l&#x27;architecture précédente vers la suivante :</p>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000006EE000003F3B5665B26.png" style="display:inline-block; margin:4px;width:17.999cm;height:10.257cm;" /></td></tr></table>
+
+<ul>
+<li>en [3], l&#x27;application client est elle-même une application web. Celle-ci présentera un formulaire [5] permettant d&#x27;interroger les URL du service web sécurisé. Les accès HTTP au service web sécurisé se feront grâce à une couche [DAO-client-js] implémentée en Javascript. Cette architecture met en oeuvre ce qu&#x27;on appelle des requêtes inter-domaines :<ul>
+<li>le service web [2] présente des URL de la forme [http://machine1:port1/] ;</li>
+<li>l&#x27;application web cliente [3] est téléchargée à partir d&#x27;une URL [http://machine2:port2/]. Si [http://machine2:port2/] n&#x27;est pas identique à [http://machine1:port1/] (même machine, même port), alors le navigateur client bloquera les appels HTTP de la couche [DAO-client-js]. Pour remédier à ce problème, le service web doit autoriser les requêtes inter-domaines. Nous verrons comment ;</li>
+</ul>
+</li>
+</ul>
+<p>Les projets présentés ont été testés avec les six SGBD suivants :</p>
+<ul>
+<li>MySQL 5 Community Edition ;</li>
+<li>SQL Server 2014 Express ;</li>
+<li>PostgreSQL 9.4 ;</li>
+<li>Oracle Express 11g release 2 ;</li>
+<li>IBM DB2 Express-C 10.5 ;</li>
+<li>Firebird 2.5.4 ;</li>
+</ul>
+<p>Pour chacun de ces SGBD, on a développé quatre couches [DAO] différentes :</p>
+<ul>
+<li>une couche implémentée avec Spring JDBC ;</li>
+<li>une couche implémentée avec Spring JPA et le fournisseur JPA Hibernate ;</li>
+<li>une couche implémentée avec Spring JPA et le fournisseur JPA EclipseLink ;</li>
+<li>une couche implémentée avec Spring JPA et le fournisseur JPA OpenJPA ;</li>
+</ul>
+<p>C&#x27;est donc un ensemble de vingt-quatre configuration différentes qui est présenté ici. On a fait un grand effort de factorisation :</p>
+<ul>
+<li>l&#x27;essentiel du code n&#x27;est écrit qu&#x27;une fois. Il repose sur deux projets Maven de configuration :<ul>
+<li>l&#x27;un configure la couche JDBC ;</li>
+<li>l&#x27;autre configure la couche JPA ;</li>
+</ul>
+</li>
+</ul>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000006F900000158D2400553.png" style="display:inline-block; margin:4px;width:17.999cm;height:3.468cm;" /></td></tr></table>
+
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000006F00000016107BC0901.png" style="display:inline-block; margin:4px;width:17.999cm;height:3.577cm;" /></td></tr></table>
+
+<p>Le projet Maven de configuration de la couche JDBC [1] d&#x27;un SGBD particulier consiste en deux points :</p>
+<ul>
+<li>importer l&#x27;archive du pilote JDBC ;</li>
+<li>définir les identifiants d&#x27;accès à la base de données utilisée et les différents ordres SQL que la couche [DAO1] va émettre vers le pilote JDBC. Bien que SQL soit standardisé, on a rencontré des problèmes de portabilité essentiellement à cause de la présence dans les requêtes de noms de tables / colonnes qui se sont révélés être des mots clés interdits dans certains SGBD (table ROLES pour DB2, colonne PASSWORD pour Firebird). Par ailleurs, bien qu&#x27;un nom de colonne soit normalement insensible à la casse (majuscules / minuscules), on a rencontré un problème avec PostgreSQL avec la colonne ID de la clé primaire des tables. Il a voulu qu&#x27;elle s&#x27;appelle <em>id</em> en minuscules. Voilà typiquement des problèmes de portabilité inattendus ;</li>
+</ul>
+<p>Les trois projet Maven de configuration de la couche JPA [2] d&#x27;un SGBD particulier consiste eux également en deux points :</p>
+<ul>
+<li>importer l&#x27;archive de l&#x27;implémentation JPA ;</li>
+<li>configurer l&#x27;implémentation JPA utilisée pour le SGBD particulier connecté. En effet, c&#x27;est la couche JPA qui émet les ordres SQL vers la couche JDBC. Pour être efficace, elle doit connaître le SGBD afin de lui envoyer les ordres SQL qu&#x27;il reconnaîtra. Ces ordres pourront utiliser le SQL propriétaire de ce SGBD ainsi que les caractéristiques particulières de celui-ci (types de données, séquences, triggers, procédures, génération automatique de clés primaires, ...) ;</li>
+</ul>
+<p>On a ainsi vingt-quatre projets (4 configurations x 6 SGBD) Maven de configuration sur lesquels vont reposer tous les autres projets d&#x27;exploitation de la base de données. Dans les schémas ci-dessus, les couches [DAO1] et [DAO2] offrant la même interface, les 24 configurations des deux architectures ci-dessus seront testées avec une unique classe de test [JUnitTestsDao]. Une fois ces architectures vérifiées, il n&#x27;y a plus de difficultés :</p>
+<ul>
+<li>le projet Maven de publication de la base de données sur le web repose sur ces deux architectures. Il y a donc là également 24 configurations possibles ;</li>
+<li>le projet Maven de sécurisation de l&#x27;accès au service web s&#x27;appuie sur le projet précédent et a lui également 24 configurations possibles ;</li>
+<li>enfin le projet Maven permettant les requêtes inter-domaines au service web sécurisé s&#x27;appuie sur le projet précédent et a lui également 24 configurations possibles ;</li>
+</ul>
+<p>L&#x27;étude est faite avec le SGBD MySQL5 et l&#x27;implémentation JPA Hibernate. On fait ensuite le portage vers les implémentations JPA Eclipselink et OpenJPA. Puis on fait le portage vers les autres bases de données (PostgresQL, Oracle, SQL Server, DB2, Firebird).</p>
+<p>Ce cours est destiné à des débutants. La majeure partie des concepts utilisés est expliquée. Il n&#x27;est pas nécessaire de connaître ni la programmation des bases de données ni la programmation web. En revanche, des connaissances solides du langage SQL sont nécessaires car les requêtes SQL utilisées ne sont pas expliquées.</p>
+<p>Pour comprendre les exemples, il faut une connaissance basique du langage Java qu&#x27;on trouvera dans n&#x27;importe quel cours d&#x27;introduction à ce langage. Les deux premiers chapitres du document [<a href="http://tahe.developpez.com/java/cours">Introduction au langage Java</a>] font l&#x27;affaire. C&#x27;est un vieux document (1998 révisé en 2002) mais les bases sont là. Pour un cours complet, on pourra lire l&#x27;immense livre de Jean-Marie Doudoux [<a href="http://www.jmdoudoux.fr/java">http://www.jmdoudoux.fr/java</a>].</p>
+<p><strong>Ce document n&#x27;est en rien exhaustif</strong>. Il n&#x27;est là que pour donner une méthodologie et des codes qu&#x27;il est possible de réutiliser dans des contextes similaires. Le document a été écrit de telle façon qu&#x27;il puisse être lu sans ordinateur sous la main. Aussi, donne-t-on beaucoup de copies d&#x27;écran.</p>
+<p>Bien que ne scannant pas toutes les capacités du langage Java ni tous ses domaines d&#x27;application, ce document peut être utilisé comme document d&#x27;apprentissage du langage. S&#x27;il suit ce document sans sa totalité, le lecteur débutant aura atteint un niveau &quot; Java avancé &quot; aussi bien dans l&#x27;utilisation du langage que dans celui du framework Spring. Il pourra alors poursuivre sa formation Java avec les ouvrages suivants :</p>
+<ul>
+<li>[Spring MVC et Thymeleaf par l&#x27;exemple] [<a href="http://tahe.developpez.com/java/springmvc-thymeleaf">http://tahe.developpez.com/java/springmvc-thymeleaf</a>] qui poursuit l&#x27;apprentissage de l&#x27;écosystème Spring en présentant sa branche &#x27;programmation web MVC&#x27; ;</li>
+<li>[Tutoriel AngularJS / Spring MVC] [<a href="http://tahe.developpez.com/angularjs-spring4">http://tahe.developpez.com/angularjs-spring4</a>] qui présente une architecture web client / serveur, où le client est implémenté avec le framework [AngularJS] et le serveur avec [Spring MVC] ;</li>
+<li>[Introduction à Java EE] qui quitte le monde Spring pour une architecture web basée sur JSF (Java Server Faces) et les EJB (Enterprise Java Bean) ;</li>
+<li>[Introduction à la programmation des tablettes Android] [<a href="http://tahe.developpez.com/android/exemples-intellij-aa">http://tahe.developpez.com/android/exemples-intellij-aa</a>] qui décrit une architecture client / serveur, où le client est une tablette Android et le serveur un service web implémenté par Spring MVC ;</li>
+</ul>
+<p><a id="refheading1224721676199047"></a></p>
+<h2 id="12-sources">1.2. Sources</h2>
+<p>Ce document a deux sources principales :</p>
+<ul>
+<li>[<a id="ref1"></a><strong>ref1</strong>] : [Spring MVC et Thymeleaf par l&#x27;exemple] à l&#x27;URL [<a href="http://tahe.developpez.com/java/springmvc-thymeleaf/">http://tahe.developpez.com/java/springmvc-thymeleaf/</a>]. Le présent document reprend avec une autre base de données le travail fait et présenté dans [<strong>ref1</strong>]. Simplement, il le sort du contexte de la programmation web avec Spring MVC. C&#x27;est parce que j&#x27;ai trouvé que les codes et la méthodologie utilisés dans [<strong>ref1</strong>] pour exposer une base de données sur le web étaient réutilisables que j&#x27;ai décidé d&#x27;en faire un document à part ;</li>
+<li>[<a id="ref2"></a><strong>ref2</strong>] : [Persistance Java par la pratique] à l&#x27;URL [<a href="http://tahe.developpez.com/java/jpa">http://tahe.developpez.com/java/jpa</a>];</li>
+</ul>
+<p>Pour approfondir Spring, on pourra utiliser les références suivantes :</p>
+<ul>
+<li>le document de référence du framework Spring [<a href="http://docs.spring.io/spring/docs/current/spring-framework-reference/pdf/spring-framework-reference.pdf">http://docs.spring.io/spring/docs/current/spring-framework-reference/pdf/spring-framework-reference.pdf</a>] ;</li>
+<li>de nombreux tutoriels Spring seront trouvés à l&#x27;URL [<a href="http://spring.io/guides">http://spring.io/guides</a>];</li>
+<li>le site de [developpez.com] consacré à Spring [<a href="http://spring.developpez.com/">http://spring.developpez.com/</a>];</li>
+<li>le tutoriel [<a href="http://www.tutorialspoint.com/spring/spring_tutorial.pdf">http://www.tutorialspoint.com/spring/spring_tutorial.pdf</a>];</li>
+</ul>
+<p>Le lecteur ayant des connaissances SQL insuffisantes, pourra acquérir les bases avec l&#x27;ouvrage [Introduction au langage SQL avec le SGBD Firebird] à l&#x27;URL [<a href="http://tahe.developpez.com/divers/sql-firebird/">http://tahe.developpez.com/divers/sql-firebird/</a>].</p>
+<p><a id="refheading4233146869296"></a></p>
+<h2 id="13-les-outils-utilises">1.3. Les outils utilisés</h2>
+<p>Les exemples qui suivent ont été testés dans l&#x27;environnement suivant :</p>
+<ul>
+<li>machine Windows 8.1 pro 64 bits ;</li>
+<li>JDK 1.8 (paragraphe <a href="annexes.html#refheading1633352067866943">23.1</a>) ;</li>
+<li>IDE Spring Tool Suite 3.6.3 ( paragraphe <a href="#refheading261305838046689">1</a>) ;</li>
+<li>navigateur Chrome (les autres navigateurs n&#x27;ont pas été utilisés) ;</li>
+<li>extension Chrome [Advanced Rest Client] ( paragraphe <a href="#refheading261305838046689">1</a>) ;</li>
+<li>SGBD MySQL 5.6 Community Edition ( paragraphe <a href="annexes.html#refheading261315838046689">23.4</a>) ;</li>
+<li>SGBD SQL Server 2014 Express ( paragraphe <a href="annexes.html#refheading1255281068575470">23.9</a>) ;</li>
+<li>SGBD Postgresql 9.4 ( paragraphe <a href="annexes.html#refheading39815804107930">23.7</a>) ;</li>
+<li>SGBD Oracle Express 11g release 2 ( paragraphe <a href="annexes.html#refheading39807804107930">23.6</a>) ;</li>
+<li>SGBD IBM DB2 Express-C 10.5 ( paragraphe <a href="annexes.html#refheading1244581068575470">23.8</a>) ;</li>
+<li>SGBD Firebird 2.5.4 ( paragraphe <a href="annexes.html#refheading1255301068575470">23.10</a>) ;</li>
+<li>les clients EMS Manager de ses six SGBD ( paragraphe <a href="annexes.html#refheading80991783410321">23.5</a> );</li>
+</ul>
+<p><strong>Attention au JDK 1.8</strong>. Une méthode de l&#x27;étude de cas utilise une méthode du package [java.lang] de Java 8.</p>
+<p>La plupart des exemples sont des projets Maven qui peuvent être ouverts indifféremment par les IDE Eclipse, IntellijIDEA et Netbeans. Dans la suite, les copies d&#x27;écran proviennent de l&#x27;IDE Spring Tool Suite, une variante d&#x27;Eclipse.</p>
+<p><a id="refheading2534711226231699"></a></p>
+<h2 id="14-les-exemples">1.4. Les exemples</h2>
+<p>Les exemples sont disponibles à l&#x27;URL [<a href="http://tahe.developpez.com/java/spring-database">http://tahe.developpez.com/java/spring-database</a>] sous la forme d&#x27;un fichier <em>zip</em> à télécharger.</p>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000006D1000001E5B81C446D.png" style="display:inline-block; margin:4px;width:17.999cm;height:5.002cm;" /></td></tr></table>
+
+<ul>
+<li>en [1], les dossiers des exemples ;</li>
+<li>en [2], le dossier [spring-core] contient les projets d&#x27;apprentissage de Spring ;</li>
+<li>en [3],  le dossier [spring-database-config] contient les projets de configuration JDBC et JPA des six bases de données ;</li>
+</ul>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/1000000000000715000001A4893DD878.png" style="display:inline-block; margin:4px;width:17.999cm;height:4.168cm;" /></td></tr></table>
+
+<ul>
+<li>en [4], la configuration du SGBD Oracle. On y trouve trois dossiers :<ul>
+<li>[databases] contient les script SQL de génération des deux bases de données utilisées par le document ;</li>
+<li>[jdbc-driver] contient le pilote JDBC d&#x27;Oracle ainsi qu&#x27;un script d&#x27;installation de celui-ci dans le dépôt Maven local ;</li>
+<li>[eclipse] contient [5] les quatre projets de configuration d&#x27;Oracle :<ul>
+<li>[oracle-config-jdbc] configure la couche JDBC d&#x27;accès au SGBD ;</li>
+<li>[oracle-config-jpa-hibernate] configure la couche JPA d&#x27;accès au SGBD avec le fournisseur JPA Hibernate ;</li>
+<li>[oracle-config-jpa-eclipselink] configure la couche JPA d&#x27;accès au SGBD avec le fournisseur JPA Eclipselink ;</li>
+<li>[oracle-config-jpa-openjpa] configure la couche JPA d&#x27;accès au SGBD avec le fournisseur JPA OpenJPA ;</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>en [6], le dossier [eclipse config / launch configurations] contient les configurations d&#x27;exécution que le lecteur pourra importer dans Eclipse pour ensuite les adapter à son propre environnement ;</li>
+</ul>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/1000000000000746000001BCA78A493C.png" style="display:inline-block; margin:4px;width:17.999cm;height:4.292cm;" /></td></tr></table>
+
+<ul>
+<li>en [7], le dossier [spring-database-generic] contient tout le code d&#x27;accès au SGBD commun aux six SGBD et au trois fournisseurs JPA ;</li>
+<li>en [8], [spring-jdbc] contient quatre projets qui présentent l&#x27;API JDBC ainsi que Spring JDBC ;</li>
+<li>en [9], [spring-jpa / spring-jpa-generic] est le projet exploitant une couche JPA pour accéder à une base de données. Les projets [generic-create-db*] sont des projets JPA permettant de créer les bases de données exploitées par la couche JPA ;</li>
+</ul>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/100000000000076A0000016B3E2281C5.png" style="display:inline-block; margin:4px;width:17.999cm;height:3.441cm;" /></td></tr></table>
+
+<ul>
+<li>
+<p>en [10], le dossier [spring-webjson] contient les projets qui exposent la base de données sur le web ;</p>
+<ul>
+<li>[spring-webjson-server-jdbc-generic] est le service web qui expose la base de données accédée avec Spring JDBC ;</li>
+<li>[spring-webjson-server-jpa-generic] est le service web qui expose la base de données accédée avec Spring JPA ;</li>
+<li>[spring-webjson-client-generic] est le client unique qui permet d&#x27;accéder aux deux services web précédents ;</li>
+</ul>
+</li>
+<li>
+<p>en [11], le dossier [spring-security] contient les projets qui exposent la base de données sur le web avec un accès sécurisé ;</p>
+<ul>
+<li>[spring-security-server-jdbc-generic] est le service web sécurisé qui expose la base de données accédée avec Spring JDBC ;</li>
+<li>[spring-security-server-jpa-generic] est le service web sécurisé qui expose la base de données accédée avec Spring JPA ;</li>
+<li>[spring-security-client-generic] est le client unique qui permet d&#x27;accéder aux deux services web sécurisés précédents ;</li>
+</ul>
+</li>
+<li>
+<p>en [12], le dossier [spring-cors] contient les projets qui exposent la base de données sur le web avec un accès sécurisé permettant des accès inter-domaines tels que ceux provenant du code Javascript d&#x27;un navigateur ;</p>
+<ul>
+<li>[spring-cors-server-jdbc-generic] est le service web sécurisé permettant des accès inter-domaines et qui expose la base de données accédée avec Spring JDBC ;</li>
+<li>[spring-cors-server-jpa-generic] est le service web sécurisé permettant des accès inter-domaines et qui expose la base de données accédée avec Spring JPA ;</li>
+<li>[spring-cors-client-generic] est une application web permettant d&#x27;interroger les deux services web précédents ;</li>
+</ul>
+</li>
+</ul>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner">
+
+      <div>
+        <a href="https://tahe.developpez.com" target="_blank">
+          https://tahe.developpez.com
+        </a>
+        <br>
+        Ce cours-tutoriel écrit par <strong>Serge Tahé</strong> est mis à disposition du public selon les termes de la
+        <em>Licence Creative Commons Attribution – Pas d’Utilisation Commerciale –
+        Partage dans les Mêmes Conditions 3.0 non transposé</em>.
+      </div>
+
+    </div>
+  </div>
+
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": ".", "features": ["navigation.sections", "navigation.indexes", "navigation.expand", "toc.integrate", "navigation.top"], "search": "assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="assets/javascripts/bundle.e71a0d61.min.js"></script>
+      
+        <script src="javascripts/focus.js"></script>
+      
+    
+  </body>
+</html>

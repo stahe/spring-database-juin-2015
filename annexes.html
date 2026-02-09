@@ -1,0 +1,1800 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Exploiter une base de données relationnelle avec l'écosystème Spring">
+      
+      
+        <meta name="author" content="Serge Tahé">
+      
+      
+        <link rel="canonical" href="https://stahe.github.io/spring-database-juin-2015/annexes.html">
+      
+      
+        <link rel="prev" href="conclusion.html">
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
+    
+    
+      
+        <title>23. Annexes - Exploiter une base de données relationnelle avec l'écosystème Spring</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/main.618322db.min.css">
+      
+        
+        <link rel="stylesheet" href="assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="stylesheets/focus.css">
+    
+    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-EBZC3JVJNR"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    var siteName = "Exploiter une base de données relationnelle avec l'écosystème Spring";
+    gtag('config', 'G-EBZC3JVJNR', {
+        'page_title': siteName
+    });
+  </script>
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="purple">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#23-annexes" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="index.html" title="Exploiter une base de données relationnelle avec l&#39;écosystème Spring" class="md-header__button md-logo" aria-label="Exploiter une base de données relationnelle avec l'écosystème Spring" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Exploiter une base de données relationnelle avec l'écosystème Spring
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              23. Annexes
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="purple"  aria-label="Passer au mode sombre"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Passer au mode sombre" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="purple"  aria-label="Passer au mode clair"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Passer au mode clair" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://stahe.github.io/spring-database-juin-2015" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="index.html" title="Exploiter une base de données relationnelle avec l&#39;écosystème Spring" class="md-nav__button md-logo" aria-label="Exploiter une base de données relationnelle avec l'écosystème Spring" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Exploiter une base de données relationnelle avec l'écosystème Spring
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://stahe.github.io/spring-database-juin-2015" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Accueil
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="introduction.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Introduction
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="introduction-au-framework-spring.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Introduction au framework Spring
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="introduction-a-lapi-jdbc.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Introduction à l'API JDBC
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="introduction-a-spring-jdbc.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. Introduction à Spring JDBC
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="introduction-a-spring-data-jpa.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. Introduction à Spring Data JPA
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="spring-data-jpa-hibernate.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. Spring Data JPA Hibernate
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="spring-data-jpa-eclipselink.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. Spring Data JPA EclipseLink
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="spring-data-jpa-openjpa.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8. Spring Data JPA OpenJpa
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="generation-des-bases-de-donnees-a-partir-des-entites-jpa.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    9. Génération des bases de données à partir des entités JPA
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="oracle-express-11g-release-2.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10. Oracle Express 11g release 2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="postgresql-94.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    11. PostgreSQL 9.4
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="ibm-db2-express-c-105.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    12. IBM DB2 Express-C 10.5
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="sql-server-2014.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    13. SQL Server 2014
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="firebird-254.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    14. Firebird 2.5.4
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="performances.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    15. Performances
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="introduction-a-spring-mvc.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    16. Introduction à Spring MVC
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="exposer-une-base-de-donnees-sur-le-web.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    17. Exposer une base de données sur le web
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="un-client-programme-pour-le-service-web--json.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    18. Un client programmé pour le service web / jSON
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="securiser-lacces-a-un-service-web-avec-spring-security.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    19. Sécuriser l'accès à un service web avec Spring Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="securisation-du-service-web-dacces-a-la-base-dbproduitscategories.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    20. Sécurisation du service web d'accès à la base [dbproduitscategories]
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="gestion-des-acces-inter-domaines.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    21. Gestion des accès inter-domaines
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="conclusion.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    22. Conclusion
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    23. Annexes
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="annexes.html" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    23. Annexes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#231-installation-dun-jdk" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        23.1. Installation d&#x27;un JDK
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#232-installation-de-maven" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        23.2. Installation de Maven
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#233-installation-de-sts-spring-tool-suite" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        23.3. Installation de STS (Spring Tool Suite)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#234-installation-du-sgbd-mysql5-community-edition" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        23.4. Installation du SGBD MySQL5 Community Edition
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#235-installation-de-ems-mymanager" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        23.5. Installation de EMS MyManager
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#236-installation-du-sgbd-oracle-database-express-edition-11g-release-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        23.6. Installation du SGBD Oracle Database Express Edition 11g Release 2
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#237-installation-du-sgbd-postgresql-94" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        23.7. Installation du SGBD PostgreSQL 9.4
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#238-installation-du-sgbd-db2-express" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        23.8. Installation du SGBD DB2 Express
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#239-installation-du-sgbd-sql-server-2014-express" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        23.9. Installation du SGBD SQL Server 2014 Express
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2310-installation-du-sgbd-firebird" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        23.10. Installation du SGBD Firebird
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2311-installation-du-plugin-chrome-advanced-rest-client" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        23.11. Installation du plugin Chrome [Advanced Rest Client]
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2312-gestion-du-json-en-java" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        23.12. Gestion du jSON en Java
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<p><a id="refheading261307838046689"></a></p>
+<h1 id="23-annexes">23. Annexes</h1>
+<p><span style="color: #000000">Nous présentons ici comment installer les outils utilisés dans ce document sur des machines windows 7 ou 8. Les copies d&#x27;écran désignent généralement les versions 64 bits des SGBD et outils installés. Le lecteur s&#x27;adaptera à son propre environnement.</span></p>
+<p><a id="refheading1633352067866943"></a></p>
+<h2 id="231-installation-dun-jdk">23.1. Installation d&#x27;un JDK</h2>
+<p><a id="refheading256713779844303"></a>On trouvera à l&#x27;URL [<a href="http://www.oracle.com/technetwork/java/javase/downloads/index.html">http://www.oracle.com/technetwork/java/javase/downloads/index.html</a>] (octobre 2014), le JDK le plus récent. On nommera par la suite &lt;jdk-install&gt; le dossier d&#x27;installation du JDK.</p>
+<p><a id="refheading472751712028290"></a></p>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/1000000000000229000001BDF10714D0.png" style="display:inline-block; margin:4px;width:10.239cm;height:8.241cm;" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td></tr></table>
+
+<p><a id="refheading261309838046689"></a></p>
+<h2 id="232-installation-de-maven">23.2. Installation de Maven</h2>
+<p><a id="refheading256715779844303"></a>Maven est un outil de gestion des dépendances d&#x27;un projet Java et plus encore. Il est disponible (octobre 2014) à l&#x27;URL [<a href="http://maven.apache.org/download.cgi">http://maven.apache.org/download.cgi</a>].</p>
+<p><a id="refheading463261712028290"></a></p>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/1000000000000269000000BB1072BA49.png" style="display:inline-block; margin:4px;width:11.419cm;height:3.461cm;" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td></tr></table>
+
+<p>Téléchargez et dézippez l&#x27;archive. Nous appellerons &lt;maven-install&gt; le dossier d&#x27;installation de Maven.</p>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000001680000010CFC709FA5.png" style="display:inline-block; margin:4px;width:4.763cm;height:3.545cm;" /></td></tr></table>
+
+<ul>
+<li>en [1], le fichier [conf / settings.xml] configure Maven ;</li>
+</ul>
+<p>On y trouve les lignes suivantes :</p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-text">
+<span class="odt-code-line"><span style="color:#000000">  </span><span style="color:#3f5fbf">&lt;!-- localRepository</span></span>
+<span class="odt-code-line">   | The path to the local repository maven will use to store artifacts.</span>
+<span class="odt-code-line">   |</span>
+<span class="odt-code-line">   | Default: ${user.home}/.m2/repository</span>
+<span class="odt-code-line">  &lt;localRepository&gt;/path/to/local/repo&lt;/localRepository&gt;</span>
+<span class="odt-code-line">--&gt;</span>
+</code></pre></div>
+
+<p>La valeur par défaut de la ligne 4 peut poser problème à certains logiciels utilisant Maven, si comme moi votre {user.home} a un espace dans son chemin (par exemple [C:\Users\Serge Tahé]). On désignera (ligne 7) un autre dossier pour le dépôt local Maven :</p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-text">
+<span class="odt-code-line"><span style="color:#000000">  </span><span style="color:#3f5fbf">&lt;!-- localRepository</span></span>
+<span class="odt-code-line">   | The path to the local repository maven will use to store artifacts.</span>
+<span class="odt-code-line">   |</span>
+<span class="odt-code-line">   | Default: ${user.home}/.m2/repository</span>
+<span class="odt-code-line">  &lt;localRepository&gt;/path/to/local/repo&lt;/localRepository&gt;</span>
+<span class="odt-code-line">  --&gt;</span>
+<span class="odt-code-line"><span style="color:#008080">&lt;</span><span style="color:#3f7f7f">localRepository</span><span style="color:#008080">&gt;</span><span style="background-color:#ff950e;color:#000000">D:\Programs\devjava\maven\.m2\repository</span><span style="color:#008080">&lt;/</span><span style="color:#3f7f7f">localRepository</span><span style="color:#008080">&gt;</span></span>
+</code></pre></div>
+
+<p>On évitera, ligne 7, un chemin qui contient des espaces.</p>
+<p><a id="refheading261311838046689"></a></p>
+<h2 id="233-installation-de-sts-spring-tool-suite">23.3. Installation de STS (Spring Tool Suite)</h2>
+<p><a id="refheading179816779844303"></a>Nous allons installer <strong>SpringSource Tool Suite</strong> [<a href="http://www.springsource.com/developer/sts">http://www.springsource.com/developer/sts</a>] (octobre 2014), un Eclipse pré-équipé avec de nombreux plugins liés au framework Spring et également avec une configuration Maven pré-installée.</p>
+<p><a id="refheading1633372067866943"></a></p>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/100000000000049E00000236D5D5D439.png" style="display:inline-block; margin:4px;width:15.637cm;height:7.488cm;" /></td></tr></table>
+
+<ul>
+<li>aller sur le site de  <strong>SpringSource Tool Suite</strong> (STS) [1], pour télécharger la version courante de STS [2A] [2B],</li>
+</ul>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000004D800000114495334AB.png" style="display:inline-block; margin:4px;width:16.404cm;height:3.651cm;" /></td></tr></table>
+
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/100000000000050B0000024BA225979B.png" style="display:inline-block; margin:4px;width:17.08cm;height:7.766cm;" /></td></tr></table>
+
+<ul>
+<li>le fichier téléchargé est un installateur qui crée l&#x27;arborescence de fichiers [3A] [3B]. En [4], on lance l&#x27;exécutable,</li>
+<li>en [5], la fenêtre de travail de l&#x27;IDE après avoir fermé la fenêtre de bienvenue. En [6], on fait afficher la fenêtre des serveurs d&#x27;applications,</li>
+</ul>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/100000000000020B000000A6208A7B57.png" style="display:inline-block; margin:4px;width:6.92cm;height:2.196cm;" /></td></tr></table>
+
+<ul>
+<li>en [7], la fenêtre des serveurs. Un serveur est enregistré. C&#x27;est un serveur VMware compatible Tomcat.</li>
+</ul>
+<p>Il faut indiquer à STS le dossier d&#x27;installation de Maven :</p>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/100000000000055600000268EE6ECED9.png" style="display:inline-block; margin:4px;width:17.999cm;height:8.116cm;" /></td></tr></table>
+
+<ul>
+<li>en [1-2], on configure STS ;</li>
+<li>en [3-4], on ajoute une nouvelle installation Maven ;</li>
+</ul>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/1000000000000517000002213BA4C3BB.png" style="display:inline-block; margin:4px;width:17.238cm;height:7.211cm;" /></td></tr></table>
+
+<ul>
+<li>en [5], on désigne le dossier d&#x27;installation de Maven ;</li>
+<li>en [6], on termine l&#x27;assistant ;</li>
+<li>en [7], on fait de la nouvelle installation Maven, l&#x27;installation par défaut ;</li>
+</ul>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000003590000030FF11C7275.png" style="display:inline-block; margin:4px;width:11.338cm;height:10.359cm;" /></td></tr></table>
+
+<ul>
+<li>en [8-9], on vérifie le dépôt local de Maven, le dossier où il mettra les dépendances qu&#x27;il téléchargera et où STS mettra les artifacts qui seront construits ;</li>
+</ul>
+<p>Il faut également choisir un JDK (Java Development Kit) pour exécuter à la fois les projets Eclipse sans et avec Maven [1-5].</p>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/1000000000000571000002A2A07A7AAA.png" style="display:inline-block; margin:4px;width:17.999cm;height:8.707cm;" /></td></tr></table>
+
+<p>Avec [4], on peut ajouter des JDK (Java Development Kit) ou des JRE (Java Runtime Environment). Ce dernier sait exécuter des fichiers .class mais ne sait pas compiler les .java pour les produire. Le JDK sait faire les deux. On choisira un JDK parce que certaines opérations Maven ont besoin d&#x27;un JDK.</p>
+<p>Pour créer un projet Eclipse, on procèdera de la façon suivante :</p>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/1000000000000530000001C5E067C733.png" style="display:inline-block; margin:4px;width:17.568cm;height:5.994cm;" /></td></tr></table>
+
+<ul>
+<li>en [3], donnez un nom au projet ;</li>
+<li>en [4], désignez un dossier existant et vide ;</li>
+</ul>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000004570000018094B202FF.png" style="display:inline-block; margin:4px;width:14.698cm;height:5.08cm;" /></td></tr></table>
+
+<ul>
+<li>en [5], le projet créé ;</li>
+<li>en [5-8], créez un package. Un package est un dossier qui contient du code Java. Deux classes peuvent porter le même nom si elles appartiennent à des packages différents. Dans un projet, il ne peut y avoir deux packages de même nom. Ainsi on ne peut utiliser un nom de package qui existerait dans une des dépendances du projet. Une entreprise utilisera comme nom de package, un nom précisant l&#x27;entreprise, le projet et les différentes branches de celui-ci ;</li>
+</ul>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000002F00000012F588A3A4F.png" style="display:inline-block; margin:4px;width:9.948cm;height:4.009cm;" /></td></tr></table>
+
+<ul>
+<li>en [9], donnez un nom au package ;</li>
+<li>en [10], le package créé ;</li>
+</ul>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000003F8000001EAAB032040.png" style="display:inline-block; margin:4px;width:13.441cm;height:6.482cm;" /></td></tr></table>
+
+<ul>
+<li>en [11-13], on crée une classe dans le package qui a été créé ;</li>
+</ul>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/1000000000000462000002DCEE33D53F.png" style="display:inline-block; margin:4px;width:14.843cm;height:9.684cm;" /></td></tr></table>
+
+<ul>
+<li>en [14], donnez un nom à la classe (doit respecter la norme CamelCase - pour chaque mot du nom, commencer par une majuscule suivie de minuscules) ;</li>
+<li>en [15], vérifiez le package ;</li>
+<li>en [16], cochez la case. Elle demande à ce que la méthode statique [main] soit générée. Cette méthode rend une classe exécutable, ç-à-d la première classe à exécuter dans un projet ;</li>
+<li>en [17], la classe ainsi créée ;</li>
+</ul>
+<p>Tapez dans la méthode [main] le code suivant qui affiche un texte sur la console :</p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-java">
+<span class="odt-code-line"><span style="font-weight:bold;color:#7f0055">package</span><span style="color:#000000"> st.istia;</span></span>
+<span class="odt-code-line"></span>
+<span class="odt-code-line"><span style="font-weight:bold;color:#7f0055">public</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">class</span><span style="color:#000000"> Test01 {</span></span>
+<span class="odt-code-line"></span>
+<span class="odt-code-line"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">public</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">static</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">void</span><span style="color:#000000"> main(String[] </span><span style="color:#6a3e3e">args</span><span style="color:#000000">) {</span></span>
+<span class="odt-code-line"><span style="color:#000000">        System.</span><span style="font-weight:bold;font-style:italic;color:#0000c0">out</span><span style="color:#000000">.println(</span><span style="color:#2a00ff">&quot;test01&quot;</span><span style="color:#000000">);</span></span>
+<span class="odt-code-line">    }</span>
+<span class="odt-code-line"></span>
+<span class="odt-code-line">}</span>
+</code></pre></div>
+
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000003C80000039C9BC5C590.png" style="display:inline-block; margin:4px;width:12.806cm;height:12.224cm;" /></td></tr></table>
+
+<ul>
+<li>en [18-20], exécutez la classe. Sa méthode [main] va alors être exécutée ;</li>
+</ul>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/1000000000000386000000E130A864F5.png" style="display:inline-block; margin:4px;width:11.933cm;height:2.977cm;" /></td></tr></table>
+
+<ul>
+<li>en [21-22], le résultat de l&#x27;application ;</li>
+</ul>
+<p>Si la vue [Console] n&#x27;est pas présente, procédez comme suit [1-4] :</p>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/100000000000048C00000351B19DCB3F.png" style="display:inline-block; margin:4px;width:15.399cm;height:11.232cm;" /></td></tr></table>
+
+<p>Il se peut qu&#x27;à l&#x27;importation d&#x27;un projet Eclipse, celui-ci présente des erreurs. Cela peut être dû à une configuration incorrecte du projet. Pour corriger l&#x27;erreur (si erreur il y a), procédez ainsi :</p>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/1000000000000385000002B5E49289E9.png" style="display:inline-block; margin:4px;width:11.92cm;height:9.169cm;" /></td></tr></table>
+
+<ul>
+<li>en [1], modifiez le [Build Path] du projet ;</li>
+</ul>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/1000000000000532000001D533D56277.png" style="display:inline-block; margin:4px;width:17.595cm;height:6.205cm;" /></td></tr></table>
+
+<ul>
+<li>en [2], le projet est configuré pour utiliser une JVM 1.5 ;</li>
+<li>en [3], supprimez cette dépendance ;</li>
+<li>en [4], ajoutez une nouvelle dépendance ;</li>
+</ul>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000004B20000026BAB87A0A4.png" style="display:inline-block; margin:4px;width:15.901cm;height:8.19cm;" /></td></tr></table>
+
+<ul>
+<li>en [5], on ajoute une JVM ;</li>
+<li>en [6], on choisit la JVM du poste ;</li>
+</ul>
+<p>Ceci fait, on valide le tout puis on passe à la propriété [Java compiler] du projet [7] :</p>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/100000000000052F000002DFD7DBA326.png" style="display:inline-block; margin:4px;width:17.556cm;height:9.724cm;" /></td></tr></table>
+
+<ul>
+<li>en [8], on demande au compilateur d&#x27;accepter toutes les caractéristiques du langage Java jusqu&#x27;à sa version 1.7 (ou 1.8) comprise ;</li>
+<li>en [9], on valide ;</li>
+<li>en [10], le projet ainsi reconfiguré ne doit plus présenter d&#x27;erreurs ;</li>
+</ul>
+<p>Par ailleurs, le projet importé peut utiliser un encodage UTF-8 des caractères. Procédez ainsi pour fixer cet encodage dans le projet importé [1-4] :</p>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000004D800000498E321E216.png" style="display:inline-block; margin:4px;width:16.404cm;height:15.558cm;" /></td></tr></table>
+
+<p>Par ailleurs, il peut être utile d&#x27;inhiber la vérification orthographique dans le projet pour éviter que les commentaires en français soient soulignés comme étant incorrects. Suivez les étapes [1-4] ci-dessous :</p>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000005470000026E16CCC6A9.png" style="display:inline-block; margin:4px;width:17.873cm;height:8.229cm;" /></td></tr></table>
+
+<p><a id="refheading261315838046689"></a></p>
+<h2 id="234-installation-du-sgbd-mysql5-community-edition">23.4. Installation du SGBD MySQL5 Community Edition</h2>
+<p>Le SGBD MySQL5 Community Edition sera trouvé (juin 2015) à l&#x27;URL [<a href="https://dev.mysql.com/downloads/mysql/">https://dev.mysql.com/downloads/mysql/</a>] :</p>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000002B10000012DA86A5F43.png" style="display:inline-block; margin:4px;width:9.11cm;height:3.979cm;" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td></tr></table>
+
+<p>L&#x27;installation se déroule de la façon suivante :</p>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000003BD000001C5B3D20E27.png" style="display:inline-block; margin:4px;width:12.661cm;height:5.994cm;" /></td></tr></table>
+
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/1000000000000444000003457DEE245D.png" style="display:inline-block; margin:4px;width:14.446cm;height:11.074cm;" /></td></tr></table>
+
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/100000000000047800000303068F0E02.png" style="display:inline-block; margin:4px;width:15.134cm;height:10.201cm;" /></td></tr></table>
+
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/100000000000054300000322B27F4058.png" style="display:inline-block; margin:4px;width:17.821cm;height:10.61cm;" /></td></tr></table>
+
+<ul>
+<li>en [8], on a utilisé le mot de passe [root]. Dans ce document les identifiants de l&#x27;administrateur du SGBD MySQL sont [root / root] ;</li>
+</ul>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/100000000000048500000316DAB02274.png" style="display:inline-block; margin:4px;width:15.307cm;height:10.451cm;" /></td></tr></table>
+
+<p>Une fois MySQL 5 installé, affichez la page de gestion des services windows :</p>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/100000000000051A000001B23244C5BF.png" style="display:inline-block; margin:4px;width:17.277cm;height:5.741cm;" /></td></tr></table>
+
+<ul>
+<li>[1] : icône windows en bas à gauche ;</li>
+</ul>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000001DB0000014F767A78E2.png" style="display:inline-block; margin:4px;width:6.285cm;height:4.433cm;" /></td></tr></table>
+
+<ul>
+<li>en [8], mettez le service [MySQL56] en démarrage manuel afin qu&#x27;il ne consomme pas de ressources inutilement. Vous le lancerez à partir de la page des services à chaque fois que vous en aurez besoin ;</li>
+</ul>
+<p><a id="refheading80991783410321"></a></p>
+<h2 id="235-installation-de-ems-mymanager">23.5. Installation de EMS MyManager</h2>
+<p>Le site [<a href="http://www.sqlmanager.net/en/">http://www.sqlmanager.net/en/</a>] offre des clients gratuits pour gérer six types de SGBD :</p>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/1000000000000223000000AD3CE7D591.png" style="display:inline-block; margin:4px;width:10.13cm;height:3.2cm;" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td></tr></table>
+
+<p><span style="color: #000000">L&#x27;intérêt est qu&#x27;ils présentent tous la même interface pour gérer les SGBD. C&#x27;est idéal pour ce document où on veut gérer les six SGBD. Il n&#x27;y a pas d&#x27;apprentissage d&#x27;un nouveau client lorsqu&#x27;on change de SGBD. On les trouvera tous à l&#x27;URL [http://www.sqlmanager.net/download/]. On téléchargera les versions gratuites dites <em>lite </em>:</span></p>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/1000000000000227000000DEA0EF0C8D.png" style="display:inline-block; margin:4px;width:8.641cm;height:3.482cm;" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td></tr></table>
+
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000002EB000000E69F4E2B15.png" style="display:inline-block; margin:4px;width:13.831cm;height:4.26cm;" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td></tr></table>
+
+<p><span style="color: #000000">Les URL de téléchargement sont actuellement (mai 2015) les suivantes :</span></p>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div markdown="block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>MySQL5
+</code></pre></div>
+</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;"><a href="http://www.sqlmanager.net/fr/products/mysql/manager/download">http://www.sqlmanager.net/fr/products/mysql/manager/download</a></p></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div markdown="block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>IBM DB2
+</code></pre></div>
+</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;"><a href="http://www.sqlmanager.net/fr/products/db2/manager/download">http://www.sqlmanager.net/fr/products/db2/manager/download</a></p></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div markdown="block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>Firebird / Interbase
+</code></pre></div>
+</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;"><a href="http://www.sqlmanager.net/fr/products/ibfb/manager">http://www.sqlmanager.net/fr/products/ibfb/manager</a></p></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div markdown="block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>Oracle
+</code></pre></div>
+</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;"><a href="http://www.sqlmanager.net/fr/products/oracle/manager/download">http://www.sqlmanager.net/fr/products/oracle/manager/download</a></p></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div markdown="block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>Microsoft SQL Server
+</code></pre></div>
+</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;"><a href="http://www.sqlmanager.net/fr/products/mssql/manager/download">http://www.sqlmanager.net/fr/products/mssql/manager/download</a></p></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div markdown="block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>PostgreSQL
+</code></pre></div>
+</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;"><a href="http://www.sqlmanager.net/fr/products/postgresql/manager/download">http://www.sqlmanager.net/fr/products/postgresql/manager/download</a></p></td></tr></table>
+
+<p><span style="color: #000000">Lorsqu&#x27;on installe, par exemple, le client MyManager de MySQL5, on obtient l&#x27;arborescence suivante :</span></p>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/100000000000052B0000021D848355D9.png" style="display:inline-block; margin:4px;width:17.503cm;height:7.158cm;" /></td></tr></table>
+
+<ul>
+<li><span style="color: #000000">l&#x27;exécutable est en [2] ;</span></li>
+<li><span style="color: #000000">les étapes [3-8] montrent comment connecter [MyManager] à une des bases de données de MySQL ;</span></li>
+<li><span style="color: #000000">en [4], le mot de passe est [root] ;</span></li>
+</ul>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000004E100000228AF9F81F1.png" style="display:inline-block; margin:4px;width:16.524cm;height:7.303cm;" /></td></tr></table>
+
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/100000000000017B000001D1C4150C62.png" style="display:inline-block; margin:4px;width:5.015cm;height:6.152cm;" /></td></tr></table>
+
+<p><a id="refheading39807804107930"></a></p>
+<h2 id="236-installation-du-sgbd-oracle-database-express-edition-11g-release-2">23.6. Installation du SGBD  <strong>Oracle Database Express Edition 11</strong><strong><em>g</em></strong><strong> Release 2</strong></h2>
+<p><span style="color: #000000">Le SGBD Oracle Database Express Edition 11<em>g</em> Release 2 est disponible à l&#x27;URL (juin 2015) : [<a href="http://www.oracle.com/technetwork/database/database-techno%20logies/express-edition/downloads/index.html">http://www.oracle.com/technetwork/database/database-techno logies/express-edition/downloads/index.html</a>] :</span></p>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000001CD000001121B242F21.png" style="display:inline-block; margin:4px;width:8.541cm;height:5.069cm;" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td></tr></table>
+
+<p><span style="color: #000000">L&#x27;installation se déroule de la façon suivante :</span></p>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/1000000000000541000002148D435220.png" style="display:inline-block; margin:4px;width:17.794cm;height:7.038cm;" /></td></tr></table>
+
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/100000000000050D000001C2383FBA12.png" style="display:inline-block; margin:4px;width:17.106cm;height:5.953cm;" /></td></tr></table>
+
+<ul>
+<li><span style="color: #000000">en [6], on tape le mot de passe [system]. Dans de document, les identifiants de l&#x27;administrateur Oracle sont [system / system] ;</span></li>
+</ul>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/1000000000000515000002287437E03E.png" style="display:inline-block; margin:4px;width:17.212cm;height:7.303cm;" /></td></tr></table>
+
+<p><span style="color: #000000">L&#x27;installation installe Oracle comme un service windows. Plusieurs services sont installés qui par défaut sont tous en démarrage automatique. La première chose à faire est de les passer en mode manuel :</span></p>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000000AF000000408303165F.png" style="display:inline-block; margin:4px;width:3.24cm;height:1.191cm;" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000000FF000001384EFF8E4D.png" style="display:inline-block; margin:4px;width:4.72cm;height:5.78cm;" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/100000000000012C0000013951E40631.png" style="display:inline-block; margin:4px;width:5.549cm;height:5.791cm;" /></td></tr></table>
+
+<p><span style="color: #000000">Deux services doivent être démarrés :</span></p>
+<ul>
+<li><span style="color: #000000">[OracleXETNSListener] qui écoute sur le port 1521 les demandes faites au SGBD ;</span></li>
+<li><span style="color: #000000">[OracleServiceXE] qui est le SGBD ;</span></li>
+</ul>
+<p><span style="color: #000000">Pour administrer Oracle, on va utiliser le client [OraManager] (paragraphe <a href="#refheading80991783410321">23.5</a>). Pour qu&#x27;il soit utilisable, il faut auparavant installer la suite [Oracle Database Express Edition 11<em>g</em> Release 2 <strong>Client</strong>] disponible à l&#x27;URL (juin 2015) : [<a href="http://www.oracle.com/technetwork/database/enterprise-edition/downloads/112010-win32soft-098987.html">http://www.oracle.com/technetwork/database/enterprise-edition/downloads/112010-win32soft-098987.html</a>]. Il faut télécharger la version 32 bits car [OraManager] est un client 32 bits :</span></p>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000002060000019454CA5B36.png" style="display:inline-block; margin:4px;width:8.641cm;height:6.738cm;" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td></tr></table>
+
+<p><span style="color: #000000">L&#x27;installation de cette suite se fait de la façon suivante :</span></p>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/100000000000046300000371D5E32413.png" style="display:inline-block; margin:4px;width:14.857cm;height:11.656cm;" /></td></tr></table>
+
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000004690000035096CFAE72.png" style="display:inline-block; margin:4px;width:14.937cm;height:11.218cm;" /></td></tr></table>
+
+<ul>
+<li><span style="color: #000000">en [3], indiquez le dossier &lt;oracleXE-install&gt;\app\oracle\product\11.2.0\client_1 où &lt;oracleXE-install&gt; est le dossier où vous avez installé Oracle Express ;</span></li>
+</ul>
+<p><span style="color: #000000">Maintenant, connectons le client [OraManager] au SGBD Oracle :</span></p>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000004E7000002152D0E224B.png" style="display:inline-block; margin:4px;width:16.603cm;height:7.052cm;" /></td></tr></table>
+
+<ul>
+<li><span style="color: #000000">en [2], le nom du groupe est libre ;</span></li>
+</ul>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/100000000000052F0000020898C3EE7B.png" style="display:inline-block; margin:4px;width:17.556cm;height:6.879cm;" /></td></tr></table>
+
+<ul>
+<li><span style="color: #000000">en [4], mettre obligatoirement XE ;</span></li>
+<li><span style="color: #000000">en [5], l&#x27;alias est libre ;</span></li>
+<li><span style="color: #000000">en [6], les identifiants sont [system / system] ;</span></li>
+</ul>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/100000000000043C00000293E78B7263.png" style="display:inline-block; margin:4px;width:14.34cm;height:8.719cm;" /></td></tr></table>
+
+<p><a id="refheading39815804107930"></a></p>
+<h2 id="237-installation-du-sgbd-postgresql-94">23.7. Installation du SGBD  <strong>PostgreSQL 9.4</strong></h2>
+<p><span style="color: #000000">Le SGBD <strong>PostgreSQL 9.4</strong> est disponible à l&#x27;URL (juin 2015) : [<a href="http://www.enterprisedb.com/products-services-training/pgdownload#windows">http://www.enterprisedb.com/products-services-training/pgdownload#windows</a>] :</span></p>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000002C9000000D0DFC114FC.png" style="display:inline-block; margin:4px;width:13.199cm;height:3.851cm;" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td></tr></table>
+
+<p><span style="color: #000000">L&#x27;installation se déroule de la façon suivante :</span></p>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000005380000027900AF2639.png" style="display:inline-block; margin:4px;width:17.674cm;height:8.375cm;" /></td></tr></table>
+
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/100000000000053D0000012107740363.png" style="display:inline-block; margin:4px;width:17.741cm;height:3.824cm;" /></td></tr></table>
+
+<ul>
+<li><span style="color: #000000">en [4], le mot de passe est <em>postgres</em>. Dans ce document, les identifiants de l&#x27;administrateur du SGBD PostgreSQL sont [postgres / postgres] ;</span></li>
+</ul>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000004E400000100CBE262F6.png" style="display:inline-block; margin:4px;width:16.563cm;height:3.387cm;" /></td></tr></table>
+
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000002B00000022A3F24D123.png" style="display:inline-block; margin:4px;width:9.102cm;height:7.329cm;" /></td></tr></table>
+
+<p><span style="color: #000000">L&#x27;installation installe PostgreSQL comme un service windows avec démarrage automatique. La première chose à faire est de le passer en mode manuel :</span></p>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/100000000000013400000080E40CA564.png" style="display:inline-block; margin:4px;width:5.701cm;height:2.371cm;" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/1000000000000141000001394A272550.png" style="display:inline-block; margin:4px;width:5.941cm;height:5.791cm;" /></td></tr></table>
+
+<p><span style="color: #000000">Maintenant connectons le client [PgManager] (cf paragraphe <a href="#refheading80991783410321">23.5</a>) au SGBD PostgreSQL :</span></p>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000004EA000001EFC6F55812.png" style="display:inline-block; margin:4px;width:16.642cm;height:6.549cm;" /></td></tr></table>
+
+<ul>
+<li><span style="color: #000000">en [2], les identifiants sont [postgres / postgres] ;</span></li>
+</ul>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/100000000000049700000204DC19C996.png" style="display:inline-block; margin:4px;width:15.545cm;height:6.826cm;" /></td></tr></table>
+
+<ul>
+<li><span style="color: #000000">en [3], on se connecte à la base [postgres] ;</span></li>
+</ul>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/100000000000016800000381E665EAD1.png" style="display:inline-block; margin:4px;width:4.763cm;height:11.867cm;" /></td></tr></table>
+
+<p><a id="refheading1244581068575470"></a></p>
+<h2 id="238-installation-du-sgbd-db2-express">23.8. Installation du SGBD DB2 Express</h2>
+<p><span style="color: #000000">Le SGBD DB2 Express est disponible à l&#x27;URL (juin 2015) : [<a href="http://www-01.ibm.com/software/data/db2/express-c/download.html">http://www-01.ibm.com/software/data/db2/express-c/download.html</a>] :</span></p>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/100000000000026300000134564A907D.png" style="display:inline-block; margin:4px;width:8.08cm;height:4.069cm;" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td></tr></table>
+
+<p><span style="color: #000000">L&#x27;installation se déroule de la façon suivante :</span></p>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000003F1000001FB717D1C25.png" style="display:inline-block; margin:4px;width:13.349cm;height:6.708cm;" /></td></tr></table>
+
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000003D6000002CCECE65347.png" style="display:inline-block; margin:4px;width:12.991cm;height:9.472cm;" /></td></tr></table>
+
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/1000000000000389000002DABFCA133C.png" style="display:inline-block; margin:4px;width:11.973cm;height:9.657cm;" /></td></tr></table>
+
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000004E8000001D6BEBB3AEE.png" style="display:inline-block; margin:4px;width:16.616cm;height:6.218cm;" /></td></tr></table>
+
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/1000000000000523000001F17F80EDEA.png" style="display:inline-block; margin:4px;width:17.397cm;height:6.576cm;" /></td></tr></table>
+
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/100000000000035C000001D5E40CEF30.png" style="display:inline-block; margin:4px;width:11.377cm;height:6.205cm;" /></td></tr></table>
+
+<ul>
+<li><span style="color: #000000">en [9] le mot de passe est [db2admin]. Dans ce document, les identifiants de l&#x27;administrateur du SGBD est [db2admin / db2admin] ;</span></li>
+</ul>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/1000000000000389000001DB0FF4102C.png" style="display:inline-block; margin:4px;width:11.973cm;height:6.285cm;" /></td></tr></table>
+
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/1000000000000518000001D566F3C35E.png" style="display:inline-block; margin:4px;width:17.251cm;height:6.205cm;" /></td></tr></table>
+
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/100000000000027400000080B3EA45A4.png" style="display:inline-block; margin:4px;width:11.629cm;height:2.371cm;" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td></tr></table>
+
+<p><span style="color: #000000"><strong>Note</strong> : on peut être tenté de sauter cette étape. Il ne faut pas. Elle va créer le dossier où seront stockées les bases de données DB2 que nous allons créer.</span></p>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000001C2000000BFCAC868AC.png" style="display:inline-block; margin:4px;width:8.331cm;height:3.54cm;" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/100000000000011B000000C00F25C157.png" style="display:inline-block; margin:4px;width:5.241cm;height:3.56cm;" /></td></tr></table>
+
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/1000000000000475000001D35138CCCF.png" style="display:inline-block; margin:4px;width:15.095cm;height:6.179cm;" /></td></tr></table>
+
+<ul>
+<li><span style="color: #000000">un dossier [d:\DB2] a été créé [1] ;</span></li>
+<li><span style="color: #000000">la base de données [SAMPLE] a été créée dans le dossier [d:\db2\node0000] ;</span></li>
+</ul>
+<p><span style="color: #000000">L&#x27;installation installe DB2 comme un service windows avec démarrage automatique. La première chose à faire est de le passer en mode manuel :</span></p>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/100000000000014C000000B1A2B4730A.png" style="display:inline-block; margin:4px;width:6.151cm;height:3.281cm;" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/100000000000011A00000145F0D8CCB5.png" style="display:inline-block; margin:4px;width:5.219cm;height:6.02cm;" /></td></tr></table>
+
+<p><span style="color: #000000">Le faire pour tous les services [DB2*] ci-dessus. Seul le service [DB2 - DB2COPY1] a besoin d&#x27;être lancé pour les besoins de ce document.</span></p>
+<p><span style="color: #000000">Maintenant connectons le client [Db2Manager] (cf paragraphe <a href="#refheading80991783410321">23.5</a>) au SGBD DB2 :</span></p>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000000B90000013ECD24DD69.png" style="display:inline-block; margin:4px;width:3.431cm;height:5.911cm;" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000002000000016086E8A97D.png" style="display:inline-block; margin:4px;width:9.479cm;height:6.519cm;" /></td></tr></table>
+
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/100000000000053C00000231401F64C5.png" style="display:inline-block; margin:4px;width:17.727cm;height:7.422cm;" /></td></tr></table>
+
+<ul>
+<li><span style="color: #000000">en [1], utiliser les identifiants [db2admin / db2admin] ;</span></li>
+</ul>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000000E6000000ED5A93552A.png" style="display:inline-block; margin:4px;width:4.26cm;height:4.39cm;" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000000E900000269F73BC962.png" style="display:inline-block; margin:4px;width:4.309cm;height:11.419cm;" /></td></tr></table>
+
+<p><a id="refheading1255281068575470"></a></p>
+<h2 id="239-installation-du-sgbd-sql-server-2014-express">23.9. Installation du SGBD SQL Server 2014 Express</h2>
+<p><span style="color: #000000">Le SGBD SQL Server 2014 Express est disponible à l&#x27;URL (juin 2015) : [<a href="http://www.microsoft.com/fr-fr/server-cloud/products/sql-server/">http://www.microsoft.com/fr-fr/server-cloud/products/sql-server/</a>] :</span></p>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000002610000015A59AD2CD4.png" style="display:inline-block; margin:4px;width:8.059cm;height:4.581cm;" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td></tr></table>
+
+<p><span style="color: #000000">L&#x27;installation se déroule de la façon suivante :</span></p>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/100000000000031E000000CE87B29E94.png" style="display:inline-block; margin:4px;width:13.16cm;height:3.397cm;" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td></tr></table>
+
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000003260000023F6E071C92.png" style="display:inline-block; margin:4px;width:13.984cm;height:9.977cm;" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td></tr></table>
+
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/1000000000000308000001F28338A762.png" style="display:inline-block; margin:4px;width:13.984cm;height:8.973cm;" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td></tr></table>
+
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/100000000000024B000001E58C4A0B40.png" style="display:inline-block; margin:4px;width:10.871cm;height:8.98cm;" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td></tr></table>
+
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/1000000000000254000001E8787BD4F6.png" style="display:inline-block; margin:4px;width:11.04cm;height:9.04cm;" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td></tr></table>
+
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/100000000000032F000002C4C6E89947.png" style="display:inline-block; margin:4px;width:10.783cm;height:9.366cm;" /></td></tr></table>
+
+<ul>
+<li><span style="color: #000000">en [1], mettre un mot de passe quelconque. Nous allons le changer ultérieurement ;</span></li>
+</ul>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/1000000000000193000001E6C4D04405.png" style="display:inline-block; margin:4px;width:7.459cm;height:8.999cm;" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td></tr></table>
+
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000002C700000242E4E6C680.png" style="display:inline-block; margin:4px;width:12.039cm;height:9.786cm;" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td></tr></table>
+
+<p><span style="color: #000000">Ensuite, nous lançons le service de SQL Server :</span></p>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000001360000004185FCA9BA.png" style="display:inline-block; margin:4px;width:5.74cm;height:1.199cm;" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/1000000000000169000000AF2BF2192C.png" style="display:inline-block; margin:4px;width:6.68cm;height:3.24cm;" /></td></tr></table>
+
+<p><span style="color: #000000">Ceci fait, on lance le client [Microsoft SQL Server Management Studio] qui a été installé en même temps que le SGBD (cf Menu Démarrer) :</span></p>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000001D4000001EA13CB2503.png" style="display:inline-block; margin:4px;width:8.67cm;height:9.07cm;" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/100000000000010A000000F99F3C2369.png" style="display:inline-block; margin:4px;width:4.93cm;height:4.611cm;" /></td></tr></table>
+
+<p><span style="color: #000000">On pourrait utiliser ce client pour administrer SQL Server. Mais par souci d&#x27;homogénéité avec les clients des autres SGBD, nous utiliserons le client [MsManager] (cf paragraphe <a href="#refheading80991783410321">23.5</a>).</span></p>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000004F8000003773C52C9DC.png" style="display:inline-block; margin:4px;width:16.828cm;height:11.735cm;" /></td></tr></table>
+
+<ul>
+<li><span style="color: #000000">en [1], notez le nom du SGBD ;</span></li>
+<li><span style="color: #000000">en [2], on a mis le mot de passe <em>msde</em>. Dans ce document, les identifiants de l&#x27;administrateur du SGBD sont [sa / msde] ;</span></li>
+</ul>
+<p><span style="color: #000000">Ceci fait, on lance l&#x27;outil [Gestionaire de configuration SQL Server] qui a été installé en même temps que le SGBD (cf Menu Démarrer) :</span></p>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/1000000000000501000001638142729A.png" style="display:inline-block; margin:4px;width:16.947cm;height:4.697cm;" /></td></tr></table>
+
+<ul>
+<li><span style="color: #000000">par défaut, en [2], la communication TCP/IP n&#x27;est pas activée. Pour ce document, il faut l&#x27;activer [3] ;</span></li>
+</ul>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000002730000021B9C13BE81.png" style="display:inline-block; margin:4px;width:8.296cm;height:7.131cm;" /></td></tr></table>
+
+<ul>
+<li><span style="color: #000000">en [4], toujours pour les besoins de ce document, il faut indiquer que le SGBD attend les demandes des clients sur le port 1433. La valeur de [Ports TCP dynamiques] doit être vide ;</span></li>
+</ul>
+<p><span style="color: #000000">Ceci fait, on lance le client [MsManager] (cf paragraphe <a href="#refheading80991783410321">23.5</a>) :</span></p>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000004E90000020C671C605F.png" style="display:inline-block; margin:4px;width:16.63cm;height:6.932cm;" /></td></tr></table>
+
+<ul>
+<li><span style="color: #000000">en [3], mettez le nom noté en [1] ;</span></li>
+<li><span style="color: #000000">en [4], les identifiants sont [sa / msde] ;</span></li>
+</ul>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000001A400000152E8DD4EA5.png" style="display:inline-block; margin:4px;width:7.781cm;height:6.26cm;" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/1000000000000119000000FA8DB2DAB3.png" style="display:inline-block; margin:4px;width:5.2cm;height:4.63cm;" /></td></tr></table>
+
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/1000000000000142000001DC0B3C60C4.png" style="display:inline-block; margin:4px;width:5.96cm;height:8.811cm;" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td></tr></table>
+
+<p><a id="refheading1255301068575470"></a></p>
+<h2 id="2310-installation-du-sgbd-firebird">23.10. Installation du SGBD Firebird</h2>
+<p><span style="color: #000000">Le SGBD Firebird 2.5.4 est disponible à l&#x27;URL (juin 2015) : [<a href="http://www.firebirdsql.org/en/firebird-2-5-4/">http://www.firebirdsql.org/en/firebird-2-5-4/</a>] :</span></p>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000003820000020B7C20D1AE.png" style="display:inline-block; margin:4px;width:13.393cm;height:7.8cm;" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td></tr></table>
+
+<p><span style="color: #000000">L&#x27;installation se déroule de la façon suivante :</span></p>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000001300000009F58F72954.png" style="display:inline-block; margin:4px;width:5.63cm;height:2.94cm;" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000001C80000016BF876BA4B.png" style="display:inline-block; margin:4px;width:8.44cm;height:6.72cm;" /></td></tr></table>
+
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000001D100000168BE45A8F2.png" style="display:inline-block; margin:4px;width:8.641cm;height:6.689cm;" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000001BD000001278F27187C.png" style="display:inline-block; margin:4px;width:8.241cm;height:5.459cm;" /></td></tr></table>
+
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000001CC0000016F19C0C89B.png" style="display:inline-block; margin:4px;width:8.52cm;height:6.789cm;" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000001DC000001712EED977C.png" style="display:inline-block; margin:4px;width:8.56cm;height:6.639cm;" /></td></tr></table>
+
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/100000000000019100000168E99CD1AA.png" style="display:inline-block; margin:4px;width:7.421cm;height:6.669cm;" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000001AC00000132A24062EF.png" style="display:inline-block; margin:4px;width:7.93cm;height:5.669cm;" /></td></tr></table>
+
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000001A300000169FEBDA68E.png" style="display:inline-block; margin:4px;width:7.759cm;height:6.68cm;" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000001B400000170F30F0E81.png" style="display:inline-block; margin:4px;width:8.07cm;height:6.81cm;" /></td></tr></table>
+
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/100000000000013E00000162A1CA2117.png" style="display:inline-block; margin:4px;width:5.89cm;height:6.549cm;" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td></tr></table>
+
+<p><span style="color: #000000">Ceci fait, vérifions le mode de lancement du service windows créé :</span></p>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/1000000000000174000001201B3002D6.png" style="display:inline-block; margin:4px;width:6.89cm;height:5.33cm;" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000001620000019AFA4D8190.png" style="display:inline-block; margin:4px;width:6.549cm;height:7.59cm;" /></td></tr></table>
+
+<p><span style="color: #000000">Connectons maintenant le client [IBManager] (cf paragraphe <a href="#refheading80991783410321">23.5</a>) au SGBD Firebird installé :</span></p>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000004D70000028AD43CFDB6.png" style="display:inline-block; margin:4px;width:16.392cm;height:8.599cm;" /></td></tr></table>
+
+<ul>
+<li><span style="color: #000000">en [1], le mot de passe est <em>masterkey</em> ;</span></li>
+</ul>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/1000000000000184000001CAD091AE99.png" style="display:inline-block; margin:4px;width:7.181cm;height:8.481cm;" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000000B700000108D58783F9.png" style="display:inline-block; margin:4px;width:3.39cm;height:4.89cm;" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000000AB000000FD25BB7D79.png" style="display:inline-block; margin:4px;width:3.17cm;height:4.68cm;" /></td></tr></table>
+
+<p><a id="refheading261317838046689"></a></p>
+<h2 id="2311-installation-du-plugin-chrome-advanced-rest-client">23.11. Installation du plugin Chrome [Advanced Rest Client]</h2>
+<p><a id="refheading179814779844303"></a>Dans ce document, on utilise le navigateur <strong>Chrome</strong> de Google (<a href="http://www.google.fr/intl/fr/chrome/browser/">http://www.google.fr/intl/fr/chrome/browser/</a> ). On lui ajoutera l&#x27;extension [Advanced Rest Client]. On pourra procéder ainsi :</p>
+<p><a id="refheading2334521890746156"></a></p>
+<ul>
+<li><a id="advanced-rest-client1"></a>aller sur le site de [Google Web store] (<a href="https://chrome.google.com/webstore">https://chrome.google.com/webstore</a>) avec le navigateur Chrome ;</li>
+<li>chercher l&#x27;application [Advanced Rest Client] :</li>
+</ul>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000001B0000000D21DA44C58.png" style="display:inline-block; margin:4px;width:7.999cm;height:3.889cm;" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td></tr></table>
+
+<ul>
+<li>l&#x27;application est alors disponible au téléchargement :</li>
+</ul>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000003BB000000AE1112526C.png" style="display:inline-block; margin:4px;width:17.48cm;height:3.184cm;" /></td></tr></table>
+
+<ul>
+<li>pour l&#x27;obtenir, il vous faudra créer un compte Google. [Google Web Store] demande ensuite confirmation [1] :</li>
+</ul>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/100000000000052000000249E61B24FA.png" style="display:inline-block; margin:4px;width:17.357cm;height:7.74cm;" /></td></tr></table>
+
+<ul>
+<li>en [2], l&#x27;extension ajoutée est disponible dans l&#x27;option [Applications] [3]. Cette option est affichée sur chaque nouvel onglet que vous créez (CTRL-T) dans le navigateur.</li>
+</ul>
+<p><a id="refheading261319838046689"></a></p>
+<h2 id="2312-gestion-du-json-en-java">23.12. Gestion du jSON en Java</h2>
+<p><a id="refheading191922103626402"></a>De façon tra<a id="json"></a>nsparente pour le développeur le framework [Spring MVC] utilise la bibliothèque jSON [Jackson]. Pour illustrer ce qu&#x27;est le jSON (JavaScript Object Notation), nous présentons ici un programme qui sérialise des objets en jSON et fait l&#x27;inverse en désérialisant les chaînes jSON produites pour recréer les objets initiaux.</p>
+<p>La bibliothèque &#x27;Jackson&#x27; permet de construire :</p>
+<ul>
+<li>la chaîne jSON d&#x27;un objet : <em>new ObjectMapper().writeValueAsString(object)</em> ;</li>
+<li>un objet à partir d&#x27;un chaîne jSON : <em>new ObjectMapper().readValue(jsonString, Object.class)</em>.</li>
+</ul>
+<p>Les deux méthodes sont susceptibles de lancer une exception. Voici un exemple.</p>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000000D5000000EFB3DEB6F9.png" style="display:inline-block; margin:4px;width:3.941cm;height:4.431cm;" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td></tr></table>
+
+<p>Le projet ci-dessus est un projet Maven avec le fichier [pom.xml] suivant ;</p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-xml">
+<span class="odt-code-line"><span style="color:#008080">&lt;?</span><span style="color:#3f7f7f">xml</span> <span style="color:#7f007f">version</span><span style="color:#000000">=</span><span style="font-style:italic;color:#2a00ff">&quot;1.0&quot;</span> <span style="color:#7f007f">encoding</span><span style="color:#000000">=</span><span style="font-style:italic;color:#2a00ff">&quot;UTF-8&quot;</span><span style="color:#008080">?&gt;</span></span>
+<span class="odt-code-line"><span style="color:#008080">&lt;</span><span style="color:#3f7f7f">project</span> <span style="color:#7f007f">xmlns</span><span style="color:#000000">=</span><span style="font-style:italic;color:#2a00ff">&quot;http://maven.apache.org/POM/4.0.0&quot;</span></span>
+<span class="odt-code-line">         <span style="color:#7f007f">xmlns:xsi</span><span style="color:#000000">=</span><span style="font-style:italic;color:#2a00ff">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span></span>
+<span class="odt-code-line">         <span style="color:#7f007f">xsi:schemaLocation</span><span style="color:#000000">=</span><span style="font-style:italic;color:#2a00ff">&quot;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd&quot;</span><span style="color:#008080">&gt;</span></span>
+<span class="odt-code-line"><span style="color:#000000">  </span><span style="color:#008080">&lt;</span><span style="color:#3f7f7f">modelVersion</span><span style="color:#008080">&gt;</span><span style="color:#000000">4.0.0</span><span style="color:#008080">&lt;/</span><span style="color:#3f7f7f">modelVersion</span><span style="color:#008080">&gt;</span></span>
+<span class="odt-code-line"></span>
+<span class="odt-code-line"><span style="color:#000000">  </span><span style="color:#008080">&lt;</span><span style="color:#3f7f7f">groupId</span><span style="color:#008080">&gt;</span><span style="color:#000000">istia.st.pam</span><span style="color:#008080">&lt;/</span><span style="color:#3f7f7f">groupId</span><span style="color:#008080">&gt;</span></span>
+<span class="odt-code-line"><span style="color:#000000">  </span><span style="color:#008080">&lt;</span><span style="color:#3f7f7f">artifactId</span><span style="color:#008080">&gt;</span><span style="color:#000000">json</span><span style="color:#008080">&lt;/</span><span style="color:#3f7f7f">artifactId</span><span style="color:#008080">&gt;</span></span>
+<span class="odt-code-line"><span style="color:#000000">  </span><span style="color:#008080">&lt;</span><span style="color:#3f7f7f">version</span><span style="color:#008080">&gt;</span><span style="color:#000000">1.0-SNAPSHOT</span><span style="color:#008080">&lt;/</span><span style="color:#3f7f7f">version</span><span style="color:#008080">&gt;</span></span>
+<span class="odt-code-line"></span>
+<span class="odt-code-line"><span style="color:#000000">  </span><span style="color:#008080">&lt;</span><span style="color:#3f7f7f">dependencies</span><span style="color:#008080">&gt;</span></span>
+<span class="odt-code-line"><span style="color:#000000">    </span><span style="color:#008080">&lt;</span><span style="color:#3f7f7f">dependency</span><span style="color:#008080">&gt;</span></span>
+<span class="odt-code-line"><span style="color:#000000">      </span><span style="color:#008080">&lt;</span><span style="color:#3f7f7f">groupId</span><span style="color:#008080">&gt;</span><span style="color:#000000">com.fasterxml.jackson.core</span><span style="color:#008080">&lt;/</span><span style="color:#3f7f7f">groupId</span><span style="color:#008080">&gt;</span></span>
+<span class="odt-code-line"><span style="color:#000000">      </span><span style="color:#008080">&lt;</span><span style="color:#3f7f7f">artifactId</span><span style="color:#008080">&gt;</span><span style="color:#000000">jackson-databind</span><span style="color:#008080">&lt;/</span><span style="color:#3f7f7f">artifactId</span><span style="color:#008080">&gt;</span></span>
+<span class="odt-code-line"><span style="color:#000000">      </span><span style="color:#008080">&lt;</span><span style="color:#3f7f7f">version</span><span style="color:#008080">&gt;</span><span style="color:#000000">2.3.3</span><span style="color:#008080">&lt;/</span><span style="color:#3f7f7f">version</span><span style="color:#008080">&gt;</span></span>
+<span class="odt-code-line"><span style="color:#000000">    </span><span style="color:#008080">&lt;/</span><span style="color:#3f7f7f">dependency</span><span style="color:#008080">&gt;</span></span>
+<span class="odt-code-line"><span style="color:#000000">  </span><span style="color:#008080">&lt;/</span><span style="color:#3f7f7f">dependencies</span><span style="color:#008080">&gt;</span></span>
+<span class="odt-code-line"><span style="color:#008080">&lt;/</span><span style="color:#3f7f7f">project</span><span style="color:#008080">&gt;</span></span>
+</code></pre></div>
+
+<ul>
+<li>lignes 12-16 : la dépendance qui amène la bibliothèque &#x27;Jackson&#x27; ;</li>
+</ul>
+<p>La classe [Personne] est la suivante :</p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-java">
+<span class="odt-code-line"><span style="font-weight:bold;color:#7f0055">package</span><span style="color:#000000"> istia.st.json;</span></span>
+<span class="odt-code-line"></span>
+<span class="odt-code-line"><span style="font-weight:bold;color:#7f0055">public</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">class</span><span style="color:#000000"> Personne {</span></span>
+<span class="odt-code-line"><span style="color:#000000">    </span><span style="color:#3f7f5f">// data</span></span>
+<span class="odt-code-line"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">private</span><span style="color:#000000"> String nom;</span></span>
+<span class="odt-code-line"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">private</span><span style="color:#000000"> String prenom;</span></span>
+<span class="odt-code-line"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">private</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">int</span><span style="color:#000000"> age;</span></span>
+<span class="odt-code-line"></span>
+<span class="odt-code-line"><span style="color:#000000">    </span><span style="color:#3f7f5f">// constructeurs</span></span>
+<span class="odt-code-line"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">public</span><span style="color:#000000"> Personne() {</span></span>
+<span class="odt-code-line"></span>
+<span class="odt-code-line">    }</span>
+<span class="odt-code-line"></span>
+<span class="odt-code-line"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">public</span><span style="color:#000000"> Personne(String nom, String prénom, </span><span style="font-weight:bold;color:#7f0055">int</span><span style="color:#000000"> âge) {</span></span>
+<span class="odt-code-line"><span style="color:#000000">        </span><span style="font-weight:bold;color:#7f0055">this</span><span style="color:#000000">.nom = nom;</span></span>
+<span class="odt-code-line"><span style="color:#000000">        </span><span style="font-weight:bold;color:#7f0055">this</span><span style="color:#000000">.prenom = prénom;</span></span>
+<span class="odt-code-line"><span style="color:#000000">        </span><span style="font-weight:bold;color:#7f0055">this</span><span style="color:#000000">.age = âge;</span></span>
+<span class="odt-code-line">    }</span>
+<span class="odt-code-line"></span>
+<span class="odt-code-line"><span style="color:#000000">    </span><span style="color:#3f7f5f">// signature</span></span>
+<span class="odt-code-line"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">public</span><span style="color:#000000"> String toString() {</span></span>
+<span class="odt-code-line"><span style="color:#000000">        </span><span style="font-weight:bold;color:#7f0055">return</span><span style="color:#000000"> String.format(</span><span style="color:#2a00ff">&quot;Personne[%s, %s, %d]&quot;</span><span style="color:#000000">, nom, prenom, age);</span></span>
+<span class="odt-code-line">    }</span>
+<span class="odt-code-line"></span>
+<span class="odt-code-line"><span style="color:#000000">    </span><span style="color:#3f7f5f">// getters et setters</span></span>
+<span class="odt-code-line">...</span>
+<span class="odt-code-line">}</span>
+</code></pre></div>
+
+<p>La classe [Main] est la suivante :</p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-java">
+<span class="odt-code-line"><span style="font-weight:bold;color:#7f0055">package</span><span style="color:#000000"> istia.st.json;</span></span>
+<span class="odt-code-line"></span>
+<span class="odt-code-line"><span style="font-weight:bold;color:#7f0055">import</span><span style="color:#000000"> com.fasterxml.jackson.databind.ObjectMapper;</span></span>
+<span class="odt-code-line"></span>
+<span class="odt-code-line"><span style="font-weight:bold;color:#7f0055">import</span><span style="color:#000000"> java.io.IOException;</span></span>
+<span class="odt-code-line"><span style="font-weight:bold;color:#7f0055">import</span><span style="color:#000000"> java.util.HashMap;</span></span>
+<span class="odt-code-line"><span style="font-weight:bold;color:#7f0055">import</span><span style="color:#000000"> java.util.Map;</span></span>
+<span class="odt-code-line"></span>
+<span class="odt-code-line"><span style="font-weight:bold;color:#7f0055">public</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">class</span><span style="color:#000000"> Main {</span></span>
+<span class="odt-code-line"><span style="color:#000000">  </span><span style="color:#3f7f5f">// l&#x27;outil de sérialisation / désérialisation</span></span>
+<span class="odt-code-line"><span style="color:#000000">  </span><span style="font-weight:bold;color:#7f0055">static</span><span style="color:#000000"> ObjectMapper mapper = </span><span style="font-weight:bold;color:#7f0055">new</span><span style="color:#000000"> ObjectMapper();</span></span>
+<span class="odt-code-line"></span>
+<span class="odt-code-line"><span style="color:#000000">  </span><span style="font-weight:bold;color:#7f0055">public</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">static</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">void</span><span style="color:#000000"> main(String[] args) </span><span style="font-weight:bold;color:#7f0055">throws</span><span style="color:#000000"> IOException {</span></span>
+<span class="odt-code-line"><span style="color:#000000">    </span><span style="color:#3f7f5f">// création d&#x27;une personne</span></span>
+<span class="odt-code-line"><span style="color:#000000">    Personne paul = </span><span style="font-weight:bold;color:#7f0055">new</span><span style="color:#000000"> Personne(</span><span style="color:#2a00ff">&quot;Denis&quot;</span><span style="color:#000000">, </span><span style="color:#2a00ff">&quot;Paul&quot;</span><span style="color:#000000">, 40);</span></span>
+<span class="odt-code-line"><span style="color:#000000">    </span><span style="color:#3f7f5f">// affichage jSON</span></span>
+<span class="odt-code-line">    String json = mapper.writeValueAsString(paul);</span>
+<span class="odt-code-line"><span style="color:#000000">    System.out.println(</span><span style="color:#2a00ff">&quot;Json=&quot;</span><span style="color:#000000"> + json);</span></span>
+<span class="odt-code-line"><span style="color:#000000">    </span><span style="color:#3f7f5f">// instanciation Personne à partir du Json</span></span>
+<span class="odt-code-line"><span style="color:#000000">    Personne p = mapper.readValue(json, Personne.</span><span style="font-weight:bold;color:#7f0055">class</span><span style="color:#000000">);</span></span>
+<span class="odt-code-line"><span style="color:#000000">    </span><span style="color:#3f7f5f">// affichage personne</span></span>
+<span class="odt-code-line"><span style="color:#000000">    System.out.println(</span><span style="color:#2a00ff">&quot;Personne=&quot;</span><span style="color:#000000"> + p);</span></span>
+<span class="odt-code-line"><span style="color:#000000">    </span><span style="color:#3f7f5f">// un tableau</span></span>
+<span class="odt-code-line"><span style="color:#000000">    Personne virginie = </span><span style="font-weight:bold;color:#7f0055">new</span><span style="color:#000000"> Personne(</span><span style="color:#2a00ff">&quot;Radot&quot;</span><span style="color:#000000">, </span><span style="color:#2a00ff">&quot;Virginie&quot;</span><span style="color:#000000">, 20);</span></span>
+<span class="odt-code-line"><span style="color:#000000">    Personne[] personnes = </span><span style="font-weight:bold;color:#7f0055">new</span><span style="color:#000000"> Personne[]{paul, virginie};</span></span>
+<span class="odt-code-line"><span style="color:#000000">    </span><span style="color:#3f7f5f">// affichage Json</span></span>
+<span class="odt-code-line">    json = mapper.writeValueAsString(personnes);</span>
+<span class="odt-code-line"><span style="color:#000000">    System.out.println(</span><span style="color:#2a00ff">&quot;Json personnes=&quot;</span><span style="color:#000000"> + json);</span></span>
+<span class="odt-code-line"><span style="color:#000000">    </span><span style="color:#3f7f5f">// dictionnaire</span></span>
+<span class="odt-code-line"><span style="color:#000000">    Map&lt;String, Personne&gt; hpersonnes = </span><span style="font-weight:bold;color:#7f0055">new</span><span style="color:#000000"> HashMap&lt;String, Personne&gt;();</span></span>
+<span class="odt-code-line"><span style="color:#000000">    hpersonnes.put(</span><span style="color:#2a00ff">&quot;1&quot;</span><span style="color:#000000">, paul);</span></span>
+<span class="odt-code-line"><span style="color:#000000">    hpersonnes.put(</span><span style="color:#2a00ff">&quot;2&quot;</span><span style="color:#000000">, virginie);</span></span>
+<span class="odt-code-line"><span style="color:#000000">    </span><span style="color:#3f7f5f">// affichage Json</span></span>
+<span class="odt-code-line">    json = mapper.writeValueAsString(hpersonnes);</span>
+<span class="odt-code-line"><span style="color:#000000">    System.out.println(</span><span style="color:#2a00ff">&quot;Json hpersonnes=&quot;</span><span style="color:#000000"> + json);</span></span>
+<span class="odt-code-line">  }</span>
+<span class="odt-code-line">}</span>
+</code></pre></div>
+
+<p>L&#x27;exécution de cette classe produit l&#x27;affichage écran suivant :</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-6-1">1</a></span>
+<span class="normal"><a href="#__codelineno-6-2">2</a></span>
+<span class="normal"><a href="#__codelineno-6-3">3</a></span>
+<span class="normal"><a href="#__codelineno-6-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1"></a>Json={&quot;nom&quot;:&quot;Denis&quot;,&quot;prenom&quot;:&quot;Paul&quot;,&quot;age&quot;:40}
+<a id="__codelineno-6-2" name="__codelineno-6-2"></a>Personne=Personne[Denis, Paul, 40]
+<a id="__codelineno-6-3" name="__codelineno-6-3"></a>Json personnes=[{&quot;nom&quot;:&quot;Denis&quot;,&quot;prenom&quot;:&quot;Paul&quot;,&quot;age&quot;:40},{&quot;nom&quot;:&quot;Radot&quot;,&quot;prenom&quot;:&quot;Virginie&quot;,&quot;age&quot;:20}]
+<a id="__codelineno-6-4" name="__codelineno-6-4"></a>Json hpersonnes={&quot;2&quot;:{&quot;nom&quot;:&quot;Radot&quot;,&quot;prenom&quot;:&quot;Virginie&quot;,&quot;age&quot;:20},&quot;1&quot;:{&quot;nom&quot;:&quot;Denis&quot;,&quot;prenom&quot;:&quot;Paul&quot;,&quot;age&quot;:40}}
+</code></pre></div></td></tr></table></div>
+<p>De l&#x27;exemple on retiendra :</p>
+<ul>
+<li>l&#x27;objet [ObjectMapper] nécessaire aux transformations jSON / Object : ligne 11 ;</li>
+<li>la transformation [Personne] --&gt; jSON : ligne 17 ;</li>
+<li>la transformation jSON --&gt; [Personne] : ligne 20 ;</li>
+<li>l&#x27;exception [IOException] lancée par les deux méthodes : ligne 13.</li>
+</ul>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner">
+
+      <div>
+        <a href="https://tahe.developpez.com" target="_blank">
+          https://tahe.developpez.com
+        </a>
+        <br>
+        Ce cours-tutoriel écrit par <strong>Serge Tahé</strong> est mis à disposition du public selon les termes de la
+        <em>Licence Creative Commons Attribution – Pas d’Utilisation Commerciale –
+        Partage dans les Mêmes Conditions 3.0 non transposé</em>.
+      </div>
+
+    </div>
+  </div>
+
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": ".", "features": ["navigation.sections", "navigation.indexes", "navigation.expand", "toc.integrate", "navigation.top"], "search": "assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="assets/javascripts/bundle.e71a0d61.min.js"></script>
+      
+        <script src="javascripts/focus.js"></script>
+      
+    
+  </body>
+</html>
