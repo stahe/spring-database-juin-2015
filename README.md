@@ -22,7 +22,7 @@ Le support théorique et pédagogique associé est disponible ici :
 
 L’application repose sur une architecture en couches, où le flux d’exécution va de gauche à droite :
 
-![img.png](img.png)
+![](https://stahe.github.io/spring-database-juin-2015/images/10000000000007080000017A09403716.png)
 
 
 ### Rôle des couches
@@ -55,8 +55,7 @@ L’application repose sur une architecture en couches, où le flux d’exécuti
 
 Depuis le milieu des années 2000, l’architecture peut évoluer ainsi :
 
-![img_1.png](img_1.png)
-
+![](https://stahe.github.io/spring-database-juin-2015/images/10000000000006FE000001774C207100.png)
 
 ### Spécificités de JPA
 
@@ -78,9 +77,10 @@ JPA formalise des concepts introduits auparavant par des frameworks comme **Hibe
 
 Le projet met en œuvre **deux implémentations DAO distinctes** :
 
-![img_2.png](img_2.png)
+![](https://stahe.github.io/spring-database-juin-2015/images/10000000000006FE000001774C207100.png)
 
-![img_3.png](img_3.png)
+![](https://stahe.github.io/spring-database-juin-2015/images/10000000000006E10000016947159BE8.png)
+
 
 ### Contraintes communes
 
