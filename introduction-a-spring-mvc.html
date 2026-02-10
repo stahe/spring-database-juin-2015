@@ -1124,7 +1124,7 @@
 <p><a id="refheading99511454977699"></a></p>
 <h2 id="161-la-place-de-spring-mvc-dans-une-application-web">16.1. La place de Spring MVC dans une application Web</h2>
 <p>Situons Spring MVC dans le développement d&#x27;une application Web. Le plus souvent, celle-ci sera bâtie sur une architecture multicouche telle que la suivante :</p>
-<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000004F70000010BB6D9B6DB.png" style="display:inline-block; margin:4px;width:16.815cm;height:3.533cm;" /></td></tr></table>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000004F70000010BB6D9B6DB.png" style="display:inline-block; margin:4px;width:16.815cm;height:3.533cm;" class="odt-zoomable" data-zoom-src="images/10000000000004F70000010BB6D9B6DB.png" /></td></tr></table>
 
 <ul>
 <li>la couche [<strong>Web</strong>] est la couche en contact avec l&#x27;utilisateur de l&#x27;application Web. Celui-ci interagit avec l&#x27;application Web au travers de pages Web visualisées par un navigateur. <strong>C&#x27;est dans cette couche que se situe Spring MVC et uniquement dans cette couche ;</strong></li>
@@ -1135,7 +1135,7 @@
 <p><a id="refheading99531454977699"></a></p>
 <h2 id="162-le-modele-de-developpement-de-spring-mvc">16.2. Le modèle de développement de Spring MVC</h2>
 <p>Spring MVC implémente le modèle d&#x27;architecture dit MVC (Modèle – Vue – Contrôleur) de la façon suivante :</p>
-<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000003E80000016495D2960D.png" style="display:inline-block; margin:4px;width:13.229cm;height:4.71cm;" /></td></tr></table>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000003E80000016495D2960D.png" style="display:inline-block; margin:4px;width:13.229cm;height:4.71cm;" class="odt-zoomable" data-zoom-src="images/10000000000003E80000016495D2960D.png" /></td></tr></table>
 
 <p>Le traitement d&#x27;une demande d&#x27;un client se déroule de la façon suivante :</p>
 <ol>
@@ -1166,23 +1166,23 @@
 </li>
 </ol>
 <p>Pour un service web / jSON, l&#x27;architecture précédente est légèrement modifiée :</p>
-<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/100000000000047C0000016858242B0D.png" style="display:inline-block; margin:4px;width:15.187cm;height:4.763cm;" /></td></tr></table>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/100000000000047C0000016858242B0D.png" style="display:inline-block; margin:4px;width:15.187cm;height:4.763cm;" class="odt-zoomable" data-zoom-src="images/100000000000047C0000016858242B0D.png" /></td></tr></table>
 
 <ul>
 <li>en [4a], le modèle qui est une classe Java est transformé en chaîne jSON par une bibliothèque jSON ;</li>
 <li>en [4b], cette chaîne jSON est envoyée au navigateur ;</li>
 </ul>
 <p>Maintenant, précisons le lien entre architecture web MVC et architecture en couches. Selon la définition qu&#x27;on donne au <strong>modèle</strong>, ces deux concepts sont liés ou non. Prenons une application web Spring MVC à une couche :</p>
-<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/1000000000000424000001699E8484C8.png" style="display:inline-block; margin:4px;width:14.023cm;height:4.777cm;" /></td></tr></table>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/1000000000000424000001699E8484C8.png" style="display:inline-block; margin:4px;width:14.023cm;height:4.777cm;" class="odt-zoomable" data-zoom-src="images/1000000000000424000001699E8484C8.png" /></td></tr></table>
 
 <p>Si nous implémentons la couche [Web] avec Spring MVC, nous aurons bien une architecture web MVC mais pas une architecture multicouche. Ici, la couche [web] s&#x27;occupera de tout : présentation, métier, accès aux données. Ce sont les actions qui feront ce travail.</p>
 <p>Maintenant, considérons une architecture Web multicouche :</p>
-<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000004B800000104935CADC3.png" style="display:inline-block; margin:4px;width:15.981cm;height:3.44cm;" /></td></tr></table>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000004B800000104935CADC3.png" style="display:inline-block; margin:4px;width:15.981cm;height:3.44cm;" class="odt-zoomable" data-zoom-src="images/10000000000004B800000104935CADC3.png" /></td></tr></table>
 
 <p>La couche [Web] peut être implémentée sans framework et sans suivre le modèle MVC. On a bien alors une architecture multicouche mais la couche Web n&#x27;implémente pas le modèle MVC.</p>
 <p>Par exemple, dans le monde .NET la couche [Web] ci-dessus peut être implémentée avec ASP.NET MVC et on a alors une architecture en couches avec une couche [Web] de type MVC. Ceci fait, on peut remplacer cette couche ASP.NET MVC par une couche ASP.NET classique (WebForms) tout en gardant le reste (métier, DAO, ORM) <strong>à l&#x27;identique</strong>.  On a alors une architecture en couches avec une couche [Web] qui n&#x27;est plus de type MVC.</p>
 <p>Dans MVC, nous avons dit que le modèle M était celui de la vue V, c.a.d. l&#x27;ensemble des données affichées par la vue V. Une autre définition du modèle M de MVC est donnée :</p>
-<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/1000000000000485000000F9FC399C51.png" style="display:inline-block; margin:4px;width:15.307cm;height:3.295cm;" /></td></tr></table>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/1000000000000485000000F9FC399C51.png" style="display:inline-block; margin:4px;width:15.307cm;height:3.295cm;" class="odt-zoomable" data-zoom-src="images/1000000000000485000000F9FC399C51.png" /></td></tr></table>
 
 <p>Beaucoup d&#x27;auteurs considèrent que ce qui est à droite de la couche [Web] forme le modèle M du MVC. Pour éviter les ambigüités on peut parler :</p>
 <ul>
@@ -1195,13 +1195,13 @@
 <p>Le site [<a href="http://spring.io/guides">http://spring.io/guides</a>] offre des tutoriels de démarrage pour découvrir l&#x27;écosystème Spring. Nous allons suivre l&#x27;un d&#x27;eux pour découvrir la configuration Maven nécessaire à un projet Spring MVC.</p>
 <p><a id="refheading15914779844303"></a></p>
 <h3 id="1631-le-projet-de-demonstration">16.3.1. Le projet de démonstration</h3>
-<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/100000000000037800000145193799FB.png" style="display:inline-block; margin:4px;width:11.748cm;height:4.3cm;" /></td></tr></table>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/100000000000037800000145193799FB.png" style="display:inline-block; margin:4px;width:11.748cm;height:4.3cm;" class="odt-zoomable" data-zoom-src="images/100000000000037800000145193799FB.png" /></td></tr></table>
 
 <p><a id="refheading5702114299070011"></a></p>
 <ul>
 <li>en [1], nous importons l&#x27;un des guides Spring ;</li>
 </ul>
-<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000004EF000003053577401D.png" style="display:inline-block; margin:4px;width:16.709cm;height:10.227cm;" /></td></tr></table>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000004EF000003053577401D.png" style="display:inline-block; margin:4px;width:16.709cm;height:10.227cm;" class="odt-zoomable" data-zoom-src="images/10000000000004EF000003053577401D.png" /></td></tr></table>
 
 <ul>
 <li>en [2], nous choisissons l&#x27;exemple [Rest Service] ;</li>
@@ -1272,13 +1272,13 @@
 <li>lignes 17-20 : l&#x27;artifact [spring-boot-starter-web] amène avec lui les bibliothèques nécessaires à un projet Spring MVC de type service web où il n&#x27;y a pas de vues générées. Cet artifact amène avec lui un très grand de bibliothèques dont celles d&#x27;un serveur Tomcat embarqué. C&#x27;est sur ce serveur que l&#x27;application sera exécutée ;</li>
 </ul>
 <p>Les bibliothèques amenées par cette configuration sont très nombreuses :</p>
-<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/100000000000013900000130C601B465.png" style="display:inline-block; margin:4px;width:5.791cm;height:5.63cm;" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000000F700000110A13A7F1F.png" style="display:inline-block; margin:4px;width:4.57cm;height:5.039cm;" /></td></tr></table>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/100000000000013900000130C601B465.png" style="display:inline-block; margin:4px;width:5.791cm;height:5.63cm;" class="odt-zoomable" data-zoom-src="images/100000000000013900000130C601B465.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000000F700000110A13A7F1F.png" style="display:inline-block; margin:4px;width:4.57cm;height:5.039cm;" class="odt-zoomable" data-zoom-src="images/10000000000000F700000110A13A7F1F.png" /></td></tr></table>
 
 <p>Ci-dessus on voit les trois archives du serveur Tomcat.</p>
 <p><a id="refheading15918779844303"></a></p>
 <h3 id="1633-larchitecture-dun-service-spring-web-json">16.3.3. L&#x27;architecture d&#x27;un service Spring [web / jSON]</h3>
 <p><a id="refheading5702514299070011"></a>Pour un service web / jSON, Spring MVC implémente le modèle MVC de la façon suivante :</p>
-<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/100000000000046800000171425C92B5.png" style="display:inline-block; margin:4px;width:14.923cm;height:4.882cm;" /></td></tr></table>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/100000000000046800000171425C92B5.png" style="display:inline-block; margin:4px;width:14.923cm;height:4.882cm;" class="odt-zoomable" data-zoom-src="images/100000000000046800000171425C92B5.png" /></td></tr></table>
 
 <ul>
 <li>en [4a], le modèle qui est une classe Java est transformé en chaîne jSON par une bibliothèque jSON ;</li>
@@ -1286,7 +1286,7 @@
 </ul>
 <p><a id="refheading15920779844303"></a></p>
 <h3 id="1634-le-controleur-c">16.3.4. Le contrôleur C</h3>
-<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000000ED000000AB6C6D3DB3.png" style="display:inline-block; margin:4px;width:4.39cm;height:3.17cm;" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td></tr></table>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000000ED000000AB6C6D3DB3.png" style="display:inline-block; margin:4px;width:4.39cm;height:3.17cm;" class="odt-zoomable" data-zoom-src="images/10000000000000ED000000AB6C6D3DB3.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td></tr></table>
 
 <p><a id="refheading5702714299070011"></a></p>
 <p>L&#x27;application importée a le contrôleur suivant :</p>
@@ -1320,7 +1320,7 @@
 <p><a id="refheading15922779844303"></a></p>
 <h3 id="1635-le-modele-m">16.3.5. Le modèle M</h3>
 <p><a id="refheading570291429907001"></a>Le modèle M produit par la méthode précédente est l&#x27;objet [Greeting] suivant :</p>
-<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000000ED000000ABFE40A4F7.png" style="display:inline-block; margin:4px;width:4.39cm;height:3.17cm;" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td></tr></table>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000000ED000000ABFE40A4F7.png" style="display:inline-block; margin:4px;width:4.39cm;height:3.17cm;" class="odt-zoomable" data-zoom-src="images/10000000000000ED000000ABFE40A4F7.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td></tr></table>
 
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-java">
 <span class="odt-code-line"><span style="font-weight:bold;color:#7f0055">package</span><span style="color:#000000"> hello;</span></span>
@@ -1354,7 +1354,7 @@
 <p><a id="refheading15924779844303"></a></p>
 <h3 id="1636-execution">16.3.6. Exécution</h3>
 <p><a id="refheading570311429907001"></a></p>
-<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000000ED000000AB6B43BC81.png" style="display:inline-block; margin:4px;width:4.39cm;height:3.17cm;" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td></tr></table>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000000ED000000AB6B43BC81.png" style="display:inline-block; margin:4px;width:4.39cm;height:3.17cm;" class="odt-zoomable" data-zoom-src="images/10000000000000ED000000AB6B43BC81.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td></tr></table>
 
 <p>La classe [Application.java] est la classe exécutable du projet. Son code est le suivant :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-java">
@@ -1376,7 +1376,7 @@
 </code></pre></div>
 
 <p>Nous avons déjà rencontré et expliqué ce code dans l&#x27;exemple précédent. Exécutons le projet :</p>
-<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000002100000014566557274.png" style="display:inline-block; margin:4px;width:9.781cm;height:6.02cm;" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td></tr></table>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000002100000014566557274.png" style="display:inline-block; margin:4px;width:9.781cm;height:6.02cm;" class="odt-zoomable" data-zoom-src="images/10000000000002100000014566557274.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td></tr></table>
 
 <p>On obtient les logs console suivants :</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1"> 1</a></span>
@@ -1439,10 +1439,10 @@
 <li>ligne 20 : la méthode [GreetingController.greeting] a été découverte ;</li>
 </ul>
 <p>Pour tester l&#x27;application web, on demande l&#x27;URL [http://localhost:8080/greeting] :</p>
-<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/1000000000000145000000802108509F.png" style="display:inline-block; margin:4px;width:5.609cm;height:2.208cm;" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/100000000000019F00000085614557B2.png" style="display:inline-block; margin:4px;width:7.68cm;height:2.461cm;" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td></tr></table>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/1000000000000145000000802108509F.png" style="display:inline-block; margin:4px;width:5.609cm;height:2.208cm;" class="odt-zoomable" data-zoom-src="images/1000000000000145000000802108509F.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/100000000000019F00000085614557B2.png" style="display:inline-block; margin:4px;width:7.68cm;height:2.461cm;" class="odt-zoomable" data-zoom-src="images/100000000000019F00000085614557B2.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td></tr></table>
 
 <p>On reçoit bien la chaîne jSON attendue. Il peut être intéressant de voir les entêtes HTTP envoyés par le serveur. Pour cela, on va utiliser l&#x27;extension de Chrome appelée [Advanced Rest Client] (Chrome / Ctrl-T / Menu [Applications] / [Advanced Rest Client] - cf Annexes paragraphe <a href="annexes.html#refheading261317838046689">23.11</a>) :</p>
-<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/1000000000000545000004C890F028FE.png" style="display:inline-block; margin:4px;width:17.847cm;height:16.193cm;" /></td></tr></table>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/1000000000000545000004C890F028FE.png" style="display:inline-block; margin:4px;width:17.847cm;height:16.193cm;" class="odt-zoomable" data-zoom-src="images/1000000000000545000004C890F028FE.png" /></td></tr></table>
 
 <ul>
 <li>en [1], l&#x27;URL demandée ;</li>
@@ -1458,9 +1458,9 @@
 <p><a id="refheading15928779844303"></a></p>
 <h3 id="1637-creation-dune-archive-executable">16.3.7. Création d&#x27;une archive exécutable</h3>
 <p><a id="refheading5703514299070011"></a>Nous créons maintenant une archive exécutable :</p>
-<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000002D80000015A2C4E28E1.png" style="display:inline-block; margin:4px;width:9.631cm;height:4.577cm;" /></td></tr></table>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000002D80000015A2C4E28E1.png" style="display:inline-block; margin:4px;width:9.631cm;height:4.577cm;" class="odt-zoomable" data-zoom-src="images/10000000000002D80000015A2C4E28E1.png" /></td></tr></table>
 
-<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000003FC0000035393E9D523.png" style="display:inline-block; margin:4px;width:13.494cm;height:11.259cm;" /></td></tr></table>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000003FC0000035393E9D523.png" style="display:inline-block; margin:4px;width:13.494cm;height:11.259cm;" class="odt-zoomable" data-zoom-src="images/10000000000003FC0000035393E9D523.png" /></td></tr></table>
 
 <ul>
 <li>en [1] : on exécute une cible Maven ;</li>
@@ -1518,7 +1518,7 @@
 </code></pre></div>
 
 <p>Maintenant que l&#x27;application web est lancée, on peut l&#x27;interroger avec un navigateur :</p>
-<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000001470000007FCF70CA67.png" style="display:inline-block; margin:4px;width:6.05cm;height:2.35cm;" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td></tr></table>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000001470000007FCF70CA67.png" style="display:inline-block; margin:4px;width:6.05cm;height:2.35cm;" class="odt-zoomable" data-zoom-src="images/10000000000001470000007FCF70CA67.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td></tr></table>
 
 <p><a id="refheading15930779844303"></a></p>
 <h3 id="1638-deployer-lapplication-sur-un-serveur-tomcat">16.3.8. Déployer l&#x27;application sur un serveur Tomcat</h3>
@@ -1542,7 +1542,7 @@
 <li>ligne 9 : il faut indiquer qu&#x27;on va générer une archive war (Web ARchive) ;</li>
 </ul>
 <p>Il faut par ailleurs configurer l&#x27;application web. En l&#x27;absence de fichier [web.xml], cela se fait avec une classe héritant de [<span style="color: #000000">SpringBootServletInitializer</span>] :</p>
-<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/1000000000000102000000D1A9F9B1A9.png" style="display:inline-block; margin:4px;width:4.78cm;height:3.87cm;" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td></tr></table>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/1000000000000102000000D1A9F9B1A9.png" style="display:inline-block; margin:4px;width:4.78cm;height:3.87cm;" class="odt-zoomable" data-zoom-src="images/1000000000000102000000D1A9F9B1A9.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td></tr></table>
 
 <p>La classe [ApplicationInitializer] est la suivante :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-java">
@@ -1567,13 +1567,13 @@
 <li>ligne 10 : on fournit la classe qui configure le projet ;</li>
 </ul>
 <p>Pour exécuter le projet, on peut procéder ainsi :</p>
-<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000004E700000160FF38A0CA.png" style="display:inline-block; margin:4px;width:16.603cm;height:4.657cm;" /></td></tr></table>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000004E700000160FF38A0CA.png" style="display:inline-block; margin:4px;width:16.603cm;height:4.657cm;" class="odt-zoomable" data-zoom-src="images/10000000000004E700000160FF38A0CA.png" /></td></tr></table>
 
 <ul>
 <li>en [1-2], on exécute le projet sur l&#x27;un des serveurs enregistrés dans l&#x27;IDE Eclipse ;</li>
 </ul>
 <p>Ceci fait, on peut demander l&#x27;URL [http://localhost:8080/gs-rest-service/greeting/?name=Mitchell] dans un navigateur :</p>
-<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/100000000000022B0000008EA361FFF2.png" style="display:inline-block; margin:4px;width:10.28cm;height:2.63cm;" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td></tr></table>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/100000000000022B0000008EA361FFF2.png" style="display:inline-block; margin:4px;width:10.28cm;height:2.63cm;" class="odt-zoomable" data-zoom-src="images/100000000000022B0000008EA361FFF2.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td></tr></table>
 
 <p><a id="refheading15932779844303"></a></p>
 <h2 id="164-conclusion">16.4. Conclusion</h2>

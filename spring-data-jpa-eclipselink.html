@@ -1080,31 +1080,31 @@
 <p><a id="refheading11082335254046"></a></p>
 <h2 id="71-introduction">7.1. Introduction</h2>
 <p><a id="refheading21924420146305371"></a>Nous reprenons l&#x27;architecture précédente que nous implémentons maintenant avec une couche JPA / EclipseLink.</p>
-<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000004AF00000107489C6AC4.png" style="display:inline-block; margin:4px;width:15.863cm;height:3.48cm;" /></td></tr></table>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000004AF00000107489C6AC4.png" style="display:inline-block; margin:4px;width:15.863cm;height:3.48cm;" class="odt-zoomable" data-zoom-src="images/10000000000004AF00000107489C6AC4.png" /></td></tr></table>
 
 <p><a id="refheading11082535254046"></a></p>
 <h2 id="72-mise-en-place-de-lenvironnement-de-travail">7.2. Mise en place de l&#x27;environnement de travail</h2>
 <p>Avec STS, déchargez le projet [myql-config-jpa-hibernate] [1-4] :</p>
-<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/1000000000000538000001DCDDE3F95E.png" style="display:inline-block; margin:4px;width:17.674cm;height:6.297cm;" /></td></tr></table>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/1000000000000538000001DCDDE3F95E.png" style="display:inline-block; margin:4px;width:17.674cm;height:6.297cm;" class="odt-zoomable" data-zoom-src="images/1000000000000538000001DCDDE3F95E.png" /></td></tr></table>
 
 <p>puis importez le projet [mysl-config-jpa-eclipselink] [5] qui se trouve dans le dossier [&lt;exemples&gt;/spring-database-config/mysql/eclipse] [6] :</p>
-<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000002A20000018174F40263.png" style="display:inline-block; margin:4px;width:8.916cm;height:5.094cm;" /></td></tr></table>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000002A20000018174F40263.png" style="display:inline-block; margin:4px;width:8.916cm;height:5.094cm;" class="odt-zoomable" data-zoom-src="images/10000000000002A20000018174F40263.png" /></td></tr></table>
 
 <p>Ceci fait, réinitialisez l&#x27;environnement Maven (Alt-F5) de tous les projets présents dans [Package Explorer] :</p>
-<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000002120000010F10F62850.png" style="display:inline-block; margin:4px;width:9.811cm;height:5.02cm;" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td></tr></table>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000002120000010F10F62850.png" style="display:inline-block; margin:4px;width:9.811cm;height:5.02cm;" class="odt-zoomable" data-zoom-src="images/10000000000002120000010F10F62850.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td></tr></table>
 
 <p>Puis, pour vérifier l&#x27;environnement de travail, exécutez la configuration d&#x27;exécution nommée [spring-jpa-generic-JUnitTestDao-hibernate-eclipselink] :</p>
-<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/1000000000000164000000C1722A2FB5.png" style="display:inline-block; margin:4px;width:6.59cm;height:3.57cm;" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td></tr></table>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/1000000000000164000000C1722A2FB5.png" style="display:inline-block; margin:4px;width:6.59cm;height:3.57cm;" class="odt-zoomable" data-zoom-src="images/1000000000000164000000C1722A2FB5.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td></tr></table>
 
 <p>Cette configuration exécute le test [JUnitTestDao]. Ce test doit réussir :</p>
-<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/100000000000019D00000119B2F1D902.png" style="display:inline-block; margin:4px;width:7.65cm;height:5.2cm;" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td></tr></table>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/100000000000019D00000119B2F1D902.png" style="display:inline-block; margin:4px;width:7.65cm;height:5.2cm;" class="odt-zoomable" data-zoom-src="images/100000000000019D00000119B2F1D902.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td></tr></table>
 
 <p><a id="refheading10529020828969171"></a></p>
 <h2 id="73-le-projet-de-configuration-de-la-couche-jpa">7.3. Le projet de configuration de la couche JPA</h2>
-<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/1000000000000132000000F02A052314.png" style="display:inline-block; margin:4px;width:5.68cm;height:4.45cm;" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td></tr></table>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/1000000000000132000000F02A052314.png" style="display:inline-block; margin:4px;width:5.68cm;height:4.45cm;" class="odt-zoomable" data-zoom-src="images/1000000000000132000000F02A052314.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td></tr></table>
 
 <p>Ce projet a pour rôle de configurer la couche JPA de l&#x27;architecture ci-dessous :</p>
-<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/100000000000049B000000F819F74A18.png" style="display:inline-block; margin:4px;width:15.598cm;height:3.281cm;" /></td></tr></table>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/100000000000049B000000F819F74A18.png" style="display:inline-block; margin:4px;width:15.598cm;height:3.281cm;" class="odt-zoomable" data-zoom-src="images/100000000000049B000000F819F74A18.png" /></td></tr></table>
 
 <p><a id="refheading10529220828969171"></a></p>
 <h3 id="731-configuration-maven">7.3.1. Configuration Maven</h3>
@@ -1251,11 +1251,11 @@
 
 <p>La spécification JPA indique que l&#x27;attribut [<span style="color: #000000">fetch = FetchType.</span><strong><em><span style="color: #0000c0">LAZY</span></em></strong>] de l&#x27;annotation [<span style="color: #646464">@ManyToOne</span>] est un &#x27;hint&#x27; (suggestion) que l&#x27;implémentation JPA n&#x27;est pas tenue de respecter. Et effectivement EclipseLink ne la respecte pas par défaut. Il faut une configuration spéciale pour qu&#x27;il la respecte. Après beaucoup de recherches infructueuses, j&#x27;ai trouvé la solution à l&#x27;URL citée ligne 51. Lorsqu&#x27;on inclut les lignes 58-81 dans le fichier [pom.xml], Eclipse déclare une erreur sur le fichier. C&#x27;est un problème de configuration du plugin [m2e] qui assure la gestion des projets Maven au sein d&#x27;Eclipse. Il faut rajouter les lignes 83-119 pour lever l&#x27;erreur.</p>
 <p>Au final, les dépendances sont les suivantes :</p>
-<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000000F1000000708DC95624.png" style="display:inline-block; margin:4px;width:4.461cm;height:2.071cm;" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td></tr></table>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000000F1000000708DC95624.png" style="display:inline-block; margin:4px;width:4.461cm;height:2.071cm;" class="odt-zoomable" data-zoom-src="images/10000000000000F1000000708DC95624.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td></tr></table>
 
 <p><a id="refheading10529420828969171"></a></p>
 <h3 id="732-configuration-spring">7.3.2. Configuration Spring</h3>
-<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/100000000000013F000000E9F2210ED0.png" style="display:inline-block; margin:4px;width:5.911cm;height:4.309cm;" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td></tr></table>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/100000000000013F000000E9F2210ED0.png" style="display:inline-block; margin:4px;width:5.911cm;height:4.309cm;" class="odt-zoomable" data-zoom-src="images/100000000000013F000000E9F2210ED0.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td></tr></table>
 
 <p>La classe [ConfigJpa] configure le projet Spring :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-java">
@@ -1343,7 +1343,7 @@
 </ul>
 <p><a id="refheading11082735254046"></a></p>
 <h2 id="74-le-fichier-persistencexml">7.4. Le fichier [persistence.xml]</h2>
-<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000000F1000000C87F236D18.png" style="display:inline-block; margin:4px;width:4.461cm;height:3.701cm;" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td></tr></table>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000000F1000000C87F236D18.png" style="display:inline-block; margin:4px;width:4.461cm;height:3.701cm;" class="odt-zoomable" data-zoom-src="images/10000000000000F1000000C87F236D18.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td></tr></table>
 
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-xml">
 <span class="odt-code-line"><span style="color:#008080">&lt;?</span><span style="color:#3f7f7f">xml</span> <span style="color:#7f007f">version</span><span style="color:#000000">=</span><span style="font-style:italic;color:#2a00ff">&quot;1.0&quot;</span> <span style="color:#7f007f">encoding</span><span style="color:#000000">=</span><span style="font-style:italic;color:#2a00ff">&quot;UTF-8&quot;</span><span style="color:#008080">?&gt;</span></span>
@@ -1379,7 +1379,7 @@
 </ul>
 <p><a id="refheading11082935254046"></a></p>
 <h2 id="75-les-entites-jpa">7.5. Les entités JPA</h2>
-<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/1000000000000139000000EFEC806C6F.png" style="display:inline-block; margin:4px;width:5.611cm;height:4.284cm;" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td></tr></table>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/1000000000000139000000EFEC806C6F.png" style="display:inline-block; margin:4px;width:5.611cm;height:4.284cm;" class="odt-zoomable" data-zoom-src="images/1000000000000139000000EFEC806C6F.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td></tr></table>
 
 <p>Les entités JPA sont celles décrites au paragraphe <a href="spring-data-jpa-hibernate.html#refheading2192502014630537">6.3.3</a> pour l&#x27;implémentation Hibernate avec deux différences :</p>
 <ul>
@@ -1406,9 +1406,9 @@
 <p><strong>Note</strong> : il est important de noter que cette annotation est utilisée aussi bien lors de la création de la table comme on vient de le voir qu&#x27;en exploitation de celle-ci. EclipseLink suppose que l&#x27;attribut SQL [ON DELETE CASCADE] est bien présent et il l&#x27;utilise à chaque fois qu&#x27;on lui demande de supprimer une catégorie. Son absence provoquerait des erreurs.</p>
 <p><a id="refheading11083135254046"></a></p>
 <h2 id="76-la-couche-de-tests">7.6. La couche de tests</h2>
-<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/100000000000049E000000F374D5F1E8.png" style="display:inline-block; margin:4px;width:15.637cm;height:3.216cm;" /></td></tr></table>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/100000000000049E000000F374D5F1E8.png" style="display:inline-block; margin:4px;width:15.637cm;height:3.216cm;" class="odt-zoomable" data-zoom-src="images/100000000000049E000000F374D5F1E8.png" /></td></tr></table>
 
-<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/100000000000010F000000D6F3BF1063.png" style="display:inline-block; margin:4px;width:5.02cm;height:3.96cm;" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td></tr></table>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/100000000000010F000000D6F3BF1063.png" style="display:inline-block; margin:4px;width:5.02cm;height:3.96cm;" class="odt-zoomable" data-zoom-src="images/100000000000010F000000D6F3BF1063.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td></tr></table>
 
 <p>Les tests ci-dessus sont identiques à ceux des implémentations Spring JDBC et Spring JPA Hibernate. On se reportera aux pages suivantes si nécessaire :</p>
 <ul>
@@ -1418,9 +1418,9 @@
 <li>[JUnitTestProxies] : paragraphe <a href="spring-data-jpa-hibernate.html#refheading10881435254046">6.4.5</a> ;</li>
 </ul>
 <p>Les résultas obtenus sont les suivants :</p>
-<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/1000000000000500000001D5CDF62F25.png" style="display:inline-block; margin:4px;width:16.933cm;height:6.205cm;" /></td></tr></table>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/1000000000000500000001D5CDF62F25.png" style="display:inline-block; margin:4px;width:16.933cm;height:6.205cm;" class="odt-zoomable" data-zoom-src="images/1000000000000500000001D5CDF62F25.png" /></td></tr></table>
 
-<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000004FA00000191B1E02D36.png" style="display:inline-block; margin:4px;width:16.854cm;height:5.306cm;" /></td></tr></table>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000004FA00000191B1E02D36.png" style="display:inline-block; margin:4px;width:16.854cm;height:5.306cm;" class="odt-zoomable" data-zoom-src="images/10000000000004FA00000191B1E02D36.png" /></td></tr></table>
 
 <ul>
 <li>en [1], [JUnitTestPushTheLimits-EclipseLink] : 70,583 s</li>

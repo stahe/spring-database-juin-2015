@@ -1526,7 +1526,7 @@
 <p><a id="refheading1051982082896917"></a></p>
 <h1 id="4-introduction-a-spring-jdbc">4. Introduction à Spring JDBC</h1>
 <p>Dans ce chapitre, nous allons étudier l&#x27;architecture suivante :</p>
-<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/100000000000043C000000F7BDC78FB1.png" style="display:inline-block; margin:4px;width:14.34cm;height:3.268cm;" /></td></tr></table>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/100000000000043C000000F7BDC78FB1.png" style="display:inline-block; margin:4px;width:14.34cm;height:3.268cm;" class="odt-zoomable" data-zoom-src="images/100000000000043C000000F7BDC78FB1.png" /></td></tr></table>
 
 <p>C&#x27;est donc la même architecture que précédemment. Nous allons introduire deux modifications :</p>
 <ul>
@@ -1536,32 +1536,32 @@
 <p><a id="refheading1052002082896917"></a></p>
 <h2 id="41-mise-en-place-de-lenvironnement-de-travail">4.1. Mise en place de l&#x27;environnement de travail</h2>
 <p>Avec STS, importez le projet [spring-jdbc-04] qui se trouve dans le dossier [&lt;exemples&gt;/spring-database-generic/spring-jdbc]</p>
-<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000004CE000001ABDBE1B138.png" style="display:inline-block; margin:4px;width:16.272cm;height:5.65cm;" /></td></tr></table>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000004CE000001ABDBE1B138.png" style="display:inline-block; margin:4px;width:16.272cm;height:5.65cm;" class="odt-zoomable" data-zoom-src="images/10000000000004CE000001ABDBE1B138.png" /></td></tr></table>
 
 <p>Par ailleurs, il nous faut construire une nouvelle base de données MySQL avec le client [MyManager] (cf paragraphe <a href="introduction-a-lapi-jdbc.html#refheading857211326982365">3.1</a>) :</p>
-<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/100000000000035F000001B37A78E127.png" style="display:inline-block; margin:4px;width:11.418cm;height:5.756cm;" /></td></tr></table>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/100000000000035F000001B37A78E127.png" style="display:inline-block; margin:4px;width:11.418cm;height:5.756cm;" class="odt-zoomable" data-zoom-src="images/100000000000035F000001B37A78E127.png" /></td></tr></table>
 
 <ul>
 <li>en [3], les exemples qui suivent travaillent sur une base MySQL s&#x27;appellant [dbproduitscategories] ;</li>
 </ul>
-<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000004FC000001F96CBFDC51.png" style="display:inline-block; margin:4px;width:16.88cm;height:6.682cm;" /></td></tr></table>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000004FC000001F96CBFDC51.png" style="display:inline-block; margin:4px;width:16.88cm;height:6.682cm;" class="odt-zoomable" data-zoom-src="images/10000000000004FC000001F96CBFDC51.png" /></td></tr></table>
 
 <ul>
 <li>en [9] mettre le mot de passe de l&#x27;utilisateur <em>root</em> (ce mot de passe est <em>root</em> dans ce document) ;</li>
 </ul>
-<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000004F5000002992375CC9D.png" style="display:inline-block; margin:4px;width:16.789cm;height:8.798cm;" /></td></tr></table>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000004F5000002992375CC9D.png" style="display:inline-block; margin:4px;width:16.789cm;height:8.798cm;" class="odt-zoomable" data-zoom-src="images/10000000000004F5000002992375CC9D.png" /></td></tr></table>
 
-<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000004DF0000024C183C23F9.png" style="display:inline-block; margin:4px;width:16.498cm;height:7.779cm;" /></td></tr></table>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000004DF0000024C183C23F9.png" style="display:inline-block; margin:4px;width:16.498cm;height:7.779cm;" class="odt-zoomable" data-zoom-src="images/10000000000004DF0000024C183C23F9.png" /></td></tr></table>
 
 <ul>
 <li>en [18], la base [dbproduitscategories] a été créée vide. On crée des tables et on la remplit avec un script SQL [19-20] ;</li>
 </ul>
-<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000004B30000022D5BCA79DC.png" style="display:inline-block; margin:4px;width:15.916cm;height:7.37cm;" /></td></tr></table>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000004B30000022D5BCA79DC.png" style="display:inline-block; margin:4px;width:15.916cm;height:7.37cm;" class="odt-zoomable" data-zoom-src="images/10000000000004B30000022D5BCA79DC.png" /></td></tr></table>
 
 <ul>
 <li>en [21], positionnez-vous sur le dossier [&lt;exemples&gt;/spring-database-config/mysql/databases] ;</li>
 </ul>
-<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/100000000000050F000002631F50FE15.png" style="display:inline-block; margin:4px;width:17.133cm;height:8.084cm;" /></td></tr></table>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/100000000000050F000002631F50FE15.png" style="display:inline-block; margin:4px;width:17.133cm;height:8.084cm;" class="odt-zoomable" data-zoom-src="images/100000000000050F000002631F50FE15.png" /></td></tr></table>
 
 <ul>
 <li>en [25], assurez-vous que vous êtes positionné sur la base [dbproduitscategories] et non la base [dbproduits] ;</li>
@@ -1571,7 +1571,7 @@
 <h2 id="42-la-base-de-donnees-dbproduitscategories">4.2. La base de données [dbproduitscategories]</h2>
 <p>La base de données [dbproduitscategories] est une extension de la base [dbproduits] étudiée précédemment. Là où dans la table [PRODUITS] le produit avait une catégorie identifiée par un n° qui n&#x27;avait pas de signification particulière, ici ce n° sera une clé étrangère sur la table [CATEGORIES].</p>
 <p>La table [PRODUITS] est la suivante :</p>
-<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/1000000000000534000001691C3D8B51.png" style="display:inline-block; margin:4px;width:17.621cm;height:4.777cm;" /></td></tr></table>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/1000000000000534000001691C3D8B51.png" style="display:inline-block; margin:4px;width:17.621cm;height:4.777cm;" class="odt-zoomable" data-zoom-src="images/1000000000000534000001691C3D8B51.png" /></td></tr></table>
 
 <ul>
 <li>[ID] : la clé primaire auto-incrémentée de la table [2] ;</li>
@@ -1581,14 +1581,14 @@
 <li>[VERSIONING] est le n° de version du produit. Sa version initiale est 1 [3]. A chaque fois que le produit sera modifié, son n° de version sera incrémenté par le code exploitant la table ;</li>
 <li>[CATEGORIE_ID] : la clé étrangère sur la table [CATEGORIES] pour désigner la catégorie à laquelle appartient le produit ;</li>
 </ul>
-<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/1000000000000476000000E54B6752A6.png" style="display:inline-block; margin:4px;width:15.108cm;height:3.03cm;" /></td></tr></table>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/1000000000000476000000E54B6752A6.png" style="display:inline-block; margin:4px;width:15.108cm;height:3.03cm;" class="odt-zoomable" data-zoom-src="images/1000000000000476000000E54B6752A6.png" /></td></tr></table>
 
 <ul>
 <li>en [1-3], la clé étrangère [CATEGORIE_ID] de la table [PRODUITS]. Elle cible la colonne [ID] de la table [CATEGORIES] [4-5] ;</li>
 <li>lorsqu&#x27;une catégorie est supprimée, tous les produits qui lui sont liés le sont également [6]. Ce point est important à noter car il est utilisé dans la construction de la couche [DAO] exploitant la base [dbproduitscategories] ;</li>
 </ul>
 <p>La table [CATEGORIES] des catégories est la suivante :</p>
-<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/100000000000037D000000F56249B718.png" style="display:inline-block; margin:4px;width:11.815cm;height:3.242cm;" /></td></tr></table>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/100000000000037D000000F56249B718.png" style="display:inline-block; margin:4px;width:11.815cm;height:3.242cm;" class="odt-zoomable" data-zoom-src="images/100000000000037D000000F56249B718.png" /></td></tr></table>
 
 <ul>
 <li>[ID] : clé primair auto-incrémentée ;</li>
@@ -1597,13 +1597,13 @@
 </ul>
 <p><a id="refheading1052042082896917"></a></p>
 <h2 id="43-le-projet-eclipse">4.3. Le projet Eclipse</h2>
-<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000000F200000103978867AE.png" style="display:inline-block; margin:4px;width:4.48cm;height:4.8cm;" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td></tr></table>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000000F200000103978867AE.png" style="display:inline-block; margin:4px;width:4.48cm;height:4.8cm;" class="odt-zoomable" data-zoom-src="images/10000000000000F200000103978867AE.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td></tr></table>
 
 <p>Le projet [spring-jdbc-04] implémente l&#x27;architecture suivante :</p>
-<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/1000000000000446000000F79E7BC2D0.png" style="display:inline-block; margin:4px;width:14.473cm;height:3.268cm;" /></td></tr></table>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/1000000000000446000000F79E7BC2D0.png" style="display:inline-block; margin:4px;width:14.473cm;height:3.268cm;" class="odt-zoomable" data-zoom-src="images/1000000000000446000000F79E7BC2D0.png" /></td></tr></table>
 
 <p>Le projet [spring-jdbc-04] est un projet Maven configuré par le fichier [pom.xml] suivant :</p>
-<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000000EB000000D11CFD4755.png" style="display:inline-block; margin:4px;width:4.35cm;height:3.87cm;" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td></tr></table>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000000EB000000D11CFD4755.png" style="display:inline-block; margin:4px;width:4.35cm;height:3.87cm;" class="odt-zoomable" data-zoom-src="images/10000000000000EB000000D11CFD4755.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td></tr></table>
 
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-xml">
 <span class="odt-code-line"><span style="color:#008080">&lt;?</span><span style="color:#3f7f7f">xml</span> <span style="color:#7f007f">version</span><span style="color:#000000">=</span><span style="font-style:italic;color:#2a00ff">&quot;1.0&quot;</span> <span style="color:#7f007f">encoding</span><span style="color:#000000">=</span><span style="font-style:italic;color:#2a00ff">&quot;UTF-8&quot;</span><span style="color:#008080">?&gt;</span></span>
@@ -1663,11 +1663,11 @@
 <li>lignes 34-37 : l&#x27;artifact [spring-boot-starter-jdbc] amène les bibliothèques de Spring JDBC ;</li>
 </ul>
 <p>Au final, les dépendances sont les suivantes :</p>
-<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000000E900000092A077A8B0.png" style="display:inline-block; margin:4px;width:4.309cm;height:2.701cm;" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td></tr></table>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000000E900000092A077A8B0.png" style="display:inline-block; margin:4px;width:4.309cm;height:2.701cm;" class="odt-zoomable" data-zoom-src="images/10000000000000E900000092A077A8B0.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td></tr></table>
 
 <p><a id="refheading925761142777426"></a></p>
 <h2 id="44-configuration-spring">4.4. Configuration Spring</h2>
-<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000000E80000010D53068F3A.png" style="display:inline-block; margin:4px;width:4.3cm;height:4.979cm;" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td></tr></table>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000000E80000010D53068F3A.png" style="display:inline-block; margin:4px;width:4.3cm;height:4.979cm;" class="odt-zoomable" data-zoom-src="images/10000000000000E80000010D53068F3A.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td></tr></table>
 
 <p>La classe [AppConfig] qui configure le projet Spring est la suivante :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-java">
@@ -1755,7 +1755,7 @@
 </ul>
 <p><a id="refheading1052062082896917"></a></p>
 <h2 id="45-les-exceptions-du-projet">4.5. Les exceptions du projet</h2>
-<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/1000000000000121000000BC7074573C.png" style="display:inline-block; margin:4px;width:5.35cm;height:3.48cm;" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td></tr></table>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/1000000000000121000000BC7074573C.png" style="display:inline-block; margin:4px;width:5.35cm;height:3.48cm;" class="odt-zoomable" data-zoom-src="images/1000000000000121000000BC7074573C.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td></tr></table>
 
 <p>Nous avons déjà vu les classes [UncheckedException, DaoException, ShortException] dans le projet [spring-jdbc-03]. Nous en ajoutons une nouvelle :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-java">
@@ -1782,7 +1782,7 @@
 </ul>
 <p><a id="refheading93205938270148"></a></p>
 <h2 id="46-les-entites-du-projet">4.6. Les entités du projet</h2>
-<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/100000000000010D0000017740DC451D.png" style="display:inline-block; margin:4px;width:4.979cm;height:6.939cm;" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td></tr></table>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/100000000000010D0000017740DC451D.png" style="display:inline-block; margin:4px;width:4.979cm;height:6.939cm;" class="odt-zoomable" data-zoom-src="images/100000000000010D0000017740DC451D.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td></tr></table>
 
 <p>Les classes du package [spring.jdbc.entities] sont les images des lignes des tables de la base de données [dbproduitscategories]. Nous ignorerons pour l&#x27;instant, les images des tables [USERS, ROLES, USERS_ROLE].</p>
 <p>Toutes les entités étendent la classe parent [<span style="color: #000000">AbstractCoreEntity</span>] :</p>
@@ -1955,9 +1955,9 @@
 </ul>
 <p><a id="refheading1052082082896917"></a></p>
 <h2 id="47-linterface-idaot">4.7. L&#x27;interface Idao&lt;T&gt;</h2>
-<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/1000000000000451000000EB3BC5FAFA.png" style="display:inline-block; margin:4px;width:14.619cm;height:3.11cm;" /></td></tr></table>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/1000000000000451000000EB3BC5FAFA.png" style="display:inline-block; margin:4px;width:14.619cm;height:3.11cm;" class="odt-zoomable" data-zoom-src="images/1000000000000451000000EB3BC5FAFA.png" /></td></tr></table>
 
-<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000000EE000000C7690B2175.png" style="display:inline-block; margin:4px;width:4.41cm;height:3.679cm;" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td></tr></table>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000000EE000000C7690B2175.png" style="display:inline-block; margin:4px;width:4.41cm;height:3.679cm;" class="odt-zoomable" data-zoom-src="images/10000000000000EE000000C7690B2175.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td></tr></table>
 
 <p>L&#x27;interface [IDao] de la couche [DAO] a la signature suivante :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-java">
@@ -2046,7 +2046,7 @@
 </li>
 </ul>
 <p>C&#x27;est cette même interface IDao&lt;T&gt; sera implémentée par l&#x27;architecture suivante :</p>
-<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/1000000000000485000000F5E454592D.png" style="display:inline-block; margin:4px;width:15.307cm;height:3.242cm;" /></td></tr></table>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/1000000000000485000000F5E454592D.png" style="display:inline-block; margin:4px;width:15.307cm;height:3.242cm;" class="odt-zoomable" data-zoom-src="images/1000000000000485000000F5E454592D.png" /></td></tr></table>
 
 <p>où une couche [JPA] (Java Persistence Api) viendra s&#x27;intercaler entre la couche [DAO] et le pilote JDBC du SGBD. Cela nous permettra d&#x27;avoir une couche de tests commune aux deux architectures. Dans les deux cas, la couche [DAO] présentera deux interfaces :</p>
 <ul>
@@ -2055,7 +2055,7 @@
 </ul>
 <p><a id="refheading1052102082896917"></a></p>
 <h2 id="48-implementation-de-linterface-idaot">4.8. Implémentation de l&#x27;interface IDao&lt;T&gt;</h2>
-<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000000EE000000C7690B2175.png" style="display:inline-block; margin:4px;width:4.41cm;height:3.679cm;" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td></tr></table>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000000EE000000C7690B2175.png" style="display:inline-block; margin:4px;width:4.41cm;height:3.679cm;" class="odt-zoomable" data-zoom-src="images/10000000000000EE000000C7690B2175.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td></tr></table>
 
 <ul>
 <li>l&#x27;interface IDao&lt;Produit&gt; est implémentée par la classe [DaoProduit] ;</li>
@@ -2524,9 +2524,9 @@
 </ul>
 <p><a id="refheading1052122082896917"></a></p>
 <h2 id="49-la-classe-daocategorie">4.9. La classe [DaoCategorie]</h2>
-<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/1000000000000426000000FDF1819B0F.png" style="display:inline-block; margin:4px;width:14.049cm;height:3.348cm;" /></td></tr></table>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/1000000000000426000000FDF1819B0F.png" style="display:inline-block; margin:4px;width:14.049cm;height:3.348cm;" class="odt-zoomable" data-zoom-src="images/1000000000000426000000FDF1819B0F.png" /></td></tr></table>
 
-<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000000EE000000C7690B2175.png" style="display:inline-block; margin:4px;width:4.41cm;height:3.679cm;" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td></tr></table>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000000EE000000C7690B2175.png" style="display:inline-block; margin:4px;width:4.41cm;height:3.679cm;" class="odt-zoomable" data-zoom-src="images/10000000000000EE000000C7690B2175.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td></tr></table>
 
 <p><span style="color: #000000">La classe [DaoCategorie] implémente l&#x27;interface [IDao&lt;Categorie&gt;] qui assure l&#x27;accès aux données de la table [CATEGORIES] de la base MySQL [dbproduitscategories]. Son quelette est le suivant :</span></p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-java">
@@ -2657,12 +2657,12 @@
 </code></pre></div>
 
 <p><span style="color: #000000">Toutes les méthodes reposent sur l&#x27;objet [<span style="color: #0000c0">namedParameterJdbcTemplate</span>] défini dans le fichier de configuration Spring et fourni par la bibliothèque Spring JDBC. Ses méthodes sont nombreuses. Celle utilisée ci-dessus est la suivante :</span></p>
-<p><img src="images/10000000000003150000003E829211BE.png" style="width:14.61cm;height:1.15cm;" alt="Image" /></p>
+<p><img src="images/10000000000003150000003E829211BE.png" style="width:14.61cm;height:1.15cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000003150000003E829211BE.png" /></p>
 <ul>
 <li><span style="color: #000000">[sql] est l&#x27;ordre SQL à exécuter ;</span></li>
 <li><span style="color: #000000">[rowMapper] est une instance de l&#x27;interface [RowMapper&lt;T&gt;] suivante :</span></li>
 </ul>
-<p><img src="images/10000000000002680000005DC24750A3.png" style="width:11.411cm;height:1.72cm;" alt="Image" /></p>
+<p><img src="images/10000000000002680000005DC24750A3.png" style="width:11.411cm;height:1.72cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000002680000005DC24750A3.png" /></p>
 <p><span style="color: #000000">L&#x27;idée est la suivante :</span></p>
 <ul>
 <li><span style="color: #000000">la méthode <strong>[</strong><strong><span style="color: #0000c0">namedParameterJdbcTemplate</span></strong><strong>].query(String sql, RowMapper&lt;T&gt; rowMapper)</strong> exécute l&#x27;ordre SQL de type [Select]. Elle gère les éventuelles exceptions, ainsi que l&#x27;ouverture / fermeture de la connexion vers le SGBD. La seule chose qu&#x27;elle ne puisse pas faire, c&#x27;est d&#x27;encapsuler les éléments du [ResultSet] des objets qu&#x27;elle obtient dans un type [Categorie] car elle ne connaît pas le lien qui existe entre les champs du type [Categorie] et les colonnes du [Resultset]. Nous verrons ultérieurement que ce lien est cré avec la technologie JPA ce qui rendra automatique l&#x27;encapsulation des éléments d&#x27;un [ResultSet] dans des instances de type T. Pour l&#x27;instant, le second paramètre de la méthode [query] est une instance de l&#x27;interface [RowMapper&lt;T&gt;] capable de faire cette encapsulation ;</span></li>
@@ -2869,7 +2869,7 @@
 <ul>
 <li><span style="color: #000000">ligne 4, la signature de la méthode [query] utilisée est la suivante :</span></li>
 </ul>
-<p><img src="images/100000000000033C0000006FF9905A5B.png" style="width:15.33cm;height:2.05cm;" alt="Image" /></p>
+<p><img src="images/100000000000033C0000006FF9905A5B.png" style="width:15.33cm;height:2.05cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000033C0000006FF9905A5B.png" /></p>
 <p>Le 1er paramètre est un ordre SQL [Select] paramétré. Le second est un dictionnaire associant chacun des paramètres à une valeur. Le 3ième est l&#x27;instance de la classe qui réalise l&#x27;encapsulation d&#x27;une ligne du [ResultSet] résultat du [Select] dans un objet de type T ;</p>
 <ul>
 <li>ligne 4 : l&#x27;ordre SQL [Select] paramétré est le suivant :</li>
@@ -2964,7 +2964,7 @@
 <ul>
 <li>ligne 4 : la méthode [<span style="color: #0000c0">namedParameterJdbcTemplate</span><span style="color: #000000">.update</span>] utilisée a la signature suivante :</li>
 </ul>
-<p><img src="images/100000000000033900000038CF766D91.png" style="width:15.281cm;height:1.041cm;" alt="Image" /></p>
+<p><img src="images/100000000000033900000038CF766D91.png" style="width:15.281cm;height:1.041cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000033900000038CF766D91.png" /></p>
 <p>Le 1er paramètre est un ordre SQL paramétré de mise à jour (INSERT, UPDATE, DELETE). Le second paramètre est le dictionnaire associant des valeurs aux différents paramètres de l&#x27;ordre SQL. La méthode rend le nombre de lignes mises à jour par l&#x27;ordre SQL.</p>
 <ul>
 <li>ligne 4 : l&#x27;ordre SQL [ConfigJdbc.<em>DELETE_ALLCATEGORIES</em>] est le suivant :</li>
@@ -3177,7 +3177,7 @@
 <ul>
 <li><span style="color: #000000">ligne 6 : la méthode [</span><span style="color: #0000c0">simpleJdbcInsertCategorie</span><span style="color: #000000">.executeAndReturnKey] est utilisée :</span></li>
 </ul>
-<p><img src="images/100000000000029B000000288794A1DB.png" style="width:12.351cm;height:0.741cm;" alt="Image" /></p>
+<p><img src="images/100000000000029B000000288794A1DB.png" style="width:12.351cm;height:0.741cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000029B000000288794A1DB.png" /></p>
 <p><span style="color: #000000">La méthode attend comme paramètre un dictionnaire faisant les liens entre colonnes de la table et valeurs à insérer dans celles-ci. Elle rend comme résultat la clé primaire sous la forme d&#x27;un type [Number]. La méthode [Number.longValue()] permet d&#x27;obtenir la clé primaire sous la forme d&#x27;un type [Long].</span></p>
 <p><span style="color: #000000">La méthode [getMapForCategorie] est la méthode privée suivante :</span></p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-text">
@@ -3240,7 +3240,7 @@
 <li><span style="color: #000000">ligne 3 : on scanne toutes les catégories à mettre à jour ;</span></li>
 <li><span style="color: #000000">ligne 4 : on met à jour la catégorie courante avec la méthode [<span style="color: #0000c0">namedParameterJdbcTemplate</span>.update] :</span></li>
 </ul>
-<p><img src="images/100000000000026B000001935A418EBB.png" style="width:11.46cm;height:7.459cm;" alt="Image" /></p>
+<p><img src="images/100000000000026B000001935A418EBB.png" style="width:11.46cm;height:7.459cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000026B000001935A418EBB.png" /></p>
 <ul>
 <li><span style="color: #000000">analysons l&#x27;instruction :</span></li>
 </ul>
@@ -3297,9 +3297,9 @@
 </ul>
 <p><a id="refheading1052402082896917"></a></p>
 <h2 id="410-la-classe-daoproduit">4.10. La classe [DaoProduit]</h2>
-<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/1000000000000422000000FE997CF17E.png" style="display:inline-block; margin:4px;width:13.996cm;height:3.36cm;" /></td></tr></table>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/1000000000000422000000FE997CF17E.png" style="display:inline-block; margin:4px;width:13.996cm;height:3.36cm;" class="odt-zoomable" data-zoom-src="images/1000000000000422000000FE997CF17E.png" /></td></tr></table>
 
-<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000000EE000000C7690B2175.png" style="display:inline-block; margin:4px;width:4.41cm;height:3.679cm;" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td></tr></table>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000000EE000000C7690B2175.png" style="display:inline-block; margin:4px;width:4.41cm;height:3.679cm;" class="odt-zoomable" data-zoom-src="images/10000000000000EE000000C7690B2175.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td></tr></table>
 
 <p><span style="color: #000000">La classe [DaoProduit] implémente l&#x27;interface [IDao&lt;Produit&gt;] qui assure l&#x27;accès aux données de la table [PRODUITS] de la base MySQL [dbproduitscategories]. Son quelette est le suivant :</span></p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-java">
@@ -3615,9 +3615,9 @@
 <p>Les noms des paramètres [:id,:version,:nom,:prix,:idCategorie,:description] sont aussi les noms des champs de la classe [Produit], ce qui permet d&#x27;utiliser l&#x27;instruction des lignes 6-7 pour mettre à jour le produit courant.</p>
 <p><a id="refheading1052482082896917"></a></p>
 <h2 id="411-la-couche-de-tests">4.11. La couche de tests</h2>
-<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/100000000000041E000000F87AA42CD6.png" style="display:inline-block; margin:4px;width:13.944cm;height:3.281cm;" /></td></tr></table>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/100000000000041E000000F87AA42CD6.png" style="display:inline-block; margin:4px;width:13.944cm;height:3.281cm;" class="odt-zoomable" data-zoom-src="images/100000000000041E000000F87AA42CD6.png" /></td></tr></table>
 
-<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/100000000000011600000127473257AB.png" style="display:inline-block; margin:4px;width:5.151cm;height:5.459cm;" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td></tr></table>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/100000000000011600000127473257AB.png" style="display:inline-block; margin:4px;width:5.151cm;height:5.459cm;" class="odt-zoomable" data-zoom-src="images/100000000000011600000127473257AB.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td></tr></table>
 
 <p><span style="color: #000000">La couche de tests est composée de trois classes de test :</span></p>
 <ul>
@@ -3727,7 +3727,7 @@
 </code></pre></div>
 
 <p><span style="color: #000000">On fait ainsi 48 tests pour tester tous les cas possibles. On exécute la configuration d&#x27;exécution nommée [spring-jdbc-generic-04-JUnitTestCheckArguments] [1]. Le résultat obtenu est le suivant [2] :</span></p>
-<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000004BB000002350EAD71A3.png" style="display:inline-block; margin:4px;width:16.021cm;height:7.475cm;" /></td></tr></table>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000004BB000002350EAD71A3.png" style="display:inline-block; margin:4px;width:16.021cm;height:7.475cm;" class="odt-zoomable" data-zoom-src="images/10000000000004BB000002350EAD71A3.png" /></td></tr></table>
 
 <p><a id="refheading1052522082896917"></a></p>
 <h3 id="4112-le-test-junittestdao">4.11.2. Le test [JUnitTestDao]</h3>
@@ -3811,7 +3811,7 @@
 <li><span style="color: #000000">lignes 46-47 : deux dictionnaires où on stockera les produits et les catégories ;</span></li>
 <li><span style="color: #000000">lignes 49-62 : la méthode [clean] s&#x27;exécute avant chaque test (ligne 49). Ligne 54, on vide la table [CATEGORIES]. Il faut se rappeler ici, que la table [PRODUITS] a une clé primaire [CATEGORIE_ID] sur la colonne ID de la table [CATEGORIES] et que celle-ci est définie de la façon suivante ;</span></li>
 </ul>
-<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/100000000000048B000000E451211561.png" style="display:inline-block; margin:4px;width:15.386cm;height:3.016cm;" /></td></tr></table>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/100000000000048B000000E451211561.png" style="display:inline-block; margin:4px;width:15.386cm;height:3.016cm;" class="odt-zoomable" data-zoom-src="images/100000000000048B000000E451211561.png" /></td></tr></table>
 
 <ul>
 <li>(suite)<ul>
@@ -4264,7 +4264,7 @@
 <h4 id="41128-conclusion">4.11.2.8. Conclusion</h4>
 <p>Nous allons nous arrêter là. Il y a 74 tests pour l&#x27;instant et on pourrait en ajouter d&#x27;autres car j&#x27;ai probablement oublié des cas de figure à tester. Même non exhaustifs, ces tests ont permis de détecter de nombreuses erreurs, en général des cas limites qui n&#x27;avaient pas été imaginés lors de l&#x27;écriture initiale de la couche [DAO]. Une phase de tests exhaustifs est indispensable à tout projet.</p>
 <p>Pour exécuter le test, on pourra utiliser la configuration d&#x27;exécution importée et appelée [spring-jdbc-generic-04.JUnitTestDao].</p>
-<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/100000000000014B0000016FACE9F368.png" style="display:inline-block; margin:4px;width:6.13cm;height:6.789cm;" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/100000000000015B000001B4426AAA4B.png" style="display:inline-block; margin:4px;width:6.421cm;height:8.07cm;" /></td></tr></table>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/100000000000014B0000016FACE9F368.png" style="display:inline-block; margin:4px;width:6.13cm;height:6.789cm;" class="odt-zoomable" data-zoom-src="images/100000000000014B0000016FACE9F368.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/100000000000015B000001B4426AAA4B.png" style="display:inline-block; margin:4px;width:6.421cm;height:8.07cm;" class="odt-zoomable" data-zoom-src="images/100000000000015B000001B4426AAA4B.png" /></td></tr></table>
 
 <p><a id="refheading1052702082896917"></a></p>
 <h3 id="4113-le-test-junittestpushthelimits">4.11.3. Le test [JUnitTestPushTheLimits]</h3>
@@ -4403,7 +4403,7 @@
 
 <p>On retrouve là, le squelette de la classe [JUnitTestDao]. Nous avons déjà rencontré toutes ces méthodes. Le test travaille avec une base de 2500 catégories ayant chacune 2 produits (lignes 32-33). La table [CATEGORIES] aura donc 2500 lignes et la tale [PRODUITS] 5000 lignes. On aurait pu mettre davantage de lignes mais le test dure déjà près d&#x27;une minute. On a donc choisi des valeurs supportables pour l&#x27;utilisateur qui attend la fin du test.</p>
 <p>Il y a 18 tests au total. Ils sont exécutés avec la configuration d&#x27;exécution [1]. Les durées d&#x27;exécution sont montrées en [2] :</p>
-<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000004F6000002832291F332.png" style="display:inline-block; margin:4px;width:16.801cm;height:8.507cm;" /></td></tr></table>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000004F6000002832291F332.png" style="display:inline-block; margin:4px;width:16.801cm;height:8.507cm;" class="odt-zoomable" data-zoom-src="images/10000000000004F6000002832291F332.png" /></td></tr></table>
 
 <p><a id="refheading1052742082896917"></a></p>
 <h4 id="41132-donothing-0114">4.11.3.2. doNothing [0,114]</h4>

@@ -947,13 +947,13 @@
 <p><a id="refheading14681224987110"></a></p>
 <h1 id="22-conclusion">22. Conclusion</h1>
 <p><span style="color: #000000">Rappelons ce que nous avons fait dans ce document. </span>Nous avons étudié deux couches [DAO] avec l&#x27;une des deux architectures suivantes :</p>
-<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/100000000000049C0000010776D1AF9E.png" style="display:inline-block; margin:4px;width:15.61cm;height:3.48cm;" /></td></tr></table>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/100000000000049C0000010776D1AF9E.png" style="display:inline-block; margin:4px;width:15.61cm;height:3.48cm;" class="odt-zoomable" data-zoom-src="images/100000000000049C0000010776D1AF9E.png" /></td></tr></table>
 
-<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000004AF000000FEE9F16F00.png" style="display:inline-block; margin:4px;width:15.863cm;height:3.36cm;" /></td></tr></table>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000004AF000000FEE9F16F00.png" style="display:inline-block; margin:4px;width:15.863cm;height:3.36cm;" class="odt-zoomable" data-zoom-src="images/10000000000004AF000000FEE9F16F00.png" /></td></tr></table>
 
 <p>La couche [DAO1] a été implémentée avec <strong>Spring JDBC</strong> et la couche [DAO2] avec <strong>Spring JPA. </strong>Les couches [DAO1] et [DAO2] implémentaient la même interface [IDAO] ce qui a permis d&#x27;écrire un test unique [JUnitTestDao] pour tester les deux couches [DAO] ;</p>
 <p>Ceci fait, nous avons exposé l&#x27;interface [IDAO] sur le web de la façon suivante :</p>
-<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000004AA00000296328D383D.png" style="display:inline-block; margin:4px;width:15.796cm;height:8.758cm;" /></td></tr></table>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000004AA00000296328D383D.png" style="display:inline-block; margin:4px;width:15.796cm;height:8.758cm;" class="odt-zoomable" data-zoom-src="images/10000000000004AA00000296328D383D.png" /></td></tr></table>
 
 <ul>
 <li>en [1], la couche [IDAO] a été exposée sur le web au travers d&#x27;une couche web [2] implémentée par <strong>Spring MVC</strong>. C&#x27;est bien l&#x27;interface [IDAO] qui est exposée et nous avons construit deux versions du service web selon que cette interface est implémentée avec une architecture [DAO-JDBC] ou [DAO-JPA-JDBC] ;</li>
@@ -961,13 +961,13 @@
 <li>en [3], la couche [DAO-client] a été implémentée avec <strong>Spring RestTemplate</strong> ;</li>
 </ul>
 <p>Ceci fait, nous avons sécurisé l&#x27;accès au service web :</p>
-<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/100000000000049D0000028A7325823B.png" style="display:inline-block; margin:4px;width:15.625cm;height:8.599cm;" /></td></tr></table>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/100000000000049D0000028A7325823B.png" style="display:inline-block; margin:4px;width:15.625cm;height:8.599cm;" class="odt-zoomable" data-zoom-src="images/100000000000049D0000028A7325823B.png" /></td></tr></table>
 
 <ul>
 <li>en [5], la requête HTTP du client traverse une couche d&#x27;authentification implémentée avec <strong>Spring Security</strong> ;</li>
 </ul>
 <p>Ceci fait, nous avons fait évoluer l&#x27;architecture précédente vers la suivante :</p>
-<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/1000000000000490000002863381F4FF.png" style="display:inline-block; margin:4px;width:15.452cm;height:8.546cm;" /></td></tr></table>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/1000000000000490000002863381F4FF.png" style="display:inline-block; margin:4px;width:15.452cm;height:8.546cm;" class="odt-zoomable" data-zoom-src="images/1000000000000490000002863381F4FF.png" /></td></tr></table>
 
 <ul>
 <li>en [3], l&#x27;application client est elle-même une application web délivrée par le serveur web [4]. L&#x27;application cliente présente dans le navigateur un formulaire [5] permettant d&#x27;interroger les URL du service web sécurisé. Les accès HTTP au service web sécurisé se font grâce à une couche [jS] implémentée en Javascript. Cette architecture met en oeuvre ce qu&#x27;on appelle des requêtes inter-domaines :<ul>
@@ -1000,9 +1000,9 @@
 </ul>
 </li>
 </ul>
-<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000004AA000000F951F7FE6D.png" style="display:inline-block; margin:4px;width:15.796cm;height:3.295cm;" /></td></tr></table>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000004AA000000F951F7FE6D.png" style="display:inline-block; margin:4px;width:15.796cm;height:3.295cm;" class="odt-zoomable" data-zoom-src="images/10000000000004AA000000F951F7FE6D.png" /></td></tr></table>
 
-<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/1000000000000488000000F283F9D213.png" style="display:inline-block; margin:4px;width:15.346cm;height:3.201cm;" /></td></tr></table>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/1000000000000488000000F283F9D213.png" style="display:inline-block; margin:4px;width:15.346cm;height:3.201cm;" class="odt-zoomable" data-zoom-src="images/1000000000000488000000F283F9D213.png" /></td></tr></table>
 
 <p>Le projet Maven de configuration de la couche JDBC [1] d&#x27;un SGBD particulier permet :</p>
 <ul>
