@@ -1,3 +1,3 @@
 User-agent: *
 Allow: /
-Sitemap: https://stahe.github.io/python-flask-sept-2020/sitemap.xml
+Sitemap: https://stahe.github.io/spring-database-juin-2015/sitemap.xml
