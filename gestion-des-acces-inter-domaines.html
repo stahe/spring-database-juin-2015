@@ -1589,7 +1589,7 @@
 <p><span style="color: #000000">L&#x27;application cliente est une application console lancée par la classe exécutable [Client] suivante :</span></p>
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000000E60000008330350B48.png" style="display:inline-block; margin:4px;width:4.26cm;height:2.431cm;" class="odt-zoomable" data-zoom-src="images/10000000000000E60000008330350B48.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td></tr></table>
 
-<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-java">
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
 <span class="odt-code-line"><span style="font-weight:bold;color:#7f0055">package</span> spring.cors.client;</span>
 <span class="odt-code-line"></span>
 <span class="odt-code-line"><span style="font-weight:bold;color:#7f0055">import</span><span style="color:#000000"> org.springframework.boot.SpringApplication;</span></span>
@@ -1711,7 +1711,7 @@
 <p>La classe de configuration [AppConfig] est la suivante :</p>
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000000EA000000B4DC98115A.png" style="display:inline-block; margin:4px;width:4.33cm;height:3.33cm;" class="odt-zoomable" data-zoom-src="images/10000000000000EA000000B4DC98115A.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td></tr></table>
 
-<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-java">
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
 <span class="odt-code-line"><span style="font-weight:bold;color:#7f0055">package</span><span style="color:#000000"> spring.cors.server.config;</span></span>
 <span class="odt-code-line"></span>
 <span class="odt-code-line"><span style="font-weight:bold;color:#7f0055">import</span><span style="color:#000000"> javax.annotation.PostConstruct;</span></span>
@@ -1756,7 +1756,7 @@
 <p><a id="refheading14540324987110"></a></p>
 <h4 id="21291-le-controleur-corscontroller">21.2.9.1. Le contrôleur [CorsController]</h4>
 <p>La classe [CorsController] est la suivante :</p>
-<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-java">
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
 <span class="odt-code-line"><span style="font-weight:bold;color:#7f0055">package</span><span style="color:#000000"> spring.cors.server.service;</span></span>
 <span class="odt-code-line"></span>
 <span class="odt-code-line"><span style="font-weight:bold;color:#7f0055">import</span><span style="color:#000000"> javax.servlet.http.HttpServletResponse;</span></span>
@@ -1807,7 +1807,7 @@
 <p>A l&#x27;entête HTTP [Access-Control-Request-X], le serveur répond avec un entête HTTP [Access-Control-Allow-X] dans lequel il indique ce qui est autorisé. Les lignes 22-25 se contentent de reprendre la demande du client pour indiquer qu&#x27;elle est acceptée ;</p>
 <p><a id="refheading14540524987110"></a></p>
 <h4 id="21292-le-controleur-corscategoriecontroller">21.2.9.2. Le contrôleur [CorsCategorieController]</h4>
-<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-java">
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
 <span class="odt-code-line"><span style="font-weight:bold;color:#7f0055">package</span><span style="color:#000000"> spring.cors.server.service;</span></span>
 <span class="odt-code-line"></span>
 <span class="odt-code-line"><span style="font-weight:bold;color:#7f0055">import</span><span style="color:#000000"> java.util.List;</span></span>
@@ -1882,7 +1882,7 @@
 <p>Après quelques recherches, on découvre que Spring MVC traite lui-même les commandes HTTP [OPTIONS] avec un traitement par défaut. Aussi c&#x27;est toujours Spring qui répond et jamais la méthode [<span style="color: #000000">corsGetAllShortCategories</span>] de la ligne 25. Ce comportement par défaut de Spring MVC peut être changé. Nous modifions la classe  [AppConfig] existante :</p>
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000000EA000000B4DC98115A.png" style="display:inline-block; margin:4px;width:4.33cm;height:3.33cm;" class="odt-zoomable" data-zoom-src="images/10000000000000EA000000B4DC98115A.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td></tr></table>
 
-<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-java">
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
 <span class="odt-code-line"><span style="font-weight:bold;color:#7f0055">package</span><span style="color:#000000"> spring.cors.server.config;</span></span>
 <span class="odt-code-line"></span>
 <span class="odt-code-line"><span style="font-weight:bold;color:#7f0055">import</span><span style="color:#000000"> javax.annotation.PostConstruct;</span></span>
@@ -1943,7 +1943,7 @@
 </ul>
 <p>Il est plus difficile d&#x27;expliquer ce qui s&#x27;est passé ici. La réponse [3] du serveur est normale [HTTP/1.1 200 OK]. On devrait donc avoir le document demandé. Il est possible que le serveur ait bien envoyé le document mais que c&#x27;est le navigateur qui empêche son utilisation parce qu&#x27;il veut que pour la requête GET également, la réponse comporte l&#x27;entête HTTP [Access-Control-Allow-Origin:http://localhost:8081].</p>
 <p>Nous modifions la méthode qui traite le GET de l&#x27;URL [<span style="color: #2a00ff">/cors-getAllShortCategories</span>] :</p>
-<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-java">
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-javascript">
 <span class="odt-code-line"><span style="color:#000000">    </span><span style="color:#646464">@RequestMapping</span><span style="color:#000000">(value = </span><span style="color:#2a00ff">&quot;/cors-getAllShortCategories&quot;</span><span style="color:#000000">, method = RequestMethod.</span><span style="font-weight:bold;font-style:italic;color:#0000c0">GET</span><span style="color:#000000">)</span></span>
 <span class="odt-code-line"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">public</span><span style="color:#000000"> Response&lt;List&lt;Categorie&gt;&gt; getAllShortCategories(</span></span>
 <span class="odt-code-line"><span style="color:#000000">            </span><span style="color:#646464">@RequestHeader</span><span style="color:#000000">(value = </span><span style="color:#2a00ff">&quot;Origin&quot;</span><span style="color:#000000">, required = </span><span style="font-weight:bold;color:#7f0055">false</span><span style="color:#000000">) String </span><span style="color:#6a3e3e">origin</span><span style="color:#000000">, HttpServletResponse </span><span style="color:#6a3e3e">response</span><span style="color:#000000">) {</span></span>
@@ -1964,7 +1964,7 @@
 <p><a id="refheading196721811596012"></a></p>
 <h4 id="21293-les-url-get">21.2.9.3. Les URL [GET]</h4>
 <p>Dans les contrôleurs [CorsCategorieController, CorsProduitController, CorsAuthenticateController], le code des actions qui traitent les URL demandées avec un [GET] suit le modèle des actions qui ont traité précédemment l&#x27;URL [/cors-getAllShortArticles]. Le lecteur peut vérifier le code dans les exemples livrés avec ce document. Voici un exemple pour l&#x27;URL [/cors-getAllLongProduits] du contrôleur [CorsProduitController] :</p>
-<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-java">
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
 <span class="odt-code-line"><span style="font-weight:bold;color:#7f0055">package</span><span style="color:#000000"> spring.cors.server.service;</span></span>
 <span class="odt-code-line"></span>
 <span class="odt-code-line"><span style="font-weight:bold;color:#7f0055">import</span><span style="color:#000000"> java.util.List;</span></span>
@@ -2050,7 +2050,7 @@
 <li>ligne 11 : on a ajouté la méthode HTTP [POST] ;</li>
 </ul>
 <p>Ceci fait les méthodes [POST] sont traitées de la même façon que les requêtes [GET]. Voici l&#x27;exemple de l&#x27;URL [/cors-saveCategories] dans le contrôleur [CorsCategorieController] :</p>
-<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-java">
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-javascript">
 <span class="odt-code-line"><span style="color:#000000">    </span><span style="color:#646464">@RequestMapping</span><span style="color:#000000">(value = </span><span style="color:#2a00ff">&quot;/cors-saveCategories&quot;</span><span style="color:#000000">, method = RequestMethod.</span><span style="font-weight:bold;font-style:italic;color:#0000c0">POST</span><span style="color:#000000">, consumes = </span><span style="color:#2a00ff">&quot;application/json; charset=UTF-8&quot;</span><span style="color:#000000">)</span></span>
 <span class="odt-code-line"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">public</span><span style="color:#000000"> Response&lt;List&lt;CoreCategorie&gt;&gt; saveCategories(HttpServletRequest </span><span style="color:#6a3e3e">request</span><span style="color:#000000">,</span></span>
 <span class="odt-code-line"><span style="color:#000000">            </span><span style="color:#646464">@RequestHeader</span><span style="color:#000000">(value = </span><span style="color:#2a00ff">&quot;Origin&quot;</span><span style="color:#000000">, required = </span><span style="font-weight:bold;color:#7f0055">false</span><span style="color:#000000">) String </span><span style="color:#6a3e3e">origin</span><span style="color:#000000">, HttpServletResponse </span><span style="color:#6a3e3e">response</span><span style="color:#000000">) {</span></span>
@@ -2076,7 +2076,7 @@
 <p><a id="refheading196725811596012"></a></p>
 <h3 id="21210-conclusion">21.2.10. Conclusion</h3>
 <p>Notre application supporte désormais les requêtes inter-domaines. Celles-ci peuvent être autorisées ou non par configuration dans la classe [AppConfig] :</p>
-<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-java">
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-text">
 <span class="odt-code-line"><span style="font-weight:bold;color:#7f0055">package</span> spring.cors.server.config;</span>
 <span class="odt-code-line"></span>
 <span class="odt-code-line">...</span>

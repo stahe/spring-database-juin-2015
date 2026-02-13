@@ -1488,7 +1488,7 @@
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/100000000000028A000001A12033E12F.png" style="display:inline-block; margin:4px;width:11.414cm;height:7.322cm;" class="odt-zoomable" data-zoom-src="images/100000000000028A000001A12033E12F.png" /></td></tr></table>
 
 <p><span style="color: #000000">Cette interface est ici implémentée par la classe [AppUserDetails] :</span></p>
-<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-java">
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-sql">
 <span class="odt-code-line"><span style="font-weight:bold;color:#7f0055">package</span> spring.security.dao;</span>
 <span class="odt-code-line"></span>
 <span class="odt-code-line"><span style="font-weight:bold;color:#7f0055">import</span><span style="color:#000000"> generic.jdbc.config.ConfigJdbc;</span></span>
@@ -1582,7 +1582,7 @@
 <li><span style="color: #000000">ligne 56 : chaque ligne résultat du [SELECT] est transformée en entité [Role] par la classe [ShortRowMapper] des lignes 66-72 ;</span></li>
 </ul>
 <p><span style="color: #000000">Revenons au code de la classe [AppUserDetails] :</span></p>
-<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-java">
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-text">
 <span class="odt-code-line"><span style="font-weight:bold;color:#7f0055">package</span> spring.security.dao;</span>
 <span class="odt-code-line"></span>
 <span class="odt-code-line">...</span>
@@ -1663,7 +1663,7 @@
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/100000000000019C0000007FEE7FC945.png" style="display:inline-block; margin:4px;width:7.631cm;height:2.35cm;" class="odt-zoomable" data-zoom-src="images/100000000000019C0000007FEE7FC945.png" /></td></tr></table>
 
 <p><span style="color: #000000">Cette interface est implémentée par la classe [AppUserDetailsService] suivante :</span></p>
-<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-java">
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-sql">
 <span class="odt-code-line"><span style="font-weight:bold;color:#7f0055">package</span> spring.security.dao;</span>
 <span class="odt-code-line"></span>
 <span class="odt-code-line"><span style="font-weight:bold;color:#7f0055">import</span><span style="color:#000000"> generic.jdbc.config.ConfigJdbc;</span></span>
@@ -1759,7 +1759,7 @@
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;"><b>1</b></p><img src="images/100000000000010A000000FD88BBE4D6.png" style="display:inline-block; margin:4px;width:4.93cm;height:4.68cm;" class="odt-zoomable" data-zoom-src="images/100000000000010A000000FD88BBE4D6.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td></tr></table>
 
 <p><span style="color: #000000">Nous avons déjà rencontré une classe de configuration de Spring Security (cg paragraphe <a href="securiser-lacces-a-un-service-web-avec-spring-security.html#refheading9327894989336">19.2.4</a>) :</span></p>
-<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-java">
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
 <span class="odt-code-line"><span style="font-weight:bold;color:#7f0055">package</span> hello;</span>
 <span class="odt-code-line"></span>
 <span class="odt-code-line"><span style="font-weight:bold;color:#7f0055">import</span><span style="color:#000000"> org.springframework.context.annotation.Configuration;</span></span>
@@ -1791,7 +1791,7 @@
 <li><span style="color: #000000">ligne 19 : définir une méthode [configure(AuthenticationManagerBuilder auth)] qui définit les utilisateurs et leurs rôles ;</span></li>
 </ul>
 <p><span style="color: #000000">La classe [AppConfig] sera la suivante :</span></p>
-<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-java">
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
 <span class="odt-code-line"><span style="font-weight:bold;color:#7f0055">package</span> spring.security.config;</span>
 <span class="odt-code-line"></span>
 <span class="odt-code-line"><span style="font-weight:bold;color:#7f0055">import</span><span style="color:#000000"> org.springframework.beans.factory.annotation.Autowired;</span></span>
@@ -1882,7 +1882,7 @@
 <p><span style="color: #000000">où [code] est le code Base64 de la chaîne [login:password]. Pour générer ce code, on peut utiliser le programme suivant du projet [spring-security-create-users] :</span></p>
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000000FC000000D5F984A335.png" style="display:inline-block; margin:4px;width:4.671cm;height:3.941cm;" class="odt-zoomable" data-zoom-src="images/10000000000000FC000000D5F984A335.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td></tr></table>
 
-<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-java">
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
 <span class="odt-code-line"><span style="font-weight:bold;color:#7f0055">package</span> spring.security.helpers;</span>
 <span class="odt-code-line"></span>
 <span class="odt-code-line"><span style="font-weight:bold;color:#7f0055">import</span><span style="color:#000000"> org.springframework.security.crypto.codec.Base64;</span></span>
@@ -1982,7 +1982,7 @@
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000000FD000000B5DDBDEE47.png" style="display:inline-block; margin:4px;width:4.68cm;height:3.35cm;" class="odt-zoomable" data-zoom-src="images/10000000000000FD000000B5DDBDEE47.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td></tr></table>
 
 <p><span style="color: #000000">Nous allons créer une URL qui nous permettra de savoir si un utilisateur est autorisé ou non à accéder au service web. Pour cela nous créons le nouveau contrôleur MVC [AuthenticateController] suivant :</span></p>
-<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-java">
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
 <span class="odt-code-line"><span style="font-weight:bold;color:#7f0055">package</span> spring.security.service;</span>
 <span class="odt-code-line"></span>
 <span class="odt-code-line"><span style="font-weight:bold;color:#7f0055">import</span><span style="color:#000000"> org.springframework.web.bind.annotation.RequestMapping;</span></span>
@@ -2038,7 +2038,7 @@
 <div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>Authorization:Basic YWRtaW46YWRtaW4=
 </code></pre></div>
 <p>L&#x27;interface [IClient] devient la suivante :</p>
-<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-java">
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
 <span class="odt-code-line"><span style="font-weight:bold;color:#7f0055">package</span><span style="color:#000000"> spring.webjson.client.dao;</span></span>
 <span class="odt-code-line"></span>
 <span class="odt-code-line"><span style="font-weight:bold;color:#7f0055">import</span><span style="color:#000000"> org.springframework.http.HttpMethod;</span></span>
@@ -2053,7 +2053,7 @@
 <ul>
 <li>ligne 8 : le 1er paramètre de la méthode [getResponse] est désormais un objet [Credentials] qui encapsule les identifiants d&#x27;un utilisateur :</li>
 </ul>
-<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-java">
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-text">
 <span class="odt-code-line"><span style="font-weight:bold;color:#7f0055">package</span><span style="color:#000000"> spring.security.client.entities;</span></span>
 <span class="odt-code-line"></span>
 <span class="odt-code-line"><span style="font-weight:bold;color:#7f0055">public</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">class</span><span style="color:#000000"> Credentials {</span></span>
@@ -2077,7 +2077,7 @@
 </code></pre></div>
 
 <p>La classe [Client] qui implémente l&#x27;interface [IClient] évolue de la façon suivante :</p>
-<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-java">
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-text">
 <span class="odt-code-line"><span style="font-weight:bold;color:#7f0055">package</span><span style="color:#000000"> spring.security.client.dao;</span></span>
 <span class="odt-code-line"></span>
 <span class="odt-code-line">...</span>
@@ -2148,7 +2148,7 @@
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000001180000010E6DA2CEC2.png" style="display:inline-block; margin:4px;width:5.181cm;height:5.001cm;" class="odt-zoomable" data-zoom-src="images/10000000000001180000010E6DA2CEC2.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td></tr></table>
 
 <p><span style="color: #000000">Toutes les méthodes de l&#x27;interface [IDao] du projet [spring-webjson-client-generic] reçoivent un paramètre supplémentaire [Credentials credentials] :</span></p>
-<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-java">
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
 <span class="odt-code-line"><span style="font-weight:bold;color:#7f0055">package</span> spring.security.client.dao;</span>
 <span class="odt-code-line"></span>
 <span class="odt-code-line"><span style="font-weight:bold;color:#7f0055">import</span><span style="color:#000000"> java.util.List;</span></span>
@@ -2207,7 +2207,7 @@
 <ul>
 <li>ligne 8 : l&#x27;interface [IDao] étend l&#x27;interface [IAuthenticate] suivante :</li>
 </ul>
-<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-java">
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
 <span class="odt-code-line"><span style="font-weight:bold;color:#7f0055">package</span> spring.security.client.dao;</span>
 <span class="odt-code-line"></span>
 <span class="odt-code-line"><span style="font-weight:bold;color:#7f0055">import</span><span style="color:#000000"> spring.security.client.entities.Credentials;</span></span>
@@ -2241,7 +2241,7 @@
 <li><span style="color: #000000">la méthode [getShortEntitiesById] reçoit le paramètre [Credentials credentials] (ligne 2) qu&#x27;elle transmet (ligne 9) à la méthode [getShortEntitiesById] de la classe fille ;</span></li>
 </ul>
 <p><span style="color: #000000">La classe [AbstractDao] a le squelette suivant :</span></p>
-<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-java">
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
 <span class="odt-code-line"><span style="font-weight:bold;color:#7f0055">package</span> spring.security.client.dao;</span>
 <span class="odt-code-line"></span>
 <span class="odt-code-line"><span style="font-weight:bold;color:#7f0055">import</span><span style="color:#000000"> java.util.ArrayList;</span></span>
@@ -2268,7 +2268,7 @@
 <li><span style="color: #000000">ligne 14 : la classe implémente l&#x27;interface [IDao] que nous avons décrite ;</span></li>
 <li><span style="color: #000000">lignes 16-17 : une instance de l&#x27;interface [IAuthenticate] est injectée. Celle-ci est implémentée par la classe [Authenticate] suivante :</span></li>
 </ul>
-<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-java">
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
 <span class="odt-code-line"><span style="font-weight:bold;color:#7f0055">package</span> spring.security.client.dao;</span>
 <span class="odt-code-line"></span>
 <span class="odt-code-line"><span style="font-weight:bold;color:#7f0055">import</span><span style="color:#000000"> org.springframework.beans.factory.annotation.Autowired;</span></span>
@@ -2298,7 +2298,7 @@
 <li><span style="color: #000000">ligne 16 : une commande HTTP GET est émise vers l&#x27;URL [/authenticate]. L&#x27;usage de cette URL a été montré au paragraphe <a href="#refheading9355894989336">20.2.6</a>. Son principe est que l&#x27;appel se termine par une exception si l&#x27;utilisateur [credentials] est soit inconnu, soit n&#x27;a pas les droits suffisants ;</span></li>
 </ul>
 <p><span style="color: #000000">La classe [AbstractDao] implémente la méthode [authenticate] de l&#x27;interface [IDao] de la façon suivante :</span></p>
-<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-java">
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-text">
 <span class="odt-code-line">    <span style="color:#646464">@Autowired</span></span>
 <span class="odt-code-line"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">private</span><span style="color:#000000"> IAuthenticate </span><span style="color:#0000c0">authenticate</span><span style="color:#000000">;</span></span>
 <span class="odt-code-line"></span>
@@ -2316,7 +2316,7 @@
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000000D3000000B4B1A2A758.png" style="display:inline-block; margin:4px;width:3.911cm;height:3.33cm;" class="odt-zoomable" data-zoom-src="images/10000000000000D3000000B4B1A2A758.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td></tr></table>
 
 <p><span style="color: #000000">Les classes [DaoCategorie, DaoProduit] sont celles du projet [spring-webjson-server-generic] avec le paramètre supplémentaire [Credentials <span style="color: #6a3e3e">credentials</span>]. Voici un exemple :</span></p>
-<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-java">
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-text">
 <span class="odt-code-line">@Component</span>
 <span class="odt-code-line"><span style="font-weight:bold;color:#7f0055">public</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">class</span><span style="color:#000000"> DaoCategorie </span><span style="font-weight:bold;color:#7f0055">extends</span><span style="color:#000000"> AbstractDao&lt;Categorie&gt; {</span></span>
 <span class="odt-code-line"></span>
@@ -2351,7 +2351,7 @@
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000001150000007D748EF7D8.png" style="display:inline-block; margin:4px;width:5.129cm;height:2.311cm;" class="odt-zoomable" data-zoom-src="images/10000000000001150000007D748EF7D8.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td></tr></table>
 
 <p><span style="color: #000000">La classe [AppConfig] configure l&#x27;environnement Spring du projet. Elle est identique à ce qu&#x27;elle était dans le projet [spring-webjson-client-generic] à un détail près :</span></p>
-<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-java">
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-text">
 <span class="odt-code-line">@Configuration</span>
 <span class="odt-code-line"><span style="color:#646464">@ComponentScan</span><span style="color:#000000">({ </span><span style="color:#2a00ff">&quot;spring.security.client.dao&quot;</span><span style="color:#000000"> })</span></span>
 <span class="odt-code-line"><span style="font-weight:bold;color:#7f0055">public</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">class</span><span style="color:#000000"> AppConfig {</span></span>
@@ -2369,7 +2369,7 @@
 <p><a id="refheading1451391186279333"></a></p>
 <h4 id="20341-le-test-junittestcredentials">20.3.4.1. Le test [JUnitTestCredentials]</h4>
 <p><span style="color: #000000">Le test [JUnitTestCredentials] utilise la méthode [IDao.authenticate] pour vérifier la validité ou pas de certains utilisateurs :</span></p>
-<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-java">
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
 <span class="odt-code-line"><span style="font-weight:bold;color:#7f0055">package</span> client.tests.junit;</span>
 <span class="odt-code-line"></span>
 <span class="odt-code-line"><span style="font-weight:bold;color:#7f0055">import</span><span style="color:#000000"> org.junit.Assert;</span></span>
@@ -2458,8 +2458,8 @@
 
 <p><span style="color: #000000">On lance ensuite le test JUnit [JUnitTestCredentials] avec la configuration d&#x27;exécution [spring-security-client-generic-JUnitTestCredentials] [2]. Les résultats console obtenus sont les suivants :</span></p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-6-1">1</a></span>
-<span class="normal"><a href="#__codelineno-6-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="nl">checkUserUser</span><span class="p">:</span><span class="w"> </span><span class="o">[</span><span class="n">code</span><span class="o">=</span><span class="mi">111</span><span class="p">,</span><span class="w"> </span><span class="n">trace</span><span class="o">=[</span><span class="n">Client</span><span class="p">,</span><span class="n">getResponse</span><span class="p">,</span><span class="mi">65</span><span class="o">]</span><span class="p">,</span><span class="w"> </span><span class="n">exceptions</span><span class="o">=[</span><span class="p">{</span><span class="s">&quot;className&quot;</span><span class="p">:</span><span class="s">&quot;org.springframework.web.client.HttpClientErrorException&quot;</span><span class="p">,</span><span class="s">&quot;errorMessage&quot;</span><span class="p">:</span><span class="s">&quot;403 Forbidden&quot;</span><span class="p">}</span><span class="o">]</span>
-<a id="__codelineno-6-2" name="__codelineno-6-2"></a><span class="n">checkUserUnknown</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="o">[</span><span class="n">code</span><span class="o">=</span><span class="mi">111</span><span class="p">,</span><span class="w"> </span><span class="n">trace</span><span class="o">=[</span><span class="n">Client</span><span class="p">,</span><span class="n">getResponse</span><span class="p">,</span><span class="mi">65</span><span class="o">]</span><span class="p">,</span><span class="w"> </span><span class="n">exceptions</span><span class="o">=[</span><span class="p">{</span><span class="s">&quot;className&quot;</span><span class="p">:</span><span class="s">&quot;org.springframework.web.client.HttpClientErrorException&quot;</span><span class="p">,</span><span class="s">&quot;errorMessage&quot;</span><span class="p">:</span><span class="s">&quot;401 Unauthorized&quot;</span><span class="p">}</span><span class="o">]</span>
+<span class="normal"><a href="#__codelineno-6-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1"></a>checkUserUser: [code=111, trace=[Client,getResponse,65], exceptions=[{&quot;className&quot;:&quot;org.springframework.web.client.HttpClientErrorException&quot;,&quot;errorMessage&quot;:&quot;403 Forbidden&quot;}]
+<a id="__codelineno-6-2" name="__codelineno-6-2"></a>checkUserUnknown : [code=111, trace=[Client,getResponse,65], exceptions=[{&quot;className&quot;:&quot;org.springframework.web.client.HttpClientErrorException&quot;,&quot;errorMessage&quot;:&quot;401 Unauthorized&quot;}]
 </code></pre></div></td></tr></table></div>
 <p><span style="color: #000000">et le test réussit :</span></p>
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000000F5000000B2933C5DC5.png" style="display:inline-block; margin:4px;width:4.54cm;height:3.3cm;" class="odt-zoomable" data-zoom-src="images/10000000000000F5000000B2933C5DC5.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td></tr></table>
@@ -2467,7 +2467,7 @@
 <p><a id="refheading1451411186279333"></a></p>
 <h4 id="20342-le-test-junittestdao">20.3.4.2. Le test [JUnitTestDao]</h4>
 <p><span style="color: #000000">Le test [JUnitTestDao] est identique à ce qu&#x27;il était dans le projet non sécurisé [spring-webjson-client-generic] si ce n&#x27;est que maintenant les méthodes de la couche [DAO] testées ont toutes comme premier paramètre l&#x27;utilisateur [admin / admin] :</span></p>
-<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-java">
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-javascript">
 <span class="odt-code-line"><span style="color:#646464">@SpringApplicationConfiguration</span>(classes = AppConfig.<span style="font-weight:bold;color:#7f0055">class</span>)</span>
 <span class="odt-code-line"><span style="color:#646464">@RunWith</span><span style="color:#000000">(SpringJUnit4ClassRunner.</span><span style="font-weight:bold;color:#7f0055">class</span><span style="color:#000000">)</span></span>
 <span class="odt-code-line"><span style="font-weight:bold;color:#7f0055">public</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">class</span><span style="color:#000000"> JUnitTestDao {</span></span>
@@ -2534,7 +2534,7 @@
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/1000000000000142000000C1E5DA0C46.png" style="display:inline-block; margin:4px;width:5.96cm;height:3.57cm;" class="odt-zoomable" data-zoom-src="images/1000000000000142000000C1E5DA0C46.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td></tr></table>
 
 <p><span style="color: #000000">Le test passe mais on peut constater qu&#x27;il est plus lent qu&#x27;avec le service web non sécurisé. La sécurisation d&#x27;une application augmente sensiblement ses temps de réponse. On peut noter un facteur important dans les performances du service web sécurisé : dans la classe [AppConfig] qui le configure, nous avons écrit :</span></p>
-<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-java">
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-markdown">
 <span class="odt-code-line"><span style="color:#000000">    </span><span style="color:#646464">@Override</span></span>
 <span class="odt-code-line"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">protected</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">void</span><span style="color:#000000"> configure(HttpSecurity </span><span style="color:#6a3e3e">http</span><span style="color:#000000">) </span><span style="font-weight:bold;color:#7f0055">throws</span><span style="color:#000000"> Exception {</span></span>
 <span class="odt-code-line"><span style="color:#000000">        </span><span style="color:#3f7f5f">// CSRF</span></span>
@@ -2644,7 +2644,7 @@
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000000EA000001165574FC64.png" style="display:inline-block; margin:4px;width:4.33cm;height:5.151cm;" class="odt-zoomable" data-zoom-src="images/10000000000000EA000001165574FC64.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td></tr></table>
 
 <p><span style="color: #000000">Le fichier de configuration [AppConfig] du projet précédent [spring-security-server-jdbc-generic] convient. Il faut simplement lui ajouter une configuration supplémentaire :</span></p>
-<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-java">
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-text">
 <span class="odt-code-line">@Configuration</span>
 <span class="odt-code-line">@EnableWebSecurity</span>
 <span class="odt-code-line"><span style="color:#646464">@EnableJpaRepositories</span><span style="color:#000000">(basePackages = { </span><span style="color:#2a00ff">&quot;spring.security.repositories&quot;</span><span style="color:#000000"> })</span></span>
@@ -2674,7 +2674,7 @@
 <li><span style="color: #000000">LOGIN : le login de l&#x27;utilisateur ;</span></li>
 <li><span style="color: #000000">PASSWORD : son mot de passe ;</span></li>
 </ul>
-<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-java">
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
 <span class="odt-code-line"><span style="font-weight:bold;color:#7f0055">package</span> generic.jpa.entities.dbproduitscategories;</span>
 <span class="odt-code-line"></span>
 <span class="odt-code-line"><span style="font-weight:bold;color:#7f0055">import</span><span style="color:#000000"> generic.jdbc.config.ConfigJdbc;</span></span>
@@ -2783,7 +2783,7 @@
 <li><span style="color: #000000">VERSION : colonne de versioning de la ligne ;</span></li>
 <li><span style="color: #000000">NAME : nom du rôle. Par défaut, Spring Security attend des noms de la forme ROLE_XX, par exemple ROLE_ADMIN ou ROLE_GUEST ;</span></li>
 </ul>
-<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-java">
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
 <span class="odt-code-line"><span style="font-weight:bold;color:#7f0055">package</span> generic.jpa.entities.dbproduitscategories;</span>
 <span class="odt-code-line"></span>
 <span class="odt-code-line"><span style="font-weight:bold;color:#7f0055">import</span><span style="color:#000000"> generic.jdbc.config.ConfigJdbc;</span></span>
@@ -2864,7 +2864,7 @@
 <li><span style="color: #000000">USER_ID : identifiant d&#x27;un utilisateur ;</span></li>
 <li><span style="color: #000000">ROLE_ID : identifiant d&#x27;un rôle ;</span></li>
 </ul>
-<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-java">
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
 <span class="odt-code-line"><span style="font-weight:bold;color:#7f0055">package</span> generic.jpa.entities.dbproduitscategories;</span>
 <span class="odt-code-line"></span>
 <span class="odt-code-line"><span style="font-weight:bold;color:#7f0055">import</span><span style="color:#000000"> generic.jdbc.config.ConfigJdbc;</span></span>
@@ -2968,7 +2968,7 @@
 <li><span style="color: #000000">ligne 20 : pour trouver un utilisateur via son login ;</span></li>
 </ul>
 <p><span style="color: #000000">L&#x27;interface [RoleRepository] gère les accès aux entités [Role] :</span></p>
-<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-java">
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
 <span class="odt-code-line"><span style="font-weight:bold;color:#7f0055">package</span> spring.security.repositories;</span>
 <span class="odt-code-line"></span>
 <span class="odt-code-line"><span style="font-weight:bold;color:#7f0055">import</span><span style="color:#000000"> generic.jpa.entities.dbproduitscategories.Role;</span></span>
@@ -2988,7 +2988,7 @@
 <li><span style="color: #000000">ligne 10 : on peut chercher un rôle via son nom. On rappelle ici que l&#x27;entité [Role] a un champ [name]. La méthode [findEntityByChamp] est automatiquement implémentée par Spring Data. Il n&#x27;y a donc pas lieu ici d&#x27;implémenter la méthode [finRoleByName]. Il faut juste la déclarer dans l&#x27;interface.</span></li>
 </ul>
 <p><span style="color: #000000">L&#x27;interface [UserRoleRepository] gère les accès aux entités [UserRole] :</span></p>
-<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-java">
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
 <span class="odt-code-line"><span style="font-weight:bold;color:#7f0055">package</span> spring.security.repositories;</span>
 <span class="odt-code-line"></span>
 <span class="odt-code-line"><span style="font-weight:bold;color:#7f0055">import</span><span style="color:#000000"> generic.jpa.entities.dbproduitscategories.UserRole;</span></span>
@@ -3011,7 +3011,7 @@
 
 <p><span style="color: #000000">Dans la couche [DAO2], on retrouve les mêmes classes que dans la couche [DAO2] du projet [spring-security-server-<strong>jdbc</strong>-generic] étudié précédemment au paragraphe <a href="#refheading1395971505509149">20.2.2</a>. Il faut simplement les implémenter maintenant avec l&#x27;aide des classes de la couche [repositories].</span></p>
 <p><span style="color: #000000">La classe [AppUserDetails] évolue de la façon suivante :</span></p>
-<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-java">
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
 <span class="odt-code-line"><span style="font-weight:bold;color:#7f0055">package</span> spring.security.dao;</span>
 <span class="odt-code-line"></span>
 <span class="odt-code-line"><span style="font-weight:bold;color:#7f0055">import</span><span style="color:#000000"> generic.jpa.entities.dbproduitscategories.Role;</span></span>
@@ -3071,7 +3071,7 @@
 <li><span style="color: #000000">ligne 31, le constructeur de la classe reçoit comme second paramètre l&#x27;objet [UserRepository] qui permetta à la classe d&#x27;obtenir les rôles d&#x27;un utilisateur donné (ligne 42) ;</span></li>
 </ul>
 <p><span style="color: #000000">Le composant Spring [AppUserDetailsService] évolue lui de la façon suivante :</span></p>
-<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-java">
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
 <span class="odt-code-line"><span style="font-weight:bold;color:#7f0055">package</span> spring.security.dao;</span>
 <span class="odt-code-line"></span>
 <span class="odt-code-line"><span style="font-weight:bold;color:#7f0055">import</span><span style="color:#000000"> generic.jpa.entities.dbproduitscategories.User;</span></span>
@@ -3216,7 +3216,7 @@
 <li>[Base64Encoder] est une classe support pour générer le code Base64 d&#x27;un couple [login, password]. Nous l&#x27;avons déjà utilisée. Elle n&#x27;est pas utile à ce projet ;</li>
 </ul>
 <p>La classe de configuration Spring [AppConfig] est la suivante :</p>
-<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-java">
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
 <span class="odt-code-line"><span style="font-weight:bold;color:#7f0055">package</span><span style="color:#000000"> spring.security.install;</span></span>
 <span class="odt-code-line"></span>
 <span class="odt-code-line"><span style="font-weight:bold;color:#7f0055">import</span><span style="color:#000000"> generic.jpa.config.ConfigJpa;</span></span>
@@ -3239,7 +3239,7 @@
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/100000000000010300000096603E814F.png" style="display:inline-block; margin:4px;width:4.8cm;height:2.78cm;" class="odt-zoomable" data-zoom-src="images/100000000000010300000096603E814F.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td></tr></table>
 
 <p>La classe [CreateUsers] est la suivante :</p>
-<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-java">
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
 <span class="odt-code-line"><span style="font-weight:bold;color:#7f0055">package</span><span style="color:#000000"> spring.security.install;</span></span>
 <span class="odt-code-line"></span>
 <span class="odt-code-line"><span style="font-weight:bold;color:#7f0055">import</span><span style="color:#000000"> generic.jpa.entities.dbproduitscategories.Role;</span></span>

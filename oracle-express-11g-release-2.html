@@ -1191,7 +1191,7 @@
 <p>Dans le projet [oracle-config-jpa-eclipselink], l&#x27;entité JPA est définie de la façon suivante :</p>
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000001280000008F8AD09775.png" style="display:inline-block; margin:4px;width:5.611cm;height:2.711cm;" class="odt-zoomable" data-zoom-src="images/10000000000001280000008F8AD09775.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td></tr></table>
 
-<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-java">
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
 <span class="odt-code-line"><span style="font-weight:bold;color:#7f0055">package</span><span style="color:#000000"> generic.jpa.entities.dbproduits;</span></span>
 <span class="odt-code-line"></span>
 <span class="odt-code-line"><span style="font-weight:bold;color:#7f0055">import</span><span style="color:#000000"> generic.jdbc.config.ConfigJdbc;</span></span>
@@ -1417,7 +1417,7 @@
 </code></pre></div>
 
 <p><span style="color: #000000">La troisième modification est apportée au nombre maximal de paramètres qu&#x27;un  peut supporter :</span></p>
-<div class="odt-code-rich" data-linenums="false" style="counter-reset: odtline 0;"><pre><code class="language-java">
+<div class="odt-code-rich" data-linenums="false" style="counter-reset: odtline 0;"><pre><code class="language-text">
 <span class="odt-code-line"><span style="color:#000000">    </span><span style="color:#3f7f5f">// nombre max de paramètres d&#x27;un [PreparedStatement]</span></span>
 <span class="odt-code-line"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">public</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">final</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">static</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">int</span><span style="color:#000000"> </span><span style="font-weight:bold;font-style:italic;color:#0000c0">MAX_PREPAREDSTATEMENT_PARAMETERS</span><span style="color:#000000"> = 1000;</span></span>
 </code></pre></div>
@@ -1433,7 +1433,7 @@
 
 <p>Le projet est analogue au projet de configuration [mysql-config-jpa-eclipselink] (cf paragraphe <a href="spring-data-jpa-eclipselink.html#refheading10529020828969171">7.3</a>) de la couche JPA Eclipselink du SGBD MySQL. Nous ne présentons que les modifications :</p>
 <p><span style="color: #000000">La première est dans la classe [ConfigJpa] dans la définition du bean [jpaVendorAdapter] :</span></p>
-<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-java">
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-text">
 <span class="odt-code-line"><span style="color:#000000">    </span><span style="color:#3f7f5f">// le provider JPA</span></span>
 <span class="odt-code-line"><span style="color:#000000">    </span><span style="color:#646464">@Bean</span></span>
 <span class="odt-code-line"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">public</span><span style="color:#000000"> JpaVendorAdapter jpaVendorAdapter() {</span></span>

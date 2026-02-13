@@ -1327,7 +1327,7 @@
 <li>le serveur Tomcat sur lequel va être déployé le service web ;</li>
 <li>les filtres jSON de sérialisation / désérialisation des objets [Produit] et [Categorie] :</li>
 </ul>
-<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-java">
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
 <span class="odt-code-line"><span style="font-weight:bold;color:#7f0055">package</span><span style="color:#000000"> spring.webjson.server.config;</span></span>
 <span class="odt-code-line"></span>
 <span class="odt-code-line"><span style="font-weight:bold;color:#7f0055">import</span><span style="color:#000000"> java.util.List;</span></span>
@@ -1390,7 +1390,7 @@
 <li>lignes 44-47 : définition du bean [<span style="color: #000000">embeddedServletContainerFactory</span>] qui définit le serveur web à utiliser. Ici ce sera le serveur web Tomcat [http://tomcat.apache.org/]. On peut utiliser également le serveur Jetty [http://www.eclipse.org/jetty/]. Ce sont tous les deux des serveurs embarqués dans les dépendances Maven. Lorsque [Spring Boot] pilote le lancement du projet, il lance automatiquement le serveur web désigné dans la configuration et déploie dessus le service ou l&#x27;application web ;</li>
 </ul>
 <p>La configuration des filtres jSON se fait de la façon suivante :</p>
-<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-java">
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
 <span class="odt-code-line"><span style="font-weight:bold;color:#7f0055">package</span><span style="color:#000000"> spring.webjson.server.config;</span></span>
 <span class="odt-code-line"></span>
 <span class="odt-code-line"><span style="font-weight:bold;color:#7f0055">import</span><span style="color:#000000"> java.util.List;</span></span>
@@ -1489,7 +1489,7 @@
 <p><a id="refheading17990265679331"></a></p>
 <h4 id="17322-la-classe-appconfig">17.3.2.2. La classe [AppConfig]</h4>
 <p>La classe [AppConfig] configure l&#x27;ensemble de l&#x27;application, ç-à-d les couches [web] et [DAO] :</p>
-<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-java">
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
 <span class="odt-code-line"><span style="font-weight:bold;color:#7f0055">package</span><span style="color:#000000"> spring.webjson.server.config;</span></span>
 <span class="odt-code-line"></span>
 <span class="odt-code-line"><span style="font-weight:bold;color:#7f0055">import</span><span style="color:#000000"> org.springframework.context.annotation.ComponentScan;</span></span>
@@ -1514,7 +1514,7 @@
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/1000000000000111000000A1FC650B40.png" style="display:inline-block; margin:4px;width:5.05cm;height:2.979cm;" class="odt-zoomable" data-zoom-src="images/1000000000000111000000A1FC650B40.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td></tr></table>
 
 <p>De même que dans les chapitres précédents, la couche [DAO] lançait une exception non contrôlée [DaoException], la couche [web] lancera une exception non contrôlée [ServerException] :</p>
-<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-java">
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
 <span class="odt-code-line"><span style="font-weight:bold;color:#7f0055">package</span><span style="color:#000000"> spring.webjson.server.infrastructure;</span></span>
 <span class="odt-code-line"></span>
 <span class="odt-code-line"><span style="font-weight:bold;color:#7f0055">import</span><span style="color:#000000"> generic.jdbc.infrastructure.UncheckedException;</span></span>
@@ -1567,7 +1567,7 @@
 </div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div markdown="block">
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>Méthode
 </code></pre></div>
-</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div class="odt-code-rich" data-linenums="false" style="counter-reset: odtline 0;"><pre><code class="language-java">
+</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div class="odt-code-rich" data-linenums="false" style="counter-reset: odtline 0;"><pre><code class="language-text">
 <span class="odt-code-line"><span style="color:#646464">@RequestMapping</span><span style="color:#000000">(value = </span><span style="color:#2a00ff">&quot;/saveCategories&quot;</span><span style="color:#000000">,</span></span>
 <span class="odt-code-line"><span style="color:#000000"> method = RequestMethod.</span><span style="font-weight:bold;font-style:italic;color:#0000c0">POST</span><span style="color:#000000">, consumes =</span></span>
 <span class="odt-code-line"><span style="color:#000000"> </span><span style="color:#2a00ff">&quot;application/json; charset=UTF-8&quot;</span><span style="color:#000000">)</span></span>
@@ -1582,7 +1582,7 @@
 <span class="odt-code-line">[saveEntities] de la couche [DaoCategorie]. Seules les clés</span>
 <span class="odt-code-line"> primaires des objets persistés (catégories / produits) sont</span>
 <span class="odt-code-line"> renvoyées au client.</span>
-</code></pre></div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div class="odt-code-rich" data-linenums="false" style="counter-reset: odtline 0;"><pre><code class="language-java">
+</code></pre></div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div class="odt-code-rich" data-linenums="false" style="counter-reset: odtline 0;"><pre><code class="language-javascript">
 <span class="odt-code-line"><span style="color:#646464">@RequestMapping</span><span style="color:#000000">(value = </span><span style="color:#2a00ff">&quot;/deleteAllCategories&quot;</span><span style="color:#000000">,</span></span>
 <span class="odt-code-line"><span style="color:#000000"> method = RequestMethod.</span><span style="font-weight:bold;font-style:italic;color:#0000c0">GET</span><span style="color:#000000">)</span></span>
 </code></pre></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div class="odt-code-rich" data-linenums="false" style="counter-reset: odtline 0;"><pre><code class="language-javascript">
@@ -1590,7 +1590,7 @@
 <span class="odt-code-line">====</span>
 <span class="odt-code-line">L&#x27;URL n&#x27;a aucun paramètre. Les catégories sont supprimées par</span>
 <span class="odt-code-line"> la méthode [deleteAllEntities] de la couche [DaoCategorie].</span>
-</code></pre></div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div class="odt-code-rich" data-linenums="false" style="counter-reset: odtline 0;"><pre><code class="language-java">
+</code></pre></div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div class="odt-code-rich" data-linenums="false" style="counter-reset: odtline 0;"><pre><code class="language-javascript">
 <span class="odt-code-line"><span style="color:#646464">@RequestMapping</span><span style="color:#000000">(value = </span><span style="color:#2a00ff">&quot;/deleteCategoriesById&quot;</span><span style="color:#000000">,</span></span>
 <span class="odt-code-line"><span style="color:#000000"> method = RequestMethod.</span><span style="font-weight:bold;font-style:italic;color:#0000c0">POST</span><span style="color:#000000">, consumes =</span></span>
 <span class="odt-code-line"><span style="color:#000000"> </span><span style="color:#2a00ff">&quot;application/json; charset=UTF-8&quot;</span><span style="color:#000000">)</span></span>
@@ -1603,7 +1603,7 @@
 <span class="odt-code-line"><span style="color:#000000"> l&#x27;objet [HttpServletRequest </span><span style="color:#6a3e3e">request</span><span style="color:#000000">]. Les catégories sont</span></span>
 <span class="odt-code-line"> supprimées par la méthode [deleteEntitiesById] de la couche</span>
 <span class="odt-code-line"> [DaoCategorie].</span>
-</code></pre></div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div class="odt-code-rich" data-linenums="false" style="counter-reset: odtline 0;"><pre><code class="language-java">
+</code></pre></div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div class="odt-code-rich" data-linenums="false" style="counter-reset: odtline 0;"><pre><code class="language-javascript">
 <span class="odt-code-line"><span style="color:#646464">@RequestMapping</span><span style="color:#000000">(value = </span><span style="color:#2a00ff">&quot;/deleteCategoriesByName&quot;</span><span style="color:#000000">,</span></span>
 <span class="odt-code-line"><span style="color:#000000"> method = RequestMethod.</span><span style="font-weight:bold;font-style:italic;color:#0000c0">POST</span><span style="color:#000000">, consumes =</span></span>
 <span class="odt-code-line"><span style="color:#000000"> </span><span style="color:#2a00ff">&quot;application/json; charset=UTF-8&quot;</span><span style="color:#000000">)</span></span>
@@ -1616,7 +1616,7 @@
 <span class="odt-code-line"><span style="color:#000000"> [HttpServletRequest </span><span style="color:#6a3e3e">request</span><span style="color:#000000">]. Les catégories sont supprimées</span></span>
 <span class="odt-code-line"> par la méthode [deleteEntitiesByname] de la couche </span>
 <span class="odt-code-line">[DaoCategorie].</span>
-</code></pre></div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div class="odt-code-rich" data-linenums="false" style="counter-reset: odtline 0;"><pre><code class="language-java">
+</code></pre></div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div class="odt-code-rich" data-linenums="false" style="counter-reset: odtline 0;"><pre><code class="language-text">
 <span class="odt-code-line"><span style="color:#646464">@RequestMapping</span><span style="color:#000000">(value = </span><span style="color:#2a00ff">&quot;/getAllShortCategories&quot;</span><span style="color:#000000">,</span></span>
 <span class="odt-code-line"><span style="color:#000000"> method = RequestMethod.</span><span style="font-weight:bold;font-style:italic;color:#0000c0">GET</span><span style="color:#000000">)</span></span>
 </code></pre></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div class="odt-code-rich" data-linenums="false" style="counter-reset: odtline 0;"><pre><code class="language-text">
@@ -1625,7 +1625,7 @@
 <span class="odt-code-line">L&#x27;URL n&#x27;a aucun paramètre. Les catégories courtes sont </span>
 <span class="odt-code-line">obtenues par la méthode [getAllShortEntities] de la couche</span>
 <span class="odt-code-line"> [DaoCategorie].</span>
-</code></pre></div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div class="odt-code-rich" data-linenums="false" style="counter-reset: odtline 0;"><pre><code class="language-java">
+</code></pre></div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div class="odt-code-rich" data-linenums="false" style="counter-reset: odtline 0;"><pre><code class="language-text">
 <span class="odt-code-line"><span style="color:#646464">@RequestMapping</span><span style="color:#000000">(value = </span><span style="color:#2a00ff">&quot;/getAllLongCategories&quot;</span><span style="color:#000000">,</span></span>
 <span class="odt-code-line"><span style="color:#000000"> method = RequestMethod.</span><span style="font-weight:bold;font-style:italic;color:#0000c0">GET</span><span style="color:#000000">)</span></span>
 </code></pre></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div class="odt-code-rich" data-linenums="false" style="counter-reset: odtline 0;"><pre><code class="language-text">
@@ -1634,7 +1634,7 @@
 <span class="odt-code-line">L&#x27;URL n&#x27;a aucun paramètre. Les catégories longues sont</span>
 <span class="odt-code-line"> obtenues par la méthode [getAllLongEntities] de la couche </span>
 <span class="odt-code-line">[DaoCategorie].</span>
-</code></pre></div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div class="odt-code-rich" data-linenums="false" style="counter-reset: odtline 0;"><pre><code class="language-java">
+</code></pre></div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div class="odt-code-rich" data-linenums="false" style="counter-reset: odtline 0;"><pre><code class="language-text">
 <span class="odt-code-line"><span style="color:#646464">@RequestMapping</span><span style="color:#000000">(value = </span><span style="color:#2a00ff">&quot;/getLongCategoriesById&quot;</span><span style="color:#000000">,</span></span>
 <span class="odt-code-line"><span style="color:#000000"> method = RequestMethod.</span><span style="font-weight:bold;font-style:italic;color:#0000c0">POST</span><span style="color:#000000">)</span></span>
 </code></pre></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div class="odt-code-rich" data-linenums="false" style="counter-reset: odtline 0;"><pre><code class="language-javascript">
@@ -1645,7 +1645,7 @@
 <span class="odt-code-line"><span style="color:#000000"> [HttpServletRequest </span><span style="color:#6a3e3e">request</span><span style="color:#000000">]. Les catégories longues sont</span></span>
 <span class="odt-code-line"> obtenues par la méthode [getLongEntitiesById] de la couche</span>
 <span class="odt-code-line"> [DaoCategorie].</span>
-</code></pre></div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div class="odt-code-rich" data-linenums="false" style="counter-reset: odtline 0;"><pre><code class="language-java">
+</code></pre></div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div class="odt-code-rich" data-linenums="false" style="counter-reset: odtline 0;"><pre><code class="language-text">
 <span class="odt-code-line"><span style="color:#646464">@RequestMapping</span><span style="color:#000000">(value = </span><span style="color:#2a00ff">&quot;/getLongCategoriesByName&quot;</span><span style="color:#000000">,</span></span>
 <span class="odt-code-line"><span style="color:#000000"> method = RequestMethod.</span><span style="font-weight:bold;font-style:italic;color:#0000c0">POST</span><span style="color:#000000">)</span></span>
 </code></pre></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div class="odt-code-rich" data-linenums="false" style="counter-reset: odtline 0;"><pre><code class="language-javascript">
@@ -1657,7 +1657,7 @@
 <span class="odt-code-line"><span style="color:#000000"> [HttpServletRequest </span><span style="color:#6a3e3e">request</span><span style="color:#000000">]. Les catégories longues sont </span></span>
 <span class="odt-code-line">obtenues par la méthode [getLongEntitiesByName] de la couche</span>
 <span class="odt-code-line"> [DaoCategorie].</span>
-</code></pre></div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div class="odt-code-rich" data-linenums="false" style="counter-reset: odtline 0;"><pre><code class="language-java">
+</code></pre></div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div class="odt-code-rich" data-linenums="false" style="counter-reset: odtline 0;"><pre><code class="language-text">
 <span class="odt-code-line"><span style="color:#646464">@RequestMapping</span><span style="color:#000000">(value = </span><span style="color:#2a00ff">&quot;/getShortCategoriesByName&quot;</span><span style="color:#000000">,</span></span>
 <span class="odt-code-line"><span style="color:#000000"> method = RequestMethod.</span><span style="font-weight:bold;font-style:italic;color:#0000c0">POST</span><span style="color:#000000">)</span></span>
 </code></pre></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div class="odt-code-rich" data-linenums="false" style="counter-reset: odtline 0;"><pre><code class="language-javascript">
@@ -1669,7 +1669,7 @@
 <span class="odt-code-line"><span style="color:#000000"> [HttpServletRequest </span><span style="color:#6a3e3e">request</span><span style="color:#000000">]. Les catégories courtes sont</span></span>
 <span class="odt-code-line"> obtenues par la méthode [getShortEntitiesByName] de la</span>
 <span class="odt-code-line"> couche [DaoCategorie].</span>
-</code></pre></div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div class="odt-code-rich" data-linenums="false" style="counter-reset: odtline 0;"><pre><code class="language-java">
+</code></pre></div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div class="odt-code-rich" data-linenums="false" style="counter-reset: odtline 0;"><pre><code class="language-text">
 <span class="odt-code-line"><span style="color:#646464">@RequestMapping</span><span style="color:#000000">(value = </span><span style="color:#2a00ff">&quot;/getShortCategoriesById&quot;</span><span style="color:#000000">,</span></span>
 <span class="odt-code-line"><span style="color:#000000"> method = RequestMethod.</span><span style="font-weight:bold;font-style:italic;color:#0000c0">POST</span><span style="color:#000000">)</span></span>
 </code></pre></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div class="odt-code-rich" data-linenums="false" style="counter-reset: odtline 0;"><pre><code class="language-javascript">
@@ -1691,7 +1691,7 @@
 </div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div markdown="block">
 <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>Méthode
 </code></pre></div>
-</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div class="odt-code-rich" data-linenums="false" style="counter-reset: odtline 0;"><pre><code class="language-java">
+</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div class="odt-code-rich" data-linenums="false" style="counter-reset: odtline 0;"><pre><code class="language-text">
 <span class="odt-code-line"><span style="color:#646464">@RequestMapping</span><span style="color:#000000">(value = </span><span style="color:#2a00ff">&quot;/saveProduits&quot;</span><span style="color:#000000">, method =</span></span>
 <span class="odt-code-line"><span style="color:#000000"> RequestMethod.</span><span style="font-weight:bold;font-style:italic;color:#0000c0">POST</span><span style="color:#000000">, consumes = </span><span style="color:#2a00ff">&quot;application/json;</span></span>
 <span class="odt-code-line"><span style="color:#2a00ff"> charset=UTF-8&quot;</span><span style="color:#000000">)</span></span>
@@ -1704,7 +1704,7 @@
 <span class="odt-code-line"><span style="color:#000000"> </span><span style="color:#6a3e3e">request</span><span style="color:#000000">]. Les produits sont persistés par la méthode</span></span>
 <span class="odt-code-line"> [saveEntities] de la couche [DaoProduit]. Seules les clés</span>
 <span class="odt-code-line"> primaires des produits sont renvoyées au client.</span>
-</code></pre></div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div class="odt-code-rich" data-linenums="false" style="counter-reset: odtline 0;"><pre><code class="language-java">
+</code></pre></div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div class="odt-code-rich" data-linenums="false" style="counter-reset: odtline 0;"><pre><code class="language-javascript">
 <span class="odt-code-line"><span style="color:#646464">@RequestMapping</span><span style="color:#000000">(value = </span><span style="color:#2a00ff">&quot;/deleteAllProduits&quot;</span><span style="color:#000000">,</span></span>
 <span class="odt-code-line"><span style="color:#000000"> method = RequestMethod.</span><span style="font-weight:bold;font-style:italic;color:#0000c0">GET</span><span style="color:#000000">)</span></span>
 </code></pre></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div class="odt-code-rich" data-linenums="false" style="counter-reset: odtline 0;"><pre><code class="language-javascript">
@@ -1712,7 +1712,7 @@
 <span class="odt-code-line">====</span>
 <span class="odt-code-line">L&#x27;URL n&#x27;a aucun paramètre. Les produits sont supprimés par la</span>
 <span class="odt-code-line"> méthode [deleteAllEntities] de la couche [DaoProduit].</span>
-</code></pre></div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div class="odt-code-rich" data-linenums="false" style="counter-reset: odtline 0;"><pre><code class="language-java">
+</code></pre></div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div class="odt-code-rich" data-linenums="false" style="counter-reset: odtline 0;"><pre><code class="language-javascript">
 <span class="odt-code-line"><span style="color:#646464">@RequestMapping</span><span style="color:#000000">(value = </span><span style="color:#2a00ff">&quot;/deleteProduitsById&quot;</span><span style="color:#000000">,</span></span>
 <span class="odt-code-line"><span style="color:#000000"> method = RequestMethod.</span><span style="font-weight:bold;font-style:italic;color:#0000c0">POST</span><span style="color:#000000">, consumes =</span></span>
 <span class="odt-code-line"><span style="color:#000000"> </span><span style="color:#2a00ff">&quot;application/json; charset=UTF-8&quot;</span><span style="color:#000000">)</span></span>
@@ -1725,7 +1725,7 @@
 <span class="odt-code-line"><span style="color:#000000"> [HttpServletRequest </span><span style="color:#6a3e3e">request</span><span style="color:#000000">]. Les produits sont supprimés</span></span>
 <span class="odt-code-line"> par la méthode [deleteEntitiesById] de la couche </span>
 <span class="odt-code-line">[DaoProduit].</span>
-</code></pre></div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div class="odt-code-rich" data-linenums="false" style="counter-reset: odtline 0;"><pre><code class="language-java">
+</code></pre></div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div class="odt-code-rich" data-linenums="false" style="counter-reset: odtline 0;"><pre><code class="language-javascript">
 <span class="odt-code-line"><span style="color:#646464">@RequestMapping</span><span style="color:#000000">(value = </span><span style="color:#2a00ff">&quot;/deleteProduitsByName&quot;</span><span style="color:#000000">,</span></span>
 <span class="odt-code-line"><span style="color:#000000"> method = RequestMethod.</span><span style="font-weight:bold;font-style:italic;color:#0000c0">POST</span><span style="color:#000000">, consumes =</span></span>
 <span class="odt-code-line"><span style="color:#000000"> </span><span style="color:#2a00ff">&quot;application/json; charset=UTF-8&quot;</span><span style="color:#000000">)</span></span>
@@ -1738,7 +1738,7 @@
 <span class="odt-code-line"><span style="color:#000000"> [HttpServletRequest </span><span style="color:#6a3e3e">request</span><span style="color:#000000">]. Les produits sont supprimés</span></span>
 <span class="odt-code-line"> par la méthode [deleteEntitiesByname] de la couche</span>
 <span class="odt-code-line"> [DaoProduit].</span>
-</code></pre></div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div class="odt-code-rich" data-linenums="false" style="counter-reset: odtline 0;"><pre><code class="language-java">
+</code></pre></div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div class="odt-code-rich" data-linenums="false" style="counter-reset: odtline 0;"><pre><code class="language-text">
 <span class="odt-code-line"><span style="color:#646464">@RequestMapping</span><span style="color:#000000">(value = </span><span style="color:#2a00ff">&quot;/getAllShortProduits&quot;</span><span style="color:#000000">,</span></span>
 <span class="odt-code-line"><span style="color:#000000"> method = RequestMethod.</span><span style="font-weight:bold;font-style:italic;color:#0000c0">GET</span><span style="color:#000000">)</span></span>
 </code></pre></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div class="odt-code-rich" data-linenums="false" style="counter-reset: odtline 0;"><pre><code class="language-text">
@@ -1747,7 +1747,7 @@
 <span class="odt-code-line">L&#x27;URL n&#x27;a aucun paramètre. Les catégories courtes sont</span>
 <span class="odt-code-line"> obtenues par la méthode [getAllShortEntities] de la couche</span>
 <span class="odt-code-line"> [DaoProduit].</span>
-</code></pre></div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div class="odt-code-rich" data-linenums="false" style="counter-reset: odtline 0;"><pre><code class="language-java">
+</code></pre></div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div class="odt-code-rich" data-linenums="false" style="counter-reset: odtline 0;"><pre><code class="language-text">
 <span class="odt-code-line"><span style="color:#646464">@RequestMapping</span><span style="color:#000000">(value = </span><span style="color:#2a00ff">&quot;/getAllLongProduits&quot;</span><span style="color:#000000">,</span></span>
 <span class="odt-code-line"><span style="color:#000000"> method = RequestMethod.</span><span style="font-weight:bold;font-style:italic;color:#0000c0">GET</span><span style="color:#000000">)</span></span>
 </code></pre></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div class="odt-code-rich" data-linenums="false" style="counter-reset: odtline 0;"><pre><code class="language-text">
@@ -1756,7 +1756,7 @@
 <span class="odt-code-line">L&#x27;URL n&#x27;a aucun paramètre. Les produits longs sont obtenus</span>
 <span class="odt-code-line"> par la méthode [getAllLongEntities] de la couche</span>
 <span class="odt-code-line"> [DaoProduit].</span>
-</code></pre></div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div class="odt-code-rich" data-linenums="false" style="counter-reset: odtline 0;"><pre><code class="language-java">
+</code></pre></div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div class="odt-code-rich" data-linenums="false" style="counter-reset: odtline 0;"><pre><code class="language-text">
 <span class="odt-code-line"><span style="color:#646464">@RequestMapping</span><span style="color:#000000">(value = </span><span style="color:#2a00ff">&quot;/getLongProduitsById&quot;</span><span style="color:#000000">,</span></span>
 <span class="odt-code-line"><span style="color:#000000"> method = RequestMethod.</span><span style="font-weight:bold;font-style:italic;color:#0000c0">POST</span><span style="color:#000000">)</span></span>
 </code></pre></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div class="odt-code-rich" data-linenums="false" style="counter-reset: odtline 0;"><pre><code class="language-javascript">
@@ -1769,7 +1769,7 @@
 <span class="odt-code-line">obtenus par la méthode [getLongEntitiesById] de la couche</span>
 <span class="odt-code-line"></span>
 <span class="odt-code-line"> [DaoProduit].</span>
-</code></pre></div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div class="odt-code-rich" data-linenums="false" style="counter-reset: odtline 0;"><pre><code class="language-java">
+</code></pre></div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div class="odt-code-rich" data-linenums="false" style="counter-reset: odtline 0;"><pre><code class="language-text">
 <span class="odt-code-line"><span style="color:#646464">@RequestMapping</span><span style="color:#000000">(value = </span><span style="color:#2a00ff">&quot;/getLongProduitsByName&quot;</span><span style="color:#000000">,</span></span>
 <span class="odt-code-line"><span style="color:#000000"> method = RequestMethod.</span><span style="font-weight:bold;font-style:italic;color:#0000c0">POST</span><span style="color:#000000">)</span></span>
 </code></pre></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div class="odt-code-rich" data-linenums="false" style="counter-reset: odtline 0;"><pre><code class="language-javascript">
@@ -1780,7 +1780,7 @@
 <span class="odt-code-line"> Ceux-ci sont accessibles dans l&#x27;objet [HttpServletRequest</span>
 <span class="odt-code-line"><span style="color:#000000"> </span><span style="color:#6a3e3e">request</span><span style="color:#000000">]. Les produits longs sont obtenus par la méthode</span></span>
 <span class="odt-code-line"> [getLongEntitiesByName] de la couche [DaoProduit].</span>
-</code></pre></div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div class="odt-code-rich" data-linenums="false" style="counter-reset: odtline 0;"><pre><code class="language-java">
+</code></pre></div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div class="odt-code-rich" data-linenums="false" style="counter-reset: odtline 0;"><pre><code class="language-text">
 <span class="odt-code-line"><span style="color:#646464">@RequestMapping</span><span style="color:#000000">(value = </span><span style="color:#2a00ff">&quot;/getShortProduitsByName&quot;</span><span style="color:#000000">,</span></span>
 <span class="odt-code-line"><span style="color:#000000"> method = RequestMethod.</span><span style="font-weight:bold;font-style:italic;color:#0000c0">POST</span><span style="color:#000000">)</span></span>
 </code></pre></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div class="odt-code-rich" data-linenums="false" style="counter-reset: odtline 0;"><pre><code class="language-javascript">
@@ -1791,7 +1791,7 @@
 <span class="odt-code-line"> Ceux-ci sont accessibles dans l&#x27;objet [HttpServletRequest</span>
 <span class="odt-code-line"><span style="color:#000000"> </span><span style="color:#6a3e3e">request</span><span style="color:#000000">]. Les produits courts sont obtenus par la méthode </span></span>
 <span class="odt-code-line">[getShortEntitiesByName] de la couche [DaoProduit].</span>
-</code></pre></div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div class="odt-code-rich" data-linenums="false" style="counter-reset: odtline 0;"><pre><code class="language-java">
+</code></pre></div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div class="odt-code-rich" data-linenums="false" style="counter-reset: odtline 0;"><pre><code class="language-text">
 <span class="odt-code-line"><span style="color:#646464">@RequestMapping</span><span style="color:#000000">(value = </span><span style="color:#2a00ff">&quot;/getShortProduitsById&quot;</span><span style="color:#000000">,</span></span>
 <span class="odt-code-line"><span style="color:#000000"> method = RequestMethod.</span><span style="font-weight:bold;font-style:italic;color:#0000c0">POST</span><span style="color:#000000">)</span></span>
 </code></pre></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div class="odt-code-rich" data-linenums="false" style="counter-reset: odtline 0;"><pre><code class="language-javascript">
@@ -1810,7 +1810,7 @@
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/100000000000013000000156DDC0E700.png" style="display:inline-block; margin:4px;width:5.611cm;height:6.311cm;" class="odt-zoomable" data-zoom-src="images/100000000000013000000156DDC0E700.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td></tr></table>
 
 <p><span style="color: #000000">La liste des URL exposées par le service web montre qu&#x27;on offre les mêmes types d&#x27;URL pour gérer les catégories et les produits. Plutôt que d&#x27;écrire deux contrôleurs très semblables, on va les faire dériver d&#x27;une classe qui fera tout le travail commun aux deux contrôleurs. Ce sera la classe [AbstractController] ci-dessus. Cette classe implémentera l&#x27;interface [Iws] suivante :</span></p>
-<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-java">
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
 <span class="odt-code-line"><span style="font-weight:bold;color:#7f0055">package</span><span style="color:#000000"> spring.webjson.server.service;</span></span>
 <span class="odt-code-line"></span>
 <span class="odt-code-line"><span style="font-weight:bold;color:#7f0055">import</span><span style="color:#000000"> java.util.List;</span></span>
@@ -1850,7 +1850,7 @@
 </code></pre></div>
 
 <p><span style="color: #000000">Cette interface reprend les méthodes de l&#x27;interface de la couche [DAO] qui va être exploitée :</span></p>
-<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-java">
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
 <span class="odt-code-line"><span style="font-weight:bold;color:#7f0055">package</span><span style="color:#000000"> spring.jdbc.dao;</span></span>
 <span class="odt-code-line"></span>
 <span class="odt-code-line"><span style="font-weight:bold;color:#7f0055">import</span><span style="color:#000000"> java.util.List;</span></span>
@@ -1913,7 +1913,7 @@
 <p><span style="color: #000000">Toutes les réponses du service web seront encapsulées dans l&#x27;objet [Response] suivant :</span></p>
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/1000000000000111000000EF4D5217EF.png" style="display:inline-block; margin:4px;width:5.05cm;height:4.431cm;" class="odt-zoomable" data-zoom-src="images/1000000000000111000000EF4D5217EF.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td></tr></table>
 
-<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-java">
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-text">
 <span class="odt-code-line"><span style="font-weight:bold;color:#7f0055">package</span> spring.webjson.server.service;</span>
 <span class="odt-code-line"></span>
 <span class="odt-code-line"></span>
@@ -1953,7 +1953,7 @@
 </li>
 </ul>
 <p><span style="color: #000000">La classe [AbstractController] est la suivante :</span></p>
-<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-java">
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
 <span class="odt-code-line"><span style="font-weight:bold;color:#7f0055">package</span> spring.webjson.server.service;</span>
 <span class="odt-code-line"></span>
 <span class="odt-code-line"><span style="font-weight:bold;color:#7f0055">import</span><span style="color:#000000"> java.util.List;</span></span>
@@ -2075,7 +2075,7 @@
 <li><span style="color: #000000">elles gèrent les exceptions qui peuvent se produire, soit dans l&#x27;opération 1 de récupération des paramètres, soit dans l&#x27;opération 2 d&#x27;appel à la couche [DAO] ;</span></li>
 </ol>
 <p><span style="color: #000000">Examinons d&#x27;abord comment est injectée la couche [DAO] dans la classe [AbstractController] :</span></p>
-<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-java">
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-text">
 <span class="odt-code-line"><span style="font-weight:bold;color:#7f0055">public</span> <span style="font-weight:bold;color:#7f0055">abstract</span> <span style="font-weight:bold;color:#7f0055">class</span> AbstractController&lt;T <span style="font-weight:bold;color:#7f0055">extends</span> AbstractCoreEntity&gt; <span style="font-weight:bold;color:#7f0055">implements</span> Iws&lt;T&gt; {</span>
 <span class="odt-code-line"></span>
 <span class="odt-code-line"><span style="color:#000000">    </span><span style="color:#646464">@Autowired</span></span>
@@ -2165,7 +2165,7 @@
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/1000000000000111000000EFBE2E9891.png" style="display:inline-block; margin:4px;width:5.05cm;height:4.431cm;" class="odt-zoomable" data-zoom-src="images/1000000000000111000000EFBE2E9891.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td></tr></table>
 
 <p><span style="color: #000000">Le contrôleur [CategorieController] gère le traitement des URL concernant les catégories :</span></p>
-<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-java">
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
 <span class="odt-code-line"><span style="font-weight:bold;color:#7f0055">package</span><span style="color:#000000"> spring.webjson.server.service;</span></span>
 <span class="odt-code-line"></span>
 <span class="odt-code-line"><span style="font-weight:bold;color:#7f0055">import</span><span style="color:#000000"> java.util.ArrayList;</span></span>
@@ -2300,21 +2300,21 @@
 <li><span style="color: #000000">envoi de la réponse ;</span></li>
 </ul>
 <p><span style="color: #000000">Intéressons-nous à la signature de quelques URL :</span></p>
-<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div class="odt-code-rich" data-linenums="false" style="counter-reset: odtline 0;"><pre><code class="language-java">
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div class="odt-code-rich" data-linenums="false" style="counter-reset: odtline 0;"><pre><code class="language-text">
 <span class="odt-code-line"><span style="color:#646464">@RequestMapping</span><span style="color:#000000">(value = </span><span style="color:#2a00ff">&quot;/getAllShortCategories&quot;</span><span style="color:#000000">, method</span></span>
 <span class="odt-code-line"><span style="color:#000000"> = RequestMethod.</span><span style="font-weight:bold;font-style:italic;color:#0000c0">GET</span><span style="color:#000000">)</span></span>
-</code></pre></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;">- l&#x27;URL [<span style="color: #2a00ff">/getAllShortCategories</span>] est appelée avec un GET</p></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div class="odt-code-rich" data-linenums="false" style="counter-reset: odtline 0;"><pre><code class="language-java">
+</code></pre></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;">- l&#x27;URL [<span style="color: #2a00ff">/getAllShortCategories</span>] est appelée avec un GET</p></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div class="odt-code-rich" data-linenums="false" style="counter-reset: odtline 0;"><pre><code class="language-text">
 <span class="odt-code-line"><span style="color:#646464">@RequestMapping</span><span style="color:#000000">(value = </span><span style="color:#2a00ff">&quot;/getShortCategoriesById&quot;</span><span style="color:#000000">,</span></span>
 <span class="odt-code-line"><span style="color:#000000"> method = RequestMethod.</span><span style="font-weight:bold;font-style:italic;color:#0000c0">POST</span><span style="color:#000000">, consumes =</span></span>
 <span class="odt-code-line"><span style="color:#000000"> </span><span style="color:#2a00ff">&quot;application/json; charset=UTF-8&quot;</span><span style="color:#000000">)</span></span>
-</code></pre></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;">- l&#x27;URL [<span style="color: #2a00ff">/getShortCategoriesById</span>] est appelée avec un POST. La valeur postée est la chaîne jSON des clés primaires des</p><p style="margin:0;"> catégories désirées ;</p></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div class="odt-code-rich" data-linenums="false" style="counter-reset: odtline 0;"><pre><code class="language-java">
+</code></pre></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;">- l&#x27;URL [<span style="color: #2a00ff">/getShortCategoriesById</span>] est appelée avec un POST. La valeur postée est la chaîne jSON des clés primaires des</p><p style="margin:0;"> catégories désirées ;</p></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div class="odt-code-rich" data-linenums="false" style="counter-reset: odtline 0;"><pre><code class="language-text">
 <span class="odt-code-line"><span style="color:#646464">@RequestMapping</span><span style="color:#000000">(value = </span><span style="color:#2a00ff">&quot;/getLongCategoriesByName&quot;</span><span style="color:#000000">,</span></span>
 <span class="odt-code-line"><span style="color:#000000"> method = RequestMethod.</span><span style="font-weight:bold;font-style:italic;color:#0000c0">POST</span><span style="color:#000000">, consumes =</span></span>
 <span class="odt-code-line"><span style="color:#000000"> </span><span style="color:#2a00ff">&quot;application/json; charset=UTF-8&quot;</span><span style="color:#000000">)</span></span>
 </code></pre></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;">- l&#x27;URL [<span style="color: #2a00ff">/</span><span style="color: #2a00ff">getLongCategoriesByName</span>] est appelée avec un</p><p style="margin:0;">POST. La valeur postée est la chaîne jSON des noms des</p><p style="margin:0;"> catégories désirées ;</p></td></tr></table>
 
 <p><span style="color: #000000">Maintenant, détaillons la méthode [saveCategories] qui ne suit pas le format des autres méthodes :</span></p>
-<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-java">
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-javascript">
 <span class="odt-code-line"><span style="color:#000000">    </span><span style="color:#646464">@RequestMapping</span><span style="color:#000000">(value = </span><span style="color:#2a00ff">&quot;/saveCategories&quot;</span><span style="color:#000000">, method = RequestMethod.</span><span style="font-weight:bold;font-style:italic;color:#0000c0">POST</span><span style="color:#000000">, consumes = </span><span style="color:#2a00ff">&quot;application/json; charset=UTF-8&quot;</span><span style="color:#000000">)</span></span>
 <span class="odt-code-line"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">public</span><span style="color:#000000"> Response&lt;List&lt;CoreCategorie&gt;&gt; saveCategories(HttpServletRequest </span><span style="color:#6a3e3e">request</span><span style="color:#000000">) {</span></span>
 <span class="odt-code-line"><span style="color:#000000">        </span><span style="color:#3f7f5f">// on persiste les catégories</span></span>
@@ -2358,7 +2358,7 @@
 </ul>
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/1000000000000119000000B01BEF58A6.png" style="display:inline-block; margin:4px;width:5.2cm;height:3.26cm;" class="odt-zoomable" data-zoom-src="images/1000000000000119000000B01BEF58A6.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td></tr></table>
 
-<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-java">
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
 <span class="odt-code-line"><span style="font-weight:bold;color:#7f0055">package</span><span style="color:#000000"> spring.webjson.server.entities;</span></span>
 <span class="odt-code-line"></span>
 <span class="odt-code-line"><span style="font-weight:bold;color:#7f0055">import</span><span style="color:#000000"> java.util.List;</span></span>
@@ -2389,7 +2389,7 @@
 <li><span style="color: #000000">ligne 8 : la clé primaire d&#x27;un produit ;</span></li>
 <li><span style="color: #000000">ligne 20 : les clés primaires de ses produits ;</span></li>
 </ul>
-<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-java">
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-text">
 <span class="odt-code-line"><span style="font-weight:bold;color:#7f0055">package</span><span style="color:#000000"> spring.webjson.server.entities;</span></span>
 <span class="odt-code-line"></span>
 <span class="odt-code-line"><span style="font-weight:bold;color:#7f0055">public</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">class</span><span style="color:#000000"> CoreProduit {</span></span>
@@ -2450,7 +2450,7 @@
 <li><span style="color: #000000">la sérialisation du résultat : elle est ici gérée implicitement ;</span></li>
 </ul>
 <p><span style="color: #000000">Commençons par la désérialisation de la valeur postée dans [CategorieController.saveCategories] :</span></p>
-<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-java">
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-javascript">
 <span class="odt-code-line">    <span style="color:#646464">@RequestMapping</span>(value = <span style="color:#2a00ff">&quot;/saveCategories&quot;</span>, method = RequestMethod.<span style="font-weight:bold;font-style:italic;color:#0000c0">POST</span>, consumes = <span style="color:#2a00ff">&quot;application/json; charset=UTF-8&quot;</span>)</span>
 <span class="odt-code-line"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">public</span><span style="color:#000000"> Response&lt;List&lt;CoreCategorie&gt;&gt; saveCategories(HttpServletRequest </span><span style="color:#6a3e3e">request</span><span style="color:#000000">) {</span></span>
 <span class="odt-code-line"><span style="color:#000000">        </span><span style="color:#3f7f5f">// on persiste les catégories</span></span>
@@ -2466,7 +2466,7 @@
 <ul>
 <li><span style="color: #000000">ligne 8 : on récupère dans le contexte Spring un mappeur configuré pour gérer le filtre jSON [<span style="color: #2a00ff">jsonMapperLongCategorie</span>]. Revenons à la définition de ce mappeur dans la classe de configuration [WebConfig] :</span></li>
 </ul>
-<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-java">
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-text">
 <span class="odt-code-line">// -------------------------------- configuration filtres [json]</span>
 <span class="odt-code-line"><span style="color:#000000">    </span><span style="color:#3f7f5f">// mapping jSON</span></span>
 <span class="odt-code-line"><span style="color:#000000">    </span><span style="color:#646464">@Bean</span></span>
@@ -2526,7 +2526,7 @@
 </code></pre></div>
 
 <p><span style="color: #000000">est le convertisseur utilisé par défaut par Spring MVC pour désérialiser la valeur postée par le client et sérialiser le résultat qui lui est envoyé. Dans les lignes ci-dessus, il n&#x27;y a pas eu de désérialisation implicite de la valeur postée. Pour cela, il aurait fallu écrire :</span></p>
-<div class="odt-code-rich" data-linenums="false" style="counter-reset: odtline 0;"><pre><code class="language-java">
+<div class="odt-code-rich" data-linenums="false" style="counter-reset: odtline 0;"><pre><code class="language-text">
 <span class="odt-code-line">    <span style="color:#646464">@RequestMapping</span>(value = <span style="color:#2a00ff">&quot;/saveCategories&quot;</span>, method = RequestMethod.<span style="font-weight:bold;font-style:italic;color:#0000c0">POST</span>, consumes = <span style="color:#2a00ff">&quot;application/json; charset=UTF-8&quot;</span>)</span>
 <span class="odt-code-line"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">public</span><span style="color:#000000"> Response&lt;List&lt;CoreCategorie&gt;&gt; saveCategories(</span><span style="background-color:#ff950e;color:#6a3e3e">@RequestBody List&lt;Categorie&gt; categories</span><span style="color:#000000">) {</span></span>
 </code></pre></div>
@@ -2537,7 +2537,7 @@
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/1000000000000111000000EFE4768C02.png" style="display:inline-block; margin:4px;width:5.611cm;height:4.912cm;" class="odt-zoomable" data-zoom-src="images/1000000000000111000000EFE4768C02.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td></tr></table>
 
 <p><span style="color: #000000">Le contrôleur [ProduitController] gère le traitement des URL concernant les produits. Son code est analogue à celui du contrôleur [CategorieController] :</span></p>
-<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-java">
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
 <span class="odt-code-line"><span style="font-weight:bold;color:#7f0055">package</span><span style="color:#000000"> spring.webjson.server.service;</span></span>
 <span class="odt-code-line"></span>
 <span class="odt-code-line"><span style="font-weight:bold;color:#7f0055">import</span><span style="color:#000000"> java.util.ArrayList;</span></span>
@@ -2658,7 +2658,7 @@
 </code></pre></div>
 
 <p><span style="color: #000000">Seule la méthode [saveProduits] présente une structure différente des autres méthodes :</span></p>
-<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-java">
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-javascript">
 <span class="odt-code-line"><span style="color:#646464">@RequestMapping</span><span style="color:#000000">(value = </span><span style="color:#2a00ff">&quot;/saveProduits&quot;</span><span style="color:#000000">, method = RequestMethod.</span><span style="font-weight:bold;font-style:italic;color:#0000c0">POST</span><span style="color:#000000">, consumes = </span><span style="color:#2a00ff">&quot;application/json; charset=UTF-8&quot;</span><span style="color:#000000">)</span></span>
 <span class="odt-code-line"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">public</span><span style="color:#000000"> Response&lt;List&lt;CoreProduit&gt;&gt; saveProduits(HttpServletRequest </span><span style="color:#6a3e3e">request</span><span style="color:#000000">) {</span></span>
 <span class="odt-code-line"><span style="color:#000000">        </span><span style="font-weight:bold;color:#7f0055">try</span><span style="color:#000000"> {</span></span>
@@ -2695,7 +2695,7 @@
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000000FC0000007FC2C0D589.png" style="display:inline-block; margin:4px;width:4.671cm;height:2.35cm;" class="odt-zoomable" data-zoom-src="images/10000000000000FC0000007FC2C0D589.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td></tr></table>
 
 <p><span style="color: #000000">La classe [Boot] est la classe exécutable du projet :</span></p>
-<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-java">
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
 <span class="odt-code-line"><span style="font-weight:bold;color:#7f0055">package</span><span style="color:#000000"> spring.webjson.server.boot;</span></span>
 <span class="odt-code-line"></span>
 <span class="odt-code-line"><span style="font-weight:bold;color:#7f0055">import</span><span style="color:#000000"> org.springframework.boot.SpringApplication;</span></span>

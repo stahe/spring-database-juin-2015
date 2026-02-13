@@ -1670,7 +1670,7 @@
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000000E80000010D53068F3A.png" style="display:inline-block; margin:4px;width:4.3cm;height:4.979cm;" class="odt-zoomable" data-zoom-src="images/10000000000000E80000010D53068F3A.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td></tr></table>
 
 <p>La classe [AppConfig] qui configure le projet Spring est la suivante :</p>
-<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-java">
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-csharp">
 <span class="odt-code-line"><span style="font-weight:bold;color:#7f0055">package</span><span style="color:#000000"> spring.jdbc.config;</span></span>
 <span class="odt-code-line"></span>
 <span class="odt-code-line"><span style="font-weight:bold;color:#7f0055">import</span><span style="color:#000000"> generic.jdbc.config.ConfigJdbc;</span></span>
@@ -1758,7 +1758,7 @@
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/1000000000000121000000BC7074573C.png" style="display:inline-block; margin:4px;width:5.35cm;height:3.48cm;" class="odt-zoomable" data-zoom-src="images/1000000000000121000000BC7074573C.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td></tr></table>
 
 <p>Nous avons déjà vu les classes [UncheckedException, DaoException, ShortException] dans le projet [spring-jdbc-03]. Nous en ajoutons une nouvelle :</p>
-<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-java">
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-text">
 <span class="odt-code-line"><span style="font-weight:bold;color:#7f0055">package</span><span style="color:#000000"> spring.jdbc.infrastructure;</span></span>
 <span class="odt-code-line"></span>
 <span class="odt-code-line"><span style="font-weight:bold;color:#7f0055">public</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">class</span><span style="color:#000000"> MyIllegalArgumentException </span><span style="font-weight:bold;color:#7f0055">extends</span><span style="color:#000000"> UncheckedException {</span></span>
@@ -1786,7 +1786,7 @@
 
 <p>Les classes du package [spring.jdbc.entities] sont les images des lignes des tables de la base de données [dbproduitscategories]. Nous ignorerons pour l&#x27;instant, les images des tables [USERS, ROLES, USERS_ROLE].</p>
 <p>Toutes les entités étendent la classe parent [<span style="color: #000000">AbstractCoreEntity</span>] :</p>
-<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-java">
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-text">
 <span class="odt-code-line"><span style="font-weight:bold;color:#7f0055">package</span><span style="color:#000000"> spring.jdbc.entities;</span></span>
 <span class="odt-code-line"></span>
 <span class="odt-code-line"><span style="font-weight:bold;color:#7f0055">public</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">abstract</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">class</span><span style="color:#000000"> AbstractCoreEntity {</span></span>
@@ -1848,7 +1848,7 @@
 <li>lignes 30-33 : une proposition de [hashCode] ;</li>
 </ul>
 <p>La classe [Produit] sera l&#x27;image d&#x27;une ligne de la table [PRODUITS] :</p>
-<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-java">
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
 <span class="odt-code-line"><span style="font-weight:bold;color:#7f0055">package</span><span style="color:#000000"> spring.jdbc.entities;</span></span>
 <span class="odt-code-line"></span>
 <span class="odt-code-line"><span style="font-weight:bold;color:#7f0055">import</span><span style="color:#000000"> com.fasterxml.jackson.annotation.JsonFilter;</span></span>
@@ -1895,7 +1895,7 @@
 <li>ligne 5 : un filtre jSON. On rappelle que le projet [mysql-config-jdbc] embarque une bibliothèque jSON. La nécssité du filtre vien du fait que le champ [categorie] peut être renseigné ou non. Dans ce cas, la représentation jSON du produit diffère. Pour gérer ces deux cas, on configurera le filtre [<span style="color: #2a00ff">jsonFilterProduit</span>] de la ligne 5. Un filtre jSON permet de préciser, de façon dynamique, les champs à exclure de la représentation jSON. Lorsqu&#x27;on saura que le champ [categorie] n&#x27;a pas été renseigné, on l&#x27;exclura de la représentation jSON du produit ;</li>
 </ul>
 <p>La classe [Categorie] est l&#x27;image d&#x27;une ligne de la table [CATEGORIES] :</p>
-<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-java">
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
 <span class="odt-code-line"><span style="font-weight:bold;color:#7f0055">package</span><span style="color:#000000"> spring.jdbc.entities;</span></span>
 <span class="odt-code-line"></span>
 <span class="odt-code-line"><span style="font-weight:bold;color:#7f0055">import</span><span style="color:#000000"> java.util.ArrayList;</span></span>
@@ -1960,7 +1960,7 @@
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000000EE000000C7690B2175.png" style="display:inline-block; margin:4px;width:4.41cm;height:3.679cm;" class="odt-zoomable" data-zoom-src="images/10000000000000EE000000C7690B2175.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td></tr></table>
 
 <p>L&#x27;interface [IDao] de la couche [DAO] a la signature suivante :</p>
-<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-java">
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
 <span class="odt-code-line"><span style="font-weight:bold;color:#7f0055">package</span><span style="color:#000000"> spring.jdbc.dao;</span></span>
 <span class="odt-code-line"></span>
 <span class="odt-code-line"><span style="font-weight:bold;color:#7f0055">import</span><span style="color:#000000"> java.util.List;</span></span>
@@ -2062,7 +2062,7 @@
 <li>l&#x27;interface IDao&lt;Categorie&gt; est implémentée par la classe [DaoCategorie] ;</li>
 </ul>
 <p>Les classes [DaoProduit] et [DaoCategorie] étendent toutes deux la classe abstraite [<a id="abstractdao"></a>AbstractDao] suivante :</p>
-<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-java">
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
 <span class="odt-code-line"><span style="font-weight:bold;color:#7f0055">package</span><span style="color:#000000"> spring.jdbc.dao;</span></span>
 <span class="odt-code-line"></span>
 <span class="odt-code-line"><span style="font-weight:bold;color:#7f0055">import</span><span style="color:#000000"> java.util.ArrayList;</span></span>
@@ -2282,7 +2282,7 @@
 <p><span style="color: #000000">Voyons quelques méthodes de la classe [AbstractDao].</span></p>
 <p><u><strong>Méthode [getShortEntitiesById]</strong></u></p>
 <p><span style="color: #000000">Cette méthode vise à obtenir la version courte d&#x27;entités dont on donne les clés primaires.</span></p>
-<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-java">
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-text">
 <span class="odt-code-line"><span style="color:#000000">    </span><span style="color:#3f7f5f">// injections</span></span>
 <span class="odt-code-line"><span style="color:#000000">    </span><span style="color:#646464">@Autowired</span></span>
 <span class="odt-code-line"><span style="color:#000000">    </span><span style="color:#646464">@Qualifier</span><span style="color:#000000">(</span><span style="color:#2a00ff">&quot;maxPreparedStatementParameters&quot;</span><span style="color:#000000">)</span></span>
@@ -2301,7 +2301,7 @@
 <ul>
 <li><span style="color: #000000">lignes 2-4 : on injecte le bean [</span><span style="color: #2a00ff">maxPreparedStatementParameters</span><span style="color: #000000">] défini dans le fichier de configuration [ConfigJdbc] qui configure la couche JDBC d&#x27;un SGBD particulier :</span></li>
 </ul>
-<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-java">
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-text">
 <span class="odt-code-line"><span style="color:#000000">    </span><span style="color:#3f7f5f">// nombre max de paramètres d&#x27;un [PreparedStatement]</span></span>
 <span class="odt-code-line"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">public</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">final</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">static</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">int</span><span style="color:#000000"> </span><span style="font-weight:bold;font-style:italic;color:#0000c0">MAX_PREPAREDSTATEMENT_PARAMETERS</span><span style="color:#000000"> = 10000;</span></span>
 <span class="odt-code-line"></span>
@@ -2315,7 +2315,7 @@
 <li><span style="color: #000000">lignes 1-7 : définissent le bean [maxPreparedStatementParameters] qui va fixer le nombre maximum de paramètres ? qu&#x27;on pourra donner à un type [PreparedStatement]. Ce besoin n&#x27;est pas apparu avec le SGBD MySQL qui a accepté 10000 paramètres pour un type [PreparedStatement]. Lors des tests avec le SGBD SQL Server, celui-ci a jeté une exception indiquant que le nombre maximum de paramètres pour un type [PreparedStatement] était de 2100. Aussi ce nombre est-il devenu un paramètre de la configuration des différents SGBD. Il doit donc être placé dans le projet de configuration [sgbd-config-jdbc] de chaque SGBD ;</span></li>
 </ul>
 <p><span style="color: #000000">Revenons au code de la méthode [getShortEntitiesById] :</span></p>
-<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-java">
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-text">
 <span class="odt-code-line"><span style="color:#000000">    </span><span style="color:#3f7f5f">// injections</span></span>
 <span class="odt-code-line"><span style="color:#000000">    </span><span style="color:#646464">@Autowired</span></span>
 <span class="odt-code-line"><span style="color:#000000">    </span><span style="color:#646464">@Qualifier</span><span style="color:#000000">(</span><span style="color:#2a00ff">&quot;maxPreparedStatementParameters&quot;</span><span style="color:#000000">)</span></span>
@@ -2401,7 +2401,7 @@
 </code></pre></div>
 
 <p><span style="color: #000000">Revenons au code de la méthode [getShortEntitiesById] :</span></p>
-<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-java">
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-text">
 <span class="odt-code-line"><span style="color:#000000">    </span><span style="color:#646464">@Override</span></span>
 <span class="odt-code-line"><span style="color:#000000">    </span><span style="color:#646464">@Transactional</span><span style="color:#000000">(readOnly = </span><span style="font-weight:bold;color:#7f0055">true</span><span style="color:#000000">)</span></span>
 <span class="odt-code-line"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">public</span><span style="color:#000000"> List&lt;T&gt; getShortEntitiesById(Iterable&lt;Long&gt; </span><span style="color:#6a3e3e">ids</span><span style="color:#000000">) {</span></span>
@@ -2529,7 +2529,7 @@
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000000EE000000C7690B2175.png" style="display:inline-block; margin:4px;width:4.41cm;height:3.679cm;" class="odt-zoomable" data-zoom-src="images/10000000000000EE000000C7690B2175.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td></tr></table>
 
 <p><span style="color: #000000">La classe [DaoCategorie] implémente l&#x27;interface [IDao&lt;Categorie&gt;] qui assure l&#x27;accès aux données de la table [CATEGORIES] de la base MySQL [dbproduitscategories]. Son quelette est le suivant :</span></p>
-<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-java">
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
 <span class="odt-code-line"><span style="font-weight:bold;color:#7f0055">package</span> spring.jdbc.dao;</span>
 <span class="odt-code-line"></span>
 <span class="odt-code-line"><span style="font-weight:bold;color:#7f0055">import</span><span style="color:#000000"> generic.jdbc.config.ConfigJdbc;</span></span>
@@ -3089,7 +3089,7 @@
 <li><span style="color: #000000">lignes 35-39 : ce code relie chaque produit à sa catégorie. Dans la phase précédente d&#x27;insertion des catégories, celles-ci ont reçu une clé primaire qu&#x27;il faut mettre dans le champ [idCategorie] du produit (ligne 37). Par ailleurs, les lignes 37-38 permettent de corriger les situations où l&#x27;appelant n&#x27;a pas relié correctement chaque produit à sa catégorie. Pour que cette relation soit correcte, il faut utiliser la méthode [Categorie] .add(Produit p) mais rien n&#x27;empêche un utilisateur d&#x27;ajouter un produit directement à la liste des produits de la catégorie sans passer par cette méthode au risque d&#x27;avoir les champs [idCategorie, categorie] du produit p mal renseignés ;</span></li>
 <li><span style="color: #000000">ligne 43 : on délègue à l&#x27;instance de l&#x27;interface [IDao&lt;Produit&gt;] le soin de persister  / mettre à jour les produits. On rappelle que cette instance a été injectée dans la classe [DaoCategorie] :</span></li>
 </ul>
-<div class="odt-code-rich" data-linenums="false" style="counter-reset: odtline 0;"><pre><code class="language-java">
+<div class="odt-code-rich" data-linenums="false" style="counter-reset: odtline 0;"><pre><code class="language-text">
 <span class="odt-code-line"><span style="color:#000000">    </span><span style="color:#646464">@Autowired</span></span>
 <span class="odt-code-line"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">private</span><span style="color:#000000"> IDao&lt;Produit&gt; </span><span style="color:#0000c0">daoProduit</span><span style="color:#000000">;</span></span>
 </code></pre></div>
@@ -3123,7 +3123,7 @@
 <ul>
 <li><span style="color: #000000">ligne 6 : on utilise le bean [</span><span style="color: #0000c0">simpleJdbcInsertCategorie</span><span style="color: #000000">] injectée dans la classe par les lignes suivantes :</span></li>
 </ul>
-<div class="odt-code-rich" data-linenums="false" style="counter-reset: odtline 0;"><pre><code class="language-java">
+<div class="odt-code-rich" data-linenums="false" style="counter-reset: odtline 0;"><pre><code class="language-text">
 <span class="odt-code-line"><span style="color:#000000">    </span><span style="color:#646464">@Autowired</span></span>
 <span class="odt-code-line"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">private</span><span style="color:#000000"> SimpleJdbcInsert </span><span style="color:#0000c0">simpleJdbcInsertCategorie</span><span style="color:#000000">;</span></span>
 </code></pre></div>
@@ -3197,7 +3197,7 @@
 <p><a id="refheading1052382082896917"></a></p>
 <h4 id="49103-mise-a-jour-des-categories">4.9.10.3. Mise à jour des catégories</h4>
 <p>Les catégories sont mises à jour avec la méthode privée [updateCategories] suivante :</p>
-<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-java">
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-sql">
 <span class="odt-code-line"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">private</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">void</span><span style="color:#000000"> updateCategories(List&lt;Categorie&gt; </span><span style="color:#6a3e3e">categories</span><span style="color:#000000">) {</span></span>
 <span class="odt-code-line"><span style="color:#000000">        </span><span style="font-weight:bold;color:#7f0055">try</span><span style="color:#000000"> {</span></span>
 <span class="odt-code-line"><span style="color:#000000">            </span><span style="font-weight:bold;color:#7f0055">for</span><span style="color:#000000"> (Categorie </span><span style="color:#6a3e3e">categorie</span><span style="color:#000000"> : </span><span style="color:#6a3e3e">categories</span><span style="color:#000000">) {</span></span>
@@ -3256,7 +3256,7 @@
 <p><span style="color: #000000">L&#x27;ordre a trois paramètres (:id, :version, :nom) dont les valeurs sont dans les champs de mêmes nom de l&#x27;objet [categorie] modifié. On utilise cette particularité en passant comme second paramètre [<strong><span style="color: #7f0055">new</span></strong> BeanPropertySqlParameterSource(<span style="color: #6a3e3e">categorie</span>)] qui dit &quot; les valeurs des paramètres sont dans les champs de mêmes noms de ce Java bean &quot; ;</span></p>
 <p><span style="color: #000000">Le résultat rendu par cette opération, lorsqu&#x27;elle se passe normalement, est le nombre de lignes modifiées donc 0 ou 1.</span></p>
 <p><span style="color: #000000">Revenons au code étudié :</span></p>
-<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-java">
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-sql">
 <span class="odt-code-line"><span style="font-weight:bold;color:#7f0055">private</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">void</span><span style="color:#000000"> updateCategories(List&lt;Categorie&gt; </span><span style="color:#6a3e3e">categories</span><span style="color:#000000">) {</span></span>
 <span class="odt-code-line"><span style="color:#000000">        </span><span style="font-weight:bold;color:#7f0055">try</span><span style="color:#000000"> {</span></span>
 <span class="odt-code-line"><span style="color:#000000">            </span><span style="font-weight:bold;color:#7f0055">for</span><span style="color:#000000"> (Categorie </span><span style="color:#6a3e3e">categorie</span><span style="color:#000000"> : </span><span style="color:#6a3e3e">categories</span><span style="color:#000000">) {</span></span>
@@ -3302,7 +3302,7 @@
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000000EE000000C7690B2175.png" style="display:inline-block; margin:4px;width:4.41cm;height:3.679cm;" class="odt-zoomable" data-zoom-src="images/10000000000000EE000000C7690B2175.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td></tr></table>
 
 <p><span style="color: #000000">La classe [DaoProduit] implémente l&#x27;interface [IDao&lt;Produit&gt;] qui assure l&#x27;accès aux données de la table [PRODUITS] de la base MySQL [dbproduitscategories]. Son quelette est le suivant :</span></p>
-<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-java">
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-sql">
 <span class="odt-code-line"><span style="font-weight:bold;color:#7f0055">package</span> spring.jdbc.dao;</span>
 <span class="odt-code-line"></span>
 <span class="odt-code-line"><span style="font-weight:bold;color:#7f0055">import</span><span style="color:#000000"> generic.jdbc.config.ConfigJdbc;</span></span>
@@ -3548,7 +3548,7 @@
 <ul>
 <li>ligne 4 : on utilise le bean [<span style="color: #0000c0">simpleJdbcInsertProduit</span>] qui a été injecté dans la classe :</li>
 </ul>
-<div class="odt-code-rich" data-linenums="false" style="counter-reset: odtline 0;"><pre><code class="language-java">
+<div class="odt-code-rich" data-linenums="false" style="counter-reset: odtline 0;"><pre><code class="language-text">
 <span class="odt-code-line"><span style="color:#000000">    </span><span style="color:#646464">@Autowired</span></span>
 <span class="odt-code-line"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">private</span><span style="color:#000000"> SimpleJdbcInsert </span><span style="color:#0000c0">simpleJdbcInsertProduit</span><span style="color:#000000">;</span></span>
 </code></pre></div>
@@ -3573,7 +3573,7 @@
 </li>
 </ul>
 <p>La méthode [updateProduits] qui met à jour les produits (ligne 20 de [saveEntities]) est elle la suivante :</p>
-<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-java">
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-sql">
 <span class="odt-code-line"><span style="font-weight:bold;color:#7f0055">private</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">void</span><span style="color:#000000"> updateProduits(List&lt;Produit&gt; </span><span style="color:#6a3e3e">updateProduits</span><span style="color:#000000">) {</span></span>
 <span class="odt-code-line"><span style="color:#000000">        </span><span style="font-weight:bold;color:#7f0055">try</span><span style="color:#000000"> {</span></span>
 <span class="odt-code-line"><span style="color:#000000">            </span><span style="color:#3f7f5f">// on scanne les produits</span></span>
@@ -3629,7 +3629,7 @@
 <p><a id="refheading1052502082896917"></a></p>
 <h3 id="4111-le-test-junittestcheckarguments">4.11.1. Le test [JUnitTestCheckArguments]</h3>
 <p><span style="color: #000000">La classe de test [JUnitTestCheckArguments] a 48 méthodes qui testent la réaction des méthodes de la couche [DAO] lorsqu&#x27;elles sont appelées avec des arguments incorrects. Son squelette est le suivant :</span></p>
-<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-java">
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
 <span class="odt-code-line"><span style="font-weight:bold;color:#7f0055">package</span> spring.jdbc.tests;</span>
 <span class="odt-code-line"></span>
 <span class="odt-code-line"><span style="font-weight:bold;color:#7f0055">import</span><span style="color:#000000"> org.junit.Assert;</span></span>
@@ -3735,7 +3735,7 @@
 <p><a id="refheading1052542082896917"></a></p>
 <h4 id="41121-le-squelette-du-test">4.11.2.1. Le squelette du test</h4>
 <p><span style="color: #000000">La classe [JUnitTestDao] a le squelette suivant :</span></p>
-<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-java">
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
 <span class="odt-code-line"><span style="font-weight:bold;color:#7f0055">package</span> spring.jdbc.tests;</span>
 <span class="odt-code-line"></span>
 <span class="odt-code-line"><span style="font-weight:bold;color:#7f0055">import</span><span style="color:#000000"> java.util.ArrayList;</span></span>
@@ -3908,7 +3908,7 @@
 <li>ligne 17 : la liste des catégories persistée est rendue. Les entités persistées (catégories et produits) ont désormais une clé primaire dans leur champ [id] ;</li>
 </ul>
 <p>La méthode privée [registerCategories] va mettre ces entités dans les deux dictionnaires :</p>
-<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-java">
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-text">
 <span class="odt-code-line"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">private</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">void</span><span style="color:#000000"> registerCategories(List&lt;Categorie&gt; </span><span style="color:#6a3e3e">categories</span><span style="color:#000000">) {</span></span>
 <span class="odt-code-line"><span style="color:#000000">        </span><span style="color:#3f7f5f">// dictionnaires</span></span>
 <span class="odt-code-line"><span style="color:#000000">        </span><span style="font-weight:bold;color:#7f0055">for</span><span style="color:#000000"> (Categorie </span><span style="color:#6a3e3e">categorie</span><span style="color:#000000"> : </span><span style="color:#6a3e3e">categories</span><span style="color:#000000">) {</span></span>
@@ -3942,7 +3942,7 @@
 <li>ligne 11 : on retourne un tableau contenant les deux listes d&#x27;entités récupérées ;</li>
 <li>lignes 5 et 9 : les listes d&#x27;entités sont affichées avec la méthode privée [affiche] suivante :</li>
 </ul>
-<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-java">
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-text">
 <span class="odt-code-line"><span style="color:#000000">    </span><span style="color:#3f7f5f">// affichage d&#x27;une liste d&#x27;éléments de type T</span></span>
 <span class="odt-code-line"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">private</span><span style="color:#000000"> &lt;T&gt; </span><span style="font-weight:bold;color:#7f0055">void</span><span style="color:#000000"> affiche(List&lt;T&gt; </span><span style="color:#6a3e3e">elements</span><span style="color:#000000">, ObjectMapper </span><span style="color:#6a3e3e">mapper</span><span style="color:#000000">) </span><span style="font-weight:bold;color:#7f0055">throws</span><span style="color:#000000"> JsonProcessingException {</span></span>
 <span class="odt-code-line"><span style="color:#000000">        </span><span style="font-weight:bold;color:#7f0055">for</span><span style="color:#000000"> (T </span><span style="color:#6a3e3e">element</span><span style="color:#000000"> : </span><span style="color:#6a3e3e">elements</span><span style="color:#000000">) {</span></span>
@@ -3957,7 +3957,7 @@
 </code></pre></div>
 
 <p>Les entités sont affichées par un mappeur jSON (ligne 10). Ce mappeur est le second paramètre de la méthode [affiche], ligne 2. Le contexte Spring définit quatre mappeurs jSON dans le fichier [ConfigJdbc] de la dépendance Maven [mysql-config-jdbc] :</p>
-<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-java">
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-text">
 <span class="odt-code-line">// filtres jSON -------------------------------------</span>
 <span class="odt-code-line"><span style="color:#000000">    </span><span style="color:#646464">@Bean</span></span>
 <span class="odt-code-line"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">public</span><span style="color:#000000"> ObjectMapper jsonMapper() {</span></span>
@@ -4068,7 +4068,7 @@
 <li><span style="color: #000000">lignes 10-11 : des premières vérifications ;</span></li>
 <li><span style="color: #000000">lignes 12-14 : chaque catégorie ramenée par la méthode [showDataBase] est contrôlée par la méthode privée [checkShortCategorie] suivante :</span></li>
 </ul>
-<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-java">
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-text">
 <span class="odt-code-line">    <span style="font-weight:bold;color:#7f0055">private</span> <span style="font-weight:bold;color:#7f0055">void</span> checkShortCategorie(Categorie <span style="color:#6a3e3e">actual</span>) {</span>
 <span class="odt-code-line"><span style="color:#000000">        Long </span><span style="color:#6a3e3e">id</span><span style="color:#000000"> = </span><span style="color:#6a3e3e">actual</span><span style="color:#000000">.getId();</span></span>
 <span class="odt-code-line"><span style="color:#000000">        Categorie </span><span style="color:#6a3e3e">expected</span><span style="color:#000000"> = </span><span style="color:#0000c0">mapCategories</span><span style="color:#000000">.get(</span><span style="color:#6a3e3e">actual</span><span style="color:#000000">.getId());</span></span>
@@ -4086,7 +4086,7 @@
 <li>ligne 5 : on vérifie que les deux catégories ont le même nom ;</li>
 </ul>
 <p>La version courte des produits ramenés par la méthode [showDataBase] est vérifiée par la méthode privée [<span style="color: #000000">checkShortProduit</span>] suivante :</p>
-<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-java">
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-text">
 <span class="odt-code-line"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">private</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">void</span><span style="color:#000000"> checkShortProduit(Produit </span><span style="color:#6a3e3e">actual</span><span style="color:#000000">) {</span></span>
 <span class="odt-code-line"><span style="color:#000000">        Long </span><span style="color:#6a3e3e">id</span><span style="color:#000000"> = </span><span style="color:#6a3e3e">actual</span><span style="color:#000000">.getId();</span></span>
 <span class="odt-code-line"><span style="color:#000000">        Produit </span><span style="color:#6a3e3e">expected</span><span style="color:#000000"> = </span><span style="color:#0000c0">mapProduits</span><span style="color:#000000">.get(</span><span style="color:#6a3e3e">id</span><span style="color:#000000">);</span></span>
@@ -4134,7 +4134,7 @@
 <li>ligne 13 : on vérifie que le dictionnaire des catégories est vide, ce qui signifie à la fois que toutes les catégories lues ont été trouvées dans le dictionnaire et que celui-ci ne contient pas de valeurs qui n&#x27;auraient pas été lues ;</li>
 </ul>
 <p>Ligne 11, la méthode [<span style="color: #000000">checkLongCategorie</span>] vérifie la version longue d&#x27;une catégorie :</p>
-<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-java">
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-text">
 <span class="odt-code-line"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">private</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">void</span><span style="color:#000000"> checkLongCategorie(Categorie </span><span style="color:#6a3e3e">actual</span><span style="color:#000000">) {</span></span>
 <span class="odt-code-line"><span style="color:#000000">        Long </span><span style="color:#6a3e3e">id</span><span style="color:#000000"> = </span><span style="color:#6a3e3e">actual</span><span style="color:#000000">.getId();</span></span>
 <span class="odt-code-line"><span style="color:#000000">        Categorie </span><span style="color:#6a3e3e">expected</span><span style="color:#000000"> = </span><span style="color:#0000c0">mapCategories</span><span style="color:#000000">.get(</span><span style="color:#6a3e3e">actual</span><span style="color:#000000">.getId());</span></span>
@@ -4248,7 +4248,7 @@
 <li>lignes 11-14 : on vérifie que les données lues sont identiques aux données enregistrées dans le dictionnaire ;</li>
 </ul>
 <p>La méthode privée [<span style="color: #000000">checkLongProduit</span>] est la suivante :</p>
-<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-java">
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-text">
 <span class="odt-code-line"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">private</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">void</span><span style="color:#000000"> checkLongProduit(Produit </span><span style="color:#6a3e3e">actual</span><span style="color:#000000">) {</span></span>
 <span class="odt-code-line"><span style="color:#000000">        Long </span><span style="color:#6a3e3e">id</span><span style="color:#000000"> = </span><span style="color:#6a3e3e">actual</span><span style="color:#000000">.getId();</span></span>
 <span class="odt-code-line"><span style="color:#000000">        Produit </span><span style="color:#6a3e3e">expected</span><span style="color:#000000"> = </span><span style="color:#0000c0">mapProduits</span><span style="color:#000000">.get(</span><span style="color:#6a3e3e">id</span><span style="color:#000000">);</span></span>
@@ -4272,7 +4272,7 @@
 <p><a id="refheading1052722082896917"></a></p>
 <h4 id="41131-squelette">4.11.3.1. Squelette</h4>
 <p>Le squelette de la classe [JUnitTestPushTheLimits] est le suivant :</p>
-<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-java">
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
 <span class="odt-code-line"><span style="font-weight:bold;color:#7f0055">package</span><span style="color:#000000"> spring.jdbc.tests;</span></span>
 <span class="odt-code-line"></span>
 <span class="odt-code-line"><span style="font-weight:bold;color:#7f0055">import</span><span style="color:#000000"> java.util.ArrayList;</span></span>

@@ -1258,7 +1258,7 @@
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/100000000000013F000000E9F2210ED0.png" style="display:inline-block; margin:4px;width:5.911cm;height:4.309cm;" class="odt-zoomable" data-zoom-src="images/100000000000013F000000E9F2210ED0.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td></tr></table>
 
 <p>La classe [ConfigJpa] configure le projet Spring :</p>
-<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-java">
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
 <span class="odt-code-line"><span style="font-weight:bold;color:#7f0055">package</span><span style="color:#000000"> generic.jpa.config;</span></span>
 <span class="odt-code-line"></span>
 <span class="odt-code-line"><span style="font-weight:bold;color:#7f0055">import</span><span style="color:#000000"> generic.jdbc.config.ConfigJdbc;</span></span>
@@ -1385,7 +1385,7 @@
 <ul>
 <li>toutes les entités JPA ont l&#x27;annotation [<span style="color: #646464">@Cache</span><span style="color: #000000">(alwaysRefresh = </span><strong><span style="color: #7f0055">true</span></strong><span style="color: #000000">)</span>] qui annule le cache d&#x27;EclipseLink. Dans ce document, il n&#x27;est pas fait usage des caches des implémentations JPA utilisées. Celui d&#x27;EclipseLink semble être actif par défaut et provoquait des erreurs dans les tests.</li>
 </ul>
-<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-java">
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-text">
 <span class="odt-code-line">@Entity</span>
 <span class="odt-code-line"><span style="color:#646464">@Table</span><span style="color:#000000">(name = ConfigJdbc.</span><span style="font-weight:bold;font-style:italic;color:#0000c0">TAB_CATEGORIES</span><span style="color:#000000">)</span></span>
 <span class="odt-code-line"><span style="color:#646464">@JsonFilter</span><span style="color:#000000">(</span><span style="color:#2a00ff">&quot;jsonFilterCategorie&quot;</span><span style="color:#000000">)</span></span>

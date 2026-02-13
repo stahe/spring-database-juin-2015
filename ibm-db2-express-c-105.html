@@ -1198,7 +1198,7 @@
 </code></pre></div>
 
 <p><span style="color: #000000">La troisième modification qui peut être apportée est celle du nombre maximal de paramètres qu&#x27;un [PreparedStatement]  peut supporter :</span></p>
-<div class="odt-code-rich" data-linenums="false" style="counter-reset: odtline 0;"><pre><code class="language-java">
+<div class="odt-code-rich" data-linenums="false" style="counter-reset: odtline 0;"><pre><code class="language-text">
 <span class="odt-code-line"><span style="color:#000000">    </span><span style="color:#3f7f5f">// nombre max de paramètres d&#x27;un [PreparedStatement]</span></span>
 <span class="odt-code-line"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">public</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">final</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">static</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">int</span><span style="color:#000000"> </span><span style="font-weight:bold;font-style:italic;color:#0000c0">MAX_PREPAREDSTATEMENT_PARAMETERS</span><span style="color:#000000"> = 10000;</span></span>
 </code></pre></div>
@@ -1220,7 +1220,7 @@
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000004C5000000F3204C3732.png" style="display:inline-block; margin:4px;width:16.154cm;height:3.216cm;" class="odt-zoomable" data-zoom-src="images/10000000000004C5000000F3204C3732.png" /></td></tr></table>
 
 <p>Le projet est analogue au projet de configuration [mysql-config-jpa-openjpa] de la couche JPA OpenJpa du SGBD MySQL (cf paragraphe <a href="spring-data-jpa-openjpa.html#refheading105290208289691711">8.3</a>). En effet, les deux SGBD utilisent l&#x27;annotation [<span style="color: #646464">@GeneratedValue</span><span style="color: #000000">(strategy = GenerationType.</span><strong><em><span style="color: #0000c0">IDENTITY</span></em></strong><span style="color: #000000">)</span>] pour générer les clés primaires. Il n&#x27;y a qu&#x27;une modification à faire. Elle est<span style="color: #000000"> dans la définition du bean [jpaVendorAdapter] de la classe [ConfigJpa] :</span></p>
-<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-java">
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-text">
 <span class="odt-code-line"><span style="color:#000000">    </span><span style="color:#3f7f5f">// le provider JPA</span></span>
 <span class="odt-code-line"><span style="color:#000000">    </span><span style="color:#646464">@Bean</span></span>
 <span class="odt-code-line"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">public</span><span style="color:#000000"> JpaVendorAdapter jpaVendorAdapter() {</span></span>

@@ -1320,7 +1320,7 @@
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/100000000000010C000000807726F3DE.png" style="display:inline-block; margin:4px;width:4.96cm;height:2.371cm;" class="odt-zoomable" data-zoom-src="images/100000000000010C000000807726F3DE.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td></tr></table>
 
 <p>La classe [AppConfig] fait la configuration Spring du client HTTP. Son code est le suivant :</p>
-<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-java">
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
 <span class="odt-code-line"><span style="font-weight:bold;color:#7f0055">package</span><span style="color:#000000"> spring.webjson.client.config;</span></span>
 <span class="odt-code-line"></span>
 <span class="odt-code-line"><span style="font-weight:bold;color:#7f0055">import</span><span style="color:#000000"> java.util.ArrayList;</span></span>
@@ -1451,7 +1451,7 @@
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/1000000000000100000000C7288EB9D2.png" style="display:inline-block; margin:4px;width:4.74cm;height:3.679cm;" class="odt-zoomable" data-zoom-src="images/1000000000000100000000C7288EB9D2.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td></tr></table>
 
 <p>La classe [Client] implémente les échanges avec le service web / jSON. Elle implémente l&#x27;interface [IClient] suivante :</p>
-<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-java">
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
 <span class="odt-code-line"><span style="font-weight:bold;color:#7f0055">package</span><span style="color:#000000"> spring.webjson.client.dao;</span></span>
 <span class="odt-code-line"></span>
 <span class="odt-code-line"><span style="font-weight:bold;color:#7f0055">import</span><span style="color:#000000"> org.springframework.http.HttpMethod;</span></span>
@@ -1478,7 +1478,7 @@
 </li>
 </ul>
 <p><span style="color: #000000">La classe [Client] implémente l&#x27;interface [IClient] de la façon suivante :</span></p>
-<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-java">
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
 <span class="odt-code-line"><span style="font-weight:bold;color:#7f0055">package</span><span style="color:#000000"> spring.webjson.client.dao;</span></span>
 <span class="odt-code-line"></span>
 <span class="odt-code-line"><span style="font-weight:bold;color:#7f0055">import</span><span style="color:#000000"> java.net.URI;</span></span>
@@ -1528,7 +1528,7 @@
 <li>lignes 37-39 : la méthode privée [<span style="color: #000000">getMessagesForException</span>] est une méthode utilitaire permettant d&#x27;obtenir la liste des messages d&#x27;erreur contenues dans une exception. Nous l&#x27;avons rencontrée à plusieurs reprises ;</li>
 </ul>
 <p><span style="color: #000000">Continuons :</span></p>
-<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-java">
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-text">
 <span class="odt-code-line">    <span style="color:#3f7f5f">// requête générique</span></span>
 <span class="odt-code-line"><span style="color:#000000">    </span><span style="color:#646464">@Override</span></span>
 <span class="odt-code-line"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">public</span><span style="color:#000000"> &lt;T1, T2&gt; T1 getResponse(String </span><span style="color:#6a3e3e">url</span><span style="color:#000000">, HttpMethod </span><span style="color:#6a3e3e">method</span><span style="color:#000000">, </span><span style="font-weight:bold;color:#7f0055">int</span><span style="color:#000000"> </span><span style="color:#6a3e3e">errStatus</span><span style="color:#000000">, T2 </span><span style="color:#6a3e3e">body</span><span style="color:#000000">) {</span></span>
@@ -1575,7 +1575,7 @@
 <li><span style="color: #000000">lignes 20-23 : s&#x27;il se produit une erreur de communication avec le serveur on lance une exception de type [DaoException] avec pour code d&#x27;erreur, le paramètre [errStatus] passé en 3ième paramètre de la méthode générique [getResponse] (ligne 3) ;</span></li>
 </ul>
 <p>La méthode [<span style="color: #000000">getResponse</span>] se poursuit de la façon suivante :</p>
-<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-java">
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-text">
 <span class="odt-code-line">// requête générique</span>
 <span class="odt-code-line"><span style="color:#000000">    </span><span style="color:#646464">@Override</span></span>
 <span class="odt-code-line"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">public</span><span style="color:#000000"> &lt;T1, T2&gt; T1 getResponse(String </span><span style="color:#6a3e3e">url</span><span style="color:#000000">, HttpMethod </span><span style="color:#6a3e3e">method</span><span style="color:#000000">, </span><span style="font-weight:bold;color:#7f0055">int</span><span style="color:#000000"> </span><span style="color:#6a3e3e">errStatus</span><span style="color:#000000">, T2 </span><span style="color:#6a3e3e">body</span><span style="color:#000000">) {</span></span>
@@ -1597,7 +1597,7 @@
 <ul>
 <li>ligne 4 : nous avons reçu la réponse du serveur. Elle est de type [<span style="color: #000000">ResponseEntity&lt;Response&lt;T1&gt;&gt;</span>] (ligne 5 du précédent code étudié) où la classe [Response] est la classe déjà utilisée côté serveur :</li>
 </ul>
-<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-java">
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-text">
 <span class="odt-code-line"><span style="font-weight:bold;color:#7f0055">package</span><span style="color:#000000"> spring.webjson.client.dao;</span></span>
 <span class="odt-code-line"></span>
 <span class="odt-code-line"><span style="font-weight:bold;color:#7f0055">public</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">class</span><span style="color:#000000"> Response&lt;T&gt; {</span></span>
@@ -1643,7 +1643,7 @@
 <p><a id="refheading1350641333600986"></a></p>
 <h3 id="1851-la-classe-abstractdao">18.5.1. La classe [AbstractDao]</h3>
 <p>La couche [DAO] côté client présente la même interface que la couche [DAO] côté serveur (cf paragraphe <a href="introduction-a-spring-jdbc.html#refheading1052082082896917">4.7</a>) :</p>
-<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-java">
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
 <span class="odt-code-line"><span style="font-weight:bold;color:#7f0055">package</span><span style="color:#000000"> spring.webjson.client.dao;</span></span>
 <span class="odt-code-line"></span>
 <span class="odt-code-line"><span style="font-weight:bold;color:#7f0055">import</span><span style="color:#000000"> java.util.List;</span></span>
@@ -1702,7 +1702,7 @@
 <ul>
 <li>côté serveur, la classe [AbstractDao] gère une information :</li>
 </ul>
-<div class="odt-code-rich" data-linenums="false" style="counter-reset: odtline 0;"><pre><code class="language-java">
+<div class="odt-code-rich" data-linenums="false" style="counter-reset: odtline 0;"><pre><code class="language-text">
 <span class="odt-code-line"><span style="color:#000000">    </span><span style="color:#3f7f5f">// injections</span></span>
 <span class="odt-code-line"><span style="color:#000000">    </span><span style="color:#646464">@Autowired</span></span>
 <span class="odt-code-line"><span style="color:#000000">    </span><span style="color:#646464">@Qualifier</span><span style="color:#000000">(</span><span style="color:#2a00ff">&quot;maxPreparedStatementParameters&quot;</span><span style="color:#000000">)</span></span>
@@ -1714,7 +1714,7 @@
 <li>côté serveur, la classe [AbstractDao] utilise des annotations [@Transactional] pour encapsuler chaque méthode dans une transaction. Côté client, il n&#x27;y a pas de base de données à gérer. Cette annotation disparaît donc ;</li>
 </ul>
 <p>La classe [AbstractDao] se contente de vérifier la validité des paramètres d&#x27;appel des méthodes de l&#x27;interface [IDao] avant de déléguer l&#x27;appel aux classes filles :</p>
-<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-java">
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
 <span class="odt-code-line"><span style="font-weight:bold;color:#7f0055">package</span><span style="color:#000000"> spring.webjson.client.dao;</span></span>
 <span class="odt-code-line"></span>
 <span class="odt-code-line"><span style="font-weight:bold;color:#7f0055">import</span><span style="color:#000000"> java.util.ArrayList;</span></span>
@@ -1817,7 +1817,7 @@
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000000C80000009534479127.png" style="display:inline-block; margin:4px;width:3.701cm;height:2.76cm;" class="odt-zoomable" data-zoom-src="images/10000000000000C80000009534479127.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td></tr></table>
 
 <p>La classe [DaoCategorie] est la suivante :</p>
-<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-java">
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
 <span class="odt-code-line"><span style="font-weight:bold;color:#7f0055">package</span><span style="color:#000000"> spring.webjson.client.dao;</span></span>
 <span class="odt-code-line"></span>
 <span class="odt-code-line"><span style="font-weight:bold;color:#7f0055">import</span><span style="color:#000000"> java.util.List;</span></span>
@@ -1858,7 +1858,7 @@
 <p><a id="refheading1350681333600986"></a></p>
 <h4 id="18521-la-methode-getalllongentities">18.5.2.1. La méthode [<span style="color: #000000">getAllLongEntities</span>]</h4>
 <p>La méthode [<span style="color: #000000">getAllLongEntities</span>] rend la version longue de toutes les catégories en base :</p>
-<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-java">
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-text">
 <span class="odt-code-line"><span style="color:#000000">    </span><span style="color:#646464">@Override</span></span>
 <span class="odt-code-line"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">public</span><span style="color:#000000"> List&lt;Categorie&gt; getAllLongEntities() {</span></span>
 <span class="odt-code-line"><span style="color:#000000">        </span><span style="font-weight:bold;color:#7f0055">try</span><span style="color:#000000"> {</span></span>
@@ -1915,7 +1915,7 @@
 <p><a id="refheading1398131985289926"></a></p>
 <h4 id="18522-gestion-des-filtres-json">18.5.2.2. Gestion des filtres jSON</h4>
 <p>Revenons sur la gestion des filtres jSON dans la méthode [<span style="color: #000000">getAllLongEntities</span>] précédente :</p>
-<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-java">
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-text">
 <span class="odt-code-line"><span style="color:#000000">    </span><span style="color:#646464">@Override</span></span>
 <span class="odt-code-line"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">public</span><span style="color:#000000"> List&lt;Categorie&gt; getAllLongEntities() {</span></span>
 <span class="odt-code-line"><span style="color:#000000">        </span><span style="font-weight:bold;color:#7f0055">try</span><span style="color:#000000"> {</span></span>
@@ -1933,7 +1933,7 @@
 <ul>
 <li>ligne 5 : on récupère auprès du contexte Spring, un mappeur jSON capable de gérer les versions longues des catégories. Revenons sur la définition de ce mappeur dans la configuration Spring [AppConfig] :</li>
 </ul>
-<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-java">
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-text">
 <span class="odt-code-line">// filtres jSON</span>
 <span class="odt-code-line"><span style="color:#000000">    </span><span style="color:#646464">@Bean</span></span>
 <span class="odt-code-line"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">public</span><span style="color:#000000"> ObjectMapper jsonMapper(RestTemplate </span><span style="color:#6a3e3e">restTemplate</span><span style="color:#000000">) {</span></span>
@@ -1965,7 +1965,7 @@
 </li>
 </ul>
 <p>Revenons au code de [getAllLongEntities] :</p>
-<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-java">
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-text">
 <span class="odt-code-line"><span style="color:#000000">            </span><span style="color:#3f7f5f">// filtres jSON</span></span>
 <span class="odt-code-line"><span style="color:#000000">            ObjectMapper </span><span style="color:#6a3e3e">mapper</span><span style="color:#000000"> = </span><span style="color:#0000c0">context</span><span style="color:#000000">.getBean(</span><span style="color:#2a00ff">&quot;jsonMapperLongCategorie&quot;</span><span style="color:#000000">, ObjectMapper.</span><span style="font-weight:bold;color:#7f0055">class</span><span style="color:#000000">);</span></span>
 <span class="odt-code-line"><span style="color:#000000">            </span><span style="color:#3f7f5f">// obtenir toutes les catégories</span></span>
@@ -1991,7 +1991,7 @@
 <p><a id="refheading1350701333600986"></a></p>
 <h4 id="18523-la-methode-getshortentitiesbyid">18.5.2.3. La méthode [getShortEntitiesById]</h4>
 <p>La méthode [getShortEntitiesById] rend les versions courtes des catégories dont elle reçoit les clés primaires en paramètres : </p>
-<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-java">
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-text">
 <span class="odt-code-line"><span style="color:#000000">    </span><span style="color:#646464">@Override</span></span>
 <span class="odt-code-line"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">protected</span><span style="color:#000000"> List&lt;Categorie&gt; getShortEntitiesById(List&lt;Long&gt; </span><span style="color:#6a3e3e">ids</span><span style="color:#000000">) {</span></span>
 <span class="odt-code-line"><span style="color:#000000">        </span><span style="font-weight:bold;color:#7f0055">try</span><span style="color:#000000"> {</span></span>
@@ -2026,7 +2026,7 @@
 <p><a id="refheading1350721333600986"></a></p>
 <h4 id="18524-la-methode-saveentities">18.5.2.4. La méthode [saveEntities]</h4>
 <p>La méthode [saveEntities] persiste des catégories en base. Son code est le suivant :</p>
-<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-java">
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-text">
 <span class="odt-code-line">@Override</span>
 <span class="odt-code-line"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">protected</span><span style="color:#000000"> List&lt;Categorie&gt; saveEntities(List&lt;Categorie&gt; </span><span style="color:#6a3e3e">entities</span><span style="color:#000000">) {</span></span>
 <span class="odt-code-line"><span style="color:#000000">        </span><span style="font-weight:bold;color:#7f0055">try</span><span style="color:#000000"> {</span></span>
@@ -2178,7 +2178,7 @@
 
 <p>Ceci fait, on résoud tous les problèmes d&#x27;import qui sont apparus dans les différentes classes. Par exemple, les entités [Produit, Categorie] ne sont plus à chercher dans le projet [spring-jdbc-generic-04] mais dans le projet [spring-jpa-generic]. Faire [Ctrl-Maj-O] dans le code d&#x27;une classe suffit à régénérer les imports.</p>
 <p>La dernière modification est à faire dans le fichier de configuration [AppConfig] :</p>
-<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-java">
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
 <span class="odt-code-line"><span style="font-weight:bold;color:#7f0055">package</span><span style="color:#000000"> spring.webjson.server.config;</span></span>
 <span class="odt-code-line"></span>
 <span class="odt-code-line"><span style="font-weight:bold;color:#7f0055">import</span><span style="color:#000000"> org.springframework.context.annotation.ComponentScan;</span></span>
@@ -2223,7 +2223,7 @@
 </ul>
 <p>Or on vient de porter le projet [spring-webjson-server-jdbc-generic] vers [spring-webjson-server-jpa-generic] sans modification de code. Comment est-ce possible ?</p>
 <p>Examinons le code de la méthode [saveCategories] :</p>
-<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-java">
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-javascript">
 <span class="odt-code-line"><span style="color:#000000">    </span><span style="color:#646464">@RequestMapping</span><span style="color:#000000">(value = </span><span style="color:#2a00ff">&quot;/saveCategories&quot;</span><span style="color:#000000">, method = RequestMethod.</span><span style="font-weight:bold;font-style:italic;color:#0000c0">POST</span><span style="color:#000000">, consumes = </span><span style="color:#2a00ff">&quot;application/json; charset=UTF-8&quot;</span><span style="color:#000000">)</span></span>
 <span class="odt-code-line"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">public</span><span style="color:#000000"> Response&lt;List&lt;CoreCategorie&gt;&gt; saveCategories(HttpServletRequest </span><span style="color:#6a3e3e">request</span><span style="color:#000000">) {</span></span>
 <span class="odt-code-line">...</span>
@@ -2292,7 +2292,7 @@
 <li>lignes 13-14 : on voit que le lien [Produit]  --&gt; [Categorie] est rétabli pour les entités POJO (ligne 8), ce qui est le cas ici. Ce qui explique que la persistance des catégories ait fonctionné. Ce cas de figure est utile dans d&#x27;autres circonstances : on ne peut jamais être sûr que l&#x27;utilisateur a lié correctement les produits aux catégories. Alors on le fait à sa place ;</li>
 </ul>
 <p>Maintenant examinons la méthode [ProduitController.saveProduits] qui persiste des produits :</p>
-<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-java">
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-javascript">
 <span class="odt-code-line"><span style="color:#646464">@RequestMapping</span><span style="color:#000000">(value = </span><span style="color:#2a00ff">&quot;/saveProduits&quot;</span><span style="color:#000000">, method = RequestMethod.</span><span style="font-weight:bold;font-style:italic;color:#0000c0">POST</span><span style="color:#000000">, consumes = </span><span style="color:#2a00ff">&quot;application/json; charset=UTF-8&quot;</span><span style="color:#000000">)</span></span>
 <span class="odt-code-line"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">public</span><span style="color:#000000"> Response&lt;List&lt;CoreProduit&gt;&gt; saveProduits(HttpServletRequest </span><span style="color:#6a3e3e">request</span><span style="color:#000000">) {</span></span>
 <span class="odt-code-line">    ...</span>
@@ -2349,7 +2349,7 @@
 
 <p>Côté client, les entités [Categorie] et [Produit] ont été définies sans le champ [EntityType entityType]. C&#x27;est normal puisque les objets [Categorie] et [Produit] sont sérialisés sans leur partie PROXY [Categorie.produits], [Produit.categorie]. Côté client, il n&#x27;y a donc pas de notion d&#x27;entité PROXY. Il n&#x27;y a que des objets normaux.</p>
 <p>Côté client, la chaîne jSON [1] est reçue par la méthode [DaoCategorie.getAllShortEntities] suivante :</p>
-<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-java">
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-text">
 <span class="odt-code-line"><span style="color:#000000">    </span><span style="color:#646464">@Override</span></span>
 <span class="odt-code-line"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">public</span><span style="color:#000000"> List&lt;Categorie&gt; getAllShortEntities() {</span></span>
 <span class="odt-code-line">...</span>
