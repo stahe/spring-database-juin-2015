@@ -2433,7 +2433,7 @@
 <li>ligne 7 : le message d&#x27;erreur associé ;</li>
 </ul>
 <p>Examinons le constructeur suivant de la classe [<span style="color: #000000">UncheckedException</span>] :</p>
-<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-java">
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-text">
 <span class="odt-code-line"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">public</span><span style="color:#000000"> UncheckedException(</span><span style="font-weight:bold;color:#7f0055">int</span><span style="color:#000000"> </span><span style="color:#6a3e3e">code</span><span style="color:#000000">, Throwable </span><span style="color:#6a3e3e">e</span><span style="color:#000000">, String </span><span style="color:#6a3e3e">simpleClassName</span><span style="color:#000000">) {</span></span>
 <span class="odt-code-line"><span style="color:#000000">        </span><span style="font-weight:bold;color:#7f0055">super</span><span style="color:#000000">(</span><span style="color:#6a3e3e">e</span><span style="color:#000000">);</span></span>
 <span class="odt-code-line"><span style="color:#000000">        </span><span style="color:#3f7f5f">// local</span></span>
@@ -2476,13 +2476,13 @@
 <span class="normal"><a href="#__codelineno-6-4">4</a></span>
 <span class="normal"><a href="#__codelineno-6-5">5</a></span>
 <span class="normal"><a href="#__codelineno-6-6">6</a></span>
-<span class="normal"><a href="#__codelineno-6-7">7</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="k">try</span><span class="p">{</span>
-<a id="__codelineno-6-2" name="__codelineno-6-2"></a><span class="c1">// code qui peut lancer une exception contrôlée</span>
-<a id="__codelineno-6-3" name="__codelineno-6-3"></a><span class="p">...</span>
-<a id="__codelineno-6-4" name="__codelineno-6-4"></a><span class="p">}</span><span class="k">catch</span><span class="p">(</span><span class="n">UnTypeDexception</span><span class="w"> </span><span class="n">e</span><span class="p">){</span>
-<a id="__codelineno-6-5" name="__codelineno-6-5"></a><span class="c1">// on encapsule l&#39;exception contrôlée e dans une exception non contrôlée</span>
-<a id="__codelineno-6-6" name="__codelineno-6-6"></a><span class="w">    </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">UncheckedException</span><span class="p">(</span><span class="mi">189</span><span class="p">,</span><span class="n">e</span><span class="p">,</span><span class="n">getClass</span><span class="p">().</span><span class="na">getSimpleClassName</span><span class="p">())</span>
-<a id="__codelineno-6-7" name="__codelineno-6-7"></a><span class="p">}</span>
+<span class="normal"><a href="#__codelineno-6-7">7</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1"></a>try{
+<a id="__codelineno-6-2" name="__codelineno-6-2"></a>// code qui peut lancer une exception contrôlée
+<a id="__codelineno-6-3" name="__codelineno-6-3"></a>...
+<a id="__codelineno-6-4" name="__codelineno-6-4"></a>}catch(UnTypeDexception e){
+<a id="__codelineno-6-5" name="__codelineno-6-5"></a>// on encapsule l&#39;exception contrôlée e dans une exception non contrôlée
+<a id="__codelineno-6-6" name="__codelineno-6-6"></a>    throw new UncheckedException(189,e,getClass().getSimpleClassName())
+<a id="__codelineno-6-7" name="__codelineno-6-7"></a>}
 </code></pre></div></td></tr></table></div>
 <ul>
 <li>ligne 13 : on crée une chaîne de caractères de type [fileName, methodName, lineNumber] caractérisant l&#x27;endroit du code utilisateur où l&#x27;exception e a été arrêtée ;</li>

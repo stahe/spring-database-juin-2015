@@ -1086,7 +1086,7 @@
 <p>Le fichier [install.bat] contient le code suivant :</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>&quot;%M2_HOME%\bin\mvn.bat&quot; install:install-file -Dfile=sqljdbc4-3.0.jar -Dpackaging=jar -DgroupId=com.microsoft.sqlserver -DartifactId=sqljdbc4 -Dversion=4.0
 </code></pre></div>
-<p>où [%M2-HOME%] est le dossier d&#x27;installation de Maven (cf paragraphe <a href="annexes.html#refheading261309838046689">23.2</a>, page <a href="annexes.html#refheading261309838046689">465</a>). Après cette installation, le pilote JDBC de SQL Server peut être référencé dans les fichiers [pom.xml] par la dépendance suivante :</p>
+<p>où [%M2-HOME%] est le dossier d&#x27;installation de Maven (cf paragraphe <a href="annexes.html#refheading261309838046689">23.2</a>, page <a href="annexes.html#refheading261309838046689">466</a>). Après cette installation, le pilote JDBC de SQL Server peut être référencé dans les fichiers [pom.xml] par la dépendance suivante :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-xml">
 <span class="odt-code-line"><span style="color:#000000">        </span><span style="color:#008080">&lt;</span><span style="color:#3f7f7f">dependency</span><span style="color:#008080">&gt;</span></span>
 <span class="odt-code-line"><span style="color:#000000">            </span><span style="color:#008080">&lt;</span><span style="color:#3f7f7f">groupId</span><span style="color:#008080">&gt;</span><span style="color:#000000">com.microsoft.sqlserver</span><span style="color:#008080">&lt;/</span><span style="color:#3f7f7f">groupId</span><span style="color:#008080">&gt;</span></span>
