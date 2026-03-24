@@ -1101,25 +1101,36 @@
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/100000000000047A000002492EA94BD7.png" style="display:inline-block; margin:4px;width:15.161cm;height:7.74cm;" class="odt-zoomable" data-zoom-src="images/100000000000047A000002492EA94BD7.png" /></td></tr></table>
 
 <ul>
-<li>en [1], fichier sera trouvé en [&lt;exemples&gt;\spring-database-config\firebird\databases\DBPRODUITS.GDB] ;</li>
+  <li>en [1], fichier sera trouvé en [&lt;exemples&gt;\spring-database-config\firebird\databases\DBPRODUITS.GDB] ;
+  </li>
 </ul>
+
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/1000000000000478000002327BA3F198.png" style="display:inline-block; margin:4px;width:15.134cm;height:7.435cm;" class="odt-zoomable" data-zoom-src="images/1000000000000478000002327BA3F198.png" /></td></tr></table>
 
 <ul>
-<li>comme avec Oracle, les clés primaires sont générées à l&#x27;aide de séquences.</li>
+  <li>comme avec Oracle, les clés primaires sont générées à l&#x27;aide de séquences.
+  </li>
 </ul>
+
 <p>On procède de la même façon pour charger la base [dbproduitscategories] qu&#x27;on trouvera en [&lt;exemples&gt;\spring-database-config\firebird\databases\DBPRODUITSCATEGORIES.GDB]</p>
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000000F100000230660F6DE4.png" style="display:inline-block; margin:4px;width:4.461cm;height:10.37cm;" class="odt-zoomable" data-zoom-src="images/10000000000000F100000230660F6DE4.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td></tr></table>
 
 <p>Maintenant, exécutez les configurations :</p>
 <ul>
-<li>[spring-jdbc-generic-01.IntroJdbc01] ;</li>
-<li>[spring-jdbc-generic-01.IntroJdbc02] ;</li>
-<li>[spring-jdbc-generic-03.JUnitTestDao1] ;</li>
-<li>[spring-jdbc-generic-03.JUnitTestDao2] ;</li>
-<li>[spring-jdbc-generic-04.JUnitTestDao] ;</li>
-<li>[spring-jpa-generic-JUnitTestDao-openjpa] ;</li>
+  <li>[spring-jdbc-generic-01.IntroJdbc01] ;
+  </li>
+  <li>[spring-jdbc-generic-01.IntroJdbc02] ;
+  </li>
+  <li>[spring-jdbc-generic-03.JUnitTestDao1] ;
+  </li>
+  <li>[spring-jdbc-generic-03.JUnitTestDao2] ;
+  </li>
+  <li>[spring-jdbc-generic-04.JUnitTestDao] ;
+  </li>
+  <li>[spring-jpa-generic-JUnitTestDao-openjpa] ;
+  </li>
 </ul>
+
 <p>Elles doivent toutes réussir.</p>
 <p><a id="refheading12188047764300713"></a></p>
 <h2 id="142-configuration-de-la-couche-jdbc">14.2. Configuration de la couche JDBC</h2>
@@ -1172,9 +1183,12 @@
 </code></pre></div>
 
 <ul>
-<li><span style="color: #000000">lignes 18-22 : le pilote JDBC de Firebird ;</span></li>
-<li><span style="color: #000000">lignes 24-33 : les dépendances nécessaires au pilote JDBC de Firebird ;</span></li>
+  <li><span style="color: #000000">lignes 18-22 : le pilote JDBC de Firebird ;</span>
+  </li>
+  <li><span style="color: #000000">lignes 24-33 : les dépendances nécessaires au pilote JDBC de Firebird ;</span>
+  </li>
 </ul>
+
 <p><span style="color: #000000">La seconde modification est dans la classe [ConfigJdbc] qui définit les identifiants d&#x27;accès aux bases :</span></p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-text">
 <span class="odt-code-line">    <span style="color:#3f7f5f">// paramètres de connexion</span></span>
@@ -1188,8 +1202,10 @@
 </code></pre></div>
 
 <ul>
-<li><span style="color: #000000">lignes 3 et 6 : il faut mettre les chemins exacts des deux bases de données ;</span></li>
+  <li><span style="color: #000000">lignes 3 et 6 : il faut mettre les chemins exacts des deux bases de données ;</span>
+  </li>
 </ul>
+
 <p><span style="color: #000000">La troisième modification qui peut être apportée est celle du nombre maximal de paramètres qu&#x27;un [PreparedStatement] peut supporter :</span></p>
 <div class="odt-code-rich" data-linenums="false" style="counter-reset: odtline 0;"><pre><code class="language-text">
 <span class="odt-code-line"><span style="color:#000000">    </span><span style="color:#3f7f5f">// nombre max de paramètres d&#x27;un [PreparedStatement]</span></span>
@@ -1224,8 +1240,10 @@
 </code></pre></div>
 
 <ul>
-<li>ligne 6 : on indique à l&#x27;implémentation JPA qu&#x27;elle va travailler avec un SGBD non reconnu.  L&#x27;implémentation JPA va alors adopter et les types de données standard du SQL.</li>
+  <li>ligne 6 : on indique à l&#x27;implémentation JPA qu&#x27;elle va travailler avec un SGBD non reconnu.  L&#x27;implémentation JPA va alors adopter et les types de données standard du SQL.
+  </li>
 </ul>
+
 <p>Ces modifications faites, l&#x27;exécution de la configuration [spring-jpa-generic-JUnitTestDao-openjpa] doit réussir.</p>
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/1000000000000125000000B8A3BF793E.png" style="display:inline-block; margin:4px;width:5.42cm;height:3.41cm;" class="odt-zoomable" data-zoom-src="images/1000000000000125000000B8A3BF793E.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000001B80000010A9E59544D.png" style="display:inline-block; margin:4px;width:8.149cm;height:4.93cm;" class="odt-zoomable" data-zoom-src="images/10000000000001B80000010A9E59544D.png" /></td></tr></table>
 

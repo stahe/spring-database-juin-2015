@@ -1109,35 +1109,49 @@
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000004A200000336CD5A0B72.png" style="display:inline-block; margin:4px;width:15.69cm;height:10.874cm;" class="odt-zoomable" data-zoom-src="images/10000000000004A200000336CD5A0B72.png" /></td></tr></table>
 
 <ul>
-<li>en [1], chargez le script SQL [&lt;exemples&gt;\spring-database-config\sqlserver\databases\dbproduits.sql] ;</li>
+  <li>en [1], chargez le script SQL [&lt;exemples&gt;\spring-database-config\sqlserver\databases\dbproduits.sql] ;
+  </li>
 </ul>
+
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000002030000018410F2518F.png" style="display:inline-block; margin:4px;width:8.641cm;height:6.509cm;" class="odt-zoomable" data-zoom-src="images/10000000000002030000018410F2518F.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/100000000000016A000000D76238F207.png" style="display:inline-block; margin:4px;width:6.699cm;height:3.979cm;" class="odt-zoomable" data-zoom-src="images/100000000000016A000000D76238F207.png" /></td></tr></table>
 
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000004600000030F132AF4C7.png" style="display:inline-block; margin:4px;width:14.817cm;height:10.359cm;" class="odt-zoomable" data-zoom-src="images/10000000000004600000030F132AF4C7.png" /></td></tr></table>
 
 <ul>
-<li>en [2], il n&#x27;a pas été possible d&#x27;utiliser la même table [PRODUITS] pour les projets [spring-jdbc-01 à 03]. La raison en est que :<ul>
-<li>les projets [spring-jdbc-01 et 02] insèrent des lignes avec leurs clés primaires ;</li>
-<li>le projet [spring-jdbc-03] insèrent des lignes sans clés primaires et s&#x27;attend à ce que le SGBD génère celles-ci. Pour cela, il faut que la clé primaire [ID] soit de type [Identity]. Or ce type dans SQL Server ne supporte que la génération automatique des clés primaires et n&#x27;autorise pas l&#x27;insertion d&#x27;une ligne avec une clé primaire fixée par l&#x27;utilisateur. Une erreur est alors signalée et je n&#x27;ai pas su la contourner. Les projets [spring-jdbc-01 et 02] utilisent la table [PRODUITS] sans génération automatique des clés primaires. Le projet [spring-jdbc-03] utilise la table [PRODUITS2] avec génération automatique des clés primaires.</li>
+  <li>en [2], il n&#x27;a pas été possible d&#x27;utiliser la même table [PRODUITS] pour les projets [spring-jdbc-01 à 03]. La raison en est que :
+    <ul>
+      <li>les projets [spring-jdbc-01 et 02] insèrent des lignes avec leurs clés primaires ;
+      </li>
+      <li>le projet [spring-jdbc-03] insèrent des lignes sans clés primaires et s&#x27;attend à ce que le SGBD génère celles-ci. Pour cela, il faut que la clé primaire [ID] soit de type [Identity]. Or ce type dans SQL Server ne supporte que la génération automatique des clés primaires et n&#x27;autorise pas l&#x27;insertion d&#x27;une ligne avec une clé primaire fixée par l&#x27;utilisateur. Une erreur est alors signalée et je n&#x27;ai pas su la contourner. Les projets [spring-jdbc-01 et 02] utilisent la table [PRODUITS] sans génération automatique des clés primaires. Le projet [spring-jdbc-03] utilise la table [PRODUITS2] avec génération automatique des clés primaires.
+      </li>
+    </ul>
+  </li>
 </ul>
-</li>
-</ul>
+
 <p>Maintenant, exécutez les configurations :</p>
 <ul>
-<li>[spring-jdbc-generic-01.IntroJdbc01] ;</li>
-<li>[spring-jdbc-generic-01.IntroJdbc02] ;</li>
-<li>[spring-jdbc-generic-03.JUnitTestDao1] ;</li>
-<li>[spring-jdbc-generic-03.JUnitTestDao2] ;</li>
+  <li>[spring-jdbc-generic-01.IntroJdbc01] ;
+  </li>
+  <li>[spring-jdbc-generic-01.IntroJdbc02] ;
+  </li>
+  <li>[spring-jdbc-generic-03.JUnitTestDao1] ;
+  </li>
+  <li>[spring-jdbc-generic-03.JUnitTestDao2] ;
+  </li>
 </ul>
+
 <p>Elles doivent toutes réussir.</p>
 <p>Générons maintenant la base [dbproduitscategories]. Refaites pour [dbproduitscategories] la procédure réalisée pour créer [dbproduits]. Le script SQL à charger est à l&#x27;emplacement [&lt;exemples&gt;\spring-database-config\sqlserver\databases\ dbproduitscategories.sql] ;</p>
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000000FB000001A5DB70632C.png" style="display:inline-block; margin:4px;width:4.65cm;height:7.789cm;" class="odt-zoomable" data-zoom-src="images/10000000000000FB000001A5DB70632C.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td></tr></table>
 
 <p>Maintenant, exécutez les configurations :</p>
 <ul>
-<li>[spring-jdbc-generic-04.JUnitTestDao] ;</li>
-<li>[spring-jpa-generic-JUnitTestDao-openjpa] ;</li>
+  <li>[spring-jdbc-generic-04.JUnitTestDao] ;
+  </li>
+  <li>[spring-jpa-generic-JUnitTestDao-openjpa] ;
+  </li>
 </ul>
+
 <p>Elles doivent réussir toutes les deux.</p>
 <p><a id="refheading12188047764300712"></a></p>
 <h2 id="132-configuration-de-la-couche-jdbc">13.2. Configuration de la couche JDBC</h2>
@@ -1179,8 +1193,10 @@
 </code></pre></div>
 
 <ul>
-<li><span style="color: #000000">lignes 18-22 : le pilote JDBC de SQL Server ;</span></li>
+  <li><span style="color: #000000">lignes 18-22 : le pilote JDBC de SQL Server ;</span>
+  </li>
 </ul>
+
 <p><span style="color: #000000">La seconde modification est dans la classe [ConfigJdbc] qui définit les identifiants d&#x27;accès aux bases :</span></p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-text">
 <span class="odt-code-line">    <span style="color:#3f7f5f">// paramètres de connexion</span></span>
@@ -1233,8 +1249,10 @@
 </code></pre></div>
 
 <ul>
-<li>ligne 6 : on indique à l&#x27;implémentation JPA qu&#x27;elle va travailler avec une base SQL Server.  L&#x27;implémentation JPA va alors adopter et les types de données propriétaires et le SQL propriétaire de ce SGBD.</li>
+  <li>ligne 6 : on indique à l&#x27;implémentation JPA qu&#x27;elle va travailler avec une base SQL Server.  L&#x27;implémentation JPA va alors adopter et les types de données propriétaires et le SQL propriétaire de ce SGBD.
+  </li>
 </ul>
+
 <p>La seconde modification concerne les entités JPA associées aux tables [PRODUITS] et [PRODUITS2] :</p>
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/100000000000013000000130471E0ECE.png" style="display:inline-block; margin:4px;width:5.611cm;height:5.63cm;" class="odt-zoomable" data-zoom-src="images/100000000000013000000130471E0ECE.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td></tr></table>
 

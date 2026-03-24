@@ -1235,14 +1235,22 @@
 </code></pre></div>
 
 <ul>
-<li>lignes 5-7 : l&#x27;artifact Maven généré par ce projet. C&#x27;est le même que celui du projet [mysql-config-jpa-hibernate]. Cela signifie qu&#x27;un seul de ces projets peut être actif à un moment donné ;</li>
-<li>lignes 10-14 : le projet Maven parent qui fixe la version de la plupart des dépendances nécessaires au projet ;</li>
-<li>lignes 19-22 : la bibliothèque EclipseLink ;</li>
-<li>lignes 26-29 : la bibliothèque Spring Data ;</li>
-<li>lignes 32-34 : le projet de configuration de la couche JPA s&#x27;appuie sur celui de configuration de la couche JDBC qui définit entre autres choses, le pilote JDBC du SGBD utilisé et les coordonnées de la base à utiliser ;</li>
-<li>lignes 35-40 : le projet de configuration de la couche JDBC inclut la bibliothèque [Spring JDBC] qui est ici remplacée par la bibliothèque [Spring Data JPA]. Aussi indique-t-on de ne pas l&#x27;inclure dans les dépendances du projet. Si elle reste, cela ne cause cependant pas d&#x27;erreurs ;</li>
-<li>le plugin des lignes 58-81 implémentent le &#x27;<em>weaving</em>&#x27; des entités JPA. Ce que les anglo-saxons appellent le <em>weaving</em> est la transformation (l&#x27;enrichissement) des entités JPA afin qu&#x27;elles supportent le Lazy Loading. Nous n&#x27;avons pas eu besoin de congigurer Hibernate pour que ce <em>weaving</em> ait lieu. Pour EclipseLink, il faut un plugin Maven. J&#x27;ai cherché très longtemps comment forcer EclipseLink à respecter l&#x27;attribut [<span style="color: #000000">fetch = FetchType.</span><strong><em><span style="color: #0000c0">LAZY</span></em></strong>] de l&#x27;annotation [<span style="color: #646464">@ManyToOne</span>] ci-dessous :</li>
+  <li>lignes 5-7 : l&#x27;artifact Maven généré par ce projet. C&#x27;est le même que celui du projet [mysql-config-jpa-hibernate]. Cela signifie qu&#x27;un seul de ces projets peut être actif à un moment donné ;
+  </li>
+  <li>lignes 10-14 : le projet Maven parent qui fixe la version de la plupart des dépendances nécessaires au projet ;
+  </li>
+  <li>lignes 19-22 : la bibliothèque EclipseLink ;
+  </li>
+  <li>lignes 26-29 : la bibliothèque Spring Data ;
+  </li>
+  <li>lignes 32-34 : le projet de configuration de la couche JPA s&#x27;appuie sur celui de configuration de la couche JDBC qui définit entre autres choses, le pilote JDBC du SGBD utilisé et les coordonnées de la base à utiliser ;
+  </li>
+  <li>lignes 35-40 : le projet de configuration de la couche JDBC inclut la bibliothèque [Spring JDBC] qui est ici remplacée par la bibliothèque [Spring Data JPA]. Aussi indique-t-on de ne pas l&#x27;inclure dans les dépendances du projet. Si elle reste, cela ne cause cependant pas d&#x27;erreurs ;
+  </li>
+  <li>le plugin des lignes 58-81 implémentent le &#x27;<i>weaving</i>&#x27; des entités JPA. Ce que les anglo-saxons appellent le <i>weaving</i> est la transformation (l&#x27;enrichissement) des entités JPA afin qu&#x27;elles supportent le Lazy Loading. Nous n&#x27;avons pas eu besoin de congigurer Hibernate pour que ce <i>weaving</i> ait lieu. Pour EclipseLink, il faut un plugin Maven. J&#x27;ai cherché très longtemps comment forcer EclipseLink à respecter l&#x27;attribut [<span style="color: #000000">fetch = FetchType.</span><i><b><span style="color: #0000c0">LAZY</span></b></i>] de l&#x27;annotation [<span style="color: #646464">@ManyToOne</span>] ci-dessous :
+  </li>
 </ul>
+
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-text">
 <span class="odt-code-line"><span style="color:#000000">    </span><span style="color:#646464">@ManyToOne</span><span style="color:#000000">(fetch = FetchType.</span><span style="font-weight:bold;font-style:italic;color:#0000c0">LAZY</span><span style="color:#000000">)</span></span>
 <span class="odt-code-line"><span style="color:#000000">    </span><span style="color:#646464">@JoinColumn</span><span style="color:#000000">(name = ConfigJdbc.</span><span style="font-weight:bold;font-style:italic;color:#0000c0">TAB_PRODUITS_CATEGORIE_ID</span><span style="color:#000000">)</span></span>
@@ -1331,16 +1339,22 @@
 
 <p>Cette configuration est analogue à celle détaillée au paragraphe <a href="spring-data-jpa-hibernate.html#refheading1052942082896917">6.3.2</a>, pour l&#x27;implémentation JPA Hibernate. Nous ne détaillons que les différences :</p>
 <ul>
-<li>lignes 23-31 : le bean [jpaVendorAdapter] est désormais implémenté avec EclipseLink ;</li>
-<li>lignes 50-58 : dans la version JPA Hibernate, il était écrit :</li>
+  <li>lignes 23-31 : le bean [jpaVendorAdapter] est désormais implémenté avec EclipseLink ;
+  </li>
+  <li>lignes 50-58 : dans la version JPA Hibernate, il était écrit :
+  </li>
 </ul>
+
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>factory.setPackagesToScan(ENTITIES_PACKAGES);
 </code></pre></div>
 <p>qui servait à désigner où devaient être cherchées les entités JPA. Ici, on s&#x27;en remet au fichier [persistence.xml] (commentaire ligne 25) (cf paragraphe <a href="spring-data-jpa-hibernate.html#refheading107479995711268">6.3.4</a>) pour à la fois :</p>
 <ul>
-<li>définir les entités JPA ;</li>
-<li>configurer EclipseLink pour le <em>weaving</em> de ces entités ;</li>
+  <li>définir les entités JPA ;
+  </li>
+  <li>configurer EclipseLink pour le <i>weaving</i> de ces entités ;
+  </li>
 </ul>
+
 <p><a id="refheading11082735254046"></a></p>
 <h2 id="74-le-fichier-persistencexml">7.4. Le fichier [persistence.xml]</h2>
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000000F1000000C87F236D18.png" style="display:inline-block; margin:4px;width:4.461cm;height:3.701cm;" class="odt-zoomable" data-zoom-src="images/10000000000000F1000000C87F236D18.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td></tr></table>
@@ -1368,23 +1382,32 @@
 </code></pre></div>
 
 <ul>
-<li>ligne 4 : l&#x27;unité de persistence. Elle peut porter un nom quelconque (attribut <em>name</em>) ;</li>
-<li>lignes 6-10 : les cinq entités JPA à gérer ;</li>
-<li>la ligne 11 est importante. Il arrive parfois qu&#x27;un projet définisse des entités utilisées dans des cadres différents. La ligne 11 assure qu&#x27;on n&#x27;aura pas d&#x27;autres entités que celles définies lignes 5-10. C&#x27;est important lorsque celles-ci sont utilisées pour générer les tables de la source de données. Avoir des entités en trop génèrerait des tables en trop ;</li>
-<li>lignes 13-17 : configuration d&#x27;EclipseLink pour un <em>weaving</em> statique. Il existe deux types de <em>weaving</em> :<ul>
-<li>[statique] : les entités JPA sont enrichies (woven) dès que la couche JPA est instanciée ;</li>
-<li>[dynamique] : les entités JPA sont enrichies (woven) la première fois qu&#x27;elles arrivent dans la couche JPA ;</li>
+  <li>ligne 4 : l&#x27;unité de persistence. Elle peut porter un nom quelconque (attribut <i>name</i>) ;
+  </li>
+  <li>lignes 6-10 : les cinq entités JPA à gérer ;
+  </li>
+  <li>la ligne 11 est importante. Il arrive parfois qu&#x27;un projet définisse des entités utilisées dans des cadres différents. La ligne 11 assure qu&#x27;on n&#x27;aura pas d&#x27;autres entités que celles définies lignes 5-10. C&#x27;est important lorsque celles-ci sont utilisées pour générer les tables de la source de données. Avoir des entités en trop génèrerait des tables en trop ;
+  </li>
+  <li>lignes 13-17 : configuration d&#x27;EclipseLink pour un <i>weaving</i> statique. Il existe deux types de <i>weaving</i> :
+    <ul>
+      <li>[statique] : les entités JPA sont enrichies (woven) dès que la couche JPA est instanciée ;
+      </li>
+      <li>[dynamique] : les entités JPA sont enrichies (woven) la première fois qu&#x27;elles arrivent dans la couche JPA ;
+      </li>
+    </ul>
+  </li>
 </ul>
-</li>
-</ul>
+
 <p><a id="refheading11082935254046"></a></p>
 <h2 id="75-les-entites-jpa">7.5. Les entités JPA</h2>
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/1000000000000139000000EFEC806C6F.png" style="display:inline-block; margin:4px;width:5.611cm;height:4.284cm;" class="odt-zoomable" data-zoom-src="images/1000000000000139000000EFEC806C6F.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td></tr></table>
 
 <p>Les entités JPA sont celles décrites au paragraphe <a href="spring-data-jpa-hibernate.html#refheading2192502014630537">6.3.3</a> pour l&#x27;implémentation Hibernate avec deux différences :</p>
 <ul>
-<li>toutes les entités JPA ont l&#x27;annotation [<span style="color: #646464">@Cache</span><span style="color: #000000">(alwaysRefresh = </span><strong><span style="color: #7f0055">true</span></strong><span style="color: #000000">)</span>] qui annule le cache d&#x27;EclipseLink. Dans ce document, il n&#x27;est pas fait usage des caches des implémentations JPA utilisées. Celui d&#x27;EclipseLink semble être actif par défaut et provoquait des erreurs dans les tests.</li>
+  <li>toutes les entités JPA ont l&#x27;annotation [<span style="color: #646464">@Cache</span><span style="color: #000000">(alwaysRefresh = </span><b><span style="color: #7f0055">true</span></b><span style="color: #000000">)</span>] qui annule le cache d&#x27;EclipseLink. Dans ce document, il n&#x27;est pas fait usage des caches des implémentations JPA utilisées. Celui d&#x27;EclipseLink semble être actif par défaut et provoquait des erreurs dans les tests.
+  </li>
 </ul>
+
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-text">
 <span class="odt-code-line">@Entity</span>
 <span class="odt-code-line"><span style="color:#646464">@Table</span><span style="color:#000000">(name = ConfigJdbc.</span><span style="font-weight:bold;font-style:italic;color:#0000c0">TAB_CATEGORIES</span><span style="color:#000000">)</span></span>
@@ -1394,8 +1417,10 @@
 </code></pre></div>
 
 <ul>
-<li>toutes les annotations [@OneToMany] sont accompagnées de l&#x27;annotation [<span style="color: #646464">@CascadeOnDelete</span>] :</li>
+  <li>toutes les annotations [@OneToMany] sont accompagnées de l&#x27;annotation [<span style="color: #646464">@CascadeOnDelete</span>] :
+  </li>
 </ul>
+
 <div class="odt-code-rich" data-linenums="false" style="counter-reset: odtline 0;"><pre><code class="language-javascript">
 <span class="odt-code-line"><span style="color:#000000">    </span><span style="color:#646464">@OneToMany</span><span style="color:#000000">(fetch = FetchType.</span><span style="font-weight:bold;font-style:italic;color:#0000c0">LAZY</span><span style="color:#000000">, mappedBy = </span><span style="color:#2a00ff">&quot;categorie&quot;</span><span style="color:#000000">, cascade = { CascadeType.</span><span style="font-weight:bold;font-style:italic;color:#0000c0">ALL</span><span style="color:#000000"> })</span></span>
 <span class="odt-code-line"><span style="color:#000000">    </span><span style="background-color:#ff950e;color:#646464">@CascadeOnDelete</span></span>
@@ -1412,21 +1437,30 @@
 
 <p>Les tests ci-dessus sont identiques à ceux des implémentations Spring JDBC et Spring JPA Hibernate. On se reportera aux pages suivantes si nécessaire :</p>
 <ul>
-<li>[JUnitTestCheckArguments] : paragraphe <a href="introduction-a-spring-jdbc.html#refheading1052502082896917">4.11.1</a> ;</li>
-<li>[JUnitTestDao] : paragraphe <a href="introduction-a-spring-jdbc.html#refheading1052522082896917">4.11.2</a> ;</li>
-<li>[JUnitTestPushTheLimits] : paragraphe <a href="introduction-a-spring-jdbc.html#refheading1052702082896917">4.11.3</a> ;</li>
-<li>[JUnitTestProxies] : paragraphe <a href="spring-data-jpa-hibernate.html#refheading10881435254046">6.4.5</a> ;</li>
+  <li>[JUnitTestCheckArguments] : paragraphe <a href="introduction-a-spring-jdbc.html#refheading1052502082896917">4.11.1</a> ;
+  </li>
+  <li>[JUnitTestDao] : paragraphe <a href="introduction-a-spring-jdbc.html#refheading1052522082896917">4.11.2</a> ;
+  </li>
+  <li>[JUnitTestPushTheLimits] : paragraphe <a href="introduction-a-spring-jdbc.html#refheading1052702082896917">4.11.3</a> ;
+  </li>
+  <li>[JUnitTestProxies] : paragraphe <a href="spring-data-jpa-hibernate.html#refheading10881435254046">6.4.5</a> ;
+  </li>
 </ul>
+
 <p>Les résultas obtenus sont les suivants :</p>
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/1000000000000500000001D5CDF62F25.png" style="display:inline-block; margin:4px;width:16.933cm;height:6.205cm;" class="odt-zoomable" data-zoom-src="images/1000000000000500000001D5CDF62F25.png" /></td></tr></table>
 
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000004FA00000191B1E02D36.png" style="display:inline-block; margin:4px;width:16.854cm;height:5.306cm;" class="odt-zoomable" data-zoom-src="images/10000000000004FA00000191B1E02D36.png" /></td></tr></table>
 
 <ul>
-<li>en [1], [JUnitTestPushTheLimits-EclipseLink] : 70,583 s</li>
-<li>en [2], [JUnitTestPushTheLimits-Hibernate] : 78,945 s</li>
-<li>en [3], [JUnitTestPushTheLimits-JDBC] : 36,09 s</li>
+  <li>en [1], [JUnitTestPushTheLimits-EclipseLink] : 70,583 s
+  </li>
+  <li>en [2], [JUnitTestPushTheLimits-Hibernate] : 78,945 s
+  </li>
+  <li>en [3], [JUnitTestPushTheLimits-JDBC] : 36,09 s
+  </li>
 </ul>
+
 <p>Le test [JUnitTestProxies] donne les résultats console suivants :</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-1-2"> 2</a></span>

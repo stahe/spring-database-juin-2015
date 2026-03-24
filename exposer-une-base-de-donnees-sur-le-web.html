@@ -1194,51 +1194,74 @@
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000004B8000003178F6C50DD.png" style="display:inline-block; margin:4px;width:15.981cm;height:10.465cm;" class="odt-zoomable" data-zoom-src="images/10000000000004B8000003178F6C50DD.png" /></td></tr></table>
 
 <ul>
-<li>en [1], les couches [DAO, [JPA], JDBC]sont implémentées par l&#x27;une des 24 configurations présentées dans les chapitres précédents et notamment au paragraphe <a href="performances.html#refheading1288441895821571">15</a> ;</li>
-<li>la couche [DAO] [3] du client distant implémente la même interface que la couche [DAO] [1], ce qui nous permet d&#x27;utiliser la même couche de tests que dans les chapitres précédents. Tout se passe comme si les couches [2-3] étaient transparentes pour la couche [4] ;</li>
+  <li>en [1], les couches [DAO, [JPA], JDBC]sont implémentées par l&#x27;une des 24 configurations présentées dans les chapitres précédents et notamment au paragraphe <a href="performances.html#refheading1288441895821571">15</a> ;
+  </li>
+  <li>la couche [DAO] [3] du client distant implémente la même interface que la couche [DAO] [1], ce qui nous permet d&#x27;utiliser la même couche de tests que dans les chapitres précédents. Tout se passe comme si les couches [2-3] étaient transparentes pour la couche [4] ;
+  </li>
 </ul>
+
 <p>Nous allons nous appuyer sur les projets suivants :</p>
 <ul>
-<li>le projet [sgbd-config-jdbc] qui configure la couche JDBC de l&#x27;un des six SGBD ;</li>
-<li>le projet [sgbd-config-jpa-*] qui configure la couche JPA du SGBD choisi pour l&#x27;une des trois implémentations JPA étudiées (Hibernate, EclipseLink, OpenJpa) ;</li>
-<li>le projet générique [spring-jdbc-04] qui implémente la couche [DAO] [1] ;</li>
-<li>le projet générique [spring-jpa-generic] qui implémente la couche [DAO] [2] ;</li>
-<li>le projet générique [spring-webjson-server-jdbc-generic] qui implémente un service web s&#x27;appuyant sur le projet [spring-jdbc-04] ;</li>
-<li>le projet générique [spring-webjson-server-jpa-generic] qui implémente un service web s&#x27;appuyant sur le projet [spring-jpa-generic] ;</li>
-<li>le client générique [spring-webjson-client-generic] qui sera le client unique des 24 configurations du service web ;</li>
+  <li>le projet [sgbd-config-jdbc] qui configure la couche JDBC de l&#x27;un des six SGBD ;
+  </li>
+  <li>le projet [sgbd-config-jpa-*] qui configure la couche JPA du SGBD choisi pour l&#x27;une des trois implémentations JPA étudiées (Hibernate, EclipseLink, OpenJpa) ;
+  </li>
+  <li>le projet générique [spring-jdbc-04] qui implémente la couche [DAO] [1] ;
+  </li>
+  <li>le projet générique [spring-jpa-generic] qui implémente la couche [DAO] [2] ;
+  </li>
+  <li>le projet générique [spring-webjson-server-jdbc-generic] qui implémente un service web s&#x27;appuyant sur le projet [spring-jdbc-04] ;
+  </li>
+  <li>le projet générique [spring-webjson-server-jpa-generic] qui implémente un service web s&#x27;appuyant sur le projet [spring-jpa-generic] ;
+  </li>
+  <li>le client générique [spring-webjson-client-generic] qui sera le client unique des 24 configurations du service web ;
+  </li>
 </ul>
+
 <p><a id="refheading1350561333600986"></a></p>
 <h2 id="172-mise-en-place-de-lenvironnement-de-travail">17.2. Mise en place de l&#x27;environnement de travail</h2>
 <p>Nous allons travailler avec les éléments suivants :</p>
 <ul>
-<li>SGBD MySQL 5.6.25 ;</li>
-<li>implémentation JPA Hibernate ;</li>
+  <li>SGBD MySQL 5.6.25 ;
+  </li>
+  <li>implémentation JPA Hibernate ;
+  </li>
 </ul>
+
 <p>Importez les projets suivants dans STS :</p>
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/1000000000000113000000C83988F0F2.png" style="display:inline-block; margin:4px;width:5.091cm;height:3.701cm;" class="odt-zoomable" data-zoom-src="images/1000000000000113000000C83988F0F2.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td></tr></table>
 
 <ul>
-<li>les projets [spring-webjson-*] seront trouvés dans le dossier [&lt;exemples&gt;\spring-database-generic\spring-webjson] ;</li>
-<li>faire [Alt-F5] puis régénérer l&#x27;ensemble des projets ci-dessus ;</li>
+  <li>les projets [spring-webjson-*] seront trouvés dans le dossier [&lt;exemples&gt;\spring-database-generic\spring-webjson] ;
+  </li>
+  <li>faire [Alt-F5] puis régénérer l&#x27;ensemble des projets ci-dessus ;
+  </li>
 </ul>
+
 <p>Pour vérifier la bonne installation de l&#x27;environnement de travail, procédez ainsi :</p>
 <ul>
-<li>lancez le service web avec la configuration d&#x27;exécution [spring-webjson-server-jpa-generic-hibernate] qui s&#x27;appuie sur une implémentation JPA / Hibernate ;</li>
+  <li>lancez le service web avec la configuration d&#x27;exécution [spring-webjson-server-jpa-generic-hibernate] qui s&#x27;appuie sur une implémentation JPA / Hibernate ;
+  </li>
 </ul>
+
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/1000000000000166000000F9F5E76613.png" style="display:inline-block; margin:4px;width:6.63cm;height:4.611cm;" class="odt-zoomable" data-zoom-src="images/1000000000000166000000F9F5E76613.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/1000000000000177000001587F11C273.png" style="display:inline-block; margin:4px;width:6.939cm;height:6.369cm;" class="odt-zoomable" data-zoom-src="images/1000000000000177000001587F11C273.png" /></td></tr></table>
 
 <p>puis :</p>
 <ul>
-<li>lancez le client de ce service web avec la configuration d&#x27;exécution [spring-webjson-client-generic] qui est un test JUnit :</li>
+  <li>lancez le client de ce service web avec la configuration d&#x27;exécution [spring-webjson-client-generic] qui est un test JUnit :
+  </li>
 </ul>
+
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/1000000000000143000000E977B818CB.png" style="display:inline-block; margin:4px;width:5.98cm;height:4.309cm;" class="odt-zoomable" data-zoom-src="images/1000000000000143000000E977B818CB.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000000FB0000010D6AA16F1C.png" style="display:inline-block; margin:4px;width:4.65cm;height:4.979cm;" class="odt-zoomable" data-zoom-src="images/10000000000000FB0000010D6AA16F1C.png" /></td></tr></table>
 
 <p>Le test doit réussir :</p>
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/100000000000048E000001C2F5E5DA58.png" style="display:inline-block; margin:4px;width:15.425cm;height:5.953cm;" class="odt-zoomable" data-zoom-src="images/100000000000048E000001C2F5E5DA58.png" /></td></tr></table>
 
 <ul>
-<li>en [1], arrêtez le service web puis lancez le service web avec la configuration d&#x27;exécution [spring-webjson-server-jdbc-generic] qui s&#x27;appuie sur une implémentation JDBC :</li>
+  <li>en [1], arrêtez le service web puis lancez le service web avec la configuration d&#x27;exécution [spring-webjson-server-jdbc-generic] qui s&#x27;appuie sur une implémentation JDBC :
+  </li>
 </ul>
+
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/1000000000000168000000F39CF238B4.png" style="display:inline-block; margin:4px;width:6.669cm;height:4.5cm;" class="odt-zoomable" data-zoom-src="images/1000000000000168000000F39CF238B4.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/100000000000013600000141762D0ECD.png" style="display:inline-block; margin:4px;width:5.74cm;height:5.941cm;" class="odt-zoomable" data-zoom-src="images/100000000000013600000141762D0ECD.png" /></td></tr></table>
 
 <p>puis lancez le client de ce service web avec la configuration d&#x27;exécution [spring-webjson-client-generic] :</p>
@@ -1304,16 +1327,22 @@
 </code></pre></div>
 
 <ul>
-<li>lignes 11-15 : le projet Maven parent ;</li>
-<li>lignes 24-28 : la dépendance sur la couche [DAO / JDBC] implémentée par le projet [<span style="color: #000000">spring-jdbc-generic-04</span>] ;</li>
-<li>lignes 19-22 : la dépendance sur l&#x27;artifact [spring-boot-starter-web]. Cet artifact amène avec lui toutes les dépendances nécessaires à la création d&#x27;un service web / jSON. Il amène aussi des bibliothèques inutiles. Une configuration plus précise serait donc nécessaire, mais cette configuration est pratique pour démarrer.</li>
+  <li>lignes 11-15 : le projet Maven parent ;
+  </li>
+  <li>lignes 24-28 : la dépendance sur la couche [DAO / JDBC] implémentée par le projet [<span style="color: #000000">spring-jdbc-generic-04</span>] ;
+  </li>
+  <li>lignes 19-22 : la dépendance sur l&#x27;artifact [spring-boot-starter-web]. Cet artifact amène avec lui toutes les dépendances nécessaires à la création d&#x27;un service web / jSON. Il amène aussi des bibliothèques inutiles. Une configuration plus précise serait donc nécessaire, mais cette configuration est pratique pour démarrer.
+  </li>
 </ul>
+
 <p>Les dépendances amenées par cette configuration sont les suivantes :</p>
-<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/1000000000000108000001BA0C1E26A8.png" style="display:inline-block; margin:4px;width:4.89cm;height:8.179cm;" class="odt-zoomable" data-zoom-src="images/1000000000000108000001BA0C1E26A8.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/1000000000000102000001432994D567.png" style="display:inline-block; margin:4px;width:4.78cm;height:5.98cm;" class="odt-zoomable" data-zoom-src="images/1000000000000102000001432994D567.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;"><b>1</b></p><img src="images/10000000000000E9000000A6F41CEE44.png" style="display:inline-block; margin:4px;width:4.309cm;height:3.069cm;" class="odt-zoomable" data-zoom-src="images/10000000000000E9000000A6F41CEE44.png" /></td></tr></table>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/1000000000000108000001BA0C1E26A8.png" style="display:inline-block; margin:4px;width:4.89cm;height:8.179cm;" class="odt-zoomable" data-zoom-src="images/1000000000000108000001BA0C1E26A8.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/1000000000000102000001432994D567.png" style="display:inline-block; margin:4px;width:4.78cm;height:5.98cm;" class="odt-zoomable" data-zoom-src="images/1000000000000102000001432994D567.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><b>1</b></div><img src="images/10000000000000E9000000A6F41CEE44.png" style="display:inline-block; margin:4px;width:4.309cm;height:3.069cm;" class="odt-zoomable" data-zoom-src="images/10000000000000E9000000A6F41CEE44.png" /></td></tr></table>
 
 <ul>
-<li>en [1], on voit qu&#x27;Eclipse a vu la dépendance sur l&#x27;archive du projet [spring-jdbc-generic-04] ;</li>
+  <li>en [1], on voit qu&#x27;Eclipse a vu la dépendance sur l&#x27;archive du projet [spring-jdbc-generic-04] ;
+  </li>
 </ul>
+
 <p>Les dépendances ci-dessus sont à la fois celles de la couche [DAO] et de la couche [web].</p>
 <p><a id="refheading17988265679331"></a></p>
 <h3 id="1732-configuration-de-la-couche-web">17.3.2. Configuration de la couche [web]</h3>
@@ -1324,9 +1353,12 @@
 <h4 id="17321-la-classe-webconfig">17.3.2.1. La classe [WebConfig]</h4>
 <p>La classe [WebConfig] a pour rôle principal de configurer :</p>
 <ul>
-<li>le serveur Tomcat sur lequel va être déployé le service web ;</li>
-<li>les filtres jSON de sérialisation / désérialisation des objets [Produit] et [Categorie] :</li>
+  <li>le serveur Tomcat sur lequel va être déployé le service web ;
+  </li>
+  <li>les filtres jSON de sérialisation / désérialisation des objets [Produit] et [Categorie] :
+  </li>
 </ul>
+
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
 <span class="odt-code-line"><span style="font-weight:bold;color:#7f0055">package</span><span style="color:#000000"> spring.webjson.server.config;</span></span>
 <span class="odt-code-line"></span>
@@ -1382,13 +1414,20 @@
 </code></pre></div>
 
 <ul>
-<li>ligne 25 : la classe est une classe de configuration Spring ;</li>
-<li>ligne 26 : l&#x27;annotation [@EnableWebMvc] indique que la couche web est implémentée avec Spring MVC. Cela va provoquer des configurations implicites que nous n&#x27;aurons pas à faire ;</li>
-<li>lignes 30-31 : injection du contexte Spring de l&#x27;application ;</li>
-<li>lignes 33-37 : définition du bean [dispatcherServlet] qui, dans les applications Spring MVC, joue le rôle de [FrontController] dont le rôle est d&#x27;aiguiller les requêtes des clients vers le contrôleur capable de les traiter ;</li>
-<li>lignes 39-42 : la servlet du service web est enregistrée ainsi que les URL qu&#x27;elle traite. Ici on a écrit [/*] qui signifie toutes les URLs ;</li>
-<li>lignes 44-47 : définition du bean [<span style="color: #000000">embeddedServletContainerFactory</span>] qui définit le serveur web à utiliser. Ici ce sera le serveur web Tomcat [http://tomcat.apache.org/]. On peut utiliser également le serveur Jetty [http://www.eclipse.org/jetty/]. Ce sont tous les deux des serveurs embarqués dans les dépendances Maven. Lorsque [Spring Boot] pilote le lancement du projet, il lance automatiquement le serveur web désigné dans la configuration et déploie dessus le service ou l&#x27;application web ;</li>
+  <li>ligne 25 : la classe est une classe de configuration Spring ;
+  </li>
+  <li>ligne 26 : l&#x27;annotation [@EnableWebMvc] indique que la couche web est implémentée avec Spring MVC. Cela va provoquer des configurations implicites que nous n&#x27;aurons pas à faire ;
+  </li>
+  <li>lignes 30-31 : injection du contexte Spring de l&#x27;application ;
+  </li>
+  <li>lignes 33-37 : définition du bean [dispatcherServlet] qui, dans les applications Spring MVC, joue le rôle de [FrontController] dont le rôle est d&#x27;aiguiller les requêtes des clients vers le contrôleur capable de les traiter ;
+  </li>
+  <li>lignes 39-42 : la servlet du service web est enregistrée ainsi que les URL qu&#x27;elle traite. Ici on a écrit [/*] qui signifie toutes les URLs ;
+  </li>
+  <li>lignes 44-47 : définition du bean [<span style="color: #000000">embeddedServletContainerFactory</span>] qui définit le serveur web à utiliser. Ici ce sera le serveur web Tomcat [http://tomcat.apache.org/]. On peut utiliser également le serveur Jetty [http://www.eclipse.org/jetty/]. Ce sont tous les deux des serveurs embarqués dans les dépendances Maven. Lorsque [Spring Boot] pilote le lancement du projet, il lance automatiquement le serveur web désigné dans la configuration et déploie dessus le service ou l&#x27;application web ;
+  </li>
 </ul>
+
 <p>La configuration des filtres jSON se fait de la façon suivante :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
 <span class="odt-code-line"><span style="font-weight:bold;color:#7f0055">package</span><span style="color:#000000"> spring.webjson.server.config;</span></span>
@@ -1465,27 +1504,44 @@
 </code></pre></div>
 
 <ul>
-<li>ligne 8 : la classe [WebConfig] étend la classe [WebMvcConfigurerAdapter]. Cette dernière classe configure l&#x27;application web avec des valeurs par défaut. Lorsqu&#x27;on veut personnaliser cette configuration, il faut redéfinir certaines méthodes de cette classe. Ici, nous voulons redéfinir la méthode [configureMessageConverters] des lignes [22-26] (notez l&#x27;annotation @Override) qui définit une liste de &#x27;convertisseurs&#x27;. Le service web / jSON et son client échangent des lignes de texte. Un convertisseur est un outil capable de créer un objet à partir d&#x27;une ligne de texte reçue (désérialisation) et de créer une ligne de texte à partir d&#x27;un objet (sérialisation). Ici, les lignes de texte seront des chaînes jSON. On parlera donc de sérialisation /désérialisation jSON ;</li>
-<li>ligne 23 : la méthode [configureMessageConverters] reçoit comme paramètre une liste de convertisseurs ;</li>
-<li>lignes 24-25 : le convertisseur jSON [<span style="color: #000000">MappingJackson2HttpMessageConverter</span>] des lignes [14-20] est ajouté à cette liste. Cela va permettre les échanges jSON entre le client et le serveur ;</li>
-<li>lignes [14-20] : définissent un convertisseur jSON implémenté par la classe [<span style="color: #000000">MappingJackson2HttpMessageConverter]. Cette classe (ligne 10) sera trouvée dans les dépendances Maven du projet ;</span></li>
-<li><span style="color: #000000">lignes [17-18] : un mappeur jSON est créé et affecté au convertisseur [MappingJackson2HttpMessageConverter] ;</span></li>
-<li><span style="color: #000000">lignes [29-32] : définissent le mappeur jSON créé ligne 17 comme un bean Spring. Cela le met dans le contexte Spring et le rend disponible pour être injecté dans d&#x27;autres beans ou être utilisé dans le code de l&#x27;application web ;</span></li>
-<li><span style="color: #000000">lignes 34-41 : définissent un filtre jSON pour le mappeur jSON précédent ;</span></li>
-<li><span style="color: #000000">ligne 35 : l&#x27;annotation [</span><span style="color: #646464">@Scope</span><span style="color: #000000">(value = ConfigurableBeanFactory.</span><strong><em><span style="color: #0000c0">SCOPE_PROTOTYPE</span></em></strong><span style="color: #000000">)] fait que le bean défini ici n&#x27;est pas un singleton. A chaque fois qu&#x27;il sera demandé au contexte, la méthode [jsonMapperCategorieWithoutProduits] sera réexécutée. Cela est nécessaire ici car nous définissons quatre filtres jSON. Or un seul doit être actif à un moment donné. En donnant au bean la portée [ConfigurableBeanFactory.</span><strong><em><span style="color: #0000c0">SCOPE_PROTOTYPE</span></em></strong><span style="color: #000000">], on est assuré que la méthode sera réexécutée et que le préccédent filtre sera remplacé par le nouveau ;</span></li>
-<li><span style="color: #000000">pour comprendre ces filtres, il faut se rappeler que dans la couche [DAO] :</span><ul>
-<li><span style="color: #000000">l&#x27;entité [Produit] a été décorée avec l&#x27;annotation [jsonFilterProduit] ;</span></li>
-<li><span style="color: #000000">l&#x27;entité [Categorie] a été décorée avec l&#x27;annotation [jsonFilterCategorie] ;</span></li>
+  <li>ligne 8 : la classe [WebConfig] étend la classe [WebMvcConfigurerAdapter]. Cette dernière classe configure l&#x27;application web avec des valeurs par défaut. Lorsqu&#x27;on veut personnaliser cette configuration, il faut redéfinir certaines méthodes de cette classe. Ici, nous voulons redéfinir la méthode [configureMessageConverters] des lignes [22-26] (notez l&#x27;annotation @Override) qui définit une liste de &#x27;convertisseurs&#x27;. Le service web / jSON et son client échangent des lignes de texte. Un convertisseur est un outil capable de créer un objet à partir d&#x27;une ligne de texte reçue (désérialisation) et de créer une ligne de texte à partir d&#x27;un objet (sérialisation). Ici, les lignes de texte seront des chaînes jSON. On parlera donc de sérialisation /désérialisation jSON ;
+  </li>
+  <li>ligne 23 : la méthode [configureMessageConverters] reçoit comme paramètre une liste de convertisseurs ;
+  </li>
+  <li>lignes 24-25 : le convertisseur jSON [<span style="color: #000000">MappingJackson2HttpMessageConverter</span>] des lignes [14-20] est ajouté à cette liste. Cela va permettre les échanges jSON entre le client et le serveur ;
+  </li>
+  <li>lignes [14-20] : définissent un convertisseur jSON implémenté par la classe [<span style="color: #000000">MappingJackson2HttpMessageConverter]. Cette classe (ligne 10) sera trouvée dans les dépendances Maven du projet ;</span>
+  </li>
+  <li><span style="color: #000000">lignes [17-18] : un mappeur jSON est créé et affecté au convertisseur [MappingJackson2HttpMessageConverter] ;</span>
+  </li>
+  <li><span style="color: #000000">lignes [29-32] : définissent le mappeur jSON créé ligne 17 comme un bean Spring. Cela le met dans le contexte Spring et le rend disponible pour être injecté dans d&#x27;autres beans ou être utilisé dans le code de l&#x27;application web ;</span>
+  </li>
+  <li><span style="color: #000000">lignes 34-41 : définissent un filtre jSON pour le mappeur jSON précédent ;</span>
+  </li>
+  <li><span style="color: #000000">ligne 35 : l&#x27;annotation [</span><span style="color: #646464">@Scope</span><span style="color: #000000">(value = ConfigurableBeanFactory.</span><i><b><span style="color: #0000c0">SCOPE_PROTOTYPE</span></b></i><span style="color: #000000">)] fait que le bean défini ici n&#x27;est pas un singleton. A chaque fois qu&#x27;il sera demandé au contexte, la méthode [jsonMapperCategorieWithoutProduits] sera réexécutée. Cela est nécessaire ici car nous définissons quatre filtres jSON. Or un seul doit être actif à un moment donné. En donnant au bean la portée [ConfigurableBeanFactory.</span><i><b><span style="color: #0000c0">SCOPE_PROTOTYPE</span></b></i><span style="color: #000000">], on est assuré que la méthode sera réexécutée et que le préccédent filtre sera remplacé par le nouveau ;</span>
+  </li>
+  <li><span style="color: #000000">pour comprendre ces filtres, il faut se rappeler que dans la couche [DAO] :</span>
+    <ul>
+      <li><span style="color: #000000">l&#x27;entité [Produit] a été décorée avec l&#x27;annotation [jsonFilterProduit] ;</span>
+      </li>
+      <li><span style="color: #000000">l&#x27;entité [Categorie] a été décorée avec l&#x27;annotation [jsonFilterCategorie] ;</span>
+      </li>
+    </ul>
+  </li>
 </ul>
-</li>
-</ul>
+
 <p>Il faut donc définir des filtres portant ces noms.</p>
 <ul>
-<li>lignes [34-41] : définissent un filtre appelé [jsonMapperShortCategorie] qui permet d&#x27;avoir la représentation jSON d&#x27;une catégorie sans ses produits ;</li>
-<li>lignes [43-51] : définissent un filtre appelé [<span style="color: #000000">jsonMapperLongCategorie</span>] qui permet d&#x27;avoir la représentation jSON d&#x27;une catégorie avec ses produits ;</li>
-<li>lignes [53-60] : définissent un filtre appelé [<span style="color: #000000">jsonMapperShortProduit</span>] qui permet d&#x27;avoir la représentation jSON d&#x27;un produit sans sa catégorie ;</li>
-<li>lignes [62-70] : définissent un filtre appelé [<span style="color: #000000">jsonMapperLongProduit</span>] qui permet d&#x27;avoir la représentation jSON d&#x27;un produit avec sa catégorie ;</li>
+  <li>lignes [34-41] : définissent un filtre appelé [jsonMapperShortCategorie] qui permet d&#x27;avoir la représentation jSON d&#x27;une catégorie sans ses produits ;
+  </li>
+  <li>lignes [43-51] : définissent un filtre appelé [<span style="color: #000000">jsonMapperLongCategorie</span>] qui permet d&#x27;avoir la représentation jSON d&#x27;une catégorie avec ses produits ;
+  </li>
+  <li>lignes [53-60] : définissent un filtre appelé [<span style="color: #000000">jsonMapperShortProduit</span>] qui permet d&#x27;avoir la représentation jSON d&#x27;un produit sans sa catégorie ;
+  </li>
+  <li>lignes [62-70] : définissent un filtre appelé [<span style="color: #000000">jsonMapperLongProduit</span>] qui permet d&#x27;avoir la représentation jSON d&#x27;un produit avec sa catégorie ;
+  </li>
 </ul>
+
 <p><a id="refheading17990265679331"></a></p>
 <h4 id="17322-la-classe-appconfig">17.3.2.2. La classe [AppConfig]</h4>
 <p>La classe [AppConfig] configure l&#x27;ensemble de l&#x27;application, ç-à-d les couches [web] et [DAO] :</p>
@@ -1505,10 +1561,14 @@
 </code></pre></div>
 
 <ul>
-<li>ligne 7 : la classe est une classe de configuration Spring ;</li>
-<li>ligne 9 : on importe les beans de la couche [DAO / JDBC] ainsi que ceux définis par la classe [WebConfig]. Tous les beans de la couche [DAO] seront donc disponibles dans l&#x27;application web / jSON ;</li>
-<li>ligne 8 : indique dans quels packages trouver d&#x27;autres beans Spring ;</li>
+  <li>ligne 7 : la classe est une classe de configuration Spring ;
+  </li>
+  <li>ligne 9 : on importe les beans de la couche [DAO / JDBC] ainsi que ceux définis par la classe [WebConfig]. Tous les beans de la couche [DAO] seront donc disponibles dans l&#x27;application web / jSON ;
+  </li>
+  <li>ligne 8 : indique dans quels packages trouver d&#x27;autres beans Spring ;
+  </li>
 </ul>
+
 <p><a id="refheading1350601333600986"></a></p>
 <h3 id="1733-lexception-serverexception">17.3.3. L&#x27;exception [ServerException]</h3>
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/1000000000000111000000A1FC650B40.png" style="display:inline-block; margin:4px;width:5.05cm;height:2.979cm;" class="odt-zoomable" data-zoom-src="images/1000000000000111000000A1FC650B40.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td></tr></table>
@@ -1535,8 +1595,10 @@
 </code></pre></div>
 
 <ul>
-<li>ligne 5 : la classe [<span style="color: #000000">ServerException</span>] étend la classe [<span style="color: #000000">UncheckedException</span>] définie dans le projet configurant la couche JDBC (ligne 3) ;</li>
+  <li>ligne 5 : la classe [<span style="color: #000000">ServerException</span>] étend la classe [<span style="color: #000000">UncheckedException</span>] définie dans le projet configurant la couche JDBC (ligne 3) ;
+  </li>
 </ul>
+
 <p><a id="refheading480904986338762"></a></p>
 <h3 id="1734-les-controleurs">17.3.4. Les contrôleurs</h3>
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/100000000000048E000001789541AF0F.png" style="display:inline-block; margin:4px;width:15.425cm;height:4.974cm;" class="odt-zoomable" data-zoom-src="images/100000000000048E000001789541AF0F.png" /></td></tr></table>
@@ -1545,17 +1607,23 @@
 
 <p>Nous aurons ici deux contrôleurs :</p>
 <ul>
-<li>[CategorieController] contrôlera les requêtes sur les catégories ;</li>
-<li>[CategorieController] contrôlera les requêtes sur les produits ;</li>
+  <li>[CategorieController] contrôlera les requêtes sur les catégories ;
+  </li>
+  <li>[CategorieController] contrôlera les requêtes sur les produits ;
+  </li>
 </ul>
+
 <p>Les URL exposées par les contrôleurs correspondent une à une aux méthodes des interfaces [DaoCategorie] et [DaoProduit] de la couche [DAO] :</p>
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000001ED000001391CD5B74B.png" style="display:inline-block; margin:4px;width:8.481cm;height:5.38cm;" class="odt-zoomable" data-zoom-src="images/10000000000001ED000001391CD5B74B.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000001AB0000019CD4075EC2.png" style="display:inline-block; margin:4px;width:7.909cm;height:7.631cm;" class="odt-zoomable" data-zoom-src="images/10000000000001AB0000019CD4075EC2.png" /></td></tr></table>
 
 <p>Ainsi ci-dessus :</p>
 <ul>
-<li>la méthode web [deleteAllCategories] fera appel à la méthode [deleteAllEntities] de la classe [DaoCategorie] ;</li>
-<li>la méthode web [getShortCategoriesById] fera appel à la méthode [getShortEntitiesById] de la classe [DaoCategorie] ;</li>
+  <li>la méthode web [deleteAllCategories] fera appel à la méthode [deleteAllEntities] de la classe [DaoCategorie] ;
+  </li>
+  <li>la méthode web [getShortCategoriesById] fera appel à la méthode [getShortEntitiesById] de la classe [DaoCategorie] ;
+  </li>
 </ul>
+
 <p>Il en est de même pour les produits :</p>
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000001DA0000014AF08BB8EB.png" style="display:inline-block; margin:4px;width:8.781cm;height:6.11cm;" class="odt-zoomable" data-zoom-src="images/10000000000001DA0000014AF08BB8EB.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000001B6000001885385291D.png" style="display:inline-block; margin:4px;width:8.11cm;height:7.26cm;" class="odt-zoomable" data-zoom-src="images/10000000000001B6000001885385291D.png" /></td></tr></table>
 
@@ -1907,9 +1975,12 @@
 
 <p><span style="color: #000000">Le passage de l&#x27;interface [IDao&lt;T&gt;] de la couche [DAO] à l&#x27;interface [Iws&lt;T&gt;] du service web a obéi aux règles suivantes :</span></p>
 <ul>
-<li><span style="color: #000000">les méthodes de l&#x27;interface [Iws&lt;T&gt;] ne vont pas lancer d&#x27;exception. Si exception il y a, elle sera encapsulée dans l&#x27;objet [Response] ;</span></li>
-<li><span style="color: #000000">les variantes des paramètres telles que lignes 45 et 47 [Iterable&lt;String&gt; </span><span style="color: #6a3e3e">names, </span><span style="color: #000000">String... </span><span style="color: #6a3e3e">names</span><span style="color: #000000">] disparaissent. Les méthodes obtiennent leurs paramètres dans la requête HTTP du client de type [HttpServletRequest </span><span style="color: #6a3e3e">request</span><span style="color: #000000">] ;</span></li>
+  <li><span style="color: #000000">les méthodes de l&#x27;interface [Iws&lt;T&gt;] ne vont pas lancer d&#x27;exception. Si exception il y a, elle sera encapsulée dans l&#x27;objet [Response] ;</span>
+  </li>
+  <li><span style="color: #000000">les variantes des paramètres telles que lignes 45 et 47 [Iterable&lt;String&gt; </span><span style="color: #6a3e3e">names, </span><span style="color: #000000">String... </span><span style="color: #6a3e3e">names</span><span style="color: #000000">] disparaissent. Les méthodes obtiennent leurs paramètres dans la requête HTTP du client de type [HttpServletRequest </span><span style="color: #6a3e3e">request</span><span style="color: #000000">] ;</span>
+  </li>
 </ul>
+
 <p><span style="color: #000000">Toutes les réponses du service web seront encapsulées dans l&#x27;objet [Response] suivant :</span></p>
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/1000000000000111000000EF4D5217EF.png" style="display:inline-block; margin:4px;width:5.05cm;height:4.431cm;" class="odt-zoomable" data-zoom-src="images/1000000000000111000000EF4D5217EF.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td></tr></table>
 
@@ -1944,14 +2015,20 @@
 </code></pre></div>
 
 <ul>
-<li><span style="color: #000000">ligne 4 : la réponse encapsule un type T ;</span></li>
-<li><span style="color: #000000">ligne 12 : la réponse de type T ;</span></li>
-<li><span style="color: #000000">lignes 7-10 : il est possible qu&#x27;une méthode rencontre une exception. Dans ce cas, elle rendra une réponse avec :</span><ul>
-<li><span style="color: #000000">ligne 8 : status!=0 ;</span></li>
-<li><span style="color: #000000">ligne 10 : un message d&#x27;erreur ;</span></li>
+  <li><span style="color: #000000">ligne 4 : la réponse encapsule un type T ;</span>
+  </li>
+  <li><span style="color: #000000">ligne 12 : la réponse de type T ;</span>
+  </li>
+  <li><span style="color: #000000">lignes 7-10 : il est possible qu&#x27;une méthode rencontre une exception. Dans ce cas, elle rendra une réponse avec :</span>
+    <ul>
+      <li><span style="color: #000000">ligne 8 : status!=0 ;</span>
+      </li>
+      <li><span style="color: #000000">ligne 10 : un message d&#x27;erreur ;</span>
+      </li>
+    </ul>
+  </li>
 </ul>
-</li>
-</ul>
+
 <p><span style="color: #000000">La classe [AbstractController] est la suivante :</span></p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
 <span class="odt-code-line"><span style="font-weight:bold;color:#7f0055">package</span> spring.webjson.server.service;</span>
@@ -2070,10 +2147,14 @@
 
 <p><span style="color: #000000">Les méthodes sont toutes implémentées de la même façon :</span></p>
 <ol>
-<li><span style="color: #000000">si elles attendent des informations, elles les récupèrent dans l&#x27;objet [HttpServletRequest request] ;</span></li>
-<li><span style="color: #000000">elles appellent la méthode de la couche [DAO] qui porte le même nom qu&#x27;elles ;</span></li>
-<li><span style="color: #000000">elles gèrent les exceptions qui peuvent se produire, soit dans l&#x27;opération 1 de récupération des paramètres, soit dans l&#x27;opération 2 d&#x27;appel à la couche [DAO] ;</span></li>
+  <li><span style="color: #000000">si elles attendent des informations, elles les récupèrent dans l&#x27;objet [HttpServletRequest request] ;</span>
+  </li>
+  <li><span style="color: #000000">elles appellent la méthode de la couche [DAO] qui porte le même nom qu&#x27;elles ;</span>
+  </li>
+  <li><span style="color: #000000">elles gèrent les exceptions qui peuvent se produire, soit dans l&#x27;opération 1 de récupération des paramètres, soit dans l&#x27;opération 2 d&#x27;appel à la couche [DAO] ;</span>
+  </li>
 </ol>
+
 <p><span style="color: #000000">Examinons d&#x27;abord comment est injectée la couche [DAO] dans la classe [AbstractController] :</span></p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-text">
 <span class="odt-code-line"><span style="font-weight:bold;color:#7f0055">public</span> <span style="font-weight:bold;color:#7f0055">abstract</span> <span style="font-weight:bold;color:#7f0055">class</span> AbstractController&lt;T <span style="font-weight:bold;color:#7f0055">extends</span> AbstractCoreEntity&gt; <span style="font-weight:bold;color:#7f0055">implements</span> Iws&lt;T&gt; {</span>
@@ -2094,12 +2175,18 @@
 
 <p><span style="color: #000000">    </span></p>
 <ul>
-<li><span style="color: #000000">ligne 1 : la classe est abstraite et implémente l&#x27;interface générique [Iws&lt;T&gt;] ;</span></li>
-<li><span style="color: #000000">lignes 3-4 : injection du contexte Spring ;</span></li>
-<li><span style="color: #000000">ligne 7 : la référence encore inconnue de la couche [DAO] à utiliser ;</span></li>
-<li><span style="color: #000000">ligne 9 : la méthode abstraite [getDao] qui va rendre la référence de la couche [DAO] à utiliser. Cette méthode va être redéfinie par la classe fille et c&#x27;est donc la classe fille qui va indiquer quelle couche [DAO] utiliser (DaoProduit ou DaoCategorie) ;</span></li>
-<li><span style="color: #000000">ligne 11 : l&#x27;annotation [<span style="color: #646464">@PostConstruct</span>] annote une méthode à exécuter lorsque l&#x27;instanciation de l&#x27;objet est terminée. Lorsque cette instanciation est terminée, les injections Spring ont été faites. La classe fille aura alors obtenu la référence de sa couche [DAO] et pourra donc la transmettre à son parent ;</span></li>
+  <li><span style="color: #000000">ligne 1 : la classe est abstraite et implémente l&#x27;interface générique [Iws&lt;T&gt;] ;</span>
+  </li>
+  <li><span style="color: #000000">lignes 3-4 : injection du contexte Spring ;</span>
+  </li>
+  <li><span style="color: #000000">ligne 7 : la référence encore inconnue de la couche [DAO] à utiliser ;</span>
+  </li>
+  <li><span style="color: #000000">ligne 9 : la méthode abstraite [getDao] qui va rendre la référence de la couche [DAO] à utiliser. Cette méthode va être redéfinie par la classe fille et c&#x27;est donc la classe fille qui va indiquer quelle couche [DAO] utiliser (DaoProduit ou DaoCategorie) ;</span>
+  </li>
+  <li><span style="color: #000000">ligne 11 : l&#x27;annotation [<span style="color: #646464">@PostConstruct</span>] annote une méthode à exécuter lorsque l&#x27;instanciation de l&#x27;objet est terminée. Lorsque cette instanciation est terminée, les injections Spring ont été faites. La classe fille aura alors obtenu la référence de sa couche [DAO] et pourra donc la transmettre à son parent ;</span>
+  </li>
 </ul>
+
 <p><span style="color: #000000">La méthode [getShortEntitiesById] est la suivante :</span></p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-javascript">
 <span class="odt-code-line"><span style="color:#000000">    </span><span style="color:#646464">@Override</span></span>
@@ -2122,12 +2209,18 @@
 </code></pre></div>
 
 <ul>
-<li><span style="color: #000000">ligne 5 : la valeur postée par le client sera une chaîne jSON. C&#x27;est ici qu&#x27;elle est récupérée ;</span></li>
-<li><span style="color: #000000">lignes 7-9 : la chaîne jSON contient la liste des clés primaires des entités dont on veut la version courte ;</span></li>
-<li><span style="color: #000000">ligne 11 : on appelle la méthode [DAO] de même nom. La réponse de type [List&lt;T&gt;] est encapsulée dans un objet [Response] ;</span></li>
-<li><span style="color: #000000">ligne 13 : cas où la couche [DAO] a lancé une exception ;</span></li>
-<li><span style="color: #000000">ligne 15 : cas des autres exceptions, en particulier l&#x27;exception possible à la désérialisation du paramètre jSON, ligne 8 ;</span></li>
+  <li><span style="color: #000000">ligne 5 : la valeur postée par le client sera une chaîne jSON. C&#x27;est ici qu&#x27;elle est récupérée ;</span>
+  </li>
+  <li><span style="color: #000000">lignes 7-9 : la chaîne jSON contient la liste des clés primaires des entités dont on veut la version courte ;</span>
+  </li>
+  <li><span style="color: #000000">ligne 11 : on appelle la méthode [DAO] de même nom. La réponse de type [List&lt;T&gt;] est encapsulée dans un objet [Response] ;</span>
+  </li>
+  <li><span style="color: #000000">ligne 13 : cas où la couche [DAO] a lancé une exception ;</span>
+  </li>
+  <li><span style="color: #000000">ligne 15 : cas des autres exceptions, en particulier l&#x27;exception possible à la désérialisation du paramètre jSON, ligne 8 ;</span>
+  </li>
 </ul>
+
 <p><span style="color: #000000">La méthode [getShortEntitiesByName] est analogue :</span></p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-javascript">
 <span class="odt-code-line">@Override</span>
@@ -2150,8 +2243,10 @@
 </code></pre></div>
 
 <ul>
-<li>lignes 4-9 : ici le paramètre jSON est la liste des noms des catégories dont on veut la version courte ;</li>
+  <li>lignes 4-9 : ici le paramètre jSON est la liste des noms des catégories dont on veut la version courte ;
+  </li>
 </ul>
+
 <p>La méthode [saveEntities] n&#x27;a pas été implémentée parce qu&#x27;elle assez dépendante de la nature de l&#x27;entité à persister, [Categorie] ou [Produit]. Il y a peu de code à factoriser. Ce travail est donc laissé aux classes fille.</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-javascript">
 <span class="odt-code-line"><span style="color:#000000">    </span><span style="color:#000000">    </span><span style="color:#646464">@Override</span></span>
@@ -2288,30 +2383,39 @@
 </code></pre></div>
 
 <ul>
-<li><span style="color: #000000">ligne 26 : la classe [CategorieController] étend la classe [AbstractController] ;</span></li>
-<li><span style="color: #000000">ligne 25 : l&#x27;annotation [</span><span style="color: #000000">@RestController</span><span style="color: #000000">] fait de la classe un composant Spring. Cette annotation indique de plus que la classe est un service web dont les méthodes envoient directement leur réponse au client au format jSON ;</span></li>
-<li><span style="color: #000000">lignes 28-29 : la référence de la couche [DAO] est injectée ici ;</span></li>
-<li><span style="color: #000000">lignes 31-34 : redéfinition de la méthode [getDao] délarée abstraite dans la classe parent et dont le but est de rendre une référence sur la couche [DAO] à utiliser ;</span></li>
+  <li><span style="color: #000000">ligne 26 : la classe [CategorieController] étend la classe [AbstractController] ;</span>
+  </li>
+  <li><span style="color: #000000">ligne 25 : l&#x27;annotation [</span><span style="color: #000000">@RestController</span><span style="color: #000000">] fait de la classe un composant Spring. Cette annotation indique de plus que la classe est un service web dont les méthodes envoient directement leur réponse au client au format jSON ;</span>
+  </li>
+  <li><span style="color: #000000">lignes 28-29 : la référence de la couche [DAO] est injectée ici ;</span>
+  </li>
+  <li><span style="color: #000000">lignes 31-34 : redéfinition de la méthode [getDao] délarée abstraite dans la classe parent et dont le but est de rendre une référence sur la couche [DAO] à utiliser ;</span>
+  </li>
 </ul>
+
 <p><span style="color: #000000">Les méthodes sont toutes bâties sur le même modèle :</span></p>
 <ul>
-<li><span style="color: #000000">délégation du traitement à la classe parent ;</span></li>
-<li><span style="color: #000000">initialisation du mappeur jSON qui va procéder à la sérialisation de la réponse ;</span></li>
-<li><span style="color: #000000">envoi de la réponse ;</span></li>
+  <li><span style="color: #000000">délégation du traitement à la classe parent ;</span>
+  </li>
+  <li><span style="color: #000000">initialisation du mappeur jSON qui va procéder à la sérialisation de la réponse ;</span>
+  </li>
+  <li><span style="color: #000000">envoi de la réponse ;</span>
+  </li>
 </ul>
+
 <p><span style="color: #000000">Intéressons-nous à la signature de quelques URL :</span></p>
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div class="odt-code-rich" data-linenums="false" style="counter-reset: odtline 0;"><pre><code class="language-text">
 <span class="odt-code-line"><span style="color:#646464">@RequestMapping</span><span style="color:#000000">(value = </span><span style="color:#2a00ff">&quot;/getAllShortCategories&quot;</span><span style="color:#000000">, method</span></span>
 <span class="odt-code-line"><span style="color:#000000"> = RequestMethod.</span><span style="font-weight:bold;font-style:italic;color:#0000c0">GET</span><span style="color:#000000">)</span></span>
-</code></pre></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;">- l&#x27;URL [<span style="color: #2a00ff">/getAllShortCategories</span>] est appelée avec un GET</p></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div class="odt-code-rich" data-linenums="false" style="counter-reset: odtline 0;"><pre><code class="language-text">
+</code></pre></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">- l&#x27;URL [<span style="color: #2a00ff">/getAllShortCategories</span>] est appelée avec un GET</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div class="odt-code-rich" data-linenums="false" style="counter-reset: odtline 0;"><pre><code class="language-text">
 <span class="odt-code-line"><span style="color:#646464">@RequestMapping</span><span style="color:#000000">(value = </span><span style="color:#2a00ff">&quot;/getShortCategoriesById&quot;</span><span style="color:#000000">,</span></span>
 <span class="odt-code-line"><span style="color:#000000"> method = RequestMethod.</span><span style="font-weight:bold;font-style:italic;color:#0000c0">POST</span><span style="color:#000000">, consumes =</span></span>
 <span class="odt-code-line"><span style="color:#000000"> </span><span style="color:#2a00ff">&quot;application/json; charset=UTF-8&quot;</span><span style="color:#000000">)</span></span>
-</code></pre></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;">- l&#x27;URL [<span style="color: #2a00ff">/getShortCategoriesById</span>] est appelée avec un POST. La valeur postée est la chaîne jSON des clés primaires des</p><p style="margin:0;"> catégories désirées ;</p></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div class="odt-code-rich" data-linenums="false" style="counter-reset: odtline 0;"><pre><code class="language-text">
+</code></pre></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">- l&#x27;URL [<span style="color: #2a00ff">/getShortCategoriesById</span>] est appelée avec un POST. La valeur postée est la chaîne jSON des clés primaires des</div><div style="margin:0 0 0.5em 0"> catégories désirées ;</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div class="odt-code-rich" data-linenums="false" style="counter-reset: odtline 0;"><pre><code class="language-text">
 <span class="odt-code-line"><span style="color:#646464">@RequestMapping</span><span style="color:#000000">(value = </span><span style="color:#2a00ff">&quot;/getLongCategoriesByName&quot;</span><span style="color:#000000">,</span></span>
 <span class="odt-code-line"><span style="color:#000000"> method = RequestMethod.</span><span style="font-weight:bold;font-style:italic;color:#0000c0">POST</span><span style="color:#000000">, consumes =</span></span>
 <span class="odt-code-line"><span style="color:#000000"> </span><span style="color:#2a00ff">&quot;application/json; charset=UTF-8&quot;</span><span style="color:#000000">)</span></span>
-</code></pre></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;">- l&#x27;URL [<span style="color: #2a00ff">/</span><span style="color: #2a00ff">getLongCategoriesByName</span>] est appelée avec un</p><p style="margin:0;">POST. La valeur postée est la chaîne jSON des noms des</p><p style="margin:0;"> catégories désirées ;</p></td></tr></table>
+</code></pre></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">- l&#x27;URL [<span style="color: #2a00ff">/</span><span style="color: #2a00ff">getLongCategoriesByName</span>] est appelée avec un</div><div style="margin:0 0 0.5em 0">POST. La valeur postée est la chaîne jSON des noms des</div><div style="margin:0 0 0.5em 0"> catégories désirées ;</div></td></tr></table>
 
 <p><span style="color: #000000">Maintenant, détaillons la méthode [saveCategories] qui ne suit pas le format des autres méthodes :</span></p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-javascript">
@@ -2352,10 +2456,14 @@
 </code></pre></div>
 
 <ul>
-<li><span style="color: #000000">ligne 1 : l&#x27;URL [/saveCategories] est accompagnée d&#x27;une valeur postée. Celle-ci est la chaîne jSON des versions longues des catégories à persister ;</span></li>
-<li><span style="color: #000000">lignes 5-10 : les catégories à persister sont recréées à partir de la chaîne jSON. Le lien [produit.categorie] qui relie un [Produit] à sa [Catégorie] vaut </span><em><span style="color: #000000">null</span></em><span style="color: #000000"> car dans la version longue d&#x27;une [Categorie], chaque [Produit] est lui dans sa version courte sans son champ [categorie]. Cela ne gêne pas, car la couche [DAO] implémentée avec JDBC n&#x27;a pas besoin de cette information ;</span></li>
-<li><span style="color: #000000">ligne 12 : les catégories sont persistées. La liste des catégories reçue a été enrichie des clés primaires des éléments persistés, catégories et produits. Rien d&#x27;autre n&#x27;a changé. Plutôt que de rendre toute la liste reçue, ce qui a un coût, on ne va rendre que les clés primaires des éléments de cette liste. Pour cela, on utilise les classes [CoreCategorie] et [CoreProduit] suivantes :</span></li>
+  <li><span style="color: #000000">ligne 1 : l&#x27;URL [/saveCategories] est accompagnée d&#x27;une valeur postée. Celle-ci est la chaîne jSON des versions longues des catégories à persister ;</span>
+  </li>
+  <li><span style="color: #000000">lignes 5-10 : les catégories à persister sont recréées à partir de la chaîne jSON. Le lien [produit.categorie] qui relie un [Produit] à sa [Catégorie] vaut </span><i><span style="color: #000000">null</span></i><span style="color: #000000"> car dans la version longue d&#x27;une [Categorie], chaque [Produit] est lui dans sa version courte sans son champ [categorie]. Cela ne gêne pas, car la couche [DAO] implémentée avec JDBC n&#x27;a pas besoin de cette information ;</span>
+  </li>
+  <li><span style="color: #000000">ligne 12 : les catégories sont persistées. La liste des catégories reçue a été enrichie des clés primaires des éléments persistés, catégories et produits. Rien d&#x27;autre n&#x27;a changé. Plutôt que de rendre toute la liste reçue, ce qui a un coût, on ne va rendre que les clés primaires des éléments de cette liste. Pour cela, on utilise les classes [CoreCategorie] et [CoreProduit] suivantes :</span>
+  </li>
 </ul>
+
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/1000000000000119000000B01BEF58A6.png" style="display:inline-block; margin:4px;width:5.2cm;height:3.26cm;" class="odt-zoomable" data-zoom-src="images/1000000000000119000000B01BEF58A6.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td></tr></table>
 
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
@@ -2386,9 +2494,12 @@
 </code></pre></div>
 
 <ul>
-<li><span style="color: #000000">ligne 8 : la clé primaire d&#x27;un produit ;</span></li>
-<li><span style="color: #000000">ligne 20 : les clés primaires de ses produits ;</span></li>
+  <li><span style="color: #000000">ligne 8 : la clé primaire d&#x27;un produit ;</span>
+  </li>
+  <li><span style="color: #000000">ligne 20 : les clés primaires de ses produits ;</span>
+  </li>
 </ul>
+
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-text">
 <span class="odt-code-line"><span style="font-weight:bold;color:#7f0055">package</span><span style="color:#000000"> spring.webjson.server.entities;</span></span>
 <span class="odt-code-line"></span>
@@ -2412,8 +2523,10 @@
 </code></pre></div>
 
 <ul>
-<li><span style="color: #000000">ligne 6 : la clé primaire d&#x27;un produit ;</span></li>
+  <li><span style="color: #000000">ligne 6 : la clé primaire d&#x27;un produit ;</span>
+  </li>
 </ul>
+
 <p><span style="color: #000000">Revenons au code de la méthode [saveCategories] :</span></p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-text">
 <span class="odt-code-line">...            </span>
@@ -2439,16 +2552,22 @@
 </code></pre></div>
 
 <ul>
-<li><span style="color: #000000">lignes 5-17 : on construit la liste des [CoreCategorie] qu&#x27;on va rendre au client distant ;</span></li>
-<li><span style="color: #000000">ligne 19 : la réponse est rendue et sérialisée en jSON ;</span></li>
+  <li><span style="color: #000000">lignes 5-17 : on construit la liste des [CoreCategorie] qu&#x27;on va rendre au client distant ;</span>
+  </li>
+  <li><span style="color: #000000">ligne 19 : la réponse est rendue et sérialisée en jSON ;</span>
+  </li>
 </ul>
+
 <p><a id="refheading1330861985289926"></a></p>
 <h3 id="1737-gestion-des-filtres-json">17.3.7. Gestion des filtres jSON</h3>
 <p><span style="color: #000000">Pour chaque méthode d&#x27;un contrôleur, il y a deux moments pour la sérialisation / désérialisation jSON :</span></p>
 <ul>
-<li><span style="color: #000000">la désérialisation de la valeur postée : elle est ici gérée explicitement ;</span></li>
-<li><span style="color: #000000">la sérialisation du résultat : elle est ici gérée implicitement ;</span></li>
+  <li><span style="color: #000000">la désérialisation de la valeur postée : elle est ici gérée explicitement ;</span>
+  </li>
+  <li><span style="color: #000000">la sérialisation du résultat : elle est ici gérée implicitement ;</span>
+  </li>
 </ul>
+
 <p><span style="color: #000000">Commençons par la désérialisation de la valeur postée dans [CategorieController.saveCategories] :</span></p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-javascript">
 <span class="odt-code-line">    <span style="color:#646464">@RequestMapping</span>(value = <span style="color:#2a00ff">&quot;/saveCategories&quot;</span>, method = RequestMethod.<span style="font-weight:bold;font-style:italic;color:#0000c0">POST</span>, consumes = <span style="color:#2a00ff">&quot;application/json; charset=UTF-8&quot;</span>)</span>
@@ -2464,8 +2583,10 @@
 </code></pre></div>
 
 <ul>
-<li><span style="color: #000000">ligne 8 : on récupère dans le contexte Spring un mappeur configuré pour gérer le filtre jSON [<span style="color: #2a00ff">jsonMapperLongCategorie</span>]. Revenons à la définition de ce mappeur dans la classe de configuration [WebConfig] :</span></li>
+  <li><span style="color: #000000">ligne 8 : on récupère dans le contexte Spring un mappeur configuré pour gérer le filtre jSON [<span style="color: #2a00ff">jsonMapperLongCategorie</span>]. Revenons à la définition de ce mappeur dans la classe de configuration [WebConfig] :</span>
+  </li>
 </ul>
+
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-text">
 <span class="odt-code-line">// -------------------------------- configuration filtres [json]</span>
 <span class="odt-code-line"><span style="color:#000000">    </span><span style="color:#3f7f5f">// mapping jSON</span></span>
@@ -2511,10 +2632,14 @@
 </code></pre></div>
 
 <ul>
-<li><span style="color: #000000">lignes 32-40 : le mappeur jSON [jsonMapperLongCategorie] récupéré par la classe [CategorieController] ;</span></li>
-<li><span style="color: #000000">ligne 35 : ce mappeur est rendu par la méthode [jsonMapper] des lignes 18-21 ;</span></li>
-<li><span style="color: #000000">lignes 18-21 : la méthode [jsonMapper] rend le mappeur jSON du convertisseur [MappingJackson2HttpMessageConverter] des lignes 3-9 ;</span></li>
+  <li><span style="color: #000000">lignes 32-40 : le mappeur jSON [jsonMapperLongCategorie] récupéré par la classe [CategorieController] ;</span>
+  </li>
+  <li><span style="color: #000000">ligne 35 : ce mappeur est rendu par la méthode [jsonMapper] des lignes 18-21 ;</span>
+  </li>
+  <li><span style="color: #000000">lignes 18-21 : la méthode [jsonMapper] rend le mappeur jSON du convertisseur [MappingJackson2HttpMessageConverter] des lignes 3-9 ;</span>
+  </li>
 </ul>
+
 <p><span style="color: #000000">Autrement dit, le mappeur jSON récupéré par la ligne 4 ci-dessous dans [CategorieController.saveCategories] :</span></p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-text">
 <span class="odt-code-line">            <span style="color:#3f7f5f">// on récupère la valeur postée</span></span>
@@ -2685,11 +2810,16 @@
 </code></pre></div>
 
 <ul>
-<li><span style="color: #000000">lignes 4-9 : à partir de la chaîne jSON reçue, on reconstruit la liste des [Produit] à persister. Comme  la chaîne jSON reçue est celle des versions courtes des produits, le champ [categorie] de ceux-ci vaut </span><em><span style="color: #000000">null</span></em><span style="color: #000000">. Encore une fois, la couche DAO / JDBC n&#x27;a pas besoin de cette information ;</span></li>
-<li><span style="color: #000000">ligne 11 : les produits sont persistés ;</span></li>
-<li><span style="color: #000000">lignes 12-15 : la liste des [CoreProduit] à rendre est construite ;</span></li>
-<li><span style="color: #000000">ligne 18 : on rend la réponse qui sera sérialisée (sérialisation implicite opérée par Spring MVC) par le mappeur de la ligne 7 avant d&#x27;être envoyée au client distant (cf discussion du paragraphe <a href="#refheading1330861985289926">17.3.7</a>) ;</span></li>
+  <li><span style="color: #000000">lignes 4-9 : à partir de la chaîne jSON reçue, on reconstruit la liste des [Produit] à persister. Comme  la chaîne jSON reçue est celle des versions courtes des produits, le champ [categorie] de ceux-ci vaut </span><i><span style="color: #000000">null</span></i><span style="color: #000000">. Encore une fois, la couche DAO / JDBC n&#x27;a pas besoin de cette information ;</span>
+  </li>
+  <li><span style="color: #000000">ligne 11 : les produits sont persistés ;</span>
+  </li>
+  <li><span style="color: #000000">lignes 12-15 : la liste des [CoreProduit] à rendre est construite ;</span>
+  </li>
+  <li><span style="color: #000000">ligne 18 : on rend la réponse qui sera sérialisée (sérialisation implicite opérée par Spring MVC) par le mappeur de la ligne 7 avant d&#x27;être envoyée au client distant (cf discussion du paragraphe <a href="#refheading1330861985289926">17.3.7</a>) ;</span>
+  </li>
 </ul>
+
 <p><a id="refheading18002265679331"></a></p>
 <h3 id="1739-la-classe-dexecution-du-service-web-json">17.3.9. <span style="color: #000000">La classe d&#x27;exécution du service web / jSON</span></h3>
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000000FC0000007FC2C0D589.png" style="display:inline-block; margin:4px;width:4.671cm;height:2.35cm;" class="odt-zoomable" data-zoom-src="images/10000000000000FC0000007FC2C0D589.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td></tr></table>
@@ -2711,12 +2841,16 @@
 </code></pre></div>
 
 <ul>
-<li><span style="color: #000000">ligne 10 : la méthode statique [SpringApplication.</span><em><span style="color: #000000">run</span></em><span style="color: #000000">] est exécutée. La classe [SpringApplication] est une classe du projet [spring Boot] (ligne 3). On lui passe deux paramètres :</span><ul>
-<li><span style="color: #000000">[AppConfig.</span><strong><span style="color: #7f0055">class</span></strong><span style="color: #000000">] : la classe qui configure la totalité de l&#x27;application ;</span></li>
-<li><span style="color: #000000">[args] : les éventuels arguments passés à la méthode [main] ligne 9. Ce paramètre n&#x27;est pas utilisé ici ;</span></li>
+  <li><span style="color: #000000">ligne 10 : la méthode statique [SpringApplication.</span><i><span style="color: #000000">run</span></i><span style="color: #000000">] est exécutée. La classe [SpringApplication] est une classe du projet [spring Boot] (ligne 3). On lui passe deux paramètres :</span>
+    <ul>
+      <li><span style="color: #000000">[AppConfig.</span><b><span style="color: #7f0055">class</span></b><span style="color: #000000">] : la classe qui configure la totalité de l&#x27;application ;</span>
+      </li>
+      <li><span style="color: #000000">[args] : les éventuels arguments passés à la méthode [main] ligne 9. Ce paramètre n&#x27;est pas utilisé ici ;</span>
+      </li>
+    </ul>
+  </li>
 </ul>
-</li>
-</ul>
+
 <p><span style="color: #000000">Lorsqu&#x27;on exécute cette classe, on a les logs suivants :</span></p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-4-2"> 2</a></span>
@@ -2825,11 +2959,16 @@
 <a id="__codelineno-4-53" name="__codelineno-4-53"></a><span class="mi">11</span><span class="p">:</span><span class="mi">34</span><span class="p">:</span><span class="mf">33.168</span> <span class="p">[</span><span class="n">http</span><span class="o">-</span><span class="n">nio</span><span class="o">-</span><span class="mi">8081</span><span class="o">-</span><span class="n">exec</span><span class="o">-</span><span class="mi">8</span><span class="p">]</span> <span class="n">INFO</span>  <span class="n">o</span><span class="o">.</span><span class="n">s</span><span class="o">.</span><span class="n">j</span><span class="o">.</span><span class="n">support</span><span class="o">.</span><span class="n">SQLErrorCodesFactory</span> <span class="o">-</span> <span class="n">SQLErrorCodes</span> <span class="n">loaded</span><span class="p">:</span> <span class="p">[</span><span class="n">DB2</span><span class="p">,</span> <span class="n">Derby</span><span class="p">,</span> <span class="n">H2</span><span class="p">,</span> <span class="n">HSQL</span><span class="p">,</span> <span class="n">Informix</span><span class="p">,</span> <span class="n">MS</span><span class="o">-</span><span class="n">SQL</span><span class="p">,</span> <span class="n">MySQL</span><span class="p">,</span> <span class="n">Oracle</span><span class="p">,</span> <span class="n">PostgreSQL</span><span class="p">,</span> <span class="n">Sybase</span><span class="p">,</span> <span class="n">Hana</span><span class="p">]</span>
 </code></pre></div></td></tr></table></div>
 <ul>
-<li>lignes 11-15 : les beans définissant les filtres jSON sont découverts. Ils redéfinissent des beans de mêmes noms découverts dans le projet de configuration de la couche JDBC ;</li>
-<li>lignes 17-18 : démarrage du serveur Tomcat qui va exécuter le service web / jSON ;</li>
-<li>ligne 19-21 : le contexte de Spring MVC est initialisé ;</li>
-<li>lignes 24-43 : les URL exposées sont découvertes ;</li>
+  <li>lignes 11-15 : les beans définissant les filtres jSON sont découverts. Ils redéfinissent des beans de mêmes noms découverts dans le projet de configuration de la couche JDBC ;
+  </li>
+  <li>lignes 17-18 : démarrage du serveur Tomcat qui va exécuter le service web / jSON ;
+  </li>
+  <li>ligne 19-21 : le contexte de Spring MVC est initialisé ;
+  </li>
+  <li>lignes 24-43 : les URL exposées sont découvertes ;
+  </li>
 </ul>
+
 <p><a id="refheading18004265679331"></a></p>
 <h3 id="17310-tests-du-service-web-json">17.3.10. Tests du service web / jSON</h3>
 <p>Pour faire les tests, nous utilisons le client [Advanced Rest Client] (cf paragraphe <a href="annexes.html#refheading261317838046689">23.11</a>) pour interroger les URL exposées par le service web / jSON (le service web / jSON doit être lancé ainsi bien sûr que le SGBD). Pour avoir une base remplie, nous exécutons la configuration d&#x27;exécution nommée [spring-jdbc-generic-04-fillDataBase] qui remplit la base avec 5 catégories et 10 produits :</p>
@@ -2838,27 +2977,38 @@
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/100000000000050A0000020A1EEA1E77.png" style="display:inline-block; margin:4px;width:17.066cm;height:6.906cm;" class="odt-zoomable" data-zoom-src="images/100000000000050A0000020A1EEA1E77.png" /></td></tr></table>
 
 <ul>
-<li>en [1-3], nous demandons l&#x27;URL [/getAllLongCategories] via une commende HTTP GET ;</li>
+  <li>en [1-3], nous demandons l&#x27;URL [/getAllLongCategories] via une commende HTTP GET ;
+  </li>
 </ul>
+
 <p>Nous obtenons la réponse suivante :</p>
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000002DC00000357D6F0AAC2.png" style="display:inline-block; margin:4px;width:9.684cm;height:11.312cm;" class="odt-zoomable" data-zoom-src="images/10000000000002DC00000357D6F0AAC2.png" /></td></tr></table>
 
 <ul>
-<li>en [1], la requête HTTP du client ;</li>
-<li>en [2], la réponse HTTP du serveur ;</li>
-<li>en [3], le statut [200 OK] indique que le serveur a correctement traité la demande ;</li>
-<li>en [4], la réponse jSON du serveur ;</li>
+  <li>en [1], la requête HTTP du client ;
+  </li>
+  <li>en [2], la réponse HTTP du serveur ;
+  </li>
+  <li>en [3], le statut [200 OK] indique que le serveur a correctement traité la demande ;
+  </li>
+  <li>en [4], la réponse jSON du serveur ;
+  </li>
 </ul>
+
 <p>La réponse jSON complète est la suivante :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-text">
 <span class="odt-code-line">{<span style="background-color:#ff950e">&quot;status&quot;:0,&quot;exception&quot;:null,&quot;body&quot;</span>:[{&quot;id&quot;:1880,&quot;version&quot;:1,&quot;nom&quot;:&quot;<span style="background-color:#ff950e">categorie[0]</span>&quot;,&quot;produits&quot;:[{&quot;id&quot;:9072,&quot;version&quot;:1,&quot;nom&quot;:&quot;produit[0,0]&quot;,&quot;idCategorie&quot;:1880,&quot;prix&quot;:100.0,&quot;description&quot;:&quot;desc[0,0]&quot;},{&quot;id&quot;:9073,&quot;version&quot;:1,&quot;nom&quot;:&quot;produit[0,1]&quot;,&quot;idCategorie&quot;:1880,&quot;prix&quot;:101.0,&quot;description&quot;:&quot;desc[0,1]&quot;},{&quot;id&quot;:9074,&quot;version&quot;:1,&quot;nom&quot;:&quot;produit[0,2]&quot;,&quot;idCategorie&quot;:1880,&quot;prix&quot;:102.0,&quot;description&quot;:&quot;desc[0,2]&quot;},{&quot;id&quot;:9075,&quot;version&quot;:1,&quot;nom&quot;:&quot;produit[0,3]&quot;,&quot;idCategorie&quot;:1880,&quot;prix&quot;:103.0,&quot;description&quot;:&quot;desc[0,3]&quot;},{&quot;id&quot;:9076,&quot;version&quot;:1,&quot;nom&quot;:&quot;produit[0,4]&quot;,&quot;idCategorie&quot;:1880,&quot;prix&quot;:104.0,&quot;description&quot;:&quot;desc[0,4]&quot;}]},{&quot;id&quot;:1881,&quot;version&quot;:1,&quot;nom&quot;:&quot;<span style="background-color:#ff950e">categorie[1]</span>&quot;,&quot;produits&quot;:[{&quot;id&quot;:9077,&quot;version&quot;:1,&quot;nom&quot;:&quot;produit[1,0]&quot;,&quot;idCategorie&quot;:1881,&quot;prix&quot;:110.00000000000001,&quot;description&quot;:&quot;desc[1,0]&quot;},{&quot;id&quot;:9078,&quot;version&quot;:1,&quot;nom&quot;:&quot;produit[1,1]&quot;,&quot;idCategorie&quot;:1881,&quot;prix&quot;:111.00000000000001,&quot;description&quot;:&quot;desc[1,1]&quot;},{&quot;id&quot;:9079,&quot;version&quot;:1,&quot;nom&quot;:&quot;produit[1,2]&quot;,&quot;idCategorie&quot;:1881,&quot;prix&quot;:112.00000000000001,&quot;description&quot;:&quot;desc[1,2]&quot;},{&quot;id&quot;:9080,&quot;version&quot;:1,&quot;nom&quot;:&quot;produit[1,3]&quot;,&quot;idCategorie&quot;:1881,&quot;prix&quot;:112.99999999999999,&quot;description&quot;:&quot;desc[1,3]&quot;},{&quot;id&quot;:9081,&quot;version&quot;:1,&quot;nom&quot;:&quot;produit[1,4]&quot;,&quot;idCategorie&quot;:1881,&quot;prix&quot;:114.00000000000001,&quot;description&quot;:&quot;desc[1,4]&quot;}]}]}</span>
 </code></pre></div>
 
 <ul>
-<li><strong>status:0</strong> signifie qu&#x27;il n&#x27;y a pas eu d&#x27;erreurs côté serveur ;</li>
-<li><strong>exception : null</strong> signifie qu&#x27;il n&#x27;y a pas de message d&#x27;erreur ;</li>
-<li><strong>body</strong> : est le corps de la réponse, ici la liste des catégories avec leurs produits. Il y a deux catégories avec chacune 5 produits ;</li>
+  <li><b>status:0</b> signifie qu&#x27;il n&#x27;y a pas eu d&#x27;erreurs côté serveur ;
+  </li>
+  <li><b>exception : null</b> signifie qu&#x27;il n&#x27;y a pas de message d&#x27;erreur ;
+  </li>
+  <li><b>body</b> : est le corps de la réponse, ici la liste des catégories avec leurs produits. Il y a deux catégories avec chacune 5 produits ;
+  </li>
 </ul>
+
 <p>Nous allons ajouter à la catégorie [categorie1], le produit [produit15]. Pour cela nous allons utiliser l&#x27;URL [/saveProduits] qui attend la chaîne jSON des produits à persister (insertion / modification). Cette chaîne sera la suivante :</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>[{&quot;id&quot;:null,&quot;version&quot;:null,&quot;nom&quot;:&quot;produit15&quot;,&quot;idCategorie&quot;:1881,&quot;prix&quot;:111.0,&quot;description&quot;:&quot;desc15&quot;}]}]
 </code></pre></div>
@@ -2866,45 +3016,64 @@
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/1000000000000449000002D36C49A228.png" style="display:inline-block; margin:4px;width:14.513cm;height:9.566cm;" class="odt-zoomable" data-zoom-src="images/1000000000000449000002D36C49A228.png" /></td></tr></table>
 
 <ul>
-<li>en [1], l&#x27;URL demandée ;</li>
-<li>en [2], elle est demandée via une opération POST ;</li>
-<li>en [3], la chaîne jSON postée ;</li>
-<li>en [4], on indique au serveur qu&#x27;on va lui envoyer du jSON ;</li>
+  <li>en [1], l&#x27;URL demandée ;
+  </li>
+  <li>en [2], elle est demandée via une opération POST ;
+  </li>
+  <li>en [3], la chaîne jSON postée ;
+  </li>
+  <li>en [4], on indique au serveur qu&#x27;on va lui envoyer du jSON ;
+  </li>
 </ul>
+
 <p>La réponse du serveur est la suivante :</p>
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/100000000000032B000002922079A010.png" style="display:inline-block; margin:4px;width:10.73cm;height:8.705cm;" class="odt-zoomable" data-zoom-src="images/100000000000032B000002922079A010.png" /></td></tr></table>
 
 <ul>
-<li>en [1], on a obtenu une liste de [CoreProduit] avec leurs clés primaires. Ici, on a obtenu une liste d&#x27;un élément avec la clé primaire du produit qu&#x27;on vient d&#x27;insérer dans la base ;</li>
+  <li>en [1], on a obtenu une liste de [CoreProduit] avec leurs clés primaires. Ici, on a obtenu une liste d&#x27;un élément avec la clé primaire du produit qu&#x27;on vient d&#x27;insérer dans la base ;
+  </li>
 </ul>
+
 <p>Maintenant, demandons la version longue de la catégorie nommée [categorie[1] :</p>
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/1000000000000458000002C64C258612.png" style="display:inline-block; margin:4px;width:14.711cm;height:9.393cm;" class="odt-zoomable" data-zoom-src="images/1000000000000458000002C64C258612.png" /></td></tr></table>
 
 <ul>
-<li>en [1], l&#x27;URL demandée ;</li>
-<li>en [2], on fait un POST ;</li>
-<li>en [3,4], la valeur postée est une chaîne jSON. Celle-ci représente la liste des noms des catégories dont on veut la version longue ;</li>
+  <li>en [1], l&#x27;URL demandée ;
+  </li>
+  <li>en [2], on fait un POST ;
+  </li>
+  <li>en [3,4], la valeur postée est une chaîne jSON. Celle-ci représente la liste des noms des catégories dont on veut la version longue ;
+  </li>
 </ul>
+
 <p>Nous obtenons le résultat suivant :</p>
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/100000000000018D000001D5FA939FB2.png" style="display:inline-block; margin:4px;width:5.253cm;height:6.205cm;" class="odt-zoomable" data-zoom-src="images/100000000000018D000001D5FA939FB2.png" /></td></tr></table>
 
 <ul>
-<li>en [5], la catégorie [categorie[1]] a maintenant un sixième produit ;</li>
+  <li>en [5], la catégorie [categorie[1]] a maintenant un sixième produit ;
+  </li>
 </ul>
+
 <p>Supprimons maintenant ce produit :</p>
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/1000000000000431000002CE2E9E1950.png" style="display:inline-block; margin:4px;width:14.196cm;height:9.499cm;" class="odt-zoomable" data-zoom-src="images/1000000000000431000002CE2E9E1950.png" /></td></tr></table>
 
 <ul>
-<li>en [1], l&#x27;URL demandée ;</li>
-<li>en [2], on fait un POST ;</li>
-<li>en [3-4], on poste une chaîne jSON représentant la liste des clés primaires des produits qu&#x27;on veut supprimer ;</li>
+  <li>en [1], l&#x27;URL demandée ;
+  </li>
+  <li>en [2], on fait un POST ;
+  </li>
+  <li>en [3-4], on poste une chaîne jSON représentant la liste des clés primaires des produits qu&#x27;on veut supprimer ;
+  </li>
 </ul>
+
 <p>Le résultat obtenu est le suivant :</p>
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000001500000019EFDCBDF86.png" style="display:inline-block; margin:4px;width:6.219cm;height:7.669cm;" class="odt-zoomable" data-zoom-src="images/10000000000001500000019EFDCBDF86.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td></tr></table>
 
 <ul>
-<li>[status:0] indique que la suppression s&#x27;est bien déroulée ;</li>
+  <li>[status:0] indique que la suppression s&#x27;est bien déroulée ;
+  </li>
 </ul>
+
 <p>Maintenant, demandons le produit [produit[1,5]] pour vérifier qu&#x27;il a bien été supprimé :</p>
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000002D8000001E34D9AB673.png" style="display:inline-block; margin:4px;width:13.48cm;height:8.939cm;" class="odt-zoomable" data-zoom-src="images/10000000000002D8000001E34D9AB673.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td></tr></table>
 
@@ -2912,9 +3081,12 @@
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/100000000000011F000000B39EC2C7E0.png" style="display:inline-block; margin:4px;width:5.309cm;height:3.311cm;" class="odt-zoomable" data-zoom-src="images/100000000000011F000000B39EC2C7E0.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td></tr></table>
 
 <ul>
-<li>[status:0] indique que l&#x27;opération s&#x27;est déroulée sans exception ;</li>
-<li>[body:[0]] indique que [body] est une liste de 0 élément. L&#x27;entité [produit[1,5]] a donc bien été supprimée ;</li>
+  <li>[status:0] indique que l&#x27;opération s&#x27;est déroulée sans exception ;
+  </li>
+  <li>[body:[0]] indique que [body] est une liste de 0 élément. L&#x27;entité [produit[1,5]] a donc bien été supprimée ;
+  </li>
 </ul>
+
 <p>Toutes les opérations [GET] peuvent être faites dans un simple navigateur :</p>
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/100000000000037A0000011215638008.png" style="display:inline-block; margin:4px;width:16.48cm;height:5.069cm;" class="odt-zoomable" data-zoom-src="images/100000000000037A0000011215638008.png" /></td></tr></table>
 

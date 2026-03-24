@@ -1530,9 +1530,12 @@
 
 <p>C&#x27;est donc la même architecture que précédemment. Nous allons introduire deux modifications :</p>
 <ul>
-<li>la base de données aura deux tables liées par une relation de clé étrangère ;</li>
-<li>la couche [DAO] sera implémentée avec la bibliothèque [Spring JDBC] qui amène des facilités dans la gestion de l&#x27;API JDBC ;</li>
+  <li>la base de données aura deux tables liées par une relation de clé étrangère ;
+  </li>
+  <li>la couche [DAO] sera implémentée avec la bibliothèque [Spring JDBC] qui amène des facilités dans la gestion de l&#x27;API JDBC ;
+  </li>
 </ul>
+
 <p><a id="refheading1052002082896917"></a></p>
 <h2 id="41-mise-en-place-de-lenvironnement-de-travail">4.1. Mise en place de l&#x27;environnement de travail</h2>
 <p>Avec STS, importez le projet [spring-jdbc-04] qui se trouve dans le dossier [&lt;exemples&gt;/spring-database-generic/spring-jdbc]</p>
@@ -1542,31 +1545,42 @@
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/100000000000035F000001B37A78E127.png" style="display:inline-block; margin:4px;width:11.418cm;height:5.756cm;" class="odt-zoomable" data-zoom-src="images/100000000000035F000001B37A78E127.png" /></td></tr></table>
 
 <ul>
-<li>en [3], les exemples qui suivent travaillent sur une base MySQL s&#x27;appellant [dbproduitscategories] ;</li>
+  <li>en [3], les exemples qui suivent travaillent sur une base MySQL s&#x27;appellant [dbproduitscategories] ;
+  </li>
 </ul>
+
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000004FC000001F96CBFDC51.png" style="display:inline-block; margin:4px;width:16.88cm;height:6.682cm;" class="odt-zoomable" data-zoom-src="images/10000000000004FC000001F96CBFDC51.png" /></td></tr></table>
 
 <ul>
-<li>en [9] mettre le mot de passe de l&#x27;utilisateur <em>root</em> (ce mot de passe est <em>root</em> dans ce document) ;</li>
+  <li>en [9] mettre le mot de passe de l&#x27;utilisateur <i>root</i> (ce mot de passe est <i>root</i> dans ce document) ;
+  </li>
 </ul>
+
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000004F5000002992375CC9D.png" style="display:inline-block; margin:4px;width:16.789cm;height:8.798cm;" class="odt-zoomable" data-zoom-src="images/10000000000004F5000002992375CC9D.png" /></td></tr></table>
 
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000004DF0000024C183C23F9.png" style="display:inline-block; margin:4px;width:16.498cm;height:7.779cm;" class="odt-zoomable" data-zoom-src="images/10000000000004DF0000024C183C23F9.png" /></td></tr></table>
 
 <ul>
-<li>en [18], la base [dbproduitscategories] a été créée vide. On crée des tables et on la remplit avec un script SQL [19-20] ;</li>
+  <li>en [18], la base [dbproduitscategories] a été créée vide. On crée des tables et on la remplit avec un script SQL [19-20] ;
+  </li>
 </ul>
+
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000004B30000022D5BCA79DC.png" style="display:inline-block; margin:4px;width:15.916cm;height:7.37cm;" class="odt-zoomable" data-zoom-src="images/10000000000004B30000022D5BCA79DC.png" /></td></tr></table>
 
 <ul>
-<li>en [21], positionnez-vous sur le dossier [&lt;exemples&gt;/spring-database-config/mysql/databases] ;</li>
+  <li>en [21], positionnez-vous sur le dossier [&lt;exemples&gt;/spring-database-config/mysql/databases] ;
+  </li>
 </ul>
+
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/100000000000050F000002631F50FE15.png" style="display:inline-block; margin:4px;width:17.133cm;height:8.084cm;" class="odt-zoomable" data-zoom-src="images/100000000000050F000002631F50FE15.png" /></td></tr></table>
 
 <ul>
-<li>en [25], assurez-vous que vous êtes positionné sur la base [dbproduitscategories] et non la base [dbproduits] ;</li>
-<li>en [29], le script SQL a créé cinq tables. Les tables [ROLES, USERS, USERS_ROLES] ne seront utilisées que lorsqu&#x27;on abordera la sécurisation du service web construit pour exposer la base de données [dbproduitscategories] sur le web ;</li>
+  <li>en [25], assurez-vous que vous êtes positionné sur la base [dbproduitscategories] et non la base [dbproduits] ;
+  </li>
+  <li>en [29], le script SQL a créé cinq tables. Les tables [ROLES, USERS, USERS_ROLES] ne seront utilisées que lorsqu&#x27;on abordera la sécurisation du service web construit pour exposer la base de données [dbproduitscategories] sur le web ;
+  </li>
 </ul>
+
 <p><a id="refheading1052022082896917"></a></p>
 <h2 id="42-la-base-de-donnees-dbproduitscategories">4.2. La base de données [dbproduitscategories]</h2>
 <p>La base de données [dbproduitscategories] est une extension de la base [dbproduits] étudiée précédemment. Là où dans la table [PRODUITS] le produit avait une catégorie identifiée par un n° qui n&#x27;avait pas de signification particulière, ici ce n° sera une clé étrangère sur la table [CATEGORIES].</p>
@@ -1574,27 +1588,41 @@
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/1000000000000534000001691C3D8B51.png" style="display:inline-block; margin:4px;width:17.621cm;height:4.777cm;" class="odt-zoomable" data-zoom-src="images/1000000000000534000001691C3D8B51.png" /></td></tr></table>
 
 <ul>
-<li>[ID] : la clé primaire auto-incrémentée de la table [2] ;</li>
-<li>[NOM] : le nom unique du produit [4] ;</li>
-<li>[PRIX] : le prix du produit ;</li>
-<li>[DESCRIPTION] : la description du produit ;</li>
-<li>[VERSIONING] est le n° de version du produit. Sa version initiale est 1 [3]. A chaque fois que le produit sera modifié, son n° de version sera incrémenté par le code exploitant la table ;</li>
-<li>[CATEGORIE_ID] : la clé étrangère sur la table [CATEGORIES] pour désigner la catégorie à laquelle appartient le produit ;</li>
+  <li>[ID] : la clé primaire auto-incrémentée de la table [2] ;
+  </li>
+  <li>[NOM] : le nom unique du produit [4] ;
+  </li>
+  <li>[PRIX] : le prix du produit ;
+  </li>
+  <li>[DESCRIPTION] : la description du produit ;
+  </li>
+  <li>[VERSIONING] est le n° de version du produit. Sa version initiale est 1 [3]. A chaque fois que le produit sera modifié, son n° de version sera incrémenté par le code exploitant la table ;
+  </li>
+  <li>[CATEGORIE_ID] : la clé étrangère sur la table [CATEGORIES] pour désigner la catégorie à laquelle appartient le produit ;
+  </li>
 </ul>
+
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/1000000000000476000000E54B6752A6.png" style="display:inline-block; margin:4px;width:15.108cm;height:3.03cm;" class="odt-zoomable" data-zoom-src="images/1000000000000476000000E54B6752A6.png" /></td></tr></table>
 
 <ul>
-<li>en [1-3], la clé étrangère [CATEGORIE_ID] de la table [PRODUITS]. Elle cible la colonne [ID] de la table [CATEGORIES] [4-5] ;</li>
-<li>lorsqu&#x27;une catégorie est supprimée, tous les produits qui lui sont liés le sont également [6]. Ce point est important à noter car il est utilisé dans la construction de la couche [DAO] exploitant la base [dbproduitscategories] ;</li>
+  <li>en [1-3], la clé étrangère [CATEGORIE_ID] de la table [PRODUITS]. Elle cible la colonne [ID] de la table [CATEGORIES] [4-5] ;
+  </li>
+  <li>lorsqu&#x27;une catégorie est supprimée, tous les produits qui lui sont liés le sont également [6]. Ce point est important à noter car il est utilisé dans la construction de la couche [DAO] exploitant la base [dbproduitscategories] ;
+  </li>
 </ul>
+
 <p>La table [CATEGORIES] des catégories est la suivante :</p>
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/100000000000037D000000F56249B718.png" style="display:inline-block; margin:4px;width:11.815cm;height:3.242cm;" class="odt-zoomable" data-zoom-src="images/100000000000037D000000F56249B718.png" /></td></tr></table>
 
 <ul>
-<li>[ID] : clé primair auto-incrémentée ;</li>
-<li>[VERSIONING] : n° de version de la catégorie ;</li>
-<li>[NOM] : nom unique de la catégorie ;</li>
+  <li>[ID] : clé primair auto-incrémentée ;
+  </li>
+  <li>[VERSIONING] : n° de version de la catégorie ;
+  </li>
+  <li>[NOM] : nom unique de la catégorie ;
+  </li>
 </ul>
+
 <p><a id="refheading1052042082896917"></a></p>
 <h2 id="43-le-projet-eclipse">4.3. Le projet Eclipse</h2>
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000000F200000103978867AE.png" style="display:inline-block; margin:4px;width:4.48cm;height:4.8cm;" class="odt-zoomable" data-zoom-src="images/10000000000000F200000103978867AE.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td></tr></table>
@@ -1659,9 +1687,12 @@
 </code></pre></div>
 
 <ul>
-<li>lignes 28-32 : le projet s&#x27;appuie sur le projet [mysql-config-jdbc] qui configure la couche JDBC ;</li>
-<li>lignes 34-37 : l&#x27;artifact [spring-boot-starter-jdbc] amène les bibliothèques de Spring JDBC ;</li>
+  <li>lignes 28-32 : le projet s&#x27;appuie sur le projet [mysql-config-jdbc] qui configure la couche JDBC ;
+  </li>
+  <li>lignes 34-37 : l&#x27;artifact [spring-boot-starter-jdbc] amène les bibliothèques de Spring JDBC ;
+  </li>
 </ul>
+
 <p>Au final, les dépendances sont les suivantes :</p>
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000000E900000092A077A8B0.png" style="display:inline-block; margin:4px;width:4.309cm;height:2.701cm;" class="odt-zoomable" data-zoom-src="images/10000000000000E900000092A077A8B0.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td></tr></table>
 
@@ -1738,21 +1769,34 @@
 </code></pre></div>
 
 <ul>
-<li>ligne 16 : la classe est une classe de configuration Spring ;</li>
-<li>ligne 17 : le package [<span style="color: #2a00ff">spring.jdbc.dao</span>] sera scanné pour y chercher d&#x27;autres composants Spring que ceux présents dans la classe [AppConfig]. On y trouvera le composant implémentant la couche [DAO] ;</li>
-<li>ligne 18 : nous n&#x27;allons pas gérer les transactions nous-mêmes mais les laisser à la charge de Spring JDBC. La seule chose à faire sera d&#x27;annoter les méthodes devant s&#x27;exécuter dans une transaction avec l&#x27;annotation Spring [@Transactional]. La ligne 18 assure que cette annotation sera gérée et non ignorée. La gestion des transactions est assurée par une des dépendances du projet Spring JDBC importé par le fichier [pom.xml] ;</li>
-<li>ligne 19 : on importe les beans déjà définis dans la classe [<span style="color: #000000">generic.jdbc.config.ConfigJdbc</span>] du projet [mysql-config-jdbc] ;</li>
-<li>lignes 23-36 : la source de données [tomcat-jdbc] introduite dans l&#x27;exemple [spring-jdbc-02] ;</li>
-<li>lignes 40-42 : le gestionnaire de transactions lié à la source de données définie précédemment. Le bean doit s&#x27;appeler impérativement [transactionManager] car c&#x27;est ce nom qui est exloité par l&#x27;annotation [@EnableTransactionManagement]. Le gestionnaire [DataSourceTransactionManager] est amené par la bibliothèque Spring JDBC (ligne 12) ;</li>
-<li>lignes 45-48 : le bean [namedParameterJdbcTemplate] sur lequel va reposer l&#x27;implémentation de la couche [DAO]. Ce bean est amené par la bibliothèque Spring JDBC (ligne 10). Ce bean est lui également lié à la source de données définie précédemment (ligne 47);</li>
-<li>lignes 51-55 : le bean [<span style="color: #000000">simpleJdbcInsertProduit</span>] (nom libre) sera utilisé pour insérer un produit dans la table [PRODUITS] et récupérer la clé primaire générée. Les divers paramètres utilisés sont les suivants :<ul>
-<li>[dataSource] : la source de données [tomcat-jdbc] des lignes 24-36 ;</li>
-<li>[ConfigJdbc.TAB_PRODUITS] : la table [PRODUITS] ;</li>
-<li>[ConfigJdbc.TAB_CATEGORIES_ID] : la colonne clé primaire de la table [PRODUITS]. On rappelle que pour PostgreSQL, le nom de cette colonne devra être en minuscules ;</li>
+  <li>ligne 16 : la classe est une classe de configuration Spring ;
+  </li>
+  <li>ligne 17 : le package [<span style="color: #2a00ff">spring.jdbc.dao</span>] sera scanné pour y chercher d&#x27;autres composants Spring que ceux présents dans la classe [AppConfig]. On y trouvera le composant implémentant la couche [DAO] ;
+  </li>
+  <li>ligne 18 : nous n&#x27;allons pas gérer les transactions nous-mêmes mais les laisser à la charge de Spring JDBC. La seule chose à faire sera d&#x27;annoter les méthodes devant s&#x27;exécuter dans une transaction avec l&#x27;annotation Spring [@Transactional]. La ligne 18 assure que cette annotation sera gérée et non ignorée. La gestion des transactions est assurée par une des dépendances du projet Spring JDBC importé par le fichier [pom.xml] ;
+  </li>
+  <li>ligne 19 : on importe les beans déjà définis dans la classe [<span style="color: #000000">generic.jdbc.config.ConfigJdbc</span>] du projet [mysql-config-jdbc] ;
+  </li>
+  <li>lignes 23-36 : la source de données [tomcat-jdbc] introduite dans l&#x27;exemple [spring-jdbc-02] ;
+  </li>
+  <li>lignes 40-42 : le gestionnaire de transactions lié à la source de données définie précédemment. Le bean doit s&#x27;appeler impérativement [transactionManager] car c&#x27;est ce nom qui est exloité par l&#x27;annotation [@EnableTransactionManagement]. Le gestionnaire [DataSourceTransactionManager] est amené par la bibliothèque Spring JDBC (ligne 12) ;
+  </li>
+  <li>lignes 45-48 : le bean [namedParameterJdbcTemplate] sur lequel va reposer l&#x27;implémentation de la couche [DAO]. Ce bean est amené par la bibliothèque Spring JDBC (ligne 10). Ce bean est lui également lié à la source de données définie précédemment (ligne 47);
+  </li>
+  <li>lignes 51-55 : le bean [<span style="color: #000000">simpleJdbcInsertProduit</span>] (nom libre) sera utilisé pour insérer un produit dans la table [PRODUITS] et récupérer la clé primaire générée. Les divers paramètres utilisés sont les suivants :
+    <ul>
+      <li>[dataSource] : la source de données [tomcat-jdbc] des lignes 24-36 ;
+      </li>
+      <li>[ConfigJdbc.TAB_PRODUITS] : la table [PRODUITS] ;
+      </li>
+      <li>[ConfigJdbc.TAB_CATEGORIES_ID] : la colonne clé primaire de la table [PRODUITS]. On rappelle que pour PostgreSQL, le nom de cette colonne devra être en minuscules ;
+      </li>
+    </ul>
+  </li>
+  <li>lignes 58-62 : le bean [<span style="color: #000000">simpleJdbcInsertCategorie</span>] sera utilisé pour insérer une catégorie dans la table [CATEGORIES] et récupérer la clé primaire générée ;
+  </li>
 </ul>
-</li>
-<li>lignes 58-62 : le bean [<span style="color: #000000">simpleJdbcInsertCategorie</span>] sera utilisé pour insérer une catégorie dans la table [CATEGORIES] et récupérer la clé primaire générée ;</li>
-</ul>
+
 <p><a id="refheading1052062082896917"></a></p>
 <h2 id="45-les-exceptions-du-projet">4.5. Les exceptions du projet</h2>
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/1000000000000121000000BC7074573C.png" style="display:inline-block; margin:4px;width:5.35cm;height:3.48cm;" class="odt-zoomable" data-zoom-src="images/1000000000000121000000BC7074573C.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td></tr></table>
@@ -1778,8 +1822,10 @@
 </code></pre></div>
 
 <ul>
-<li>la classe [MyIllegalArgumentException] dérive de la classe [UncheckedException] et est donc une classe non contrôlée. Elle sera utilisée pour signaler un appel avec des arguments incorrects d&#x27;une méthode de la couche [DAO]. On ne l&#x27;a pas appelée [IllegalArgumentException] parce que cette exception existe déjà dans le JDK et que cela entraînait parfois le compilateur à générer un [import] incorrect ;</li>
+  <li>la classe [MyIllegalArgumentException] dérive de la classe [UncheckedException] et est donc une classe non contrôlée. Elle sera utilisée pour signaler un appel avec des arguments incorrects d&#x27;une méthode de la couche [DAO]. On ne l&#x27;a pas appelée [IllegalArgumentException] parce que cette exception existe déjà dans le JDK et que cela entraînait parfois le compilateur à générer un [import] incorrect ;
+  </li>
 </ul>
+
 <p><a id="refheading93205938270148"></a></p>
 <h2 id="46-les-entites-du-projet">4.6. Les entités du projet</h2>
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/100000000000010D0000017740DC451D.png" style="display:inline-block; margin:4px;width:4.979cm;height:6.939cm;" class="odt-zoomable" data-zoom-src="images/100000000000010D0000017740DC451D.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td></tr></table>
@@ -1841,12 +1887,18 @@
 </code></pre></div>
 
 <ul>
-<li>ligne 5 : le champ [id] sera associé à la colonne [ID], clé primaire des tables ;</li>
-<li>ligne 6 : le champ [version] sera associé à la colonne [VERSIONING] des tables ;</li>
-<li>lignes 8-26 : différents constructeurs et méthodes pour construire ou initialiser un objet [<span style="color: #000000">AbstractCoreEntity</span>] ;</li>
-<li>lignes 35-47 : la méthode [equals] dit que deux objets [<span style="color: #000000">AbstractCoreEntity</span>] sont égaux s&#x27;ils ont le même champ [id]. Il faut se rappeler ici que les objets [<span style="color: #000000">AbstractCoreEntity</span>] seront des images de lignes de tables où [id] est clé primaire et où il ne peut donc y avoir deux lignes avec le même [id] ;</li>
-<li>lignes 30-33 : une proposition de [hashCode] ;</li>
+  <li>ligne 5 : le champ [id] sera associé à la colonne [ID], clé primaire des tables ;
+  </li>
+  <li>ligne 6 : le champ [version] sera associé à la colonne [VERSIONING] des tables ;
+  </li>
+  <li>lignes 8-26 : différents constructeurs et méthodes pour construire ou initialiser un objet [<span style="color: #000000">AbstractCoreEntity</span>] ;
+  </li>
+  <li>lignes 35-47 : la méthode [equals] dit que deux objets [<span style="color: #000000">AbstractCoreEntity</span>] sont égaux s&#x27;ils ont le même champ [id]. Il faut se rappeler ici que les objets [<span style="color: #000000">AbstractCoreEntity</span>] seront des images de lignes de tables où [id] est clé primaire et où il ne peut donc y avoir deux lignes avec le même [id] ;
+  </li>
+  <li>lignes 30-33 : une proposition de [hashCode] ;
+  </li>
 </ul>
+
 <p>La classe [Produit] sera l&#x27;image d&#x27;une ligne de la table [PRODUITS] :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
 <span class="odt-code-line"><span style="font-weight:bold;color:#7f0055">package</span><span style="color:#000000"> spring.jdbc.entities;</span></span>
@@ -1889,11 +1941,16 @@
 </code></pre></div>
 
 <ul>
-<li>ligne 6 : la classe [Produit] étend la classe [<span style="color: #000000">AbstractCoreEntity</span>] ;</li>
-<li>lignes 8-12 : les champs [id, version, nom, idCategorie, prix, description] sont les images des colonnes [ID, VERSIONING, NOM, CATEGORIE_ID, PRIX, DESCRIPTION] de la table [PRODUITS] ;</li>
-<li>ligne 12 : l&#x27;objet de type [Categorie] de clé primaire [idCategorie]. Ce champ sera ou non renseigné selon les cas. Lorsqu&#x27;il est renseigné, on parlera de produit version longue [LongProduit], sinon de produit version courte [ShortProduit] ;</li>
-<li>ligne 5 : un filtre jSON. On rappelle que le projet [mysql-config-jdbc] embarque une bibliothèque jSON. La nécssité du filtre vien du fait que le champ [categorie] peut être renseigné ou non. Dans ce cas, la représentation jSON du produit diffère. Pour gérer ces deux cas, on configurera le filtre [<span style="color: #2a00ff">jsonFilterProduit</span>] de la ligne 5. Un filtre jSON permet de préciser, de façon dynamique, les champs à exclure de la représentation jSON. Lorsqu&#x27;on saura que le champ [categorie] n&#x27;a pas été renseigné, on l&#x27;exclura de la représentation jSON du produit ;</li>
+  <li>ligne 6 : la classe [Produit] étend la classe [<span style="color: #000000">AbstractCoreEntity</span>] ;
+  </li>
+  <li>lignes 8-12 : les champs [id, version, nom, idCategorie, prix, description] sont les images des colonnes [ID, VERSIONING, NOM, CATEGORIE_ID, PRIX, DESCRIPTION] de la table [PRODUITS] ;
+  </li>
+  <li>ligne 12 : l&#x27;objet de type [Categorie] de clé primaire [idCategorie]. Ce champ sera ou non renseigné selon les cas. Lorsqu&#x27;il est renseigné, on parlera de produit version longue [LongProduit], sinon de produit version courte [ShortProduit] ;
+  </li>
+  <li>ligne 5 : un filtre jSON. On rappelle que le projet [mysql-config-jdbc] embarque une bibliothèque jSON. La nécssité du filtre vien du fait que le champ [categorie] peut être renseigné ou non. Dans ce cas, la représentation jSON du produit diffère. Pour gérer ces deux cas, on configurera le filtre [<span style="color: #2a00ff">jsonFilterProduit</span>] de la ligne 5. Un filtre jSON permet de préciser, de façon dynamique, les champs à exclure de la représentation jSON. Lorsqu&#x27;on saura que le champ [categorie] n&#x27;a pas été renseigné, on l&#x27;exclura de la représentation jSON du produit ;
+  </li>
 </ul>
+
 <p>La classe [Categorie] est l&#x27;image d&#x27;une ligne de la table [CATEGORIES] :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
 <span class="odt-code-line"><span style="font-weight:bold;color:#7f0055">package</span><span style="color:#000000"> spring.jdbc.entities;</span></span>
@@ -1947,12 +2004,18 @@
 </code></pre></div>
 
 <ul>
-<li>ligne 9 : la classe [<span style="color: #000000">Categorie</span>] étend la classe [<span style="color: #000000">AbstractCoreEntity</span>] ;</li>
-<li>ligne 12 : les champs [id, version, nom] sont les images des colonnes [ID, VERSIONING, NOM] de la table [CATEGORIES] ;</li>
-<li>ligne 13 : le champ [produits] représente la liste des produits de la catégorie. Ce champ n&#x27;est pas toujours renseigné. Lorsqu&#x27;il ne l&#x27;est pas, on parlera de catégorie version courte [ShortCategorie] sinon de catégorie version longue [LongCategorie] ;</li>
-<li>lignes 32-44 : la méthode [addProduit] permet d&#x27;ajouter un produit à la catégorie (ligne 39) et de fixer dans le produit ajouté, les caractéristiques de sa catégorie (idCategorie et categorie) ;</li>
-<li>ligne 8 : un filtre jSON. Lorsque la bibliothèque jSON devra sérialiser / désérialiser un objet [Categorie], on devra lui indiquer comment gérer le filtre nommé [<span style="color: #2a00ff">jsonFilterCategorie</span>] ;</li>
+  <li>ligne 9 : la classe [<span style="color: #000000">Categorie</span>] étend la classe [<span style="color: #000000">AbstractCoreEntity</span>] ;
+  </li>
+  <li>ligne 12 : les champs [id, version, nom] sont les images des colonnes [ID, VERSIONING, NOM] de la table [CATEGORIES] ;
+  </li>
+  <li>ligne 13 : le champ [produits] représente la liste des produits de la catégorie. Ce champ n&#x27;est pas toujours renseigné. Lorsqu&#x27;il ne l&#x27;est pas, on parlera de catégorie version courte [ShortCategorie] sinon de catégorie version longue [LongCategorie] ;
+  </li>
+  <li>lignes 32-44 : la méthode [addProduit] permet d&#x27;ajouter un produit à la catégorie (ligne 39) et de fixer dans le produit ajouté, les caractéristiques de sa catégorie (idCategorie et categorie) ;
+  </li>
+  <li>ligne 8 : un filtre jSON. Lorsque la bibliothèque jSON devra sérialiser / désérialiser un objet [Categorie], on devra lui indiquer comment gérer le filtre nommé [<span style="color: #2a00ff">jsonFilterCategorie</span>] ;
+  </li>
 </ul>
+
 <p><a id="refheading1052082082896917"></a></p>
 <h2 id="47-linterface-idaot">4.7. L&#x27;interface Idao&lt;T&gt;</h2>
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/1000000000000451000000EB3BC5FAFA.png" style="display:inline-block; margin:4px;width:14.619cm;height:3.11cm;" class="odt-zoomable" data-zoom-src="images/1000000000000451000000EB3BC5FAFA.png" /></td></tr></table>
@@ -2016,21 +2079,30 @@
 </code></pre></div>
 
 <ul>
-<li>ligne 7 : on a là une interface [IDao] paramétrée par un type T avec une condition : ce type doit étendre la classe [AbstractCoreEntity] ou implémenter l&#x27;interface [AbstractCoreEntity]. Le mot clé [extends] s&#x27;utilise pour les deux cas. Ici, T sera instancié soit par le type [Produit], soit par le type [Categorie]. En effet, on s&#x27;aperçoit assez vite qu&#x27;on fait le même type d&#x27;opérations (insertion, modification, suppression, sélection) sur les types [Produit] et [Categorie]. Il paraît alors logique de rassembler ces méthodes dans une interface générique ;</li>
-<li>selon les cas, les termes [LongEntity] et [ShortEntity] désignent des situations différentes :<ul>
-<li>lorsque T est le type [Produit] :<ul>
-<li>[ShortEntity] est le produit sans son champ [Categorie categorie] renseigné ;</li>
-<li>[LongEntity] est le produit avec son champ [Categorie categorie] renseigné ;</li>
+  <li>ligne 7 : on a là une interface [IDao] paramétrée par un type T avec une condition : ce type doit étendre la classe [AbstractCoreEntity] ou implémenter l&#x27;interface [AbstractCoreEntity]. Le mot clé [extends] s&#x27;utilise pour les deux cas. Ici, T sera instancié soit par le type [Produit], soit par le type [Categorie]. En effet, on s&#x27;aperçoit assez vite qu&#x27;on fait le même type d&#x27;opérations (insertion, modification, suppression, sélection) sur les types [Produit] et [Categorie]. Il paraît alors logique de rassembler ces méthodes dans une interface générique ;
+  </li>
+  <li>selon les cas, les termes [LongEntity] et [ShortEntity] désignent des situations différentes :
+    <ul>
+      <li>lorsque T est le type [Produit] :
+        <ul>
+          <li>[ShortEntity] est le produit sans son champ [Categorie categorie] renseigné ;
+          </li>
+          <li>[LongEntity] est le produit avec son champ [Categorie categorie] renseigné ;
+          </li>
+        </ul>
+      </li>
+      <li>lorsque T est le type [Categorie] :
+        <ul>
+          <li>[ShortEntity] est la catégorie sans son champ [List&lt;Produit&gt; produits] renseigné ;
+          </li>
+          <li>[LongEntity] est le produit avec son champ [List&lt;Produit&gt; produits] renseigné ;
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </li>
 </ul>
-</li>
-<li>lorsque T est le type [Categorie] :<ul>
-<li>[ShortEntity] est la catégorie sans son champ [List&lt;Produit&gt; produits] renseigné ;</li>
-<li>[LongEntity] est le produit avec son champ [List&lt;Produit&gt; produits] renseigné ;</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
+
 <p>On a donc une interface riche de 19 méthodes. La plupart des méthodes existe en doublon. Prenons l&#x27;exemple de la méthode [<span style="color: #000000">getShortEntitiesById</span>] :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-text">
 <span class="odt-code-line"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">public</span><span style="color:#000000"> List&lt;T&gt; getShortEntitiesById(Iterable&lt;Long&gt; </span><span style="color:#6a3e3e">ids</span><span style="color:#000000">);</span></span>
@@ -2039,28 +2111,38 @@
 </code></pre></div>
 
 <ul>
-<li>lignes 1 et 3 : le paramètre est la liste des clés primaires des entités dont on veut la version courte. Cette liste est présentée sous deux formes différentes :<ul>
-<li>ligne 1 : une liste implémentant l&#x27;interface [Iterable&lt;Long&gt;]. Le type [List&lt;Long&gt;] implémente cette interface mais il y en a beaucoup d&#x27;autres. Si on avait mis [List<span style="color: #000000">&lt;Long&gt; </span><span style="color: #6a3e3e">ids</span>], cela aurait suffi pour nos exemples mais on obligeait l&#x27;utilisateur de nos exemples à faire des conversions si son paramètre n&#x27;était pas du type exact attendu ;</li>
-<li>ligne 3 : malheureusement le type Long[] n&#x27;implémente pas l&#x27;interface [Iterable&lt;Long&gt;]. Dans ce cas, on utilisera la version de la ligne 3. Le paramètre formel [Long... ids] (3 points) peut recevoir la valeur aussi bien d&#x27;un tableau que d&#x27;une suite d&#x27;ids :  <span style="color: #000000">getShortEntitiesById(id1, id2, ...) ;</span></li>
+  <li>lignes 1 et 3 : le paramètre est la liste des clés primaires des entités dont on veut la version courte. Cette liste est présentée sous deux formes différentes :
+    <ul>
+      <li>ligne 1 : une liste implémentant l&#x27;interface [Iterable&lt;Long&gt;]. Le type [List&lt;Long&gt;] implémente cette interface mais il y en a beaucoup d&#x27;autres. Si on avait mis [List<span style="color: #000000">&lt;Long&gt; </span><span style="color: #6a3e3e">ids</span>], cela aurait suffi pour nos exemples mais on obligeait l&#x27;utilisateur de nos exemples à faire des conversions si son paramètre n&#x27;était pas du type exact attendu ;
+      </li>
+      <li>ligne 3 : malheureusement le type Long[] n&#x27;implémente pas l&#x27;interface [Iterable&lt;Long&gt;]. Dans ce cas, on utilisera la version de la ligne 3. Le paramètre formel [Long... ids] (3 points) peut recevoir la valeur aussi bien d&#x27;un tableau que d&#x27;une suite d&#x27;ids :  <span style="color: #000000">getShortEntitiesById(id1, id2, ...) ;</span>
+      </li>
+    </ul>
+  </li>
 </ul>
-</li>
-</ul>
+
 <p>C&#x27;est cette même interface IDao&lt;T&gt; sera implémentée par l&#x27;architecture suivante :</p>
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/1000000000000485000000F5E454592D.png" style="display:inline-block; margin:4px;width:15.307cm;height:3.242cm;" class="odt-zoomable" data-zoom-src="images/1000000000000485000000F5E454592D.png" /></td></tr></table>
 
 <p>où une couche [JPA] (Java Persistence Api) viendra s&#x27;intercaler entre la couche [DAO] et le pilote JDBC du SGBD. Cela nous permettra d&#x27;avoir une couche de tests commune aux deux architectures. Dans les deux cas, la couche [DAO] présentera deux interfaces :</p>
 <ul>
-<li>IDao&lt;Produit&gt; pour accéder à la table [PRODUITS] ;</li>
-<li>IDao&lt;Categorie&gt; pour accéder à la table [CATEGORIES] ;</li>
+  <li>IDao&lt;Produit&gt; pour accéder à la table [PRODUITS] ;
+  </li>
+  <li>IDao&lt;Categorie&gt; pour accéder à la table [CATEGORIES] ;
+  </li>
 </ul>
+
 <p><a id="refheading1052102082896917"></a></p>
 <h2 id="48-implementation-de-linterface-idaot">4.8. Implémentation de l&#x27;interface IDao&lt;T&gt;</h2>
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000000EE000000C7690B2175.png" style="display:inline-block; margin:4px;width:4.41cm;height:3.679cm;" class="odt-zoomable" data-zoom-src="images/10000000000000EE000000C7690B2175.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td></tr></table>
 
 <ul>
-<li>l&#x27;interface IDao&lt;Produit&gt; est implémentée par la classe [DaoProduit] ;</li>
-<li>l&#x27;interface IDao&lt;Categorie&gt; est implémentée par la classe [DaoCategorie] ;</li>
+  <li>l&#x27;interface IDao&lt;Produit&gt; est implémentée par la classe [DaoProduit] ;
+  </li>
+  <li>l&#x27;interface IDao&lt;Categorie&gt; est implémentée par la classe [DaoCategorie] ;
+  </li>
 </ul>
+
 <p>Les classes [DaoProduit] et [DaoCategorie] étendent toutes deux la classe abstraite [<a id="abstractdao"></a>AbstractDao] suivante :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
 <span class="odt-code-line"><span style="font-weight:bold;color:#7f0055">package</span><span style="color:#000000"> spring.jdbc.dao;</span></span>
@@ -2242,14 +2324,20 @@
 </code></pre></div>
 
 <ul>
-<li>ligne 15 : la classe [AbstractDao] est abstraite (mot clé abstract). A ce titre, elle ne peut être instanciée. Elle ne peut qu&#x27;être dérivée. Cette classe a plusieurs rôles :<ul>
-<li>fixer la nature de la transaction dans laquelle se déroule chaque méthode ;</li>
-<li>faire le maximum de choses communes aux deux implémentations des interfaces [IDao&lt;Produit&gt;] et [IDao&lt;Categorie&gt;]. Il s&#x27;agit principalement de vérifier la validité des arguments. On n&#x27;acceptera pas d&#x27;argument <em>null</em>, ni de listes vides ;</li>
-<li>uniformiser le type des paramètres <strong>T... params</strong> et <strong>Iterable&lt;T&gt; params</strong> en un seul : <strong>List&lt;T&gt; params</strong> ;</li>
-<li>déléguer le travail aux classes fille dès que cleui-ci devient spécifique à l&#x27;une des deux interfaces ;</li>
+  <li>ligne 15 : la classe [AbstractDao] est abstraite (mot clé abstract). A ce titre, elle ne peut être instanciée. Elle ne peut qu&#x27;être dérivée. Cette classe a plusieurs rôles :
+    <ul>
+      <li>fixer la nature de la transaction dans laquelle se déroule chaque méthode ;
+      </li>
+      <li>faire le maximum de choses communes aux deux implémentations des interfaces [IDao&lt;Produit&gt;] et [IDao&lt;Categorie&gt;]. Il s&#x27;agit principalement de vérifier la validité des arguments. On n&#x27;acceptera pas d&#x27;argument <i>null</i>, ni de listes vides ;
+      </li>
+      <li>uniformiser le type des paramètres <b>T... params</b> et <b>Iterable&lt;T&gt; params</b> en un seul : <b>List&lt;T&gt; params</b> ;
+      </li>
+      <li>déléguer le travail aux classes fille dès que cleui-ci devient spécifique à l&#x27;une des deux interfaces ;
+      </li>
+    </ul>
+  </li>
 </ul>
-</li>
-</ul>
+
 <p>Grâce à l&#x27;uniformisation des paramètres des différentes méthodes opéré par la classe [AbstractDao], les classes filles [DaoProduit] et [DaoCategorie] n&#x27;auront que 10 méthodes à implémenter au lieu de 19 :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-javascript">
 <span class="odt-code-line"><span style="color:#000000">    </span><span style="color:#3f7f5f">// méthodes implémentées par les classes filles ----------------------------------------------</span></span>
@@ -2299,8 +2387,10 @@
 </code></pre></div>
 
 <ul>
-<li><span style="color: #000000">lignes 2-4 : on injecte le bean [</span><span style="color: #2a00ff">maxPreparedStatementParameters</span><span style="color: #000000">] défini dans le fichier de configuration [ConfigJdbc] qui configure la couche JDBC d&#x27;un SGBD particulier :</span></li>
+  <li><span style="color: #000000">lignes 2-4 : on injecte le bean [</span><span style="color: #2a00ff">maxPreparedStatementParameters</span><span style="color: #000000">] défini dans le fichier de configuration [ConfigJdbc] qui configure la couche JDBC d&#x27;un SGBD particulier :</span>
+  </li>
 </ul>
+
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-text">
 <span class="odt-code-line"><span style="color:#000000">    </span><span style="color:#3f7f5f">// nombre max de paramètres d&#x27;un [PreparedStatement]</span></span>
 <span class="odt-code-line"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">public</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">final</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">static</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">int</span><span style="color:#000000"> </span><span style="font-weight:bold;font-style:italic;color:#0000c0">MAX_PREPAREDSTATEMENT_PARAMETERS</span><span style="color:#000000"> = 10000;</span></span>
@@ -2312,8 +2402,10 @@
 </code></pre></div>
 
 <ul>
-<li><span style="color: #000000">lignes 1-7 : définissent le bean [maxPreparedStatementParameters] qui va fixer le nombre maximum de paramètres ? qu&#x27;on pourra donner à un type [PreparedStatement]. Ce besoin n&#x27;est pas apparu avec le SGBD MySQL qui a accepté 10000 paramètres pour un type [PreparedStatement]. Lors des tests avec le SGBD SQL Server, celui-ci a jeté une exception indiquant que le nombre maximum de paramètres pour un type [PreparedStatement] était de 2100. Aussi ce nombre est-il devenu un paramètre de la configuration des différents SGBD. Il doit donc être placé dans le projet de configuration [sgbd-config-jdbc] de chaque SGBD ;</span></li>
+  <li><span style="color: #000000">lignes 1-7 : définissent le bean [maxPreparedStatementParameters] qui va fixer le nombre maximum de paramètres ? qu&#x27;on pourra donner à un type [PreparedStatement]. Ce besoin n&#x27;est pas apparu avec le SGBD MySQL qui a accepté 10000 paramètres pour un type [PreparedStatement]. Lors des tests avec le SGBD SQL Server, celui-ci a jeté une exception indiquant que le nombre maximum de paramètres pour un type [PreparedStatement] était de 2100. Aussi ce nombre est-il devenu un paramètre de la configuration des différents SGBD. Il doit donc être placé dans le projet de configuration [sgbd-config-jdbc] de chaque SGBD ;</span>
+  </li>
 </ul>
+
 <p><span style="color: #000000">Revenons au code de la méthode [getShortEntitiesById] :</span></p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-text">
 <span class="odt-code-line"><span style="color:#000000">    </span><span style="color:#3f7f5f">// injections</span></span>
@@ -2332,9 +2424,12 @@
 </code></pre></div>
 
 <ul>
-<li><span style="color: #000000">ligne 7 : le nom de la classe. Est utilisé comme paramètre d&#x27;un des constructeurs de la classe d&#x27;exception [DaoException] ;</span></li>
-<li><span style="color: #000000">ligne 10 : l&#x27;annotation [</span><span style="color: #646464">@Transactional</span><span style="color: #000000">(readOnly = </span><strong><span style="color: #7f0055">true</span></strong><span style="color: #000000">)] indique que la méthode doit se dérouler dans une transaction en lecture seule. On peut s&#x27;interroger sur l&#x27;utilité d&#x27;une telle transaction dans la mesure où la méthode ne fait que des lectures et que donc en cas d&#x27;échec, il n&#x27;y a rien à annuler. C&#x27;est l&#x27;auteur de la bibliothèque [Spring Data] qui le conseille et explique pourquoi. J&#x27;ai suivi son conseil ;</span></li>
+  <li><span style="color: #000000">ligne 7 : le nom de la classe. Est utilisé comme paramètre d&#x27;un des constructeurs de la classe d&#x27;exception [DaoException] ;</span>
+  </li>
+  <li><span style="color: #000000">ligne 10 : l&#x27;annotation [</span><span style="color: #646464">@Transactional</span><span style="color: #000000">(readOnly = </span><b><span style="color: #7f0055">true</span></b><span style="color: #000000">)] indique que la méthode doit se dérouler dans une transaction en lecture seule. On peut s&#x27;interroger sur l&#x27;utilité d&#x27;une telle transaction dans la mesure où la méthode ne fait que des lectures et que donc en cas d&#x27;échec, il n&#x27;y a rien à annuler. C&#x27;est l&#x27;auteur de la bibliothèque [Spring Data] qui le conseille et explique pourquoi. J&#x27;ai suivi son conseil ;</span>
+  </li>
 </ul>
+
 <p><span style="color: #000000">Le corps de la méthode est le suivant :</span></p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-text">
 <span class="odt-code-line"><span style="color:#000000">    </span><span style="color:#646464">@Override</span></span>
@@ -2350,8 +2445,10 @@
 </code></pre></div>
 
 <ul>
-<li><span style="color: #000000">ligne 5 : la validité du paramètre [ids] est vérifiée par la méthode suivante :</span></li>
+  <li><span style="color: #000000">ligne 5 : la validité du paramètre [ids] est vérifiée par la méthode suivante :</span>
+  </li>
 </ul>
+
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-text">
 <span class="odt-code-line"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">private</span><span style="color:#000000"> &lt;T2&gt; List&lt;T&gt; checkNullOrEmptyArgument(</span><span style="font-weight:bold;color:#7f0055">boolean</span><span style="color:#000000"> </span><span style="color:#6a3e3e">checkEmpty</span><span style="color:#000000">, Iterable&lt;T2&gt; </span><span style="color:#6a3e3e">elements</span><span style="color:#000000">) {</span></span>
 <span class="odt-code-line"><span style="color:#000000">        </span><span style="color:#3f7f5f">// elements null ?</span></span>
@@ -2373,25 +2470,38 @@
 </code></pre></div>
 
 <ul>
-<li><span style="color: #000000">ligne 1 : la méthode [checkNullOrEmptyArgument] est une méthode générique paramétrée par le type &lt;T2&gt;. T2 est le type des éléments passés en second paramètre de la méthode. Cela peut être [Long, String, AbstractCoreEntity] ;</span></li>
-<li><span style="color: #000000">ligne 1 : la méthode [checkNullOrEmptyArgument] admet deux paramètres :</span><ul>
-<li><span style="color: #000000">[Iterable&lt;T2&gt; </span><span style="color: #6a3e3e">elements</span><span style="color: #000000">] : le paramètre à tester ;</span></li>
-<li><span style="color: #000000">[checkEmpty] : à vrai si on doit tester que le paramètre précédent est une liste non vide ;</span></li>
+  <li><span style="color: #000000">ligne 1 : la méthode [checkNullOrEmptyArgument] est une méthode générique paramétrée par le type &lt;T2&gt;. T2 est le type des éléments passés en second paramètre de la méthode. Cela peut être [Long, String, AbstractCoreEntity] ;</span>
+  </li>
+  <li><span style="color: #000000">ligne 1 : la méthode [checkNullOrEmptyArgument] admet deux paramètres :</span>
+    <ul>
+      <li><span style="color: #000000">[Iterable&lt;T2&gt; </span><span style="color: #6a3e3e">elements</span><span style="color: #000000">] : le paramètre à tester ;</span>
+      </li>
+      <li><span style="color: #000000">[checkEmpty] : à vrai si on doit tester que le paramètre précédent est une liste non vide ;</span>
+      </li>
+    </ul>
+  </li>
+  <li><span style="color: #000000">lignes 4-6 : on vérifie que le paramètre [elements] est non </span><i><span style="color: #000000">null</span></i><span style="color: #000000">. Si ce n&#x27;est pas le cas, une exception de type [MyIllegalArgumentException] est lancée ;</span>
+  </li>
+  <li><span style="color: #000000">lignes 8-15 : si la liste est vide et qu&#x27;on devait vérifier qu&#x27;elle était non vide, on lance une exception de type [MyIllegalArgumentException] ;</span>
+  </li>
+  <li><span style="color: #000000">ligne 13 : si la liste est vide  et qu&#x27;on ne devait pas vérifier qu&#x27;elle était non vide, alors on rend une liste vide d&#x27;éléments de type T. L&#x27;interface [Iterable&lt;T2&gt;] a une méthode [iterator()] qui permet d&#x27;itérer sur les éléments de la liste implémentant l&#x27;interface. Deux méthodes de cet itérateur sont utiles :</span>
+    <ul>
+      <li><span style="color: #000000">[itérateur].hasNext() : rend vrai si la liste a encore un élément à exploiter, faux sinon ;</span>
+      </li>
+      <li><span style="color: #000000">[iterateur].next() : rend l&#x27;élément courant de la liste et avance d&#x27;un élément d&#x27;un élément ;</span>
+      </li>
+    </ul>
+  </li>
+  <li><span style="color: #000000">au final, </span>
+    <ul>
+      <li><span style="color: #000000">si l&#x27;argument [T2... </span><span style="color: #6a3e3e">elements</span><span style="color: #000000">] est </span><i><span style="color: #000000">null</span></i><span style="color: #000000"> ou vide, une exception de type [MyIllegalArgumentException] est lancée ;</span>
+      </li>
+      <li><span style="color: #000000">si l&#x27;argument [T2... </span><span style="color: #6a3e3e">elements</span><span style="color: #000000">] est une liste vide et que c&#x27;était légal, alors on rend une liste vide d&#x27;éléments de type T ;</span>
+      </li>
+    </ul>
+  </li>
 </ul>
-</li>
-<li><span style="color: #000000">lignes 4-6 : on vérifie que le paramètre [elements] est non </span><em><span style="color: #000000">null</span></em><span style="color: #000000">. Si ce n&#x27;est pas le cas, une exception de type [MyIllegalArgumentException] est lancée ;</span></li>
-<li><span style="color: #000000">lignes 8-15 : si la liste est vide et qu&#x27;on devait vérifier qu&#x27;elle était non vide, on lance une exception de type [MyIllegalArgumentException] ;</span></li>
-<li><span style="color: #000000">ligne 13 : si la liste est vide  et qu&#x27;on ne devait pas vérifier qu&#x27;elle était non vide, alors on rend une liste vide d&#x27;éléments de type T. L&#x27;interface [Iterable&lt;T2&gt;] a une méthode [iterator()] qui permet d&#x27;itérer sur les éléments de la liste implémentant l&#x27;interface. Deux méthodes de cet itérateur sont utiles :</span><ul>
-<li><span style="color: #000000">[itérateur].hasNext() : rend vrai si la liste a encore un élément à exploiter, faux sinon ;</span></li>
-<li><span style="color: #000000">[iterateur].next() : rend l&#x27;élément courant de la liste et avance d&#x27;un élément d&#x27;un élément ;</span></li>
-</ul>
-</li>
-<li><span style="color: #000000">au final, </span><ul>
-<li><span style="color: #000000">si l&#x27;argument [T2... </span><span style="color: #6a3e3e">elements</span><span style="color: #000000">] est </span><em><span style="color: #000000">null</span></em><span style="color: #000000"> ou vide, une exception de type [MyIllegalArgumentException] est lancée ;</span></li>
-<li><span style="color: #000000">si l&#x27;argument [T2... </span><span style="color: #6a3e3e">elements</span><span style="color: #000000">] est une liste vide et que c&#x27;était légal, alors on rend une liste vide d&#x27;éléments de type T ;</span></li>
-</ul>
-</li>
-</ul>
+
 <p><span style="color: #000000">Une méthode analogue existe lorsque l&#x27;argument à tester est de type [T2... elements] :</span></p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-text">
 <span class="odt-code-line"><span style="color:#646464">@SuppressWarnings</span><span style="color:#000000">(</span><span style="color:#2a00ff">&quot;unchecked&quot;</span><span style="color:#000000">)</span></span>
@@ -2422,9 +2532,12 @@
 </code></pre></div>
 
 <ul>
-<li><span style="color: #000000">ligne 7 : si on arrive là, c&#x27;est que l&#x27;argument [Iterable&lt;Long&gt; </span><span style="color: #6a3e3e">ids</span><span style="color: #000000">] est valide ;</span></li>
-<li><span style="color: #000000">lignes 7-14 : nous allons voir ultérieurement que la méthode [getShortEntitiesById] va être implémentée par un type [PreparedStatement] qui aura pour paramètres la liste des clés primaires à chercher. Par exemple :</span></li>
+  <li><span style="color: #000000">ligne 7 : si on arrive là, c&#x27;est que l&#x27;argument [Iterable&lt;Long&gt; </span><span style="color: #6a3e3e">ids</span><span style="color: #000000">] est valide ;</span>
+  </li>
+  <li><span style="color: #000000">lignes 7-14 : nous allons voir ultérieurement que la méthode [getShortEntitiesById] va être implémentée par un type [PreparedStatement] qui aura pour paramètres la liste des clés primaires à chercher. Par exemple :</span>
+  </li>
 </ul>
+
 <div class="odt-code-rich" data-linenums="false" style="counter-reset: odtline 0;"><pre><code class="language-sql">
 <span class="odt-code-line"><span style="font-weight:bold;color:#7f0055">public</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">final</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">static</span><span style="color:#000000"> String </span><span style="font-weight:bold;font-style:italic;color:#0000c0">SELECT_SHORTCATEGORIE_BYID</span><span style="color:#000000"> = </span><span style="color:#2a00ff">&quot;SELECT c.ID as c_ID, c.VERSIONING as c_VERSIONING, c.NOM as c_NOM FROM CATEGORIES c WHERE c.ID in (:ids)&quot;</span><span style="color:#000000">;</span></span>
 </code></pre></div>
@@ -2432,9 +2545,12 @@
 <p><span style="color: #000000">    </span></p>
 <p><strong><span style="color: #000000">:ids</span></strong><span style="color: #000000"> est un paramètre qui aura pour valeur effective un type List&lt;Long&gt;. Chaque élément de cette liste va faire l&#x27;objet d&#x27;un paramètre ? dans un type [PreparedStatement]. Or nous avons dit que ce type acceptait un nombre maximal de paramètres, nombre fixé par le champ [</span><span style="color: #0000c0">maxPreparedStatementParameters</span><span style="color: #000000">] de la classe ;</span></p>
 <ul>
-<li><span style="color: #000000">ligne 7 : la liste des entités T qui sera rendue par la méthode [getShortEntitiesById]. Cette liste va être construite par morceaux de </span><span style="color: #000000">[</span><span style="color: #0000c0">maxPreparedStatementParameters</span><span style="color: #000000">] éléments ;</span></li>
-<li><span style="color: #000000">ligne 9 : à partir de l&#x27;argument [Iterable&lt;Long&gt; </span><span style="color: #6a3e3e">ids</span><span style="color: #000000">], on crée un type [List&lt;Long&gt; listIds]. La classe [Lists] est une classe de la bibliothèque </span><strong><span style="color: #000000">Google Guava</span></strong><span style="color: #000000"> qui offre de nombreuses méthodes statiques pour manipuler des collections d&#x27;objets. La bibliothèque Google Guava a été importée (pom.xml) par le projet Maven [mysql-config-jdbc] :</span></li>
+  <li><span style="color: #000000">ligne 7 : la liste des entités T qui sera rendue par la méthode [getShortEntitiesById]. Cette liste va être construite par morceaux de </span><span style="color: #000000">[</span><span style="color: #0000c0">maxPreparedStatementParameters</span><span style="color: #000000">] éléments ;</span>
+  </li>
+  <li><span style="color: #000000">ligne 9 : à partir de l&#x27;argument [Iterable&lt;Long&gt; </span><span style="color: #6a3e3e">ids</span><span style="color: #000000">], on crée un type [List&lt;Long&gt; listIds]. La classe [Lists] est une classe de la bibliothèque </span><b><span style="color: #000000">Google Guava</span></b><span style="color: #000000"> qui offre de nombreuses méthodes statiques pour manipuler des collections d&#x27;objets. La bibliothèque Google Guava a été importée (pom.xml) par le projet Maven [mysql-config-jdbc] :</span>
+  </li>
 </ul>
+
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-xml">
 <span class="odt-code-line"><span style="color:#000000">        </span><span style="color:#3f5fbf">&lt;!-- Google Guava --&gt;</span></span>
 <span class="odt-code-line"><span style="color:#000000">        </span><span style="color:#008080">&lt;</span><span style="color:#3f7f7f">dependency</span><span style="color:#008080">&gt;</span></span>
@@ -2445,26 +2561,38 @@
 </code></pre></div>
 
 <ul>
-<li><span style="color: #000000">ligne 10 : le nombre d&#x27;entités T à rechercher dans la base ;</span></li>
-<li><span style="color: #000000">lignes 11-13 : elles sont recherchées par groupe de [</span><span style="color: #6a3e3e">taille</span><span style="color: #000000"> = </span><span style="color: #0000c0">maxPreparedStatementParameters</span><span style="color: #000000">] éléments ;</span></li>
-<li><span style="color: #000000">ligne  12 : un calcul pour éviter de dépasser la fin de la liste [listIds] ;</span></li>
-<li><span style="color: #000000">ligne 13 : les entités T sont obtenues par l&#x27;appel [getShortEntitiesById(</span><span style="color: #6a3e3e">listIds</span><span style="color: #000000">.subList(</span><span style="color: #6a3e3e">i</span><span style="color: #000000">, </span><span style="color: #6a3e3e">limit</span><span style="color: #000000">))]. Cette méthode est définie dans la classe par :</span></li>
+  <li><span style="color: #000000">ligne 10 : le nombre d&#x27;entités T à rechercher dans la base ;</span>
+  </li>
+  <li><span style="color: #000000">lignes 11-13 : elles sont recherchées par groupe de [</span><span style="color: #6a3e3e">taille</span><span style="color: #000000"> = </span><span style="color: #0000c0">maxPreparedStatementParameters</span><span style="color: #000000">] éléments ;</span>
+  </li>
+  <li><span style="color: #000000">ligne  12 : un calcul pour éviter de dépasser la fin de la liste [listIds] ;</span>
+  </li>
+  <li><span style="color: #000000">ligne 13 : les entités T sont obtenues par l&#x27;appel [getShortEntitiesById(</span><span style="color: #6a3e3e">listIds</span><span style="color: #000000">.subList(</span><span style="color: #6a3e3e">i</span><span style="color: #000000">, </span><span style="color: #6a3e3e">limit</span><span style="color: #000000">))]. Cette méthode est définie dans la classe par :</span>
+  </li>
 </ul>
+
 <div class="odt-code-rich" data-linenums="false" style="counter-reset: odtline 0;"><pre><code class="language-text">
 <span class="odt-code-line"><span style="font-weight:bold;color:#7f0055">abstract</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">protected</span><span style="color:#000000"> List&lt;T&gt; getShortEntitiesById(List&lt;Long&gt; </span><span style="color:#6a3e3e">ids</span><span style="color:#000000">);</span></span>
 </code></pre></div>
 
 <p><span style="color: #000000">C&#x27;est donc <strong>la classe fille</strong> qui va aller rechercher les entités T dans la base :</span></p>
 <ul>
-<li><span style="color: #000000">[DaoProduit] si T est le type [Produit] ;</span></li>
-<li><span style="color: #000000">[DaoCategorie] si T est le type [Categorie] ;</span></li>
+  <li><span style="color: #000000">[DaoProduit] si T est le type [Produit] ;</span>
+  </li>
+  <li><span style="color: #000000">[DaoCategorie] si T est le type [Categorie] ;</span>
+  </li>
 </ul>
+
 <p><span style="color: #000000">L&#x27;intérêt de ce travail de la classe parent est double :</span></p>
 <ul>
-<li><span style="color: #000000">la signature de la méthode [getShortEntitiesById] dans la classe fille est unique : son argument est de type [List&lt;Long&gt; </span><span style="color: #6a3e3e">ids</span><span style="color: #000000">] ;</span></li>
-<li><span style="color: #000000">la classe fille n&#x27;a pas à s&#x27;occuper du problème des </span><span style="color: #000000">[</span><span style="color: #0000c0">maxPreparedStatementParameters</span><span style="color: #000000">] paramètres d&#x27;un [PreparedStatement]. Sa classe mère s&#x27;en est occupée pour elle ;</span></li>
-<li><span style="color: #000000">ligne 13 : les entités ramenées par la classe fille sont cumulées dans la liste des entités qui sera rendue par la classe mère (ligne 16) ;</span></li>
+  <li><span style="color: #000000">la signature de la méthode [getShortEntitiesById] dans la classe fille est unique : son argument est de type [List&lt;Long&gt; </span><span style="color: #6a3e3e">ids</span><span style="color: #000000">] ;</span>
+  </li>
+  <li><span style="color: #000000">la classe fille n&#x27;a pas à s&#x27;occuper du problème des </span><span style="color: #000000">[</span><span style="color: #0000c0">maxPreparedStatementParameters</span><span style="color: #000000">] paramètres d&#x27;un [PreparedStatement]. Sa classe mère s&#x27;en est occupée pour elle ;</span>
+  </li>
+  <li><span style="color: #000000">ligne 13 : les entités ramenées par la classe fille sont cumulées dans la liste des entités qui sera rendue par la classe mère (ligne 16) ;</span>
+  </li>
 </ul>
+
 <p><span style="color: #000000">Maintenant, voyons l&#x27;implémentation de l&#x27;autre méthode [getShortEntitiesById] de la classe :</span></p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-text">
 <span class="odt-code-line"><span style="color:#000000">    </span><span style="color:#646464">@Override</span></span>
@@ -2478,15 +2606,22 @@
 </code></pre></div>
 
 <ul>
-<li>ligne 3 : la nature de l&#x27;argument a changé :  Long... ids ;</li>
-<li>ligne 5 : la validité de cet argument est testée ;</li>
-<li>ligne 7 : on appelle la méthode [<span style="color: #000000">getShortEntitiesById</span>] que nous venons de décrire. Là encore, on s&#x27;aide de la classe [Lists] de la bibliothèque [Google Guava]. Notez qu&#x27;on est obligé de faire un cast explicite vers le type [<span style="color: #000000">Iterable&lt;Long&gt;</span>] pour aider le compilateur à choisir la bonne méthode car la méthode [<span style="color: #000000">getShortEntitiesById</span>] a trois signatures dans la classe :<ul>
-<li><span style="color: #000000">List&lt;T&gt; getShortEntitiesById(Long... </span><span style="color: #6a3e3e">ids</span><span style="color: #000000">) ;</span></li>
-<li><span style="color: #000000">List&lt;T&gt; getShortEntitiesById(Iterable&lt;Long&gt; </span><span style="color: #6a3e3e">ids</span><span style="color: #000000">) ;</span></li>
-<li><span style="color: #000000">List&lt;T&gt; getShortEntitiesById(List&lt;Long&gt; </span><span style="color: #6a3e3e">ids</span><span style="color: #000000">) qui est abstraite et implémentée par la classe fille ;</span></li>
+  <li>ligne 3 : la nature de l&#x27;argument a changé :  Long... ids ;
+  </li>
+  <li>ligne 5 : la validité de cet argument est testée ;
+  </li>
+  <li>ligne 7 : on appelle la méthode [<span style="color: #000000">getShortEntitiesById</span>] que nous venons de décrire. Là encore, on s&#x27;aide de la classe [Lists] de la bibliothèque [Google Guava]. Notez qu&#x27;on est obligé de faire un cast explicite vers le type [<span style="color: #000000">Iterable&lt;Long&gt;</span>] pour aider le compilateur à choisir la bonne méthode car la méthode [<span style="color: #000000">getShortEntitiesById</span>] a trois signatures dans la classe :
+    <ul>
+      <li><span style="color: #000000">List&lt;T&gt; getShortEntitiesById(Long... </span><span style="color: #6a3e3e">ids</span><span style="color: #000000">) ;</span>
+      </li>
+      <li><span style="color: #000000">List&lt;T&gt; getShortEntitiesById(Iterable&lt;Long&gt; </span><span style="color: #6a3e3e">ids</span><span style="color: #000000">) ;</span>
+      </li>
+      <li><span style="color: #000000">List&lt;T&gt; getShortEntitiesById(List&lt;Long&gt; </span><span style="color: #6a3e3e">ids</span><span style="color: #000000">) qui est abstraite et implémentée par la classe fille ;</span>
+      </li>
+    </ul>
+  </li>
 </ul>
-</li>
-</ul>
+
 <p><span style="color: #000000">Nous ne commenterons pas davantage la classe abstraite [AbstractDao], classe parent des classes [DaoProduit] et [DaoCategorie]. On retiendra simplement qu&#x27;il est parfois intéressant de factoriser des comportements communs à plusieurs classes dans une classe parent abstraite ou non. Après ce travail, les classes filles n&#x27;ont plus que les méthodes suivantes à implémenter :</span></p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-javascript">
 <span class="odt-code-line"><span style="color:#000000">    </span><span style="color:#3f7f5f">// méthodes implémentées par les classes filles ----------------------------------------------</span></span>
@@ -2518,10 +2653,14 @@
 
 <p><span style="color: #000000">Le code de la </span><span style="color: #000000">paragraphe</span><span style="color: #000000"> </span><span style="color: #000000"><a href="#abstractdao">4.8</a></span><span style="color: #000000">, montre les différents types de transaction utilisés pour chaque méthode. Notons quelques points :</span></p>
 <ul>
-<li><span style="color: #000000">les méthodes qui lisent la base sont annotées avec [</span><span style="color: #646464">@Transactional</span><span style="color: #000000">(readOnly = </span><strong><span style="color: #7f0055">true</span></strong><span style="color: #000000">)] ;</span></li>
-<li><span style="color: #000000">les méthodes qui modifient la base sont annotées avec [</span><span style="color: #646464">@Transactional</span><span style="color: #000000">] ;</span></li>
-<li><span style="color: #000000">les méthodes [delete] ne sont pas annotées et ne </span><strong><span style="color: #000000">se déroulent donc pas dans une transaction</span></strong><span style="color: #000000">. L&#x27;idée est que si une suppression échoue, l&#x27;utilisateur ne veut sans doute pas annuler toutes celles qui ont réussi auparavant ;</span></li>
+  <li><span style="color: #000000">les méthodes qui lisent la base sont annotées avec [</span><span style="color: #646464">@Transactional</span><span style="color: #000000">(readOnly = </span><b><span style="color: #7f0055">true</span></b><span style="color: #000000">)] ;</span>
+  </li>
+  <li><span style="color: #000000">les méthodes qui modifient la base sont annotées avec [</span><span style="color: #646464">@Transactional</span><span style="color: #000000">] ;</span>
+  </li>
+  <li><span style="color: #000000">les méthodes [delete] ne sont pas annotées et ne </span><b><span style="color: #000000">se déroulent donc pas dans une transaction</span></b><span style="color: #000000">. L&#x27;idée est que si une suppression échoue, l&#x27;utilisateur ne veut sans doute pas annuler toutes celles qui ont réussi auparavant ;</span>
+  </li>
 </ul>
+
 <p><a id="refheading1052122082896917"></a></p>
 <h2 id="49-la-classe-daocategorie">4.9. La classe [DaoCategorie]</h2>
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/1000000000000426000000FDF1819B0F.png" style="display:inline-block; margin:4px;width:14.049cm;height:3.348cm;" class="odt-zoomable" data-zoom-src="images/1000000000000426000000FDF1819B0F.png" /></td></tr></table>
@@ -2634,13 +2773,20 @@
 </code></pre></div>
 
 <ul>
-<li><span style="color: #000000">ligne 28 : la classe [DaoCategorie] est un composant Spring et à ce titre pourra être injecté dans d&#x27;autres composants Spring ;</span></li>
-<li><span style="color: #000000">ligne 29 : la classe [DaoCategorie] étend la classe abstraite [AbstractDao&lt;Categorie&gt;], ce qui en fait une implémentation de l&#x27;interface [IDao&lt;Categorie&gt;] ;</span></li>
-<li><span style="color: #000000">lignes 34-37 : injection de beans définis dans la classe [AppConfig] décrite au paragraphe <a href="#refheading925761142777426">4.4</a> ;</span></li>
-<li><span style="color: #000000">lignes 38-39 : injection d&#x27;une référence sur la classe [DaoProduit] qui implémente l&#x27;interface [IDao&lt;Produit&gt;] qui gère l&#x27;accès aux données de la table [PRODUITS] ;</span></li>
-<li><span style="color: #000000">lignes 41-89 : implémentation de l&#x27;interface [IDao&lt;Categorie&gt;] ;</span></li>
-<li><span style="color: #000000">lignes 95-101 : deux classes internes implémentant l&#x27;interface [RowMapper&lt;T&gt;] ;</span></li>
+  <li><span style="color: #000000">ligne 28 : la classe [DaoCategorie] est un composant Spring et à ce titre pourra être injecté dans d&#x27;autres composants Spring ;</span>
+  </li>
+  <li><span style="color: #000000">ligne 29 : la classe [DaoCategorie] étend la classe abstraite [AbstractDao&lt;Categorie&gt;], ce qui en fait une implémentation de l&#x27;interface [IDao&lt;Categorie&gt;] ;</span>
+  </li>
+  <li><span style="color: #000000">lignes 34-37 : injection de beans définis dans la classe [AppConfig] décrite au paragraphe <a href="#refheading925761142777426">4.4</a> ;</span>
+  </li>
+  <li><span style="color: #000000">lignes 38-39 : injection d&#x27;une référence sur la classe [DaoProduit] qui implémente l&#x27;interface [IDao&lt;Produit&gt;] qui gère l&#x27;accès aux données de la table [PRODUITS] ;</span>
+  </li>
+  <li><span style="color: #000000">lignes 41-89 : implémentation de l&#x27;interface [IDao&lt;Categorie&gt;] ;</span>
+  </li>
+  <li><span style="color: #000000">lignes 95-101 : deux classes internes implémentant l&#x27;interface [RowMapper&lt;T&gt;] ;</span>
+  </li>
 </ul>
+
 <p><span style="color: #000000">Etudions les méthodes les unes après les autres.</span></p>
 <p><a id="refheading1052142082896917"></a></p>
 <h3 id="491-la-methode-getallshortentities">4.9.1. La méthode [<span style="color: #000000">getAllShortEntities</span>]</h3>
@@ -2659,14 +2805,19 @@
 <p><span style="color: #000000">Toutes les méthodes reposent sur l&#x27;objet [<span style="color: #0000c0">namedParameterJdbcTemplate</span>] défini dans le fichier de configuration Spring et fourni par la bibliothèque Spring JDBC. Ses méthodes sont nombreuses. Celle utilisée ci-dessus est la suivante :</span></p>
 <p><img src="images/10000000000003150000003E829211BE.png" style="width:14.61cm;height:1.15cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000003150000003E829211BE.png" /></p>
 <ul>
-<li><span style="color: #000000">[sql] est l&#x27;ordre SQL à exécuter ;</span></li>
-<li><span style="color: #000000">[rowMapper] est une instance de l&#x27;interface [RowMapper&lt;T&gt;] suivante :</span></li>
+  <li><span style="color: #000000">[sql] est l&#x27;ordre SQL à exécuter ;</span>
+  </li>
+  <li><span style="color: #000000">[rowMapper] est une instance de l&#x27;interface [RowMapper&lt;T&gt;] suivante :</span>
+  </li>
 </ul>
+
 <p><img src="images/10000000000002680000005DC24750A3.png" style="width:11.411cm;height:1.72cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000002680000005DC24750A3.png" /></p>
 <p><span style="color: #000000">L&#x27;idée est la suivante :</span></p>
 <ul>
-<li><span style="color: #000000">la méthode <strong>[</strong><strong><span style="color: #0000c0">namedParameterJdbcTemplate</span></strong><strong>].query(String sql, RowMapper&lt;T&gt; rowMapper)</strong> exécute l&#x27;ordre SQL de type [Select]. Elle gère les éventuelles exceptions, ainsi que l&#x27;ouverture / fermeture de la connexion vers le SGBD. La seule chose qu&#x27;elle ne puisse pas faire, c&#x27;est d&#x27;encapsuler les éléments du [ResultSet] des objets qu&#x27;elle obtient dans un type [Categorie] car elle ne connaît pas le lien qui existe entre les champs du type [Categorie] et les colonnes du [Resultset]. Nous verrons ultérieurement que ce lien est cré avec la technologie JPA ce qui rendra automatique l&#x27;encapsulation des éléments d&#x27;un [ResultSet] dans des instances de type T. Pour l&#x27;instant, le second paramètre de la méthode [query] est une instance de l&#x27;interface [RowMapper&lt;T&gt;] capable de faire cette encapsulation ;</span></li>
+  <li><span style="color: #000000">la méthode <b>[</b><b><span style="color: #0000c0">namedParameterJdbcTemplate</span></b><b>].query(String sql, RowMapper&lt;T&gt; rowMapper)</b> exécute l&#x27;ordre SQL de type [Select]. Elle gère les éventuelles exceptions, ainsi que l&#x27;ouverture / fermeture de la connexion vers le SGBD. La seule chose qu&#x27;elle ne puisse pas faire, c&#x27;est d&#x27;encapsuler les éléments du [ResultSet] des objets qu&#x27;elle obtient dans un type [Categorie] car elle ne connaît pas le lien qui existe entre les champs du type [Categorie] et les colonnes du [Resultset]. Nous verrons ultérieurement que ce lien est cré avec la technologie JPA ce qui rendra automatique l&#x27;encapsulation des éléments d&#x27;un [ResultSet] dans des instances de type T. Pour l&#x27;instant, le second paramètre de la méthode [query] est une instance de l&#x27;interface [RowMapper&lt;T&gt;] capable de faire cette encapsulation ;</span>
+  </li>
 </ul>
+
 <p><span style="color: #000000">Revenons au code :</span></p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-sql">
 <span class="odt-code-line">    <span style="color:#646464">@Override</span></span>
@@ -2703,9 +2854,12 @@
 </code></pre></div>
 
 <ul>
-<li><span style="color: #000000">ligne 1 : la classe [ShortCategorieMapper] implémente l&#x27;interface [RowMapper&lt;Categorie&gt;] et à ce titre doit implémenter la méthode [mapRow] des lignes 4-5 dont le rôle est d&#x27;encapsuler une ligne du [ResultSet <span style="color: #6a3e3e">rs</span>] produit par l&#x27;ordre [SELECT] dans un type [Categorie] ;</span></li>
-<li><span style="color: #000000">ligne 5 : cette encapsulation est faite. On notera bien que le nom utilisé par les méthodes [rs.getType(nom)] est le nom utilisé dans les attributs [as nom] des colonnes du SELECT ;</span></li>
+  <li><span style="color: #000000">ligne 1 : la classe [ShortCategorieMapper] implémente l&#x27;interface [RowMapper&lt;Categorie&gt;] et à ce titre doit implémenter la méthode [mapRow] des lignes 4-5 dont le rôle est d&#x27;encapsuler une ligne du [ResultSet <span style="color: #6a3e3e">rs</span>] produit par l&#x27;ordre [SELECT] dans un type [Categorie] ;</span>
+  </li>
+  <li><span style="color: #000000">ligne 5 : cette encapsulation est faite. On notera bien que le nom utilisé par les méthodes [rs.getType(nom)] est le nom utilisé dans les attributs [as nom] des colonnes du SELECT ;</span>
+  </li>
 </ul>
+
 <p><span style="color: #000000">On a donc obtenu la liste des catégories dans leur version courte sans gérer d&#x27;exceptions ni de connexion. C&#x27;est l&#x27;intérêt de la bibliothèque Spring JDBC qui gère tout ce qui peut être factorisé dans la gestion des éléments d&#x27;une table et laisse au développeur ce qui ne peut l&#x27;être.</span></p>
 <p><a id="refheading1052162082896917"></a></p>
 <h3 id="492-la-methode-getalllongentities">4.9.2. La méthode [<span style="color: #000000">getAllLongEntities</span>]</h3>
@@ -2749,8 +2903,10 @@
 </code></pre></div>
 
 <ul>
-<li>ligne 4 : la méthode [mapRow] doit rendre un objet [Categorie] avec son champ [produits] renseigné, ceci à partir d&#x27;une ligne du [ResultSet] issu de l&#x27;ordre SELECT précédent ;</li>
+  <li>ligne 4 : la méthode [mapRow] doit rendre un objet [Categorie] avec son champ [produits] renseigné, ceci à partir d&#x27;une ligne du [ResultSet] issu de l&#x27;ordre SELECT précédent ;
+  </li>
 </ul>
+
 <p>Au final, l&#x27;opération :</p>
 <div class="odt-code-rich" data-linenums="false" style="counter-reset: odtline 0;"><pre><code class="language-sql">
 <span class="odt-code-line">[<span style="color:#0000c0">namedParameterJdbcTemplate</span><span style="color:#000000">.query(ConfigJdbc.</span><span style="font-weight:bold;font-style:italic;color:#0000c0">SELECT_ALLLONGCATEGORIES</span><span style="color:#000000">,</span><span style="font-weight:bold;color:#7f0055">new</span><span style="color:#000000"> LongCategorieMapper())</span>]</span>
@@ -2818,13 +2974,20 @@
 </code></pre></div>
 
 <ul>
-<li>ligne 1 : [<span style="color: #000000">List&lt;Categorie&gt; </span><span style="color: #6a3e3e">categories</span>] est la liste des catégories à filtrer (ou à regrouper) ;</li>
-<li>ligne 6 : la liste des catégories à renvoyer à l&#x27;appelant ;</li>
-<li>lignes 8-21 : on traite chaque catégorie de la liste à filtrer ;</li>
-<li>lignes 10-16 : on cherche si la catégorie courante [categorie] est déjà présente dans la liste des catégories [cats] à construire (on rappelle que deux catégories sont dites égales si elles ont la même clé primaire, cf pararaphe <a href="#refheading93205938270148">4.6</a>) ;</li>
-<li>lignes 11-14 : si c&#x27;est déjà le cas, alors le produit encapsulé dans [categorie] est ajouté à la liste des produits de [cat] ;</li>
-<li>lignes 18-20 : si  si la catégorie courante [categorie] n&#x27;est pas déjà présente dans la liste des catégories [cats] à construire, alors on l&#x27;y ajoute avec sa liste de produits qui contient un unique élément ;</li>
+  <li>ligne 1 : [<span style="color: #000000">List&lt;Categorie&gt; </span><span style="color: #6a3e3e">categories</span>] est la liste des catégories à filtrer (ou à regrouper) ;
+  </li>
+  <li>ligne 6 : la liste des catégories à renvoyer à l&#x27;appelant ;
+  </li>
+  <li>lignes 8-21 : on traite chaque catégorie de la liste à filtrer ;
+  </li>
+  <li>lignes 10-16 : on cherche si la catégorie courante [categorie] est déjà présente dans la liste des catégories [cats] à construire (on rappelle que deux catégories sont dites égales si elles ont la même clé primaire, cf pararaphe <a href="#refheading93205938270148">4.6</a>) ;
+  </li>
+  <li>lignes 11-14 : si c&#x27;est déjà le cas, alors le produit encapsulé dans [categorie] est ajouté à la liste des produits de [cat] ;
+  </li>
+  <li>lignes 18-20 : si  si la catégorie courante [categorie] n&#x27;est pas déjà présente dans la liste des catégories [cats] à construire, alors on l&#x27;y ajoute avec sa liste de produits qui contient un unique élément ;
+  </li>
 </ul>
+
 <p>Regardons le cas où l&#x27;ordre SQL Select ramène des catégories sans produits associés. Quelle entité rend la classe [LongCategorieMapper] ?</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-text">
 <span class="odt-code-line"><span style="font-weight:bold;color:#7f0055">class</span> LongCategorieMapper <span style="font-weight:bold;color:#7f0055">implements</span> RowMapper&lt;Categorie&gt; {</span>
@@ -2847,9 +3010,12 @@
 
 <p>Dans le cas où  l&#x27;ordre SQL Select a ramené une catégorie sans produits, les colonnes du produit ramené avec la catégorie contiennent toutes la valeur SQL NULL. Ce cas est traité lignes 7-9 :</p>
 <ul>
-<li>ligne 7 : on récupère la clé primaire du produit en temps qu&#x27;entier long ;</li>
-<li>ligne 9 : on regarde si la valeur lue était la valeur SQL NULL (rs.wasNull). Si ce n&#x27;est pas le cas, on ajoute le produit à la liste de la ligne 6, sinon rien n&#x27;est ajouté et la liste de produits reste vide.</li>
+  <li>ligne 7 : on récupère la clé primaire du produit en temps qu&#x27;entier long ;
+  </li>
+  <li>ligne 9 : on regarde si la valeur lue était la valeur SQL NULL (rs.wasNull). Si ce n&#x27;est pas le cas, on ajoute le produit à la liste de la ligne 6, sinon rien n&#x27;est ajouté et la liste de produits reste vide.
+  </li>
 </ul>
+
 <p>On notera que dans tous les cas, on rend une catégorie avec un champ [produits] qui est non <em>null</em>.</p>
 <p><a id="refheading1052182082896917"></a></p>
 <h3 id="493-la-methode-getshortentitiesbyid">4.9.3. La méthode [<span style="color: #000000">getShortEntitiesById</span>]</h3>
@@ -2867,13 +3033,17 @@
 </code></pre></div>
 
 <ul>
-<li><span style="color: #000000">ligne 4, la signature de la méthode [query] utilisée est la suivante :</span></li>
+  <li><span style="color: #000000">ligne 4, la signature de la méthode [query] utilisée est la suivante :</span>
+  </li>
 </ul>
+
 <p><img src="images/100000000000033C0000006FF9905A5B.png" style="width:15.33cm;height:2.05cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000033C0000006FF9905A5B.png" /></p>
 <p>Le 1er paramètre est un ordre SQL [Select] paramétré. Le second est un dictionnaire associant chacun des paramètres à une valeur. Le 3ième est l&#x27;instance de la classe qui réalise l&#x27;encapsulation d&#x27;une ligne du [ResultSet] résultat du [Select] dans un objet de type T ;</p>
 <ul>
-<li>ligne 4 : l&#x27;ordre SQL [Select] paramétré est le suivant :</li>
+  <li>ligne 4 : l&#x27;ordre SQL [Select] paramétré est le suivant :
+  </li>
 </ul>
+
 <div class="odt-code-rich" data-linenums="false" style="counter-reset: odtline 0;"><pre><code class="language-sql">
 <span class="odt-code-line"><span style="font-weight:bold;color:#7f0055">public</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">final</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">static</span><span style="color:#000000"> String </span><span style="font-weight:bold;font-style:italic;color:#0000c0">SELECT_SHORTCATEGORIE_BYID</span><span style="color:#000000"> = </span><span style="color:#2a00ff">&quot;SELECT c.ID as c_ID, c.VERSIONING as c_VERSIONING, c.NOM as c_NOM FROM CATEGORIES c </span><span style="background-color:#ff950e;color:#2a00ff">WHERE c.ID in (:ids)</span><span style="color:#2a00ff">&quot;</span><span style="color:#000000">;</span></span>
 </code></pre></div>
@@ -2881,9 +3051,12 @@
 <p><span style="color: #000000">    </span></p>
 <p><span style="color: #000000">Cet ordre extrait de la table [CATEGORIES] les catégories dont les clés primaires sont dans la liste </span><strong><span style="color: #000000">:ids</span></strong><span style="color: #000000">.</span></p>
 <ul>
-<li><span style="color: #000000">ligne 5 : le second paramètre de la méthode [query] est ici un dictionnaire associant la clé &#x27;ids&#x27; (1er paramètre) à la liste [ids] passée ligne 1 en paramètre à la méthode [getShortEntitiesById]. La classe [Collections] appartient à la bibliothèque [Google Guava] dont nous avons déjà parlée. [Collections.singleMap] rend un dictionnaire d&#x27;un élément ;</span></li>
-<li><span style="color: #000000">ligne 5 : la classe chargée de faire l&#x27;encapsulation d&#x27;une ligne du [ResultSet] résultat du [Select] dans un objet de type [Categorie] est la classe [ShortCategorieMapper] déjà étudiée ;</span></li>
+  <li><span style="color: #000000">ligne 5 : le second paramètre de la méthode [query] est ici un dictionnaire associant la clé &#x27;ids&#x27; (1er paramètre) à la liste [ids] passée ligne 1 en paramètre à la méthode [getShortEntitiesById]. La classe [Collections] appartient à la bibliothèque [Google Guava] dont nous avons déjà parlée. [Collections.singleMap] rend un dictionnaire d&#x27;un élément ;</span>
+  </li>
+  <li><span style="color: #000000">ligne 5 : la classe chargée de faire l&#x27;encapsulation d&#x27;une ligne du [ResultSet] résultat du [Select] dans un objet de type [Categorie] est la classe [ShortCategorieMapper] déjà étudiée ;</span>
+  </li>
 </ul>
+
 <p><span style="color: #000000">C&#x27;est typiquement ici qu&#x27;intervient le bean [</span><span style="color: #2a00ff">maxPreparedStatementParameters</span><span style="color: #000000">]. En effet, le paramètre [:ids] de l&#x27;ordre SQL qui représente une liste de clés primaires peut contenir de 1 à plusieurs milliers de paramètres. Il y a une limite à ce nombre qui dépend de chaque SGBD. Pour MySQL, on a pu passer 10000 paramètres sans erreur et on n&#x27;a pas testé au-delà. Pour SQL Server la limite officielle est 2100. Pour Firebird, 1000 était trop. On est descendu à 100. De manière générale, on n&#x27;a pas testé la limite maximale de ce nombre pour les différents SGBD.</span></p>
 <p><a id="refheading1052202082896917"></a></p>
 <h3 id="494-la-methode-getlongentitiesbyid">4.9.4. La méthode [<span style="color: #000000">getLongEntitiesById</span>]</h3>
@@ -2962,13 +3135,17 @@
 </code></pre></div>
 
 <ul>
-<li>ligne 4 : la méthode [<span style="color: #0000c0">namedParameterJdbcTemplate</span><span style="color: #000000">.update</span>] utilisée a la signature suivante :</li>
+  <li>ligne 4 : la méthode [<span style="color: #0000c0">namedParameterJdbcTemplate</span><span style="color: #000000">.update</span>] utilisée a la signature suivante :
+  </li>
 </ul>
+
 <p><img src="images/100000000000033900000038CF766D91.png" style="width:15.281cm;height:1.041cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000033900000038CF766D91.png" /></p>
 <p>Le 1er paramètre est un ordre SQL paramétré de mise à jour (INSERT, UPDATE, DELETE). Le second paramètre est le dictionnaire associant des valeurs aux différents paramètres de l&#x27;ordre SQL. La méthode rend le nombre de lignes mises à jour par l&#x27;ordre SQL.</p>
 <ul>
-<li>ligne 4 : l&#x27;ordre SQL [ConfigJdbc.<em>DELETE_ALLCATEGORIES</em>] est le suivant :</li>
+  <li>ligne 4 : l&#x27;ordre SQL [ConfigJdbc.<i>DELETE_ALLCATEGORIES</i>] est le suivant :
+  </li>
 </ul>
+
 <div class="odt-code-rich" data-linenums="false" style="counter-reset: odtline 0;"><pre><code class="language-sql">
 <span class="odt-code-line"><span style="font-weight:bold;color:#7f0055">public</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">final</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">static</span><span style="color:#000000"> String </span><span style="font-weight:bold;font-style:italic;color:#0000c0">DELETE_ALLCATEGORIES</span><span style="color:#000000"> = </span><span style="color:#2a00ff">&quot;DELETE FROM CATEGORIES&quot;</span><span style="color:#000000">;</span></span>
 </code></pre></div>
@@ -3024,9 +3201,12 @@
 
 <p>La méthode reçoit en paramètre une liste de catégories. Elle fait les opérations suivantes dessus :</p>
 <ul>
-<li>si la catégorie a une clé primaire <em>null</em> une opération SQL INSERT est faite sinon une opération SQL UPDATE est faite ;</li>
-<li>cette opération est répétée pour chacun des produits de la catégorie ;</li>
+  <li>si la catégorie a une clé primaire <i>null</i> une opération SQL INSERT est faite sinon une opération SQL UPDATE est faite ;
+  </li>
+  <li>cette opération est répétée pour chacun des produits de la catégorie ;
+  </li>
 </ul>
+
 <p>La méthode rend la liste des catégories persistées ou mises à jour. La liste rendue est l&#x27;image exacte des catégories et produits présents en tables aux versions près : celles-ci ne sont en effet pas modifiées dans les entités mises à jour alors même qu&#x27;elles ont été incrémentées en base.</p>
 <p>C&#x27;est de loin la méthode la plus complexe. Son code est le suivant :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-text">
@@ -3084,11 +3264,16 @@
 </code></pre></div>
 
 <ul>
-<li><span style="color: #000000">lignes 5-23 : insertion ou mise à jour des catégories ;</span></li>
-<li><span style="color: #000000">lignes 26-43 : insertion ou mise à jour des produits ;</span></li>
-<li><span style="color: #000000">lignes 35-39 : ce code relie chaque produit à sa catégorie. Dans la phase précédente d&#x27;insertion des catégories, celles-ci ont reçu une clé primaire qu&#x27;il faut mettre dans le champ [idCategorie] du produit (ligne 37). Par ailleurs, les lignes 37-38 permettent de corriger les situations où l&#x27;appelant n&#x27;a pas relié correctement chaque produit à sa catégorie. Pour que cette relation soit correcte, il faut utiliser la méthode [Categorie] .add(Produit p) mais rien n&#x27;empêche un utilisateur d&#x27;ajouter un produit directement à la liste des produits de la catégorie sans passer par cette méthode au risque d&#x27;avoir les champs [idCategorie, categorie] du produit p mal renseignés ;</span></li>
-<li><span style="color: #000000">ligne 43 : on délègue à l&#x27;instance de l&#x27;interface [IDao&lt;Produit&gt;] le soin de persister  / mettre à jour les produits. On rappelle que cette instance a été injectée dans la classe [DaoCategorie] :</span></li>
+  <li><span style="color: #000000">lignes 5-23 : insertion ou mise à jour des catégories ;</span>
+  </li>
+  <li><span style="color: #000000">lignes 26-43 : insertion ou mise à jour des produits ;</span>
+  </li>
+  <li><span style="color: #000000">lignes 35-39 : ce code relie chaque produit à sa catégorie. Dans la phase précédente d&#x27;insertion des catégories, celles-ci ont reçu une clé primaire qu&#x27;il faut mettre dans le champ [idCategorie] du produit (ligne 37). Par ailleurs, les lignes 37-38 permettent de corriger les situations où l&#x27;appelant n&#x27;a pas relié correctement chaque produit à sa catégorie. Pour que cette relation soit correcte, il faut utiliser la méthode [Categorie] .add(Produit p) mais rien n&#x27;empêche un utilisateur d&#x27;ajouter un produit directement à la liste des produits de la catégorie sans passer par cette méthode au risque d&#x27;avoir les champs [idCategorie, categorie] du produit p mal renseignés ;</span>
+  </li>
+  <li><span style="color: #000000">ligne 43 : on délègue à l&#x27;instance de l&#x27;interface [IDao&lt;Produit&gt;] le soin de persister  / mettre à jour les produits. On rappelle que cette instance a été injectée dans la classe [DaoCategorie] :</span>
+  </li>
 </ul>
+
 <div class="odt-code-rich" data-linenums="false" style="counter-reset: odtline 0;"><pre><code class="language-text">
 <span class="odt-code-line"><span style="color:#000000">    </span><span style="color:#646464">@Autowired</span></span>
 <span class="odt-code-line"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">private</span><span style="color:#000000"> IDao&lt;Produit&gt; </span><span style="color:#0000c0">daoProduit</span><span style="color:#000000">;</span></span>
@@ -3121,8 +3306,10 @@
 </code></pre></div>
 
 <ul>
-<li><span style="color: #000000">ligne 6 : on utilise le bean [</span><span style="color: #0000c0">simpleJdbcInsertCategorie</span><span style="color: #000000">] injectée dans la classe par les lignes suivantes :</span></li>
+  <li><span style="color: #000000">ligne 6 : on utilise le bean [</span><span style="color: #0000c0">simpleJdbcInsertCategorie</span><span style="color: #000000">] injectée dans la classe par les lignes suivantes :</span>
+  </li>
 </ul>
+
 <div class="odt-code-rich" data-linenums="false" style="counter-reset: odtline 0;"><pre><code class="language-text">
 <span class="odt-code-line"><span style="color:#000000">    </span><span style="color:#646464">@Autowired</span></span>
 <span class="odt-code-line"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">private</span><span style="color:#000000"> SimpleJdbcInsert </span><span style="color:#0000c0">simpleJdbcInsertCategorie</span><span style="color:#000000">;</span></span>
@@ -3142,14 +3329,20 @@
 </code></pre></div>
 
 <ul>
-<li><span style="color: #000000">ligne 5, la classe [SimpleJdbcInsert] est une classe de la bibliothèque Spring JDBC (ligne 1) :</span><ul>
-<li><span style="color: #000000">le paramètre du constructeur [SimpleJdbcInsert] est la source de données sur laquelle on opère ;</span></li>
-<li><span style="color: #000000">la clause [withTableName] permet d&#x27;indiquer la table dans laquelle on veut insérer un élément, ici table [CATEGORIES] ;</span></li>
-<li><span style="color: #000000">la clause [usingGeneratedKeyColumns] permet de préciser la colonne de la clé primaire auto-générée, ici la colonne [ID] ;</span></li>
-<li><span style="color: #000000">la clause [usingColumns] permet de restreindre l&#x27;insertion à certaines colonnes. Ici on exclut la colonne [ID] qui est auto-générée par le SGBD et la colonne [VERSIONING] qui a une valeur par défaut à 1 ;</span></li>
+  <li><span style="color: #000000">ligne 5, la classe [SimpleJdbcInsert] est une classe de la bibliothèque Spring JDBC (ligne 1) :</span>
+    <ul>
+      <li><span style="color: #000000">le paramètre du constructeur [SimpleJdbcInsert] est la source de données sur laquelle on opère ;</span>
+      </li>
+      <li><span style="color: #000000">la clause [withTableName] permet d&#x27;indiquer la table dans laquelle on veut insérer un élément, ici table [CATEGORIES] ;</span>
+      </li>
+      <li><span style="color: #000000">la clause [usingGeneratedKeyColumns] permet de préciser la colonne de la clé primaire auto-générée, ici la colonne [ID] ;</span>
+      </li>
+      <li><span style="color: #000000">la clause [usingColumns] permet de restreindre l&#x27;insertion à certaines colonnes. Ici on exclut la colonne [ID] qui est auto-générée par le SGBD et la colonne [VERSIONING] qui a une valeur par défaut à 1 ;</span>
+      </li>
+    </ul>
+  </li>
 </ul>
-</li>
-</ul>
+
 <p><span style="color: #000000">Revenons au code de la méthode [insertCategories] :</span></p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-text">
 <span class="odt-code-line"><span style="font-weight:bold;color:#7f0055">private</span> List&lt;Categorie&gt; insertCategories(List&lt;Categorie&gt; <span style="color:#6a3e3e">categories</span>) {</span>
@@ -3175,8 +3368,10 @@
 </code></pre></div>
 
 <ul>
-<li><span style="color: #000000">ligne 6 : la méthode [</span><span style="color: #0000c0">simpleJdbcInsertCategorie</span><span style="color: #000000">.executeAndReturnKey] est utilisée :</span></li>
+  <li><span style="color: #000000">ligne 6 : la méthode [</span><span style="color: #0000c0">simpleJdbcInsertCategorie</span><span style="color: #000000">.executeAndReturnKey] est utilisée :</span>
+  </li>
 </ul>
+
 <p><img src="images/100000000000029B000000288794A1DB.png" style="width:12.351cm;height:0.741cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000029B000000288794A1DB.png" /></p>
 <p><span style="color: #000000">La méthode attend comme paramètre un dictionnaire faisant les liens entre colonnes de la table et valeurs à insérer dans celles-ci. Elle rend comme résultat la clé primaire sous la forme d&#x27;un type [Number]. La méthode [Number.longValue()] permet d&#x27;obtenir la clé primaire sous la forme d&#x27;un type [Long].</span></p>
 <p><span style="color: #000000">La méthode [getMapForCategorie] est la méthode privée suivante :</span></p>
@@ -3190,10 +3385,14 @@
 
 <p>Les clés du dictionnaire sont les noms des colonnes à renseigner [NOM], et les valeurs du dictionnaire sont les valeurs à insérer dans ces colonnes.</p>
 <ul>
-<li>ligne 8 [<span style="color: #000000">insertCategories</span>] : la clé primaire récupérée est mémorisée dans un dictionnaire. On va attendre d&#x27;être sûr que toutes les entités ont été insérées avant de leur affecter leurs clés primaires. En effet, en cas d&#x27;exception, toutes les insertions vont être annulées et on veut qu&#x27;alors les entités [categories] de la ligne 1 restent elles aussi inchangées ;</li>
-<li>lignes 14-17 : maintenant qu&#x27;on est sûr que tout s&#x27;est bien passé, on affecte les clés primaires générées aux catégories ;</li>
-<li>ligne 19 : on rend la liste des catégories avec leurs clés primaires ;</li>
+  <li>ligne 8 [<span style="color: #000000">insertCategories</span>] : la clé primaire récupérée est mémorisée dans un dictionnaire. On va attendre d&#x27;être sûr que toutes les entités ont été insérées avant de leur affecter leurs clés primaires. En effet, en cas d&#x27;exception, toutes les insertions vont être annulées et on veut qu&#x27;alors les entités [categories] de la ligne 1 restent elles aussi inchangées ;
+  </li>
+  <li>lignes 14-17 : maintenant qu&#x27;on est sûr que tout s&#x27;est bien passé, on affecte les clés primaires générées aux catégories ;
+  </li>
+  <li>ligne 19 : on rend la liste des catégories avec leurs clés primaires ;
+  </li>
 </ul>
+
 <p><a id="refheading1052382082896917"></a></p>
 <h4 id="49103-mise-a-jour-des-categories">4.9.10.3. Mise à jour des catégories</h4>
 <p>Les catégories sont mises à jour avec la méthode privée [updateCategories] suivante :</p>
@@ -3232,18 +3431,26 @@
 
 <p>La mise à jour d&#x27;une catégorie C1 <strong>en base</strong> par une catégorie C2 <strong>en mémoire</strong> n&#x27;est autorisée que si les catégories C1 et C2 ont la même version. <span style="color: #000000">Ce n° de version sert à empêcher la mise à jour simultanée de l&#x27;entité par deux utilisateurs différents : deux utilisateurs U1 et U2 lisent l&#x27;entité E avec un n° de version égal à V1. U1 modifie E et persiste cette modification en base : le n° de version passe alors à V1+1. U2 modifie E à son tour et persiste cette modification en base : il recevra une exception car il possède une version (V1) différente de celle en base (V1+1).</span></p>
 <ul>
-<li><span style="color: #000000">lignes 2-29 : le try a deux catch :</span><ul>
-<li><span style="color: #000000">le premier, ligne 25, est là pour laisser passer l&#x27;éventuelle exception de type [DaoException] lancée par le code de la ligne 13 ;</span></li>
-<li><span style="color: #000000">le second, ligne 27, est là pour gérer les autres types d&#x27;exception ;</span></li>
+  <li><span style="color: #000000">lignes 2-29 : le try a deux catch :</span>
+    <ul>
+      <li><span style="color: #000000">le premier, ligne 25, est là pour laisser passer l&#x27;éventuelle exception de type [DaoException] lancée par le code de la ligne 13 ;</span>
+      </li>
+      <li><span style="color: #000000">le second, ligne 27, est là pour gérer les autres types d&#x27;exception ;</span>
+      </li>
+    </ul>
+  </li>
+  <li><span style="color: #000000">ligne 3 : on scanne toutes les catégories à mettre à jour ;</span>
+  </li>
+  <li><span style="color: #000000">ligne 4 : on met à jour la catégorie courante avec la méthode [<span style="color: #0000c0">namedParameterJdbcTemplate</span>.update] :</span>
+  </li>
 </ul>
-</li>
-<li><span style="color: #000000">ligne 3 : on scanne toutes les catégories à mettre à jour ;</span></li>
-<li><span style="color: #000000">ligne 4 : on met à jour la catégorie courante avec la méthode [<span style="color: #0000c0">namedParameterJdbcTemplate</span>.update] :</span></li>
-</ul>
+
 <p><img src="images/100000000000026B000001935A418EBB.png" style="width:11.46cm;height:7.459cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000026B000001935A418EBB.png" /></p>
 <ul>
-<li><span style="color: #000000">analysons l&#x27;instruction :</span></li>
+  <li><span style="color: #000000">analysons l&#x27;instruction :</span>
+  </li>
 </ul>
+
 <div class="odt-code-rich" data-linenums="false" style="counter-reset: odtline 0;"><pre><code class="language-sql">
 <span class="odt-code-line"><span style="color:#000000">            </span><span style="font-weight:bold;color:#7f0055">int</span><span style="color:#000000"> </span><span style="color:#6a3e3e">nbLignes</span><span style="color:#000000"> = </span><span style="color:#0000c0">namedParameterJdbcTemplate</span><span style="color:#000000">.update(ConfigJdbc.</span><span style="font-weight:bold;font-style:italic;color:#0000c0">UPDATE_CATEGORIES</span><span style="color:#000000">, </span><span style="color:#000000">                        </span><span style="font-weight:bold;color:#7f0055">new</span><span style="color:#000000"> BeanPropertySqlParameterSource(</span><span style="color:#6a3e3e">categorie</span><span style="color:#000000">));</span></span>
 </code></pre></div>
@@ -3290,11 +3497,16 @@
 </code></pre></div>
 
 <ul>
-<li><span style="color: #000000">ligne 9 : on regarde si la modification a réussi ;</span></li>
-<li><span style="color: #000000">ligne 10 : la modification n&#x27;a pas réussi. Comme la clause [WHERE] implique les colonnes [ID] et [VERSIONING], on cherche la colonne qui a fait échouer le [WHERE] ;</span></li>
-<li><span style="color: #000000">lignes 12-18 : on vérifie que la clé [id] de la catégorie est en base. Si ce n&#x27;est pas le cas, on lance une [RuntimeException] avec un message d&#x27;erreur approprié ;</span></li>
-<li><span style="color: #000000">lignes 19-22 : traitent le cas où c&#x27;était la version qui n&#x27;était pas bonne ;</span></li>
+  <li><span style="color: #000000">ligne 9 : on regarde si la modification a réussi ;</span>
+  </li>
+  <li><span style="color: #000000">ligne 10 : la modification n&#x27;a pas réussi. Comme la clause [WHERE] implique les colonnes [ID] et [VERSIONING], on cherche la colonne qui a fait échouer le [WHERE] ;</span>
+  </li>
+  <li><span style="color: #000000">lignes 12-18 : on vérifie que la clé [id] de la catégorie est en base. Si ce n&#x27;est pas le cas, on lance une [RuntimeException] avec un message d&#x27;erreur approprié ;</span>
+  </li>
+  <li><span style="color: #000000">lignes 19-22 : traitent le cas où c&#x27;était la version qui n&#x27;était pas bonne ;</span>
+  </li>
 </ul>
+
 <p><a id="refheading1052402082896917"></a></p>
 <h2 id="410-la-classe-daoproduit">4.10. La classe [DaoProduit]</h2>
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/1000000000000422000000FE997CF17E.png" style="display:inline-block; margin:4px;width:13.996cm;height:3.36cm;" class="odt-zoomable" data-zoom-src="images/1000000000000422000000FE997CF17E.png" /></td></tr></table>
@@ -3421,15 +3633,19 @@
 </code></pre></div>
 
 <ul>
-<li><span style="color: #000000">ligne 4 : l&#x27;ordre SQL Select [ConfigJdbc.<em>SELECT_SHORTPRODUIT_BYID</em>] est le suivant :</span></li>
+  <li><span style="color: #000000">ligne 4 : l&#x27;ordre SQL Select [ConfigJdbc.<i>SELECT_SHORTPRODUIT_BYID</i>] est le suivant :</span>
+  </li>
 </ul>
+
 <div class="odt-code-rich" data-linenums="false" style="counter-reset: odtline 0;"><pre><code class="language-sql">
 <span class="odt-code-line"><span style="font-weight:bold;color:#7f0055">public</span> <span style="font-weight:bold;color:#7f0055">final</span> <span style="font-weight:bold;color:#7f0055">static</span> String <span style="font-weight:bold;font-style:italic;color:#0000c0">SELECT_SHORTPRODUIT_BYID</span> = <span style="color:#2a00ff">&quot;SELECT p.ID as p_ID, p.VERSIONING as p_VERSIONING, p.NOM as p_NOM, p.CATEGORIE_ID as p_CATEGORIE_ID,</span><span style="color:#2a00ff"> p.PRIX as p_PRIX, p.DESCRIPTION as p_DESCRIPTION FROM PRODUITS p </span><span style="background-color:#ff950e;color:#2a00ff">WHERE p.ID in (:ids)</span><span style="color:#2a00ff">&quot;</span><span style="color:#000000">;</span></span>
 </code></pre></div>
 
 <ul>
-<li><span style="color: #000000">ligne 4 : la classe [ShortProduitMapper] chargée d&#x27;encapsuler le [ResultSet] dans une liste de produits est la suivante :</span></li>
+  <li><span style="color: #000000">ligne 4 : la classe [ShortProduitMapper] chargée d&#x27;encapsuler le [ResultSet] dans une liste de produits est la suivante :</span>
+  </li>
 </ul>
+
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-text">
 <span class="odt-code-line"><span style="font-weight:bold;color:#7f0055">class</span> ShortProduitMapper <span style="font-weight:bold;color:#7f0055">implements</span> RowMapper&lt;Produit&gt; {</span>
 <span class="odt-code-line"></span>
@@ -3457,15 +3673,19 @@
 </code></pre></div>
 
 <ul>
-<li><span style="color: #000000">ligne 4 : l&#x27;ordre SQL Select [ConfigJdbc.<em>SELECT_LONGPRODUIT_BYNAME</em>] est le suivant :</span></li>
+  <li><span style="color: #000000">ligne 4 : l&#x27;ordre SQL Select [ConfigJdbc.<i>SELECT_LONGPRODUIT_BYNAME</i>] est le suivant :</span>
+  </li>
 </ul>
+
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-sql">
 <span class="odt-code-line"><span style="font-weight:bold;color:#7f0055">public</span> <span style="font-weight:bold;color:#7f0055">final</span> <span style="font-weight:bold;color:#7f0055">static</span> String <span style="font-weight:bold;font-style:italic;color:#0000c0">SELECT_LONGPRODUIT_BYID</span> = <span style="color:#2a00ff">&quot;SELECT p.ID as p_ID, p.VERSIONING as p_VERSION, p.NOM as p_NOM, p.PRIX as p_PRIX, p.DESCRIPTION as p_DESCRIPTION, p.CATEGORIE_ID AS p_CATEGORIE_ID, c.ID as c_ID,</span><span style="color:#2a00ff"> c.NOM as c_NOM, c.VERSIONING as c_VERSION </span><span style="background-color:#ff950e;color:#2a00ff">FROM PRODUITS p, CATEGORIES c WHERE p.ID in (:ids) AND p.CATEGORIE_ID=c.ID</span><span style="color:#2a00ff">&quot;</span><span style="color:#000000">;</span></span>
 </code></pre></div>
 
 <ul>
-<li><span style="color: #000000">ligne 4 : la classe [LongProduitMapper] chargée d&#x27;encapsuler les éléments du [ResultSet] dans des produits, version longue, est la suivante :</span></li>
+  <li><span style="color: #000000">ligne 4 : la classe [LongProduitMapper] chargée d&#x27;encapsuler les éléments du [ResultSet] dans des produits, version longue, est la suivante :</span>
+  </li>
 </ul>
+
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-text">
 <span class="odt-code-line"><span style="font-weight:bold;color:#7f0055">class</span> LongProduitMapper <span style="font-weight:bold;color:#7f0055">implements</span> RowMapper&lt;Produit&gt; {</span>
 <span class="odt-code-line"></span>
@@ -3546,8 +3766,10 @@
 
 <p>Cette méthode est analogue à la méthode [insertCategories] étudiée au paragraphe <a href="#refheading1052382082896917">4.9.10.3</a>.</p>
 <ul>
-<li>ligne 4 : on utilise le bean [<span style="color: #0000c0">simpleJdbcInsertProduit</span>] qui a été injecté dans la classe :</li>
+  <li>ligne 4 : on utilise le bean [<span style="color: #0000c0">simpleJdbcInsertProduit</span>] qui a été injecté dans la classe :
+  </li>
 </ul>
+
 <div class="odt-code-rich" data-linenums="false" style="counter-reset: odtline 0;"><pre><code class="language-text">
 <span class="odt-code-line"><span style="color:#000000">    </span><span style="color:#646464">@Autowired</span></span>
 <span class="odt-code-line"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">private</span><span style="color:#000000"> SimpleJdbcInsert </span><span style="color:#0000c0">simpleJdbcInsertProduit</span><span style="color:#000000">;</span></span>
@@ -3565,13 +3787,18 @@
 </code></pre></div>
 
 <ul>
-<li>lignes 3-6 : le bean [<span style="color: #000000">simpleJdbcInsertProduit</span>] <ul>
-<li>est lié à la source de données de la base [dbproduitscategories] (ligne 3), et à la table [ConfigJdbc.<em>TAB_PRODUITS</em>] de cette source (ligne 4) ;</li>
-<li>la clé primaire de cette table est générée dans la colonne [ConfigJdbc.<em>TAB_PRODUITS_ID</em>] (ligne 5) ;</li>
-<li>on ne donne des valeurs qu&#x27;aux colonnes [ConfigJdbc.<em>TAB_PRODUITS_NOM</em>, ConfigJdbc.<em>TAB_PRODUITS_PRIX</em>, ConfigJdbc.<em>TAB_PRODUITS_DESCRIPTION</em>, ConfigJdbc.<em>TAB_PRODUITS_CATEGORIE_ID</em>] (ligne 6) ;</li>
+  <li>lignes 3-6 : le bean [<span style="color: #000000">simpleJdbcInsertProduit</span>] 
+    <ul>
+      <li>est lié à la source de données de la base [dbproduitscategories] (ligne 3), et à la table [ConfigJdbc.<i>TAB_PRODUITS</i>] de cette source (ligne 4) ;
+      </li>
+      <li>la clé primaire de cette table est générée dans la colonne [ConfigJdbc.<i>TAB_PRODUITS_ID</i>] (ligne 5) ;
+      </li>
+      <li>on ne donne des valeurs qu&#x27;aux colonnes [ConfigJdbc.<i>TAB_PRODUITS_NOM</i>, ConfigJdbc.<i>TAB_PRODUITS_PRIX</i>, ConfigJdbc.<i>TAB_PRODUITS_DESCRIPTION</i>, ConfigJdbc.<i>TAB_PRODUITS_CATEGORIE_ID</i>] (ligne 6) ;
+      </li>
+    </ul>
+  </li>
 </ul>
-</li>
-</ul>
+
 <p>La méthode [updateProduits] qui met à jour les produits (ligne 20 de [saveEntities]) est elle la suivante :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-sql">
 <span class="odt-code-line"><span style="font-weight:bold;color:#7f0055">private</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">void</span><span style="color:#000000"> updateProduits(List&lt;Produit&gt; </span><span style="color:#6a3e3e">updateProduits</span><span style="color:#000000">) {</span></span>
@@ -3621,10 +3848,14 @@
 
 <p><span style="color: #000000">La couche de tests est composée de trois classes de test :</span></p>
 <ul>
-<li><span style="color: #000000">[JUnitTestCheckArguments] : les tests de cette classe appellent les différentes méthodes de la couche [DAO] avec des arguments illicites et vérifient qu&#x27;elles réagissent correctement ;</span></li>
-<li><span style="color: #000000">[JUnitTestDao] : les tests de cette classe appellent les différentes méthodes de la couche [DAO] et vérifient qu&#x27;elles font ce qui est attendu ;</span></li>
-<li><span style="color: #000000">[JUnitTestPushTheLimits] n&#x27;a pas vocation à tester la couche [DAO] mais à mesurer ses performances ;</span></li>
+  <li><span style="color: #000000">[JUnitTestCheckArguments] : les tests de cette classe appellent les différentes méthodes de la couche [DAO] avec des arguments illicites et vérifient qu&#x27;elles réagissent correctement ;</span>
+  </li>
+  <li><span style="color: #000000">[JUnitTestDao] : les tests de cette classe appellent les différentes méthodes de la couche [DAO] et vérifient qu&#x27;elles font ce qui est attendu ;</span>
+  </li>
+  <li><span style="color: #000000">[JUnitTestPushTheLimits] n&#x27;a pas vocation à tester la couche [DAO] mais à mesurer ses performances ;</span>
+  </li>
 </ul>
+
 <p><span style="color: #000000">Cette couche de tests joue un grand rôle dans ce document. Elle est en effet commune à toutes les implémentations de l&#x27;interface [IDao&lt;T&gt;]. Il y en a six par SGBD ( 1 implémentation JDBC, 3 implémentations JPA, 1 implémentation Spring MVC, 1 implémentation Spring MVC sécurisé) donc 36 pour les six SGBD testés. La couche de tests nous permet de vérifier que toutes les implémentations réagissent de la même façon.</span></p>
 <p><a id="refheading1052502082896917"></a></p>
 <h3 id="4111-le-test-junittestcheckarguments">4.11.1. Le test [JUnitTestCheckArguments]</h3>
@@ -3681,16 +3912,26 @@
 </code></pre></div>
 
 <ul>
-<li><span style="color: #000000">ligne 19 : le test JUnit sera fait en intégration avec le framework Spring ;</span></li>
-<li><span style="color: #000000">ligne 18 : avant les tests, les beans définis dans la classe [AppConfig] du projet seront instanciés ;</span></li>
-<li><span style="color: #000000">lignes 23-26 : injection d&#x27;une instance de chacune des deux interfaces de la couche [DAO] ;</span></li>
-<li><span style="color: #000000">lignes 29-44 : des paramètres d&#x27;appel des méthodes de la couche [DAO] qui sont incorrects ;</span></li>
-<li><span style="color: #000000">ligne 29 : un pointeur <em>null</em> de type [Iterable&lt;String&gt;] comme liste de noms ;</span></li>
-<li><span style="color: #000000">ligne 30 : une liste vide de type [Iterable&lt;String&gt;] comme liste de noms ;</span></li>
-<li><span style="color: #000000">ligne 29 : un pointeur <em>null</em> de type String[] comme tableau de noms ;</span></li>
-<li><span style="color: #000000">ligne 30 : un tableau vide de type String[] comme tableau de noms ;</span></li>
-<li><span style="color: #000000">...</span></li>
+  <li><span style="color: #000000">ligne 19 : le test JUnit sera fait en intégration avec le framework Spring ;</span>
+  </li>
+  <li><span style="color: #000000">ligne 18 : avant les tests, les beans définis dans la classe [AppConfig] du projet seront instanciés ;</span>
+  </li>
+  <li><span style="color: #000000">lignes 23-26 : injection d&#x27;une instance de chacune des deux interfaces de la couche [DAO] ;</span>
+  </li>
+  <li><span style="color: #000000">lignes 29-44 : des paramètres d&#x27;appel des méthodes de la couche [DAO] qui sont incorrects ;</span>
+  </li>
+  <li><span style="color: #000000">ligne 29 : un pointeur <i>null</i> de type [Iterable&lt;String&gt;] comme liste de noms ;</span>
+  </li>
+  <li><span style="color: #000000">ligne 30 : une liste vide de type [Iterable&lt;String&gt;] comme liste de noms ;</span>
+  </li>
+  <li><span style="color: #000000">ligne 29 : un pointeur <i>null</i> de type String[] comme tableau de noms ;</span>
+  </li>
+  <li><span style="color: #000000">ligne 30 : un tableau vide de type String[] comme tableau de noms ;</span>
+  </li>
+  <li><span style="color: #000000">...</span>
+  </li>
 </ul>
+
 <p><span style="color: #000000">Avec le champ [<span style="color: #0000c0">names1</span>], on fait par exemple le test suivant :</span></p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-text">
 <span class="odt-code-line">    <span style="color:#646464">@Test</span>(expected = MyIllegalArgumentException.<span style="font-weight:bold;color:#7f0055">class</span>)</span>
@@ -3700,8 +3941,10 @@
 </code></pre></div>
 
 <ul>
-<li><span style="color: #000000">ligne 1 : on indique que le test [getShortProduitsByName1] doit rencontrer l&#x27;exception de type [MyIllegalArgumentException]</span></li>
+  <li><span style="color: #000000">ligne 1 : on indique que le test [getShortProduitsByName1] doit rencontrer l&#x27;exception de type [MyIllegalArgumentException]</span>
+  </li>
 </ul>
+
 <p><span style="color: #000000">Avec le champ [<span style="color: #0000c0">names2</span>], on fait par exemple le test suivant :</span></p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-text">
 <span class="odt-code-line">    <span style="color:#646464">@Test</span>(expected = MyIllegalArgumentException.<span style="font-weight:bold;color:#7f0055">class</span>)</span>
@@ -3803,28 +4046,43 @@
 </code></pre></div>
 
 <ul>
-<li><span style="color: #000000">lignes 27-28 : comme pour le test [JUnitTestCheckArguments], on a affaire à un test intégré avec Spring et configuré par la classe [AppConfig] du projet ;</span></li>
-<li><span style="color: #000000">lignes 32-33 : injection du contexte de Spring qui donne accès à tous ses beans ;</span></li>
-<li><span style="color: #000000">lignes 35-36 : injection de l&#x27;instance de l&#x27;interface [IDao&lt;Produit&gt;] testée par la classe ;</span></li>
-<li><span style="color: #000000">lignes 37-38 : injection de l&#x27;instance de l&#x27;interface [IDao&lt;Categorie&gt;] testée par la classe ;</span></li>
-<li><span style="color: #000000">lignes 41-42 : lorsqu&#x27;un test aura besoin de données en base, on génèrera une base de [NB_CATEGORIES] catégories avec chacune [NB_PRODUITS] produits. On aura ainsi [NB_CATEGORIES] catégories dans la table [CATEGORIES] et [NB_CATEGORIES] * [NB_PRODUITS] produits dans la table [PRODUITS] ;</span></li>
-<li><span style="color: #000000">lignes 46-47 : deux dictionnaires où on stockera les produits et les catégories ;</span></li>
-<li><span style="color: #000000">lignes 49-62 : la méthode [clean] s&#x27;exécute avant chaque test (ligne 49). Ligne 54, on vide la table [CATEGORIES]. Il faut se rappeler ici, que la table [PRODUITS] a une clé primaire [CATEGORIE_ID] sur la colonne ID de la table [CATEGORIES] et que celle-ci est définie de la façon suivante ;</span></li>
+  <li><span style="color: #000000">lignes 27-28 : comme pour le test [JUnitTestCheckArguments], on a affaire à un test intégré avec Spring et configuré par la classe [AppConfig] du projet ;</span>
+  </li>
+  <li><span style="color: #000000">lignes 32-33 : injection du contexte de Spring qui donne accès à tous ses beans ;</span>
+  </li>
+  <li><span style="color: #000000">lignes 35-36 : injection de l&#x27;instance de l&#x27;interface [IDao&lt;Produit&gt;] testée par la classe ;</span>
+  </li>
+  <li><span style="color: #000000">lignes 37-38 : injection de l&#x27;instance de l&#x27;interface [IDao&lt;Categorie&gt;] testée par la classe ;</span>
+  </li>
+  <li><span style="color: #000000">lignes 41-42 : lorsqu&#x27;un test aura besoin de données en base, on génèrera une base de [NB_CATEGORIES] catégories avec chacune [NB_PRODUITS] produits. On aura ainsi [NB_CATEGORIES] catégories dans la table [CATEGORIES] et [NB_CATEGORIES] * [NB_PRODUITS] produits dans la table [PRODUITS] ;</span>
+  </li>
+  <li><span style="color: #000000">lignes 46-47 : deux dictionnaires où on stockera les produits et les catégories ;</span>
+  </li>
+  <li><span style="color: #000000">lignes 49-62 : la méthode [clean] s&#x27;exécute avant chaque test (ligne 49). Ligne 54, on vide la table [CATEGORIES]. Il faut se rappeler ici, que la table [PRODUITS] a une clé primaire [CATEGORIE_ID] sur la colonne ID de la table [CATEGORIES] et que celle-ci est définie de la façon suivante ;</span>
+  </li>
 </ul>
+
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/100000000000048B000000E451211561.png" style="display:inline-block; margin:4px;width:15.386cm;height:3.016cm;" class="odt-zoomable" data-zoom-src="images/100000000000048B000000E451211561.png" /></td></tr></table>
 
 <ul>
-<li>(suite)<ul>
-<li>en [1-3], la clé étrangère [CATEGORIE_ID] de la table [PRODUITS]. Elle cible la colonne [ID] de la table [CATEGORIES] [4-5] ;</li>
-<li><span style="color: #000000">lorsqu&#x27;une catégorie est supprimée, tous les produits qui lui sont liés le sont également [6]. Ce point est important à noter car il est utilisé dans la construction de la couche [DAO] exploitant la base [dbproduitscategories] ;</span></li>
+  <li>(suite)
+    <ul>
+      <li>en [1-3], la clé étrangère [CATEGORIE_ID] de la table [PRODUITS]. Elle cible la colonne [ID] de la table [CATEGORIES] [4-5] ;
+      </li>
+      <li><span style="color: #000000">lorsqu&#x27;une catégorie est supprimée, tous les produits qui lui sont liés le sont également [6]. Ce point est important à noter car il est utilisé dans la construction de la couche [DAO] exploitant la base [dbproduitscategories] ;</span>
+      </li>
+    </ul>
+  </li>
 </ul>
-</li>
-</ul>
+
 <p><span style="color: #000000">Donc lorsqu&#x27;on supprime le contenu de la table [CATEGORIES], celui de la table [PRODUITS] sera lui aussi supprimé.</span></p>
 <ul>
-<li><span style="color: #000000">lignes 56-58 : on vide le dictionnaire des catégories ;</span></li>
-<li><span style="color: #000000">lignes 59-61 : on fait de même avec celui des produits ;</span></li>
+  <li><span style="color: #000000">lignes 56-58 : on vide le dictionnaire des catégories ;</span>
+  </li>
+  <li><span style="color: #000000">lignes 59-61 : on fait de même avec celui des produits ;</span>
+  </li>
 </ul>
+
 <p><span style="color: #000000">On retiendra qu&#x27;avant chaque test on a en base des tables vides et en mémoire des dictionnaires vides.</span></p>
 <p><a id="refheading1052562082896917"></a></p>
 <h4 id="41122-la-methode-verifyclean">4.11.2.2. La méthode [verifyClean]</h4>
@@ -3869,17 +4127,26 @@
 
 <p><span style="color: #000000">Ce test utilise pluiseurs méthodes privées :</span></p>
 <ul>
-<li><span style="color: #000000">[fill] ligne 4 qui remplit la base avec des données de test ;</span></li>
-<li><span style="color: #000000">[registerCategories] ligne 4 qui remplit les dictionnaires avec les données rendues par la méthode [fill]. Ces deux dictionnaire représentent les entités persistées ;</span></li>
-<li><span style="color: #000000">[showDataBase] ligne 6 qui lit les deux tables [CATEGORIES] et [PRODUITS] et rend ce qu&#x27;elle a lu ;</span></li>
-<li><span style="color: #000000">[checkShortCategorie] ligne 13 vérifie la catégorie lue par [showDataBase]. Elle vérifie que la version courte de cette catégorie correspond à ce qui a été enregistré dans le dictionnaire des catégories ;</span></li>
-<li><span style="color: #000000">[checkShortProduit] ligne 16 fait la même chose pour les produits ;</span></li>
-<li><span style="color: #000000">lorsqu&#x27;une entité a été trouvée dans un dictionnaire, elle est enlevée du dictionnaire. Les lignes 19-20 vérifient que les deux dictionnaires sont vides. Si ces deux assertions sont valides, cela signifie que :</span><ul>
-<li><span style="color: #000000">toutes les valeurs lues par [showDataBase] ont bien été trouvées dans les dictionnaires ;</span></li>
-<li><span style="color: #000000">que ceux-ci ne contiennent pas d&#x27;entités autres que celles qui ont été lues ;</span></li>
+  <li><span style="color: #000000">[fill] ligne 4 qui remplit la base avec des données de test ;</span>
+  </li>
+  <li><span style="color: #000000">[registerCategories] ligne 4 qui remplit les dictionnaires avec les données rendues par la méthode [fill]. Ces deux dictionnaire représentent les entités persistées ;</span>
+  </li>
+  <li><span style="color: #000000">[showDataBase] ligne 6 qui lit les deux tables [CATEGORIES] et [PRODUITS] et rend ce qu&#x27;elle a lu ;</span>
+  </li>
+  <li><span style="color: #000000">[checkShortCategorie] ligne 13 vérifie la catégorie lue par [showDataBase]. Elle vérifie que la version courte de cette catégorie correspond à ce qui a été enregistré dans le dictionnaire des catégories ;</span>
+  </li>
+  <li><span style="color: #000000">[checkShortProduit] ligne 16 fait la même chose pour les produits ;</span>
+  </li>
+  <li><span style="color: #000000">lorsqu&#x27;une entité a été trouvée dans un dictionnaire, elle est enlevée du dictionnaire. Les lignes 19-20 vérifient que les deux dictionnaires sont vides. Si ces deux assertions sont valides, cela signifie que :</span>
+    <ul>
+      <li><span style="color: #000000">toutes les valeurs lues par [showDataBase] ont bien été trouvées dans les dictionnaires ;</span>
+      </li>
+      <li><span style="color: #000000">que ceux-ci ne contiennent pas d&#x27;entités autres que celles qui ont été lues ;</span>
+      </li>
+    </ul>
+  </li>
 </ul>
-</li>
-</ul>
+
 <p>La méthode privée [fill] est la suivante :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-text">
 <span class="odt-code-line"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">private</span><span style="color:#000000"> List&lt;Categorie&gt; fill(</span><span style="font-weight:bold;color:#7f0055">int</span><span style="color:#000000"> </span><span style="color:#6a3e3e">nbCategories</span><span style="color:#000000">, </span><span style="font-weight:bold;color:#7f0055">int</span><span style="color:#000000"> </span><span style="color:#6a3e3e">nbProduits</span><span style="color:#000000">) {</span></span>
@@ -3903,10 +4170,14 @@
 </code></pre></div>
 
 <ul>
-<li>lignes 3-12 : on construit une liste de [nbCategories] catégories avec pour chacune [nbProduits] produits ;</li>
-<li>ligne 15 : cette liste de catégories est persistée. On a vu que la méthode [<span style="color: #0000c0">daoCategorie</span><span style="color: #000000">.saveEntities</span>] peristait également les produits des catégories lorsqu&#x27;elles en avaient ;</li>
-<li>ligne 17 : la liste des catégories persistée est rendue. Les entités persistées (catégories et produits) ont désormais une clé primaire dans leur champ [id] ;</li>
+  <li>lignes 3-12 : on construit une liste de [nbCategories] catégories avec pour chacune [nbProduits] produits ;
+  </li>
+  <li>ligne 15 : cette liste de catégories est persistée. On a vu que la méthode [<span style="color: #0000c0">daoCategorie</span><span style="color: #000000">.saveEntities</span>] peristait également les produits des catégories lorsqu&#x27;elles en avaient ;
+  </li>
+  <li>ligne 17 : la liste des catégories persistée est rendue. Les entités persistées (catégories et produits) ont désormais une clé primaire dans leur champ [id] ;
+  </li>
 </ul>
+
 <p>La méthode privée [registerCategories] va mettre ces entités dans les deux dictionnaires :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-text">
 <span class="odt-code-line"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">private</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">void</span><span style="color:#000000"> registerCategories(List&lt;Categorie&gt; </span><span style="color:#6a3e3e">categories</span><span style="color:#000000">) {</span></span>
@@ -3938,10 +4209,14 @@
 </code></pre></div>
 
 <ul>
-<li>lignes 4 et 8 : on récupère les versions courtes des catégories et des produits ;</li>
-<li>ligne 11 : on retourne un tableau contenant les deux listes d&#x27;entités récupérées ;</li>
-<li>lignes 5 et 9 : les listes d&#x27;entités sont affichées avec la méthode privée [affiche] suivante :</li>
+  <li>lignes 4 et 8 : on récupère les versions courtes des catégories et des produits ;
+  </li>
+  <li>ligne 11 : on retourne un tableau contenant les deux listes d&#x27;entités récupérées ;
+  </li>
+  <li>lignes 5 et 9 : les listes d&#x27;entités sont affichées avec la méthode privée [affiche] suivante :
+  </li>
 </ul>
+
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-text">
 <span class="odt-code-line"><span style="color:#000000">    </span><span style="color:#3f7f5f">// affichage d&#x27;une liste d&#x27;éléments de type T</span></span>
 <span class="odt-code-line"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">private</span><span style="color:#000000"> &lt;T&gt; </span><span style="font-weight:bold;color:#7f0055">void</span><span style="color:#000000"> affiche(List&lt;T&gt; </span><span style="color:#6a3e3e">elements</span><span style="color:#000000">, ObjectMapper </span><span style="color:#6a3e3e">mapper</span><span style="color:#000000">) </span><span style="font-weight:bold;color:#7f0055">throws</span><span style="color:#000000"> JsonProcessingException {</span></span>
@@ -4004,8 +4279,10 @@
 </code></pre></div>
 
 <ul>
-<li>ces mappeurs jSON (lignes 7-9, 16-18, 26-28, 35-37) ont un attribut</li>
+  <li>ces mappeurs jSON (lignes 7-9, 16-18, 26-28, 35-37) ont un attribut
+  </li>
 </ul>
+
 <div class="odt-code-rich" data-linenums="false" style="counter-reset: odtline 0;"><pre><code class="language-text">
 <span class="odt-code-line">[@Scope(value = ConfigurableBeanFactory.<span style="font-style:italic">SCOPE_PROTOTYPE</span>)] </span>
 </code></pre></div>
@@ -4016,8 +4293,10 @@
 </code></pre></div>
 
 <ul>
-<li>les quatre mappeurs json servent à configurer les filtres jSON des entités [Produit] et [Categorie]. On a en effet écrit (cf paragraphes <a href="#produit-jdbc-04">4.6</a> et  <a href="#categorie-jdbc-04">4.6</a>) la chose suivante :</li>
+  <li>les quatre mappeurs json servent à configurer les filtres jSON des entités [Produit] et [Categorie]. On a en effet écrit (cf paragraphes <a href="#produit-jdbc-04">4.6</a> et  <a href="#categorie-jdbc-04">4.6</a>) la chose suivante :
+  </li>
 </ul>
+
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-text">
 <span class="odt-code-line"><span style="color:#646464">@JsonFilter</span><span style="color:#000000">(</span><span style="color:#2a00ff">&quot;jsonFilterCategorie&quot;</span><span style="color:#000000">)</span></span>
 <span class="odt-code-line"><span style="font-weight:bold;color:#7f0055">public</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">class</span><span style="color:#000000"> </span><a id="categorie-jdbc-041"></a><span style="color:#000000">Categorie</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">extends</span><span style="color:#000000"> AbstractCoreEntity {</span></span>
@@ -4033,11 +4312,16 @@
 
 <p>La représentation jSON de l&#x27;entité [Categorie] est contrôlée par le filtre jSON [<span style="color: #2a00ff">jsonFilterCategorie</span>] et celle de l&#x27;entité [produit] par le filtre jSON [<span style="color: #2a00ff">jsonFilterProduit</span>]. Les quatre mappeurs jSON du contexte Spring configurent ces deux filtres de la façon suivante :</p>
 <ul>
-<li>le mappeur [jsonMapperShortCategorie] configure le filtre jSON [<span style="color: #2a00ff">jsonFilterCategorie</span>] pour une version courte de la catégorie : le champ [produits] ne sera pas inclus dans la représentation jSON de la catégorie ;</li>
-<li>le mappeur [jsonMapperLongCategorie] configure le filtre jSON [<span style="color: #2a00ff">jsonFilterCategorie</span>] pour une version longue de la catégorie : le champ [produits] sera inclus dans la représentation jSON de la catégorie ;</li>
-<li>le mappeur [jsonMapperShortProduit] configure le filtre jSON [<span style="color: #2a00ff">jsonFilterProduit</span>] pour une version courte du produit : le champ [categorie] ne sera pas inclus dans la représentation jSON du produit ;</li>
-<li>le mappeur [jsonMapperLongProduit] configure le filtre jSON [<span style="color: #2a00ff">jsonFilterProduit</span>] pour une version longue du produit : le champ [categorie] sera inclus dans la représentation jSON du produit ;</li>
+  <li>le mappeur [jsonMapperShortCategorie] configure le filtre jSON [<span style="color: #2a00ff">jsonFilterCategorie</span>] pour une version courte de la catégorie : le champ [produits] ne sera pas inclus dans la représentation jSON de la catégorie ;
+  </li>
+  <li>le mappeur [jsonMapperLongCategorie] configure le filtre jSON [<span style="color: #2a00ff">jsonFilterCategorie</span>] pour une version longue de la catégorie : le champ [produits] sera inclus dans la représentation jSON de la catégorie ;
+  </li>
+  <li>le mappeur [jsonMapperShortProduit] configure le filtre jSON [<span style="color: #2a00ff">jsonFilterProduit</span>] pour une version courte du produit : le champ [categorie] ne sera pas inclus dans la représentation jSON du produit ;
+  </li>
+  <li>le mappeur [jsonMapperLongProduit] configure le filtre jSON [<span style="color: #2a00ff">jsonFilterProduit</span>] pour une version longue du produit : le champ [categorie] sera inclus dans la représentation jSON du produit ;
+  </li>
 </ul>
+
 <p>Nous en avons terminé avec la méthode privée [showDataBase]. Revenons au code du test [<span style="color: #000000">fillDataBase</span>] :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-text">
 <span class="odt-code-line">    <span style="color:#646464">@Test</span></span>
@@ -4064,10 +4348,14 @@
 </code></pre></div>
 
 <ul>
-<li><span style="color: #000000">lignes 6-8 : nous récupérons les versions courtes des produits et catégories lus en base ;</span></li>
-<li><span style="color: #000000">lignes 10-11 : des premières vérifications ;</span></li>
-<li><span style="color: #000000">lignes 12-14 : chaque catégorie ramenée par la méthode [showDataBase] est contrôlée par la méthode privée [checkShortCategorie] suivante :</span></li>
+  <li><span style="color: #000000">lignes 6-8 : nous récupérons les versions courtes des produits et catégories lus en base ;</span>
+  </li>
+  <li><span style="color: #000000">lignes 10-11 : des premières vérifications ;</span>
+  </li>
+  <li><span style="color: #000000">lignes 12-14 : chaque catégorie ramenée par la méthode [showDataBase] est contrôlée par la méthode privée [checkShortCategorie] suivante :</span>
+  </li>
 </ul>
+
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-text">
 <span class="odt-code-line">    <span style="font-weight:bold;color:#7f0055">private</span> <span style="font-weight:bold;color:#7f0055">void</span> checkShortCategorie(Categorie <span style="color:#6a3e3e">actual</span>) {</span>
 <span class="odt-code-line"><span style="color:#000000">        Long </span><span style="color:#6a3e3e">id</span><span style="color:#000000"> = </span><span style="color:#6a3e3e">actual</span><span style="color:#000000">.getId();</span></span>
@@ -4079,12 +4367,18 @@
 </code></pre></div>
 
 <ul>
-<li>ligne 1 : [Categorie actual] est la catégorie lue en base et qui doit être identique à la catégorie présente dans le dictionnaire [mapCategories] ;</li>
-<li>ligne 2 : on récupère la clé primaire de la catégorie lue ;</li>
-<li>ligne 3 : on récupère la catégorie enregistrée avec cette clé primaire dans le dictionnaire des catégories ;</li>
-<li>ligne 4 : la clé est retirée du dictionnaire afin d&#x27;être sûr qu&#x27;une autre catégorie lue n&#x27;utilise pas cette même clé ;</li>
-<li>ligne 5 : on vérifie que les deux catégories ont le même nom ;</li>
+  <li>ligne 1 : [Categorie actual] est la catégorie lue en base et qui doit être identique à la catégorie présente dans le dictionnaire [mapCategories] ;
+  </li>
+  <li>ligne 2 : on récupère la clé primaire de la catégorie lue ;
+  </li>
+  <li>ligne 3 : on récupère la catégorie enregistrée avec cette clé primaire dans le dictionnaire des catégories ;
+  </li>
+  <li>ligne 4 : la clé est retirée du dictionnaire afin d&#x27;être sûr qu&#x27;une autre catégorie lue n&#x27;utilise pas cette même clé ;
+  </li>
+  <li>ligne 5 : on vérifie que les deux catégories ont le même nom ;
+  </li>
 </ul>
+
 <p>La version courte des produits ramenés par la méthode [showDataBase] est vérifiée par la méthode privée [<span style="color: #000000">checkShortProduit</span>] suivante :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-text">
 <span class="odt-code-line"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">private</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">void</span><span style="color:#000000"> checkShortProduit(Produit </span><span style="color:#6a3e3e">actual</span><span style="color:#000000">) {</span></span>
@@ -4100,11 +4394,16 @@
 </code></pre></div>
 
 <ul>
-<li>ligne 1 : [Produit actual] est le produit court lu en base ;</li>
-<li>lignes 2-3 : on récupère dans le dictionnaire des produits persistés, le produit de même clé primaire ;</li>
-<li>ligne 4 : on supprime l&#x27;entrée trouvée dans le dictionnaire ;</li>
-<li>lignes 5-8 : on vérifie que les deux produits ont les mêmes valeurs de champs ;</li>
+  <li>ligne 1 : [Produit actual] est le produit court lu en base ;
+  </li>
+  <li>lignes 2-3 : on récupère dans le dictionnaire des produits persistés, le produit de même clé primaire ;
+  </li>
+  <li>ligne 4 : on supprime l&#x27;entrée trouvée dans le dictionnaire ;
+  </li>
+  <li>lignes 5-8 : on vérifie que les deux produits ont les mêmes valeurs de champs ;
+  </li>
 </ul>
+
 <p><a id="refheading1052602082896917"></a></p>
 <h4 id="41124-la-methode-getlongcategoriesbyname3">4.11.2.4. La méthode [<span style="color: #000000">getLongCategoriesByName3</span>]</h4>
 <p>Ce test est le suivant :</p>
@@ -4126,13 +4425,20 @@
 </code></pre></div>
 
 <ul>
-<li>ligne 4 : on remplit la base et on récupère la liste des catégories et produits persistés ;</li>
-<li>ligne 7 : on teste la méthode [<span style="color: #0000c0">daoCategorie</span><span style="color: #000000">.getLongEntitiesByName(Iterable&lt;String&gt; names)</span>] de la couche [DAO]. On demande une liste de deux produits désignés par leurs noms dans leurs versions longues ;</li>
-<li>ligne 8 : on vérifie que la liste rendue par [<span style="color: #0000c0">daoCategorie</span><span style="color: #000000">.getLongEntitiesByName(Iterable&lt;String&gt; names)</span>] a bien deux éléments ;</li>
-<li>ligne 9 : les deux éléments persistés ligne 4, sont mis dans le dictionnaire des catégories ;</li>
-<li>lignes 10-12 : on vérifie que les deux éléments lus sont bien ceux qui ont été persistés ;</li>
-<li>ligne 13 : on vérifie que le dictionnaire des catégories est vide, ce qui signifie à la fois que toutes les catégories lues ont été trouvées dans le dictionnaire et que celui-ci ne contient pas de valeurs qui n&#x27;auraient pas été lues ;</li>
+  <li>ligne 4 : on remplit la base et on récupère la liste des catégories et produits persistés ;
+  </li>
+  <li>ligne 7 : on teste la méthode [<span style="color: #0000c0">daoCategorie</span><span style="color: #000000">.getLongEntitiesByName(Iterable&lt;String&gt; names)</span>] de la couche [DAO]. On demande une liste de deux produits désignés par leurs noms dans leurs versions longues ;
+  </li>
+  <li>ligne 8 : on vérifie que la liste rendue par [<span style="color: #0000c0">daoCategorie</span><span style="color: #000000">.getLongEntitiesByName(Iterable&lt;String&gt; names)</span>] a bien deux éléments ;
+  </li>
+  <li>ligne 9 : les deux éléments persistés ligne 4, sont mis dans le dictionnaire des catégories ;
+  </li>
+  <li>lignes 10-12 : on vérifie que les deux éléments lus sont bien ceux qui ont été persistés ;
+  </li>
+  <li>ligne 13 : on vérifie que le dictionnaire des catégories est vide, ce qui signifie à la fois que toutes les catégories lues ont été trouvées dans le dictionnaire et que celui-ci ne contient pas de valeurs qui n&#x27;auraient pas été lues ;
+  </li>
 </ul>
+
 <p>Ligne 11, la méthode [<span style="color: #000000">checkLongCategorie</span>] vérifie la version longue d&#x27;une catégorie :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-text">
 <span class="odt-code-line"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">private</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">void</span><span style="color:#000000"> checkLongCategorie(Categorie </span><span style="color:#6a3e3e">actual</span><span style="color:#000000">) {</span></span>
@@ -4145,8 +4451,10 @@
 </code></pre></div>
 
 <ul>
-<li>la ligne 6 vérifie que le champ [produits] de la catégorie est non <em>null</em>. En effet, la lecture d&#x27;une catégorie au format long ramène toujours celle-ci avec un champ [produits] non <em>null</em>. Si la catégorie n&#x27;a pas de produits, alors le champ [produits] est une liste vide mais existante ;</li>
+  <li>la ligne 6 vérifie que le champ [produits] de la catégorie est non <i>null</i>. En effet, la lecture d&#x27;une catégorie au format long ramène toujours celle-ci avec un champ [produits] non <i>null</i>. Si la catégorie n&#x27;a pas de produits, alors le champ [produits] est une liste vide mais existante ;
+  </li>
 </ul>
+
 <p><a id="refheading1052622082896917"></a></p>
 <h4 id="41125-la-methode-updatedatabase1">4.11.2.5. La méthode [<span style="color: #000000">updateDataBase1</span>]</h4>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-text">
@@ -4188,18 +4496,28 @@
 
 <p>La méthode [<span style="color: #000000">updateDataBase1</span>] augmente le prix des produits de la catégorie nommée categorie[1] de 10% et vérifie deux choses :</p>
 <ul>
-<li>que le prix en base a bien changé ;</li>
-<li>que la version du produit mis à jour a été incrémentée de 1 ;</li>
+  <li>que le prix en base a bien changé ;
+  </li>
+  <li>que la version du produit mis à jour a été incrémentée de 1 ;
+  </li>
 </ul>
+
 <p>Le code fait les choses suivantes :</p>
 <ul>
-<li>ligne 4 : remplissage de la base ;</li>
-<li>ligne 7 : on récupère en base la catégorie nommée &#x27;categorie[1]&#x27; ;</li>
-<li>lignes 8-13 : on augmente de 10% le prix de tous ses produits (ligne 11). Par ailleurs, on crée un dictionnaire associant un produit à sa version (lignes 9 et 12) ;</li>
-<li>ligne 14 : la méthode [daoProduit.saveEntities] est appelée. Elle va opérer la mise à jour des produits ;</li>
-<li>ligne  16 : on récupère en base les produits de la catégorie nommée &#x27;categorie[1]&#x27; ;</li>
-<li>lignes 20-24 : pour tous les produits de cette catégorie, on vérifie que le prix a bien été modifié (ligne 22) et que la version a été incrémentée de 1 (ligne 23) ;</li>
+  <li>ligne 4 : remplissage de la base ;
+  </li>
+  <li>ligne 7 : on récupère en base la catégorie nommée &#x27;categorie[1]&#x27; ;
+  </li>
+  <li>lignes 8-13 : on augmente de 10% le prix de tous ses produits (ligne 11). Par ailleurs, on crée un dictionnaire associant un produit à sa version (lignes 9 et 12) ;
+  </li>
+  <li>ligne 14 : la méthode [daoProduit.saveEntities] est appelée. Elle va opérer la mise à jour des produits ;
+  </li>
+  <li>ligne  16 : on récupère en base les produits de la catégorie nommée &#x27;categorie[1]&#x27; ;
+  </li>
+  <li>lignes 20-24 : pour tous les produits de cette catégorie, on vérifie que le prix a bien été modifié (ligne 22) et que la version a été incrémentée de 1 (ligne 23) ;
+  </li>
 </ul>
+
 <p><a id="refheading1052642082896917"></a></p>
 <h4 id="41126-la-methode-deleteproduitsbyproduit1">4.11.2.6. La méthode [<span style="color: #000000">deleteProduitsByProduit1</span>]</h4>
 <p>La méthode [<span style="color: #000000">deleteProduitsByProduit1</span>] supprime des produits dans la table [PRODUITS] :</p>
@@ -4217,9 +4535,12 @@
 </code></pre></div>
 
 <ul>
-<li>ligne 6 : on supprime deux produits ;</li>
-<li>lignes 8-9 : on vérifie qu&#x27;ils ne sont plus dans la base ;</li>
+  <li>ligne 6 : on supprime deux produits ;
+  </li>
+  <li>lignes 8-9 : on vérifie qu&#x27;ils ne sont plus dans la base ;
+  </li>
 </ul>
+
 <p><a id="refheading1052662082896917"></a></p>
 <h4 id="41127-la-methode-getlongproduitsbyid3">4.11.2.7. La méthode [<span style="color: #000000">getLongProduitsById3</span>]</h4>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-text">
@@ -4241,12 +4562,18 @@
 </code></pre></div>
 
 <ul>
-<li>ligne 4 : on remplit la base et on récupère la liste de catégories persistées ;</li>
-<li>ligne 7 : on récupère en base la version longue de deux produits identifiés par leurs noms ;</li>
-<li>ligne 9 : les produits [produit[0,3], produit[1,4]] présents dans la liste des catégories de la ligne 4 sont mis dans le dictionnaire des produits ;</li>
-<li>ligne 10 : ces deux mêmes produits sont cherchés en base via leurs clés primaires ;</li>
-<li>lignes 11-14 : on vérifie que les données lues sont identiques aux données enregistrées dans le dictionnaire ;</li>
+  <li>ligne 4 : on remplit la base et on récupère la liste de catégories persistées ;
+  </li>
+  <li>ligne 7 : on récupère en base la version longue de deux produits identifiés par leurs noms ;
+  </li>
+  <li>ligne 9 : les produits [produit[0,3], produit[1,4]] présents dans la liste des catégories de la ligne 4 sont mis dans le dictionnaire des produits ;
+  </li>
+  <li>ligne 10 : ces deux mêmes produits sont cherchés en base via leurs clés primaires ;
+  </li>
+  <li>lignes 11-14 : on vérifie que les données lues sont identiques aux données enregistrées dans le dictionnaire ;
+  </li>
 </ul>
+
 <p>La méthode privée [<span style="color: #000000">checkLongProduit</span>] est la suivante :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-text">
 <span class="odt-code-line"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">private</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">void</span><span style="color:#000000"> checkLongProduit(Produit </span><span style="color:#6a3e3e">actual</span><span style="color:#000000">) {</span></span>
@@ -4430,9 +4757,12 @@
 <h4 id="41134-perf02-7624">4.11.3.4. perf02 [7,624]</h4>
 <p>La méthode [perf02] :</p>
 <ul>
-<li>remplit la base ;</li>
-<li>modifie ensuite le nom de toutes les catégories et le prix de tous les produits.</li>
+  <li>remplit la base ;
+  </li>
+  <li>modifie ensuite le nom de toutes les catégories et le prix de tous les produits.
+  </li>
 </ul>
+
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-text">
 <span class="odt-code-line"><span style="color:#000000">    </span><span style="color:#646464">@Test</span></span>
 <span class="odt-code-line"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">public</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">void</span><span style="color:#000000"> perf02() {</span></span>
@@ -4453,9 +4783,12 @@
 <h4 id="41135-perf033911">4.11.3.5. perf03[3,911]</h4>
 <p>La méthode [perf03] :</p>
 <ul>
-<li>remplit la base</li>
-<li>puis supprime toutes les catégories une par une. Les produits sont également supprimés à cause de la cascade qui existe entre la table [CATEGORIES] et la table [PRODUITS].</li>
+  <li>remplit la base
+  </li>
+  <li>puis supprime toutes les catégories une par une. Les produits sont également supprimés à cause de la cascade qui existe entre la table [CATEGORIES] et la table [PRODUITS].
+  </li>
 </ul>
+
 <p>On peut s&#x27;étonner ici, que cette opération dure moins longtemps [3,911 s] que l&#x27;opération [perf01] [4,179 s] qui fait moins de choses.</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-javascript">
 <span class="odt-code-line"><span style="color:#000000">    </span><span style="color:#646464">@Test</span></span>
@@ -4470,9 +4803,12 @@
 <h4 id="41136-perf042426">4.11.3.6. perf04[2,426]</h4>
 <p>La méthode [perf04] :</p>
 <ul>
-<li>remplit la base ;</li>
-<li>demande ensuite la version longue de toutes les catégories ;</li>
+  <li>remplit la base ;
+  </li>
+  <li>demande ensuite la version longue de toutes les catégories ;
+  </li>
 </ul>
+
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-text">
 <span class="odt-code-line"><span style="color:#000000">    </span><span style="color:#646464">@Test</span></span>
 <span class="odt-code-line"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">public</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">void</span><span style="color:#000000"> perf04() {</span></span>
@@ -4490,10 +4826,14 @@
 <h4 id="41137-perf05-3507">4.11.3.7. perf05 [3,507]</h4>
 <p>La méthode [perf05] :</p>
 <ul>
-<li>remplit la base ;</li>
-<li>puis supprime les 5000 produits via leurs clés primaires (on a donc potentiellement un [PreparedStatement] avec 5000 paramètres) ;</li>
-<li>vérifie que la table des produits est ensuite vide ;</li>
+  <li>remplit la base ;
+  </li>
+  <li>puis supprime les 5000 produits via leurs clés primaires (on a donc potentiellement un [PreparedStatement] avec 5000 paramètres) ;
+  </li>
+  <li>vérifie que la table des produits est ensuite vide ;
+  </li>
 </ul>
+
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-javascript">
 <span class="odt-code-line"><span style="color:#000000">    </span><span style="color:#646464">@Test</span></span>
 <span class="odt-code-line"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">public</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">void</span><span style="color:#000000"> perf05() {</span></span>
@@ -4519,123 +4859,129 @@
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div markdown="block">
 <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>test
 </code></pre></div>
-</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;"><b>rôle</b></p></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div markdown="block">
+</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><b>rôle</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div markdown="block">
 <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>durée (s)
 </code></pre></div>
 </div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div markdown="block">
 <div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>perf01
 </code></pre></div>
-</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;">remplit la base avec 2500 catégories et 5000 produits</p></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div markdown="block">
+</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">remplit la base avec 2500 catégories et 5000 produits</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div markdown="block">
 <div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>4,179
 </code></pre></div>
 </div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div markdown="block">
 <div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>perf02
 </code></pre></div>
-</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;">remplit puis modifie la base</p></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div markdown="block">
+</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">remplit puis modifie la base</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div markdown="block">
 <div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>7,624
 </code></pre></div>
 </div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div markdown="block">
 <div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>perf03
 </code></pre></div>
-</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;">remplit la base puis supprime toutes les catégories et leurs produits</p></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div markdown="block">
+</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">remplit la base puis supprime toutes les catégories et leurs produits</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div markdown="block">
 <div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>3,911
 </code></pre></div>
 </div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div markdown="block">
 <div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>perf04
 </code></pre></div>
-</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;">remplit la base et demande la version longue de toutes les catégories</p></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div markdown="block">
+</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">remplit la base et demande la version longue de toutes les catégories</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div markdown="block">
 <div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>2,426
 </code></pre></div>
 </div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div markdown="block">
 <div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>perf05
 </code></pre></div>
-</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;">remplit la base et supprime les 5000 produits un à un via leurs clés primaires</p></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div markdown="block">
+</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">remplit la base et supprime les 5000 produits un à un via leurs clés primaires</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div markdown="block">
 <div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>3,507
 </code></pre></div>
 </div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div markdown="block">
 <div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>perf06
 </code></pre></div>
-</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;">remplit la base et supprime les 5000 produits un à un via leurs noms</p></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div markdown="block">
+</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">remplit la base et supprime les 5000 produits un à un via leurs noms</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div markdown="block">
 <div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>3,947
 </code></pre></div>
 </div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div markdown="block">
 <div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>perf07
 </code></pre></div>
-</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;">remplit la base et supprime les 5000 produits un à un via leurs références</p></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div markdown="block">
+</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">remplit la base et supprime les 5000 produits un à un via leurs références</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div markdown="block">
 <div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>3,633
 </code></pre></div>
 </div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div markdown="block">
 <div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>perf08
 </code></pre></div>
-</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;">remplit la base et demande la version courte de tous les produits via leurs noms</p></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div markdown="block">
+</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">remplit la base et demande la version courte de tous les produits via leurs noms</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div markdown="block">
 <div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>4,054
 </code></pre></div>
 </div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div markdown="block">
 <div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>perf09
 </code></pre></div>
-</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;">remplit la base et demande la version longue de tous les produits via leurs noms</p></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div markdown="block">
+</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">remplit la base et demande la version longue de tous les produits via leurs noms</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div markdown="block">
 <div class="highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>2,643
 </code></pre></div>
 </div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div markdown="block">
 <div class="highlight"><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>perf10
 </code></pre></div>
-</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;">remplit la base et demande la version courte de tous les produits via leurs clés primaires</p></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div markdown="block">
+</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">remplit la base et demande la version courte de tous les produits via leurs clés primaires</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div markdown="block">
 <div class="highlight"><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a>3,463
 </code></pre></div>
 </div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div markdown="block">
 <div class="highlight"><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a>perf11
 </code></pre></div>
-</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;">remplit la base et demande la version longue de tous les produits via leurs clés primaires</p></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div markdown="block">
+</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">remplit la base et demande la version longue de tous les produits via leurs clés primaires</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div markdown="block">
 <div class="highlight"><pre><span></span><code><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a>2,777
 </code></pre></div>
 </div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div markdown="block">
 <div class="highlight"><pre><span></span><code><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a>perf12
 </code></pre></div>
-</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;">remplit la base puis supprime toutes les catégories (donc les produits associés) une par une via leurs noms</p></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div markdown="block">
+</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">remplit la base puis supprime toutes les catégories (donc les produits associés) une par une via leurs noms</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div markdown="block">
 <div class="highlight"><pre><span></span><code><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a>3,806
 </code></pre></div>
 </div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div markdown="block">
 <div class="highlight"><pre><span></span><code><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a>perf13
 </code></pre></div>
-</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;">remplit la base puis supprime toutes les catégories (donc les produits associés) une par une via leurs références</p></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div markdown="block">
+</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">remplit la base puis supprime toutes les catégories (donc les produits associés) une par une via leurs références</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div markdown="block">
 <div class="highlight"><pre><span></span><code><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a>2,828
 </code></pre></div>
 </div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div markdown="block">
 <div class="highlight"><pre><span></span><code><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a>perf14
 </code></pre></div>
-</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;">remplit la base et demande la version courte de toutes les catégories via leurs noms</p></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div markdown="block">
+</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">remplit la base et demande la version courte de toutes les catégories via leurs noms</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div markdown="block">
 <div class="highlight"><pre><span></span><code><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a>2,731
 </code></pre></div>
 </div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div markdown="block">
 <div class="highlight"><pre><span></span><code><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a>perf15
 </code></pre></div>
-</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;">remplit la base et demande la version longue de toutes les catégories via leurs noms</p></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div markdown="block">
+</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">remplit la base et demande la version longue de toutes les catégories via leurs noms</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div markdown="block">
 <div class="highlight"><pre><span></span><code><a id="__codelineno-33-1" name="__codelineno-33-1" href="#__codelineno-33-1"></a>2,603
 </code></pre></div>
 </div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div markdown="block">
 <div class="highlight"><pre><span></span><code><a id="__codelineno-34-1" name="__codelineno-34-1" href="#__codelineno-34-1"></a>perf16
 </code></pre></div>
-</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;">remplit la base et demande la version courte de toutes les catégories via leurs clés primaires</p></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div markdown="block">
+</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">remplit la base et demande la version courte de toutes les catégories via leurs clés primaires</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div markdown="block">
 <div class="highlight"><pre><span></span><code><a id="__codelineno-35-1" name="__codelineno-35-1" href="#__codelineno-35-1"></a>2,462
 </code></pre></div>
 </div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div markdown="block">
 <div class="highlight"><pre><span></span><code><a id="__codelineno-36-1" name="__codelineno-36-1" href="#__codelineno-36-1"></a>perf17
 </code></pre></div>
-</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;">remplit la base et demande la version longue de toutes les catégories via leurs clés primaires</p></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div markdown="block">
+</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">remplit la base et demande la version longue de toutes les catégories via leurs clés primaires</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div markdown="block">
 <div class="highlight"><pre><span></span><code><a id="__codelineno-37-1" name="__codelineno-37-1" href="#__codelineno-37-1"></a>3,287
 </code></pre></div>
 </div></td></tr></table>
 
 <p>Ces résultats sont parfois surprenants :</p>
 <ul>
-<li>il a été plus rapide d&#x27;obtenir la version longue des produits (perf09) que leur version courte (perf08) alors que la version longue fait intervenir une jointure entre deux tables ;</li>
-<li>la durée du premier remplissage (perf01) excède nettement celles de tous les autres remplissages qui vont suivre ;</li>
-<li>demander la version courte des produits via leurs noms (perf08) est plus long que de la demander via les clés primaires (perf10). Cela paraît assez logique. Mais pour les versions longues c&#x27;est l&#x27;inverse (perf09, perf11) ;</li>
+  <li>il a été plus rapide d&#x27;obtenir la version longue des produits (perf09) que leur version courte (perf08) alors que la version longue fait intervenir une jointure entre deux tables ;
+  </li>
+  <li>la durée du premier remplissage (perf01) excède nettement celles de tous les autres remplissages qui vont suivre ;
+  </li>
+  <li>demander la version courte des produits via leurs noms (perf08) est plus long que de la demander via les clés primaires (perf10). Cela paraît assez logique. Mais pour les versions longues c&#x27;est l&#x27;inverse (perf09, perf11) ;
+  </li>
 </ul>
+
 <p>On ne s&#x27;attardera donc pas sur ces résultats. Ils nous seront cependant utiles pour comparer cette solution [Spring JDBC] aux solutions :</p>
 <ul>
-<li>[Spring JDBC] des cinq autres SGBD ;</li>
-<li>[Spring JPA] qui vont suivre ;</li>
+  <li>[Spring JDBC] des cinq autres SGBD ;
+  </li>
+  <li>[Spring JPA] qui vont suivre ;
+  </li>
 </ul>
 
 

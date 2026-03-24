@@ -1204,10 +1204,14 @@
 
 <p>L&#x27;application cliente aura trois couches :</p>
 <ul>
-<li>une couche [Client HTTP] [3] pour communiquer avec l&#x27;application web / jSON qui expose la base de données ;</li>
-<li>une couche [DAO] [2] qui présentera la même interface que la couche [DAO] [4] ;</li>
-<li>une couche de tests JUnit [1] pour vérifier que le client et le serveur font bien leur travail ;</li>
+  <li>une couche [Client HTTP] [3] pour communiquer avec l&#x27;application web / jSON qui expose la base de données ;
+  </li>
+  <li>une couche [DAO] [2] qui présentera la même interface que la couche [DAO] [4] ;
+  </li>
+  <li>une couche de tests JUnit [1] pour vérifier que le client et le serveur font bien leur travail ;
+  </li>
 </ul>
+
 <p><a id="refheading17873265679331"></a></p>
 <h2 id="181-le-projet-eclipse">18.1. Le projet Eclipse</h2>
 <p>Le projet Eclipse du client est le suivant :</p>
@@ -1218,11 +1222,16 @@
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/100000000000011E000000CF8DCAB34F.png" style="display:inline-block; margin:4px;width:5.3cm;height:3.829cm;" class="odt-zoomable" data-zoom-src="images/100000000000011E000000CF8DCAB34F.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/1000000000000127000000CDA64B2122.png" style="display:inline-block; margin:4px;width:5.459cm;height:3.799cm;" class="odt-zoomable" data-zoom-src="images/1000000000000127000000CDA64B2122.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td></tr></table>
 
 <ul>
-<li>le package [spring.webjson.client.config] contient la configation Spring de la couche [DAO] ;</li>
-<li>le package [spring.webjson.client.dao] contient l&#x27;implémentation de la couche [DAO] ;</li>
-<li>le package [spring.webjson.client.entities] contient les objets échangés avec le service web / jSON. Nous les connaissons ; tous ;</li>
-<li>le package [spring.webjson.client.infrastructure] contient les classes d&#x27;exception utilisées par le projet. Nous les connaissons toutes ;</li>
+  <li>le package [spring.webjson.client.config] contient la configation Spring de la couche [DAO] ;
+  </li>
+  <li>le package [spring.webjson.client.dao] contient l&#x27;implémentation de la couche [DAO] ;
+  </li>
+  <li>le package [spring.webjson.client.entities] contient les objets échangés avec le service web / jSON. Nous les connaissons ; tous ;
+  </li>
+  <li>le package [spring.webjson.client.infrastructure] contient les classes d&#x27;exception utilisées par le projet. Nous les connaissons toutes ;
+  </li>
 </ul>
+
 <p><a id="refheading17876265679331"></a></p>
 <h2 id="182-configuration-maven-du-projet">18.2. Configuration Maven du projet</h2>
 <p>Le projet est un projet Maven configuré par le fichier [pom.xml] suivant :</p>
@@ -1307,14 +1316,22 @@
 </code></pre></div>
 
 <ul>
-<li>lignes 16-20 : le projet Maven parent [<span style="color: #000000">spring-boot-starter-parent</span>] qui nous permet de définir un certain nombre de dépendances sans leur version, celle-ci étant définie dans le projet parent ;</li>
-<li>lignes 24-27 : bien que nous n&#x27;écrivions pas une application web, nous avons besoin de la dépendance [<span style="color: #000000">spring-web</span>] qui amène avec elle la classe [RestTemplate] qui permet de s&#x27;interfacer aisément avec une application web / jSON ;</li>
-<li>lignes 29-36 : une bibliothèque jSON ;</li>
-<li>lignes 38-41 : une dépendance qui va nous permettre de fixer un <em>timeout</em> aux requêtes HTTP du client. Un <em>timeout</em> est un temps maximal d&#x27;attente de la réponse du serveur. Au-delà de ce temps, le client signale une erreur de <em>timeout</em> en jetant une exception ;</li>
-<li>lignes 43-48 : la bibliothèque Google Guava ;</li>
-<li>lignes 50-53 : la bibliothèque de logs ;</li>
-<li>lignes 54-64 : la dépendance pour les tests JUnit. Elle amène notamment la bibliothèque JUnit 4 nécessaire pour les tests. Ces dépendances ont l&#x27;attribut [<span style="color: #008080">&lt;</span><span style="color: #3f7f7f">scope</span><span style="color: #008080">&gt;</span><span style="color: #000000">test</span><span style="color: #008080">&lt;/</span><span style="color: #3f7f7f">scope</span><span style="color: #008080">&gt;</span>] indiquant qu&#x27;elles ne sont nécessaires que pour la phase de tests. Elles ne sont pas incluses dans l&#x27;archive finale du projet ;</li>
+  <li>lignes 16-20 : le projet Maven parent [<span style="color: #000000">spring-boot-starter-parent</span>] qui nous permet de définir un certain nombre de dépendances sans leur version, celle-ci étant définie dans le projet parent ;
+  </li>
+  <li>lignes 24-27 : bien que nous n&#x27;écrivions pas une application web, nous avons besoin de la dépendance [<span style="color: #000000">spring-web</span>] qui amène avec elle la classe [RestTemplate] qui permet de s&#x27;interfacer aisément avec une application web / jSON ;
+  </li>
+  <li>lignes 29-36 : une bibliothèque jSON ;
+  </li>
+  <li>lignes 38-41 : une dépendance qui va nous permettre de fixer un <i>timeout</i> aux requêtes HTTP du client. Un <i>timeout</i> est un temps maximal d&#x27;attente de la réponse du serveur. Au-delà de ce temps, le client signale une erreur de <i>timeout</i> en jetant une exception ;
+  </li>
+  <li>lignes 43-48 : la bibliothèque Google Guava ;
+  </li>
+  <li>lignes 50-53 : la bibliothèque de logs ;
+  </li>
+  <li>lignes 54-64 : la dépendance pour les tests JUnit. Elle amène notamment la bibliothèque JUnit 4 nécessaire pour les tests. Ces dépendances ont l&#x27;attribut [<span style="color: #008080">&lt;</span><span style="color: #3f7f7f">scope</span><span style="color: #008080">&gt;</span><span style="color: #000000">test</span><span style="color: #008080">&lt;/</span><span style="color: #3f7f7f">scope</span><span style="color: #008080">&gt;</span>] indiquant qu&#x27;elles ne sont nécessaires que pour la phase de tests. Elles ne sont pas incluses dans l&#x27;archive finale du projet ;
+  </li>
 </ul>
+
 <p><a id="refheading18010265679331"></a></p>
 <h2 id="183-configuration-spring">18.3. Configuration Spring</h2>
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/100000000000010C000000807726F3DE.png" style="display:inline-block; margin:4px;width:4.96cm;height:2.371cm;" class="odt-zoomable" data-zoom-src="images/100000000000010C000000807726F3DE.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td></tr></table>
@@ -1421,27 +1438,48 @@
 </code></pre></div>
 
 <ul>
-<li>ligne 20 : la classe est une classe de configuration Spring ;</li>
-<li>ligne 21 : d&#x27;autres composants Spring sont à chercher dans le package [<span style="color: #2a00ff">spring.webjson.client.dao</span>] ;</li>
-<li>ligne 25 : on se fixe un <em>timeout</em> d&#x27;une seconde (1000 ms) ;</li>
-<li>lignes 88-91 : le bean qui rend cette valeur ;</li>
-<li>ligne 26 : l&#x27;URL du service web / jSON ;</li>
-<li>lignes 93-96 : le bean qui rend cette valeur ;</li>
-<li>lignes 72-86 : la configuration de la classe [RestTemplate] qui assure les échanges avec le service web / jSON. Lorsqu&#x27;on n&#x27;a pas à la configurer, on peut en disposer dans le code par un simple [new RestTemplate()]. Ici, nous voulons fixer le <em>timeout</em> des échanges avec le service web / jSON. Le bean [timeout] de la ligne 89 est passé en paramètre de la méthode [restTemplate] de la ligne 73 ;</li>
-<li>ligne 75 : le composant [<span style="color: #000000">HttpComponentsClientHttpRequestFactory</span>] est le composant qui nous permet de fixer le <em>timeout</em> des échanges (lignes 82-83) ;</li>
-<li>ligne 76 : la classe [RestTemplate] est construite avec ce composant. Comme elle s&#x27;appuie sur celui-ci pour communiquer avec le service web / jSON, les échanges seront bien soumis au <em>timeout</em> ;</li>
-<li>lignes 78-80 : on associe à la classe [RestTemplate] un convertisseur jSON. Nous en avons déjà parlé lors de l&#x27;étude du service web. Le client et le serveur s&#x27;échangent des lignes de texte. Un convertisseur s&#x27;occupe de sérialiser un objet en texte et inversement de désérialiser un texte en objet. Il peut y avoir plusieurs convertisseurs associés à la classe [RestTemplate] et celui choisi à un moment donné dépend des entêtes HTTP envoyés par le serveur. Ici, nous n&#x27;avons qu&#x27;un convertisseur jSON puisque les lignes de texte échangées sont du jSON ;</li>
-<li>lignes 82-83 : on fixe les <em>timeout</em> des échanges ;</li>
-<li>lignes 28-70 : définissent des filtres jSON. Ce sont les mêmes que ceux du serveur présentés au paragraphe <a href="exposer-une-base-de-donnees-sur-le-web.html#refheading399120986338762">17.3.2.1</a> ;</li>
-<li>lignes 29-32 : le bean [jsonMapper] est le mappeur jSON du convertisseur [<span style="color: #000000">MappingJackson2HttpMessageConverter</span>] que nous avons associé à la classe [RestTemplate]. Nous en avons besoin dans la définition des filtres jSON ;</li>
-<li>lignes 34-41 : un bean définissant le filtre jSON [catégorie sans ses produits]. La méthode [<span style="color: #000000">jsonMapperShortCategorie</span>] reçoit en paramètre le bean [restTemplate] défini ligne 73 ;</li>
-<li>ligne 37 : on fait appel à la méthode [jsonMapper] de la ligne 30 pour récupérer le mappeur jSON ;</li>
-<li>lignes 38-39 : on fixe le filtre pour avoir une catégorie sans ses produits ;</li>
-<li>ligne 40 : on rend le mappeur jSON ainsi configuré ;</li>
-<li>lignes 42-51 : le filtre jSON pour avoir une catégorie avec ses produits ;</li>
-<li>lignes 53-60 : le filtre jSON pour avoir un produit sans sa catégorie ;</li>
-<li>lignes 62-70 : le filtre jSON pour avoir un produit avec sa catégorie ;</li>
+  <li>ligne 20 : la classe est une classe de configuration Spring ;
+  </li>
+  <li>ligne 21 : d&#x27;autres composants Spring sont à chercher dans le package [<span style="color: #2a00ff">spring.webjson.client.dao</span>] ;
+  </li>
+  <li>ligne 25 : on se fixe un <i>timeout</i> d&#x27;une seconde (1000 ms) ;
+  </li>
+  <li>lignes 88-91 : le bean qui rend cette valeur ;
+  </li>
+  <li>ligne 26 : l&#x27;URL du service web / jSON ;
+  </li>
+  <li>lignes 93-96 : le bean qui rend cette valeur ;
+  </li>
+  <li>lignes 72-86 : la configuration de la classe [RestTemplate] qui assure les échanges avec le service web / jSON. Lorsqu&#x27;on n&#x27;a pas à la configurer, on peut en disposer dans le code par un simple [new RestTemplate()]. Ici, nous voulons fixer le <i>timeout</i> des échanges avec le service web / jSON. Le bean [timeout] de la ligne 89 est passé en paramètre de la méthode [restTemplate] de la ligne 73 ;
+  </li>
+  <li>ligne 75 : le composant [<span style="color: #000000">HttpComponentsClientHttpRequestFactory</span>] est le composant qui nous permet de fixer le <i>timeout</i> des échanges (lignes 82-83) ;
+  </li>
+  <li>ligne 76 : la classe [RestTemplate] est construite avec ce composant. Comme elle s&#x27;appuie sur celui-ci pour communiquer avec le service web / jSON, les échanges seront bien soumis au <i>timeout</i> ;
+  </li>
+  <li>lignes 78-80 : on associe à la classe [RestTemplate] un convertisseur jSON. Nous en avons déjà parlé lors de l&#x27;étude du service web. Le client et le serveur s&#x27;échangent des lignes de texte. Un convertisseur s&#x27;occupe de sérialiser un objet en texte et inversement de désérialiser un texte en objet. Il peut y avoir plusieurs convertisseurs associés à la classe [RestTemplate] et celui choisi à un moment donné dépend des entêtes HTTP envoyés par le serveur. Ici, nous n&#x27;avons qu&#x27;un convertisseur jSON puisque les lignes de texte échangées sont du jSON ;
+  </li>
+  <li>lignes 82-83 : on fixe les <i>timeout</i> des échanges ;
+  </li>
+  <li>lignes 28-70 : définissent des filtres jSON. Ce sont les mêmes que ceux du serveur présentés au paragraphe <a href="exposer-une-base-de-donnees-sur-le-web.html#refheading399120986338762">17.3.2.1</a> ;
+  </li>
+  <li>lignes 29-32 : le bean [jsonMapper] est le mappeur jSON du convertisseur [<span style="color: #000000">MappingJackson2HttpMessageConverter</span>] que nous avons associé à la classe [RestTemplate]. Nous en avons besoin dans la définition des filtres jSON ;
+  </li>
+  <li>lignes 34-41 : un bean définissant le filtre jSON [catégorie sans ses produits]. La méthode [<span style="color: #000000">jsonMapperShortCategorie</span>] reçoit en paramètre le bean [restTemplate] défini ligne 73 ;
+  </li>
+  <li>ligne 37 : on fait appel à la méthode [jsonMapper] de la ligne 30 pour récupérer le mappeur jSON ;
+  </li>
+  <li>lignes 38-39 : on fixe le filtre pour avoir une catégorie sans ses produits ;
+  </li>
+  <li>ligne 40 : on rend le mappeur jSON ainsi configuré ;
+  </li>
+  <li>lignes 42-51 : le filtre jSON pour avoir une catégorie avec ses produits ;
+  </li>
+  <li>lignes 53-60 : le filtre jSON pour avoir un produit sans sa catégorie ;
+  </li>
+  <li>lignes 62-70 : le filtre jSON pour avoir un produit avec sa catégorie ;
+  </li>
 </ul>
+
 <p>Tous ces beans vont être disponibles aux codes de la couche [DAO] ainsi qu&#x27;aux tests JUnit.</p>
 <p><a id="refheading18008265679331"></a></p>
 <h2 id="184-implementation-du-client-http">18.4. Implémentation du client HTTP</h2>
@@ -1463,20 +1501,30 @@
 
 <p>L&#x27;interface n&#x27;a qu&#x27;une méthode [getResponse] :</p>
 <ul>
-<li>ligne 6 : la méthode [<span style="color: #000000">getResponse] est une méthode générique paramétrée par deux types :</span><ul>
-<li><span style="color: #000000">[T1] : est le type de réponse attendu du serveur dans [Response&lt;T1&gt;], par exemple [List&lt;Categorie&gt;],</span></li>
-<li><span style="color: #000000">[T2] : est le type du paramètre jSON posté par les opérations POST, par exemple [List&lt;Produit&gt;] ;</span></li>
+  <li>ligne 6 : la méthode [<span style="color: #000000">getResponse] est une méthode générique paramétrée par deux types :</span>
+    <ul>
+      <li><span style="color: #000000">[T1] : est le type de réponse attendu du serveur dans [Response&lt;T1&gt;], par exemple [List&lt;Categorie&gt;],</span>
+      </li>
+      <li><span style="color: #000000">[T2] : est le type du paramètre jSON posté par les opérations POST, par exemple [List&lt;Produit&gt;] ;</span>
+      </li>
+    </ul>
+  </li>
+  <li><span style="color: #000000">ligne 6 : la méthode [getResponse] rend un résultat de type T1, par exemple [List&lt;Categorie&gt;] ;</span>
+  </li>
+  <li><span style="color: #000000">ligne 6 : les paramètres de [getResponse] sont les suivants :</span>
+    <ul>
+      <li><span style="color: #000000">[String url] : l&#x27;URL à interroger ;</span>
+      </li>
+      <li><span style="color: #000000">[HttpMethod method] : méthode HTTP de la requête, GET ou POST selon les cas,</span>
+      </li>
+      <li><span style="color: #000000">[int errStatus] : code d&#x27;erreur à utiliser dans la classe [DaoException], si erreur il y a lors de la communication avec le serveur,</span>
+      </li>
+      <li><span style="color: #000000">[T2 body] : la valeur à poster si POST il y a ;</span>
+      </li>
+    </ul>
+  </li>
 </ul>
-</li>
-<li><span style="color: #000000">ligne 6 : la méthode [getResponse] rend un résultat de type T1, par exemple [List&lt;Categorie&gt;] ;</span></li>
-<li><span style="color: #000000">ligne 6 : les paramètres de [getResponse] sont les suivants :</span><ul>
-<li><span style="color: #000000">[String url] : l&#x27;URL à interroger ;</span></li>
-<li><span style="color: #000000">[HttpMethod method] : méthode HTTP de la requête, GET ou POST selon les cas,</span></li>
-<li><span style="color: #000000">[int errStatus] : code d&#x27;erreur à utiliser dans la classe [DaoException], si erreur il y a lors de la communication avec le serveur,</span></li>
-<li><span style="color: #000000">[T2 body] : la valeur à poster si POST il y a ;</span></li>
-</ul>
-</li>
-</ul>
+
 <p><span style="color: #000000">La classe [Client] implémente l&#x27;interface [IClient] de la façon suivante :</span></p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
 <span class="odt-code-line"><span style="font-weight:bold;color:#7f0055">package</span><span style="color:#000000"> spring.webjson.client.dao;</span></span>
@@ -1522,11 +1570,16 @@
 </code></pre></div>
 
 <ul>
-<li>ligne 18 : la classe [Client] est un composant Spring qui peut donc être injecté dans d&#x27;autres composants Spring ;</li>
-<li>lignes 22-23 : injection du bean [RestTemplate] défini dans [AppConfig] (cf paragraphe <a href="#refheading18010265679331">18.3</a>) qui assure la communication avec le serveur ;</li>
-<li>lignes 24-25 : injection de l&#x27;URL du service web / jSON définie dans [AppConfig] (cf paragraphe <a href="#refheading18010265679331">18.3</a>) ;</li>
-<li>lignes 37-39 : la méthode privée [<span style="color: #000000">getMessagesForException</span>] est une méthode utilitaire permettant d&#x27;obtenir la liste des messages d&#x27;erreur contenues dans une exception. Nous l&#x27;avons rencontrée à plusieurs reprises ;</li>
+  <li>ligne 18 : la classe [Client] est un composant Spring qui peut donc être injecté dans d&#x27;autres composants Spring ;
+  </li>
+  <li>lignes 22-23 : injection du bean [RestTemplate] défini dans [AppConfig] (cf paragraphe <a href="#refheading18010265679331">18.3</a>) qui assure la communication avec le serveur ;
+  </li>
+  <li>lignes 24-25 : injection de l&#x27;URL du service web / jSON définie dans [AppConfig] (cf paragraphe <a href="#refheading18010265679331">18.3</a>) ;
+  </li>
+  <li>lignes 37-39 : la méthode privée [<span style="color: #000000">getMessagesForException</span>] est une méthode utilitaire permettant d&#x27;obtenir la liste des messages d&#x27;erreur contenues dans une exception. Nous l&#x27;avons rencontrée à plusieurs reprises ;
+  </li>
 </ul>
+
 <p><span style="color: #000000">Continuons :</span></p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-text">
 <span class="odt-code-line">    <span style="color:#3f7f5f">// requête générique</span></span>
@@ -1557,23 +1610,36 @@
 </code></pre></div>
 
 <ul>
-<li><span style="color: #000000">ligne 18 : l&#x27;instruction qui fait la requête au serveur et reçoit sa réponse. Le composant [RestTemplate] offre un nombre important de méthodes d&#x27;échange avec le serveur mais seule la méthode [exchange] admet des paramètres génériques. C&#x27;est pour cette raison qu&#x27;elle a été choisie. Le second paramètre fixe le type de la réponse attendue. Le premier paramètre est la requête de type [RequestEntity] (ligne 8). Le résultat de la méthode [exchange] est de type </span><span style="color: #000000">[ResponseEntity&lt;Response&lt;T1&gt;&gt;] (ligne 5). Le type [ResponseEntity] encapsule la réponse complète du serveur, entêtes HTTP et document envoyés par celui-ci. De même le type [RequestEntity] encapsule toute la requête du client incluant les entêtes HTTP et l&#x27;éventuelle valeur postée ;</span></li>
-<li><span style="color: #000000">lignes 8-16 : il nous faut construire la requête de type [RequestEntity]. Elle est différente selon que l&#x27;on utilise un GET ou un POST pour faire la requête ;</span></li>
-<li><span style="color: #000000">ligne 10 : la requête pour un GET. La classe [RequestEntity] offre des méthodes statiques pour créer les requêtes GET, POST, HEAD,... La méthode [RequestEntity.get] permet de créer une requête GET en chaînant les différentes méthodes qui construisent celle-ci :</span><ul>
-<li><span style="color: #000000">la méthode [RequestEntity.get] admet pour paramètre l&#x27;URL cible sous la forme d&#x27;une instance URI,</span></li>
-<li><span style="color: #000000">la méthode [accept] permet de définir les éléments de l&#x27;entête HTTP [Accept]. Ici, nous indiquons que nous acceptons le type [application/json] que va envoyer le serveur ;</span></li>
-<li><span style="color: #000000">la méthode [build] utilise ces différentes informations pour construire le type [RequestEntity] de la requête ;</span></li>
+  <li><span style="color: #000000">ligne 18 : l&#x27;instruction qui fait la requête au serveur et reçoit sa réponse. Le composant [RestTemplate] offre un nombre important de méthodes d&#x27;échange avec le serveur mais seule la méthode [exchange] admet des paramètres génériques. C&#x27;est pour cette raison qu&#x27;elle a été choisie. Le second paramètre fixe le type de la réponse attendue. Le premier paramètre est la requête de type [RequestEntity] (ligne 8). Le résultat de la méthode [exchange] est de type </span><span style="color: #000000">[ResponseEntity&lt;Response&lt;T1&gt;&gt;] (ligne 5). Le type [ResponseEntity] encapsule la réponse complète du serveur, entêtes HTTP et document envoyés par celui-ci. De même le type [RequestEntity] encapsule toute la requête du client incluant les entêtes HTTP et l&#x27;éventuelle valeur postée ;</span>
+  </li>
+  <li><span style="color: #000000">lignes 8-16 : il nous faut construire la requête de type [RequestEntity]. Elle est différente selon que l&#x27;on utilise un GET ou un POST pour faire la requête ;</span>
+  </li>
+  <li><span style="color: #000000">ligne 10 : la requête pour un GET. La classe [RequestEntity] offre des méthodes statiques pour créer les requêtes GET, POST, HEAD,... La méthode [RequestEntity.get] permet de créer une requête GET en chaînant les différentes méthodes qui construisent celle-ci :</span>
+    <ul>
+      <li><span style="color: #000000">la méthode [RequestEntity.get] admet pour paramètre l&#x27;URL cible sous la forme d&#x27;une instance URI,</span>
+      </li>
+      <li><span style="color: #000000">la méthode [accept] permet de définir les éléments de l&#x27;entête HTTP [Accept]. Ici, nous indiquons que nous acceptons le type [application/json] que va envoyer le serveur ;</span>
+      </li>
+      <li><span style="color: #000000">la méthode [build] utilise ces différentes informations pour construire le type [RequestEntity] de la requête ;</span>
+      </li>
+    </ul>
+  </li>
+  <li><span style="color: #000000">ligne 14 : la requête pour un POST. La méthode [RequestEntity.post] permet de créer une requête POST en chaînant les différentes méthodes qui construisent celle-ci :</span>
+    <ul>
+      <li><span style="color: #000000">la méthode [RequestEntity.post] admet pour paramètre l&#x27;URL cible sous la forme d&#x27;une instance URI,</span>
+      </li>
+      <li><span style="color: #000000">la méthode [header] définit un entête HTTP. Ici on envoie au serveur l&#x27;entête [</span><span style="color: #2a00ff">Content-Type:</span><span style="color: #000000"> </span><span style="color: #2a00ff">application/json</span><span style="color: #000000">] pour lui indiquer que la valeur postée va lui arriver sous la forme d&#x27;une chaîne jSON ;</span>
+      </li>
+      <li><span style="color: #000000">la méthode [accept] permet d&#x27;indiquer que nous acceptons le type [application/json] que va envoyer le serveur ;</span>
+      </li>
+      <li><span style="color: #000000">la méthode [body] fixe la valeur postée. Celle-ci est le 4ième paramètre de la méthode générique [getResponse] (ligne 1) ;</span>
+      </li>
+    </ul>
+  </li>
+  <li><span style="color: #000000">lignes 20-23 : s&#x27;il se produit une erreur de communication avec le serveur on lance une exception de type [DaoException] avec pour code d&#x27;erreur, le paramètre [errStatus] passé en 3ième paramètre de la méthode générique [getResponse] (ligne 3) ;</span>
+  </li>
 </ul>
-</li>
-<li><span style="color: #000000">ligne 14 : la requête pour un POST. La méthode [RequestEntity.post] permet de créer une requête POST en chaînant les différentes méthodes qui construisent celle-ci :</span><ul>
-<li><span style="color: #000000">la méthode [RequestEntity.post] admet pour paramètre l&#x27;URL cible sous la forme d&#x27;une instance URI,</span></li>
-<li><span style="color: #000000">la méthode [header] définit un entête HTTP. Ici on envoie au serveur l&#x27;entête [</span><span style="color: #2a00ff">Content-Type:</span><span style="color: #000000"> </span><span style="color: #2a00ff">application/json</span><span style="color: #000000">] pour lui indiquer que la valeur postée va lui arriver sous la forme d&#x27;une chaîne jSON ;</span></li>
-<li><span style="color: #000000">la méthode [accept] permet d&#x27;indiquer que nous acceptons le type [application/json] que va envoyer le serveur ;</span></li>
-<li><span style="color: #000000">la méthode [body] fixe la valeur postée. Celle-ci est le 4ième paramètre de la méthode générique [getResponse] (ligne 1) ;</span></li>
-</ul>
-</li>
-<li><span style="color: #000000">lignes 20-23 : s&#x27;il se produit une erreur de communication avec le serveur on lance une exception de type [DaoException] avec pour code d&#x27;erreur, le paramètre [errStatus] passé en 3ième paramètre de la méthode générique [getResponse] (ligne 3) ;</span></li>
-</ul>
+
 <p>La méthode [<span style="color: #000000">getResponse</span>] se poursuit de la façon suivante :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-text">
 <span class="odt-code-line">// requête générique</span>
@@ -1595,8 +1661,10 @@
 </code></pre></div>
 
 <ul>
-<li>ligne 4 : nous avons reçu la réponse du serveur. Elle est de type [<span style="color: #000000">ResponseEntity&lt;Response&lt;T1&gt;&gt;</span>] (ligne 5 du précédent code étudié) où la classe [Response] est la classe déjà utilisée côté serveur :</li>
+  <li>ligne 4 : nous avons reçu la réponse du serveur. Elle est de type [<span style="color: #000000">ResponseEntity&lt;Response&lt;T1&gt;&gt;</span>] (ligne 5 du précédent code étudié) où la classe [Response] est la classe déjà utilisée côté serveur :
+  </li>
 </ul>
+
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-text">
 <span class="odt-code-line"><span style="font-weight:bold;color:#7f0055">package</span><span style="color:#000000"> spring.webjson.client.dao;</span></span>
 <span class="odt-code-line"></span>
@@ -1628,11 +1696,16 @@
 
 <p>Revenons à la méthode [getResponse] :</p>
 <ul>
-<li>ligne 6 : nous récupérons le document de type [Response&lt;T1&gt;] encapsulé dans la réponse. Ce type a les champs [int status, String exception, T1 body] ;</li>
-<li>ligne 7 : nous récupérons le [status] de la réponse qui est un code d&#x27;erreur ;</li>
-<li>lignes 9-12 : s&#x27;il y a erreur, alors on lance une exception reprenant les deux informations [status, exception] de la réponse du serveur ;</li>
-<li>ligne 14 : sinon nous rendons le type [T1] contenu dans la réponse de type [Response&lt;T1&gt;] ;</li>
+  <li>ligne 6 : nous récupérons le document de type [Response&lt;T1&gt;] encapsulé dans la réponse. Ce type a les champs [int status, String exception, T1 body] ;
+  </li>
+  <li>ligne 7 : nous récupérons le [status] de la réponse qui est un code d&#x27;erreur ;
+  </li>
+  <li>lignes 9-12 : s&#x27;il y a erreur, alors on lance une exception reprenant les deux informations [status, exception] de la réponse du serveur ;
+  </li>
+  <li>ligne 14 : sinon nous rendons le type [T1] contenu dans la réponse de type [Response&lt;T1&gt;] ;
+  </li>
 </ul>
+
 <p>La classe [Client] est générale. Elle peut être utilisée pour tout client web / jSON.</p>
 <p><a id="refheading18022265679331"></a></p>
 <h2 id="185-implementation-de-la-couche-dao">18.5. Implémentation de la couche [Dao]</h2>
@@ -1700,8 +1773,10 @@
 
 <p>La classe [AbstractDao] implémente l&#x27;interface [IDao]. C&#x27;est une classe analogue à la classe de même nom côté serveur (cf paragraphe <a href="introduction-a-spring-jdbc.html#refheading1052102082896917">4.8</a>). Elle sert de classe parent aux classes [DaoCategorie] et [DaoProduit]. Elle n&#x27;est pas identique pour deux raisons :</p>
 <ul>
-<li>côté serveur, la classe [AbstractDao] gère une information :</li>
+  <li>côté serveur, la classe [AbstractDao] gère une information :
+  </li>
 </ul>
+
 <div class="odt-code-rich" data-linenums="false" style="counter-reset: odtline 0;"><pre><code class="language-text">
 <span class="odt-code-line"><span style="color:#000000">    </span><span style="color:#3f7f5f">// injections</span></span>
 <span class="odt-code-line"><span style="color:#000000">    </span><span style="color:#646464">@Autowired</span></span>
@@ -1711,8 +1786,10 @@
 
 <p>dont on n&#x27;a pas besoin ici.</p>
 <ul>
-<li>côté serveur, la classe [AbstractDao] utilise des annotations [@Transactional] pour encapsuler chaque méthode dans une transaction. Côté client, il n&#x27;y a pas de base de données à gérer. Cette annotation disparaît donc ;</li>
+  <li>côté serveur, la classe [AbstractDao] utilise des annotations [@Transactional] pour encapsuler chaque méthode dans une transaction. Côté client, il n&#x27;y a pas de base de données à gérer. Cette annotation disparaît donc ;
+  </li>
 </ul>
+
 <p>La classe [AbstractDao] se contente de vérifier la validité des paramètres d&#x27;appel des méthodes de l&#x27;interface [IDao] avant de déléguer l&#x27;appel aux classes filles :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
 <span class="odt-code-line"><span style="font-weight:bold;color:#7f0055">package</span><span style="color:#000000"> spring.webjson.client.dao;</span></span>
@@ -1849,11 +1926,16 @@
 </code></pre></div>
 
 <ul>
-<li>ligne 19 : la classe [DaoClient] est un composant Spring dans lequel on peut donc injecter d&#x27;autres composants Spring ;</li>
-<li>ligne 20 : la classe [<span style="color: #000000">DaoClient</span>] étend la classe [<span style="color: #000000">AbstractDao&lt;Categorie&gt;</span>] que nous venons de voir et implémente donc l&#x27;interface [<span style="color: #000000">IDao&lt;Categorie&gt;</span>] ;</li>
-<li>lignes 22-23 : on injecte le contexte Spring afin d&#x27;avoir accès à ses beans ;</li>
-<li>lignes 24-25 : on injecte le client HTTP que nous venons de construire ;</li>
+  <li>ligne 19 : la classe [DaoClient] est un composant Spring dans lequel on peut donc injecter d&#x27;autres composants Spring ;
+  </li>
+  <li>ligne 20 : la classe [<span style="color: #000000">DaoClient</span>] étend la classe [<span style="color: #000000">AbstractDao&lt;Categorie&gt;</span>] que nous venons de voir et implémente donc l&#x27;interface [<span style="color: #000000">IDao&lt;Categorie&gt;</span>] ;
+  </li>
+  <li>lignes 22-23 : on injecte le contexte Spring afin d&#x27;avoir accès à ses beans ;
+  </li>
+  <li>lignes 24-25 : on injecte le client HTTP que nous venons de construire ;
+  </li>
 </ul>
+
 <p>Les implémentations des différentes méthodes de l&#x27;interface [DaoCategorie] suivent toutes le même schéma. Nous allons présenter trois méthodes, l&#x27;une s&#x27;appuyant sur une opération [GET], les deux autres sur une opération [POST].</p>
 <p><a id="refheading1350681333600986"></a></p>
 <h4 id="18521-la-methode-getalllongentities">18.5.2.1. La méthode [<span style="color: #000000">getAllLongEntities</span>]</h4>
@@ -1881,22 +1963,36 @@
 </code></pre></div>
 
 <ul>
-<li>ligne 2 : la méthode rend la liste des catégories dans leurs versions longues ;</li>
-<li>ligne 5 : le mappeur jSON qui va permettre de sérialiser la valeur postée (il n&#x27;y en a pas) et de désérialiser la réponse rendue par la classe [Client] (des catégories dans leurs versions longues) ;</li>
-<li>ligne 7 : on appelle la méthode [<span style="color: #000000">getResponse</span>] de la classe [Client]. C&#x27;est cette méthode qui assure les échanges avec le service web / jSON. Ses paramètres sont les suivants :<ul>
-<li>l&#x27;URL du service interrogée [<span style="color: #2a00ff">/getAllLongCategories]</span> ;</li>
-<li>la méthode [GET] à utiliser ;</li>
-<li>le code d&#x27;erreur à utiliser si erreur il y a (232) ;</li>
-<li>la valeur postée. Ici il n&#x27;y en a pas ;</li>
+  <li>ligne 2 : la méthode rend la liste des catégories dans leurs versions longues ;
+  </li>
+  <li>ligne 5 : le mappeur jSON qui va permettre de sérialiser la valeur postée (il n&#x27;y en a pas) et de désérialiser la réponse rendue par la classe [Client] (des catégories dans leurs versions longues) ;
+  </li>
+  <li>ligne 7 : on appelle la méthode [<span style="color: #000000">getResponse</span>] de la classe [Client]. C&#x27;est cette méthode qui assure les échanges avec le service web / jSON. Ses paramètres sont les suivants :
+    <ul>
+      <li>l&#x27;URL du service interrogée [<span style="color: #2a00ff">/getAllLongCategories]</span> ;
+      </li>
+      <li>la méthode [GET] à utiliser ;
+      </li>
+      <li>le code d&#x27;erreur à utiliser si erreur il y a (232) ;
+      </li>
+      <li>la valeur postée. Ici il n&#x27;y en a pas ;
+      </li>
+    </ul>
+  </li>
+  <li>ligne 7 : dans l&#x27;expression [<span style="color: #000000">client.&lt;</span><b><span style="color: #000000">List&lt;Categorie&gt;</span></b><span style="color: #000000">, </span><b><span style="color: #000000">Void</span></b><span style="color: #000000">&gt;</span>] on désigne les paramètres effectifs des types génériques [T1, T2] de la méthode [getResponse]. On rappelle que [T1] est le type de la réponse attendue et [T2] le type de la valeur postée. Ici on attend un résultat de type [List&lt;Categorie&gt;] et il n&#x27;y a pas de valeur postée [Void] ;
+  </li>
+  <li>ligne 7 : le résultat rendu par la méthode [getResponse] est mis dans un objet de type [Object]. C&#x27;est un peu bizarre alors qu&#x27;on attend un type [List&lt;Categorie&gt;]. C&#x27;est dû au fait que la méthode [getResponse] travaillant avec des type génériques [T1, T2] rend systématiquement un type [java.util.LinkedHashMap] qu&#x27;il faut alors exploiter pour rendre le bon type ;
+  </li>
+  <li>ligne 9 : on rend la liste des catégories. Pour cela, on sérialise l&#x27;objet [map] [<span style="color: #6a3e3e">mapper</span><span style="color: #000000">.writeValueAsString(</span><span style="color: #6a3e3e">map</span><span style="color: #000000">)</span>] en une chaîne jSON qu&#x27;on resérialise vers un type [List&lt;Categorie&gt;] ;
+  </li>
+  <li>ligne 13 : on a reçu une liste de catégories, certaines pouvant avoir des produits. On reçoit la version courte de ces produits. Donc lorsqu&#x27;ils sont désérialisés, les objets [Produit] créés ont leur champ [categorie==<i>null</i>]. La méthode [<b>linkCategorieWithProduits</b>] recrée le lien entre un [Produit] et sa [Categorie] ;
+  </li>
+  <li>lignes 14-15 : on arrête l&#x27;exception de type [DaoException] qu&#x27;aurait pu lancer la méthode [getResponse] pour la relancer aussitôt. Ce comportement bizarre est dû au fait que si on ne le fait pas, l&#x27;exception de type [DaoException] va être arrêtée par les lignes 16-18, et ça on ne le veut pas ;
+  </li>
+  <li>lignes 16-18 : on arrête toutes les autres exceptions pour les encapsuler dans un type [DaoException]. On rappelle que la couche [DAO] ne doit lancer que ce type d&#x27;exception ;
+  </li>
 </ul>
-</li>
-<li>ligne 7 : dans l&#x27;expression [<span style="color: #000000">client.&lt;</span><strong><span style="color: #000000">List&lt;Categorie&gt;</span></strong><span style="color: #000000">, </span><strong><span style="color: #000000">Void</span></strong><span style="color: #000000">&gt;</span>] on désigne les paramètres effectifs des types génériques [T1, T2] de la méthode [getResponse]. On rappelle que [T1] est le type de la réponse attendue et [T2] le type de la valeur postée. Ici on attend un résultat de type [List&lt;Categorie&gt;] et il n&#x27;y a pas de valeur postée [Void] ;</li>
-<li>ligne 7 : le résultat rendu par la méthode [getResponse] est mis dans un objet de type [Object]. C&#x27;est un peu bizarre alors qu&#x27;on attend un type [List&lt;Categorie&gt;]. C&#x27;est dû au fait que la méthode [getResponse] travaillant avec des type génériques [T1, T2] rend systématiquement un type [java.util.LinkedHashMap] qu&#x27;il faut alors exploiter pour rendre le bon type ;</li>
-<li>ligne 9 : on rend la liste des catégories. Pour cela, on sérialise l&#x27;objet [map] [<span style="color: #6a3e3e">mapper</span><span style="color: #000000">.writeValueAsString(</span><span style="color: #6a3e3e">map</span><span style="color: #000000">)</span>] en une chaîne jSON qu&#x27;on resérialise vers un type [List&lt;Categorie&gt;] ;</li>
-<li>ligne 13 : on a reçu une liste de catégories, certaines pouvant avoir des produits. On reçoit la version courte de ces produits. Donc lorsqu&#x27;ils sont désérialisés, les objets [Produit] créés ont leur champ [categorie==<em>null</em>]. La méthode [<strong>linkCategorieWithProduits</strong>] recrée le lien entre un [Produit] et sa [Categorie] ;</li>
-<li>lignes 14-15 : on arrête l&#x27;exception de type [DaoException] qu&#x27;aurait pu lancer la méthode [getResponse] pour la relancer aussitôt. Ce comportement bizarre est dû au fait que si on ne le fait pas, l&#x27;exception de type [DaoException] va être arrêtée par les lignes 16-18, et ça on ne le veut pas ;</li>
-<li>lignes 16-18 : on arrête toutes les autres exceptions pour les encapsuler dans un type [DaoException]. On rappelle que la couche [DAO] ne doit lancer que ce type d&#x27;exception ;</li>
-</ul>
+
 <p>La méthode [<strong>linkCategorieWithProduits</strong>] qui recrée les liens entre entités [Produit] et entités [Categorie] est la suivante :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-text">
 <span class="odt-code-line"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">private</span><span style="color:#000000"> List&lt;Categorie&gt; linkCategorieWithProduits(List&lt;Categorie&gt; </span><span style="color:#6a3e3e">categories</span><span style="color:#000000">) {</span></span>
@@ -1931,8 +2027,10 @@
 </code></pre></div>
 
 <ul>
-<li>ligne 5 : on récupère auprès du contexte Spring, un mappeur jSON capable de gérer les versions longues des catégories. Revenons sur la définition de ce mappeur dans la configuration Spring [AppConfig] :</li>
+  <li>ligne 5 : on récupère auprès du contexte Spring, un mappeur jSON capable de gérer les versions longues des catégories. Revenons sur la définition de ce mappeur dans la configuration Spring [AppConfig] :
+  </li>
 </ul>
+
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-text">
 <span class="odt-code-line">// filtres jSON</span>
 <span class="odt-code-line"><span style="color:#000000">    </span><span style="color:#646464">@Bean</span></span>
@@ -1957,13 +2055,18 @@
 </code></pre></div>
 
 <ul>
-<li>le bean [<span style="color: #2a00ff">jsonMapperLongCategorie</span>] demandé par la méthode [getAlllongEntities] est le bean des lignes 7-15 ;</li>
-<li>ligne 10 : le mappeur est fourni par la méthode [jsonMapper] des lignes 2-5. On voit que ce mappeur jSON est celui de l&#x27;objet [RestTemplate] qui gère les échanges HTTP entre le client et le serveur. C&#x27;est ce mappeur qui est utilisé par défaut pour :<ul>
-<li>sérialiser la valeur postée au serveur ;</li>
-<li>désérialiser la réponse renvoyée par le serveur ;</li>
+  <li>le bean [<span style="color: #2a00ff">jsonMapperLongCategorie</span>] demandé par la méthode [getAlllongEntities] est le bean des lignes 7-15 ;
+  </li>
+  <li>ligne 10 : le mappeur est fourni par la méthode [jsonMapper] des lignes 2-5. On voit que ce mappeur jSON est celui de l&#x27;objet [RestTemplate] qui gère les échanges HTTP entre le client et le serveur. C&#x27;est ce mappeur qui est utilisé par défaut pour :
+    <ul>
+      <li>sérialiser la valeur postée au serveur ;
+      </li>
+      <li>désérialiser la réponse renvoyée par le serveur ;
+      </li>
+    </ul>
+  </li>
 </ul>
-</li>
-</ul>
+
 <p>Revenons au code de [getAllLongEntities] :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-text">
 <span class="odt-code-line"><span style="color:#000000">            </span><span style="color:#3f7f5f">// filtres jSON</span></span>
@@ -1979,14 +2082,20 @@
 </code></pre></div>
 
 <ul>
-<li><span style="color: #000000">ligne 2 : on obtient le mappeur [</span><span style="color: #2a00ff">jsonMapperLongCategorie</span><span style="color: #000000">] du contexte Spring ;</span></li>
-<li><span style="color: #000000">ligne 4 : la méthode [getResponse] est exécutée. Il y a alors :</span><ul>
-<li><span style="color: #000000">sérialisation automatique de la valeur postée (il n&#x27;y en a pas ici) ;</span></li>
-<li><span style="color: #000000">désérialisation automatique ici de la réponse reçue, ici un type List&lt;Categorie&gt;. C&#x27;est parce que l&#x27;entité [Categorie] a un filtre jSON [jsonFilterCategorie], qu&#x27;il fallait gérer celui-ci. C&#x27;est la raison de la ligne 2 ;</span></li>
+  <li><span style="color: #000000">ligne 2 : on obtient le mappeur [</span><span style="color: #2a00ff">jsonMapperLongCategorie</span><span style="color: #000000">] du contexte Spring ;</span>
+  </li>
+  <li><span style="color: #000000">ligne 4 : la méthode [getResponse] est exécutée. Il y a alors :</span>
+    <ul>
+      <li><span style="color: #000000">sérialisation automatique de la valeur postée (il n&#x27;y en a pas ici) ;</span>
+      </li>
+      <li><span style="color: #000000">désérialisation automatique ici de la réponse reçue, ici un type List&lt;Categorie&gt;. C&#x27;est parce que l&#x27;entité [Categorie] a un filtre jSON [jsonFilterCategorie], qu&#x27;il fallait gérer celui-ci. C&#x27;est la raison de la ligne 2 ;</span>
+      </li>
+    </ul>
+  </li>
+  <li><span style="color: #000000">ligne 6 : le résultat subit une deuxième sérialisation / désérialisation avec ce même mappeur pour récupérer le type List&lt;Categorie&gt;. Ligne 4, le type rendu par [getResponse] est un type [Object] ;</span>
+  </li>
 </ul>
-</li>
-<li><span style="color: #000000">ligne 6 : le résultat subit une deuxième sérialisation / désérialisation avec ce même mappeur pour récupérer le type List&lt;Categorie&gt;. Ligne 4, le type rendu par [getResponse] est un type [Object] ;</span></li>
-</ul>
+
 <p><span style="color: #000000">Dans les méthodes qui suivent, on se rappellera que le mappeur jSON demandé au contexte Spring est utilisé à la fois pour la valeur postée (sérialisation) et la valeur reçue (désérialisation). Si l&#x27;une ou les deux valeurs ont un filtre jSON, il faut les configurer. Le mappeur peut donc avoir jusqu&#x27;à deux filtres configurés. Dans ce qui suit, cela n&#x27;arrive jamais. Soit la valeur postée n&#x27;a pas de filtre (List&lt;Long&gt;, List&lt;String&gt;), soit c&#x27;est la valeur reçue qui n&#x27;en a pas (List&lt;CoreCategorie&gt;, List&lt;CoreProduit&gt;). Les entités ayant un filtre jSON sont uniquement [Categorie] et [Produit].</span></p>
 <p><a id="refheading1350701333600986"></a></p>
 <h4 id="18523-la-methode-getshortentitiesbyid">18.5.2.3. La méthode [getShortEntitiesById]</h4>
@@ -2011,18 +2120,28 @@
 </code></pre></div>
 
 <ul>
-<li>ligne 5 : le mappeur jSON qui va permettre de sérialiser la valeur postée (une liste de clés primaires) et de désérialiser la réponse rendue par la classe [Client] (des catégories dans leurs versions courtes). Le filtre choisi n&#x27;aura aucun effet sur la valeur postée puisque pour les éléments de la liste postée, il n&#x27;y a pas de filtre ;</li>
-<li>ligne 7 : on appelle la méthode [<span style="color: #000000">getResponse</span>] de la classe parent. C&#x27;est cette méthode qui assure les échanges avec le service web / jSON. Ses paramètres sont les suivants :<ul>
-<li>l&#x27;URL du service interrogée [<span style="color: #2a00ff">/getShortCategoriesById]</span> ;</li>
-<li>la méthode [POST] à utiliser ;</li>
-<li>le code d&#x27;erreur à utiliser si erreur il y a (204) ;</li>
-<li>la valeur postée. Ici c&#x27;est une liste de clés primaires ;</li>
+  <li>ligne 5 : le mappeur jSON qui va permettre de sérialiser la valeur postée (une liste de clés primaires) et de désérialiser la réponse rendue par la classe [Client] (des catégories dans leurs versions courtes). Le filtre choisi n&#x27;aura aucun effet sur la valeur postée puisque pour les éléments de la liste postée, il n&#x27;y a pas de filtre ;
+  </li>
+  <li>ligne 7 : on appelle la méthode [<span style="color: #000000">getResponse</span>] de la classe parent. C&#x27;est cette méthode qui assure les échanges avec le service web / jSON. Ses paramètres sont les suivants :
+    <ul>
+      <li>l&#x27;URL du service interrogée [<span style="color: #2a00ff">/getShortCategoriesById]</span> ;
+      </li>
+      <li>la méthode [POST] à utiliser ;
+      </li>
+      <li>le code d&#x27;erreur à utiliser si erreur il y a (204) ;
+      </li>
+      <li>la valeur postée. Ici c&#x27;est une liste de clés primaires ;
+      </li>
+    </ul>
+  </li>
+  <li>ligne 7 : dans l&#x27;expression [<span style="color: #000000">client.&lt;</span><b><span style="color: #000000">List&lt;Categorie&gt;, List&lt;Long&gt;</span></b><span style="color: #000000">&gt;</span>] on désigne les paramètres effectifs des types génériques [T1, T2] de la méthode [getResponse]. On rappelle que [T1] est le type de la réponse attendue et [T2] le type de la valeur postée. Ici on attend un résultat de type [List&lt;Categorie&gt;] et la valeur postée est une liste de clés primaires de type [List&lt;Long&gt;] ;
+  </li>
+  <li>ligne 7 : le résultat rendu par la méthode [getResponse] est mis dans un objet de type [Object] ;
+  </li>
+  <li>ligne 9 : on rend la liste des catégories. Pour cela, on sérialise l&#x27;objet [map] [<span style="color: #6a3e3e">mapper</span><span style="color: #000000">.writeValueAsString(</span><span style="color: #6a3e3e">map</span><span style="color: #000000">)</span>] en une chaîne jSON qu&#x27;on resérialise vers un type [List&lt;Categorie&gt;] ;
+  </li>
 </ul>
-</li>
-<li>ligne 7 : dans l&#x27;expression [<span style="color: #000000">client.&lt;</span><strong><span style="color: #000000">List&lt;Categorie&gt;, List&lt;Long&gt;</span></strong><span style="color: #000000">&gt;</span>] on désigne les paramètres effectifs des types génériques [T1, T2] de la méthode [getResponse]. On rappelle que [T1] est le type de la réponse attendue et [T2] le type de la valeur postée. Ici on attend un résultat de type [List&lt;Categorie&gt;] et la valeur postée est une liste de clés primaires de type [List&lt;Long&gt;] ;</li>
-<li>ligne 7 : le résultat rendu par la méthode [getResponse] est mis dans un objet de type [Object] ;</li>
-<li>ligne 9 : on rend la liste des catégories. Pour cela, on sérialise l&#x27;objet [map] [<span style="color: #6a3e3e">mapper</span><span style="color: #000000">.writeValueAsString(</span><span style="color: #6a3e3e">map</span><span style="color: #000000">)</span>] en une chaîne jSON qu&#x27;on resérialise vers un type [List&lt;Categorie&gt;] ;</li>
-</ul>
+
 <p><a id="refheading1350721333600986"></a></p>
 <h4 id="18524-la-methode-saveentities">18.5.2.4. La méthode [saveEntities]</h4>
 <p>La méthode [saveEntities] persiste des catégories en base. Son code est le suivant :</p>
@@ -2065,20 +2184,32 @@
 </code></pre></div>
 
 <ul>
-<li>ligne 2 : la méthode [<span style="color: #000000">saveEntities</span>] sert à persister en base de données les catégories passées en paramètre. Elle rend ces mêmes catégories enrichies de leurs clés primaires. Si les catégories sont passées avec des produits, ceux-ci sont également persistés ;</li>
-<li>ligne 5 : le mappeur jSON qui va permettre de sérialiser la valeur postée (une liste de catégories dans leurs versions longues) et de désérialiser la réponse rendue par la classe [Client] (des objets [CoreCategorie]). Le filtre choisi n&#x27;aura aucun effet sur le résultat puisque les éléments de la liste reçue en réponse n&#x27;ont pas de filtre ;</li>
-<li>ligne 7 : on appelle la méthode [getResponse] du parent pour faire les échanges avec le service web / jSON ;<ul>
-<li>le 1er paramètre est l&#x27;URL [<span style="color: #2a00ff">/saveCategories</span>] ;</li>
-<li>le second paramètre est la méthode HTTP à utiliser, ici un [POST] ;</li>
-<li>le 3ième paramètre est le code d&#x27;erreur à utiliser si erreur il y a (200) ;</li>
-<li>le dernier paramètre est la valeur postée, ici la liste des catégories à persister ;</li>
+  <li>ligne 2 : la méthode [<span style="color: #000000">saveEntities</span>] sert à persister en base de données les catégories passées en paramètre. Elle rend ces mêmes catégories enrichies de leurs clés primaires. Si les catégories sont passées avec des produits, ceux-ci sont également persistés ;
+  </li>
+  <li>ligne 5 : le mappeur jSON qui va permettre de sérialiser la valeur postée (une liste de catégories dans leurs versions longues) et de désérialiser la réponse rendue par la classe [Client] (des objets [CoreCategorie]). Le filtre choisi n&#x27;aura aucun effet sur le résultat puisque les éléments de la liste reçue en réponse n&#x27;ont pas de filtre ;
+  </li>
+  <li>ligne 7 : on appelle la méthode [getResponse] du parent pour faire les échanges avec le service web / jSON ;
+    <ul>
+      <li>le 1er paramètre est l&#x27;URL [<span style="color: #2a00ff">/saveCategories</span>] ;
+      </li>
+      <li>le second paramètre est la méthode HTTP à utiliser, ici un [POST] ;
+      </li>
+      <li>le 3ième paramètre est le code d&#x27;erreur à utiliser si erreur il y a (200) ;
+      </li>
+      <li>le dernier paramètre est la valeur postée, ici la liste des catégories à persister ;
+      </li>
+    </ul>
+  </li>
+  <li>ligne 7 : les paramètres génériques [T1, T2] de la méthode [getResponse] sont ici [<span style="color: #000000">List&lt;CoreCategorie&gt;, List&lt;Categorie&gt;</span>]. Le 1er type est celui de la réponse attendue, le second le type celui de la valeur postée ;
+  </li>
+  <li>ligne 7 : on met la réponse obtenue dans un type [Object] ;
+  </li>
+  <li>ligne 9 : on reconstitue la réponse de type [List&lt;CoreCategorie&gt;]. La réponse à rendre est de type [List&lt;Categorie&gt;] (ligne 2) et non [List&lt;CoreCategorie&gt;]. La réponse reçue est la liste des clés primaires des catégories et produits persistés ;
+  </li>
+  <li>lignes 14-28 : les clés primaires reçues sont affectées aux catégories et produits (lignes 17, 23, 24). Par ailleurs, on reconstruit les liens [Produit] --&gt; [Categorie] (lignes 24-25) ;
+  </li>
 </ul>
-</li>
-<li>ligne 7 : les paramètres génériques [T1, T2] de la méthode [getResponse] sont ici [<span style="color: #000000">List&lt;CoreCategorie&gt;, List&lt;Categorie&gt;</span>]. Le 1er type est celui de la réponse attendue, le second le type celui de la valeur postée ;</li>
-<li>ligne 7 : on met la réponse obtenue dans un type [Object] ;</li>
-<li>ligne 9 : on reconstitue la réponse de type [List&lt;CoreCategorie&gt;]. La réponse à rendre est de type [List&lt;Categorie&gt;] (ligne 2) et non [List&lt;CoreCategorie&gt;]. La réponse reçue est la liste des clés primaires des catégories et produits persistés ;</li>
-<li>lignes 14-28 : les clés primaires reçues sont affectées aux catégories et produits (lignes 17, 23, 24). Par ailleurs, on reconstruit les liens [Produit] --&gt; [Categorie] (lignes 24-25) ;</li>
-</ul>
+
 <p>Toutes les autres méthodes suivent le même canevas.</p>
 <p><a id="refheading18024265679331"></a></p>
 <h2 id="186-le-test-junit">18.6. Le test JUnit</h2>
@@ -2099,11 +2230,16 @@
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/100000000000050E00000168E61EA218.png" style="display:inline-block; margin:4px;width:17.119cm;height:4.763cm;" class="odt-zoomable" data-zoom-src="images/100000000000050E00000168E61EA218.png" /></td></tr></table>
 
 <ul>
-<li>en [1], le test [JUnitTestCheckArguments] ;</li>
-<li>en [2], le test [JUnitTestDao] ;</li>
-<li>en [3], le test [JUnitTestPushTheLimits] exécuté côté client (projet [spring-webjson-client-generic]) ;</li>
-<li>en [3], le test [JUnitTestPushTheLimits] exécuté côté serveur (projet [spring-jdbc-generic-04]). On constate que la couche réseau amène très peu de ralentissement vis à vis de celui amené par les accès au SGBD ;</li>
+  <li>en [1], le test [JUnitTestCheckArguments] ;
+  </li>
+  <li>en [2], le test [JUnitTestDao] ;
+  </li>
+  <li>en [3], le test [JUnitTestPushTheLimits] exécuté côté client (projet [spring-webjson-client-generic]) ;
+  </li>
+  <li>en [3], le test [JUnitTestPushTheLimits] exécuté côté serveur (projet [spring-jdbc-generic-04]). On constate que la couche réseau amène très peu de ralentissement vis à vis de celui amené par les accès au SGBD ;
+  </li>
 </ul>
+
 <p><a id="refheading1350741333600986"></a></p>
 <h2 id="187-implementation-du-service-web-json-jpa-hibernate">18.7. Implémentation du service web / jSON / JPA / Hibernate</h2>
 <p>Nous nous intéressons maintenant à l&#x27;architecture suivante :</p>
@@ -2120,8 +2256,10 @@
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/100000000000053500000180F448ED53.png" style="display:inline-block; margin:4px;width:17.635cm;height:5.08cm;" class="odt-zoomable" data-zoom-src="images/100000000000053500000180F448ED53.png" /></td></tr></table>
 
 <ul>
-<li>en [1], désigner un dossier spécialement créé pour le nouveau projet ;</li>
+  <li>en [1], désigner un dossier spécialement créé pour le nouveau projet ;
+  </li>
 </ul>
+
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000000F70000013D1ECF150B.png" style="display:inline-block; margin:4px;width:4.57cm;height:5.87cm;" class="odt-zoomable" data-zoom-src="images/10000000000000F70000013D1ECF150B.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td></tr></table>
 
 <p>Il y a trois types de modification à faire. Les premières sont dans le fichier [pom.xml] de configuration Maven du projet :</p>
@@ -2170,9 +2308,12 @@
 </code></pre></div>
 
 <ul>
-<li>ligne 5 : on change le nom de l&#x27;artifact Maven ;</li>
-<li>lignes 24-28 : la dépendance est désormais sur le projet [spring-jpa-generic] et non plus sur [spring-jdbc-generic-04] ;</li>
+  <li>ligne 5 : on change le nom de l&#x27;artifact Maven ;
+  </li>
+  <li>lignes 24-28 : la dépendance est désormais sur le projet [spring-jpa-generic] et non plus sur [spring-jdbc-generic-04] ;
+  </li>
 </ul>
+
 <p>Au final, les dépendances sont les suivantes :</p>
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/1000000000000101000000857235FA47.png" style="display:inline-block; margin:4px;width:4.761cm;height:2.461cm;" class="odt-zoomable" data-zoom-src="images/1000000000000101000000857235FA47.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td></tr></table>
 
@@ -2194,8 +2335,10 @@
 </code></pre></div>
 
 <ul>
-<li>ligne 9 : on importe désormais la configuration du projet [spring-jpa-generic] et non plus celle du projet [spring-jdbc-generic-04] ;</li>
+  <li>ligne 9 : on importe désormais la configuration du projet [spring-jpa-generic] et non plus celle du projet [spring-jdbc-generic-04] ;
+  </li>
 </ul>
+
 <p>Ceci fait on est prêt. Nous lançons le service web avec la configuration [spring-webjson-server-jpa-generic-hibernate-eclipselink] :</p>
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/100000000000016A000000CDAB037503.png" style="display:inline-block; margin:4px;width:6.699cm;height:3.799cm;" class="odt-zoomable" data-zoom-src="images/100000000000016A000000CDAB037503.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/100000000000019200000114E52D8BF7.png" style="display:inline-block; margin:4px;width:7.44cm;height:5.11cm;" class="odt-zoomable" data-zoom-src="images/100000000000019200000114E52D8BF7.png" /></td></tr></table>
 
@@ -2205,22 +2348,32 @@
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000005060000017F37F459AC.png" style="display:inline-block; margin:4px;width:17.013cm;height:5.068cm;" class="odt-zoomable" data-zoom-src="images/10000000000005060000017F37F459AC.png" /></td></tr></table>
 
 <ul>
-<li>en [1], le test [JUnitTestCheckArguments] (configuration d&#x27;exécution [spring-webjson-client-generic-JUnitTestCheckArguments]) ;</li>
-<li>en [2], le test [JUnitTestDao] (configuration d&#x27;exécution [spring-webjson-client-generic-JUnitTestDao]) ;</li>
-<li>en [3], le test [JUnitTestPushTheLimits] exécuté côté client (configuration d&#x27;exécution [spring-webjson-client-generic-JUnitTestPushTheLimits]) ;</li>
-<li>en [4], le test [JUnitTestPushTheLimits] exécuté côté serveur (configuration d&#x27;exécution [spring-jpa-generic-JUnitTestPushTheLimits-hibernate-eclipselink]) ;</li>
+  <li>en [1], le test [JUnitTestCheckArguments] (configuration d&#x27;exécution [spring-webjson-client-generic-JUnitTestCheckArguments]) ;
+  </li>
+  <li>en [2], le test [JUnitTestDao] (configuration d&#x27;exécution [spring-webjson-client-generic-JUnitTestDao]) ;
+  </li>
+  <li>en [3], le test [JUnitTestPushTheLimits] exécuté côté client (configuration d&#x27;exécution [spring-webjson-client-generic-JUnitTestPushTheLimits]) ;
+  </li>
+  <li>en [4], le test [JUnitTestPushTheLimits] exécuté côté serveur (configuration d&#x27;exécution [spring-jpa-generic-JUnitTestPushTheLimits-hibernate-eclipselink]) ;
+  </li>
 </ul>
+
 <p><a id="refheading1398171985289926"></a></p>
 <h3 id="1872-pourquoi-ca-marche">18.7.2. Pourquoi ça marche ?</h3>
 <p>Ca marche et pourtant lorsqu&#x27;on regarde attentivement le code, il est étonnant que ça marche. Si les couches [DAO] implémentées par les projets [spring-jdbc-generic-04] et [spring-jpa-generic] présentent bien la même interface, elles ne manipulent pas les mêmes entités [Categorie] et [Produit] : dans le projet [spring-jpa-generic], ces entités ont un champ supplémentaire [EntityType entityType] qui a deux valeurs possibles :</p>
 <ul>
-<li><strong>EntityType.POJO</strong> : l&#x27;entité est un objet normal dont on peut utiliser librement tous les champs ;</li>
-<li><strong>EntityType.PROXY</strong> : l&#x27;entité est un objet PROXY rendu par la couche [JPA]. Dans ce cas, certains champs (getters de ces champs en fait) n&#x27;ont pas le comportement habituel et on a établi les règles suivantes :<ul>
-<li>si [Categorie.entityType==EntityType.PROXY], alors il ne faut pas utiliser la méthode [getProduits] ;</li>
-<li>si [Produit.entityType==EntityType.PROXY], alors il ne faut pas utiliser la méthode [getCategorie] ;</li>
+  <li><b>EntityType.POJO</b> : l&#x27;entité est un objet normal dont on peut utiliser librement tous les champs ;
+  </li>
+  <li><b>EntityType.PROXY</b> : l&#x27;entité est un objet PROXY rendu par la couche [JPA]. Dans ce cas, certains champs (getters de ces champs en fait) n&#x27;ont pas le comportement habituel et on a établi les règles suivantes :
+    <ul>
+      <li>si [Categorie.entityType==EntityType.PROXY], alors il ne faut pas utiliser la méthode [getProduits] ;
+      </li>
+      <li>si [Produit.entityType==EntityType.PROXY], alors il ne faut pas utiliser la méthode [getCategorie] ;
+      </li>
+    </ul>
+  </li>
 </ul>
-</li>
-</ul>
+
 <p>Or on vient de porter le projet [spring-webjson-server-jdbc-generic] vers [spring-webjson-server-jpa-generic] sans modification de code. Comment est-ce possible ?</p>
 <p>Examinons le code de la méthode [saveCategories] :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-javascript">
@@ -2240,20 +2393,26 @@
 </code></pre></div>
 
 <ul>
-<li>ligne 8 : un objet List&lt;Categorie&gt; est créé à partir d&#x27;une chaîne jSON :<ul>
-<li>dans la valeur postée, les produits n&#x27;ont pas de champ [categorie]. Il est en effet inutile de poster ce champ. Si on le postait, la désérialisation construirait un objet [Produit] ayant un champ [categorie] pointant sur un objet [Categorie] fraîchement créé. Pour n produits, on aurait ainsi n objets [Categorie] créés alors qu&#x27;il en faut un seul. Par ailleurs, le champ [categorie] des produits ne pointerait pas vers le bon objet [Categorie] qui est celui auquel ils appartiennent. Donc ici les produits ont un champ [categorie==null] ;</li>
-<li>dans les classes [Categorie] et [Produit], le champ [EntityType entityType] est défini de la façon suivante :</li>
+  <li>ligne 8 : un objet List&lt;Categorie&gt; est créé à partir d&#x27;une chaîne jSON :
+    <ul>
+      <li>dans la valeur postée, les produits n&#x27;ont pas de champ [categorie]. Il est en effet inutile de poster ce champ. Si on le postait, la désérialisation construirait un objet [Produit] ayant un champ [categorie] pointant sur un objet [Categorie] fraîchement créé. Pour n produits, on aurait ainsi n objets [Categorie] créés alors qu&#x27;il en faut un seul. Par ailleurs, le champ [categorie] des produits ne pointerait pas vers le bon objet [Categorie] qui est celui auquel ils appartiennent. Donc ici les produits ont un champ [categorie==null] ;
+      </li>
+      <li>dans les classes [Categorie] et [Produit], le champ [EntityType entityType] est défini de la façon suivante :
+      </li>
+    </ul>
+  </li>
 </ul>
-</li>
-</ul>
+
 <div class="odt-code-rich" data-linenums="false" style="counter-reset: odtline 0;"><pre><code class="language-text">
 <span class="odt-code-line"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">protected</span><span style="color:#000000"> EntityType </span><span style="color:#0000c0">entityType</span><span style="color:#000000"> = EntityType.</span><span style="font-weight:bold;font-style:italic;color:#0000c0">POJO</span><span style="color:#000000">;</span></span>
 </code></pre></div>
 
 <p>Donc les entités [Categorie] et [Produit] créées par la sérialisation ont toutes un type POJO.</p>
 <ul>
-<li>ligne 11 : on persiste les catégories. Là ça ne devrait pas marcher. En effet, si dans l&#x27;implémentation JDBC, le champ [Produit.categorie] n&#x27;est pas utile pour la persistance (c&#x27;est le champ [idCategorie] qui est utilisé), pour l&#x27;implémentation JPA, il est absolument nécessaire. Ce champ doit pointer sur une entité [Categorie], or ici il vaut <em>null</em>.</li>
+  <li>ligne 11 : on persiste les catégories. Là ça ne devrait pas marcher. En effet, si dans l&#x27;implémentation JDBC, le champ [Produit.categorie] n&#x27;est pas utile pour la persistance (c&#x27;est le champ [idCategorie] qui est utilisé), pour l&#x27;implémentation JPA, il est absolument nécessaire. Ce champ doit pointer sur une entité [Categorie], or ici il vaut <i>null</i>.
+  </li>
 </ul>
+
 <p>Examinons le code de la méthode [DaoCategorie.saveEntities] de la couche [DAO / JPA] :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-text">
 <span class="odt-code-line">@Override</span>
@@ -2289,8 +2448,10 @@
 </code></pre></div>
 
 <ul>
-<li>lignes 13-14 : on voit que le lien [Produit]  --&gt; [Categorie] est rétabli pour les entités POJO (ligne 8), ce qui est le cas ici. Ce qui explique que la persistance des catégories ait fonctionné. Ce cas de figure est utile dans d&#x27;autres circonstances : on ne peut jamais être sûr que l&#x27;utilisateur a lié correctement les produits aux catégories. Alors on le fait à sa place ;</li>
+  <li>lignes 13-14 : on voit que le lien [Produit]  --&gt; [Categorie] est rétabli pour les entités POJO (ligne 8), ce qui est le cas ici. Ce qui explique que la persistance des catégories ait fonctionné. Ce cas de figure est utile dans d&#x27;autres circonstances : on ne peut jamais être sûr que l&#x27;utilisateur a lié correctement les produits aux catégories. Alors on le fait à sa place ;
+  </li>
 </ul>
+
 <p>Maintenant examinons la méthode [ProduitController.saveProduits] qui persiste des produits :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-javascript">
 <span class="odt-code-line"><span style="color:#646464">@RequestMapping</span><span style="color:#000000">(value = </span><span style="color:#2a00ff">&quot;/saveProduits&quot;</span><span style="color:#000000">, method = RequestMethod.</span><span style="font-weight:bold;font-style:italic;color:#0000c0">POST</span><span style="color:#000000">, consumes = </span><span style="color:#2a00ff">&quot;application/json; charset=UTF-8&quot;</span><span style="color:#000000">)</span></span>
@@ -2315,13 +2476,18 @@
 </code></pre></div>
 
 <ul>
-<li>lignes 8 : un objet List&lt;Produit&gt; est reconstitué à partir de la valeur postée. Pour les raisons expliquées précédemment, chaque objet [Produit] aura un champ :<ul>
-<li>[EntityType entityType] égal à [EntityType.POJO] ;</li>
-<li>[Categorie categorie] égal à <em>null</em> ;</li>
+  <li>lignes 8 : un objet List&lt;Produit&gt; est reconstitué à partir de la valeur postée. Pour les raisons expliquées précédemment, chaque objet [Produit] aura un champ :
+    <ul>
+      <li>[EntityType entityType] égal à [EntityType.POJO] ;
+      </li>
+      <li>[Categorie categorie] égal à <i>null</i> ;
+      </li>
+    </ul>
+  </li>
+  <li>ligne 11 : la persistance des produits devrait échouer. En effet, avec JPA, la persistance d&#x27;un produit n&#x27;est possible que si son champ [categorie] pointe vers une entité [Categorie] ;
+  </li>
 </ul>
-</li>
-<li>ligne 11 : la persistance des produits devrait échouer. En effet, avec JPA, la persistance d&#x27;un produit n&#x27;est possible que si son champ [categorie] pointe vers une entité [Categorie] ;</li>
-</ul>
+
 <p>Voyons le code de la méthode [DaoProduit.saveEntities] de la couche [DAO / JPA] :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-text">
 <span class="odt-code-line"><span style="color:#000000">    </span><span style="color:#646464">@Override</span></span>
@@ -2342,8 +2508,10 @@
 </code></pre></div>
 
 <ul>
-<li>lignes 3-8 : pour chaque [Produit] de type POJO, un lien vers un objet [Categorie] ayant la bonne clé primaire et une version non <em>null</em> est créé. C&#x27;est suffisant pour que la couche JPA persiste correctement le produit ;</li>
+  <li>lignes 3-8 : pour chaque [Produit] de type POJO, un lien vers un objet [Categorie] ayant la bonne clé primaire et une version non <i>null</i> est créé. C&#x27;est suffisant pour que la couche JPA persiste correctement le produit ;
+  </li>
 </ul>
+
 <p>Voyons un dernier point. Les objets [Categorie] et [Produit] ont un champ supplémentaire [EntityType entityType] qui va être sérialisé en jSON lorsque ces objets vont être envoyés au client. On peut le vérifier avec [Advanced Rest Client] :</p>
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/100000000000048300000245A2E67000.png" style="display:inline-block; margin:4px;width:15.281cm;height:7.687cm;" class="odt-zoomable" data-zoom-src="images/100000000000048300000245A2E67000.png" /></td></tr></table>
 
@@ -2365,9 +2533,12 @@
 </code></pre></div>
 
 <ul>
-<li>ligne 5 : on configure le mappeur jSON de l&#x27;objet [RestTemplate] de façon à gérer les filtres jSON [<span style="color: #2a00ff">jsonFilterCategorie</span>] de l&#x27;objet [Categorie] et le filtre [<span style="color: #2a00ff">jsonFilterProduit</span>] de l&#x27;objet [Produit] ;</li>
-<li>ligne 7 : la valeur postée (il n&#x27;y en a pas ici) et la valeur reçue (List&lt;Categorie&gt;) sont sérialisées / désérialisées avec ce mappeur. On constate que la présence du champ [entityType] dans la chaîne jSON reçue alors que ce champ n&#x27;existe pas dans les entités [Categorie] et [Produit] côté client, ne provoque pas d&#x27;erreur. Il est ignoré. S&#x27;il avait provoqué une erreur, on aurait modifié les filtres côté client pour qu&#x27;il soit ignoré.</li>
+  <li>ligne 5 : on configure le mappeur jSON de l&#x27;objet [RestTemplate] de façon à gérer les filtres jSON [<span style="color: #2a00ff">jsonFilterCategorie</span>] de l&#x27;objet [Categorie] et le filtre [<span style="color: #2a00ff">jsonFilterProduit</span>] de l&#x27;objet [Produit] ;
+  </li>
+  <li>ligne 7 : la valeur postée (il n&#x27;y en a pas ici) et la valeur reçue (List&lt;Categorie&gt;) sont sérialisées / désérialisées avec ce mappeur. On constate que la présence du champ [entityType] dans la chaîne jSON reçue alors que ce champ n&#x27;existe pas dans les entités [Categorie] et [Produit] côté client, ne provoque pas d&#x27;erreur. Il est ignoré. S&#x27;il avait provoqué une erreur, on aurait modifié les filtres côté client pour qu&#x27;il soit ignoré.
+  </li>
 </ul>
+
 <p><a id="refheading1398191985289926"></a></p>
 <h2 id="188-implementation-du-service-web-json-jpa-eclipselink">18.8. Implémentation du service web / jSON / JPA / EclipseLink</h2>
 <p>Pour implémenter le service web / jSON / JPA / EclipseLink, il suffit de changer d&#x27;implémentation JPA :</p>
@@ -2380,11 +2551,16 @@
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000004F80000015ED650627A.png" style="display:inline-block; margin:4px;width:16.828cm;height:4.63cm;" class="odt-zoomable" data-zoom-src="images/10000000000004F80000015ED650627A.png" /></td></tr></table>
 
 <ul>
-<li>en [1], le test [JUnitTestCheckArguments] ;</li>
-<li>en [2], le test [JUnitTestDao] ;</li>
-<li>en [3], le test [JUnitTestPushTheLimits] exécuté côté client (projet [spring-webjson-client-generic]) ;</li>
-<li>en [4], le test [JUnitTestPushTheLimits] exécuté côté serveur (configuration d&#x27;exécution [spring-jpa-generic-JUnitTestPushTheLimits-hibernate-eclipselink]) ;</li>
+  <li>en [1], le test [JUnitTestCheckArguments] ;
+  </li>
+  <li>en [2], le test [JUnitTestDao] ;
+  </li>
+  <li>en [3], le test [JUnitTestPushTheLimits] exécuté côté client (projet [spring-webjson-client-generic]) ;
+  </li>
+  <li>en [4], le test [JUnitTestPushTheLimits] exécuté côté serveur (configuration d&#x27;exécution [spring-jpa-generic-JUnitTestPushTheLimits-hibernate-eclipselink]) ;
+  </li>
 </ul>
+
 <p><a id="refheading1398211985289926"></a></p>
 <h2 id="189-implementation-du-service-web-json-jpa-openjpa">18.9. Implémentation du service web / jSON / JPA / OpenJpa</h2>
 <p>Pour implémenter le service web / jSON / JPA / OpenJpa, il suffit de changer d&#x27;implémentation JPA :</p>
@@ -2400,21 +2576,32 @@
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000004E700000176D7D5B2E5.png" style="display:inline-block; margin:4px;width:16.603cm;height:4.948cm;" class="odt-zoomable" data-zoom-src="images/10000000000004E700000176D7D5B2E5.png" /></td></tr></table>
 
 <ul>
-<li>en [1], le test [JUnitTestCheckArguments] (configuration d&#x27;exécution [spring-webjson-client-generic-JUnitTestCheckArguments]) ;</li>
-<li>en [2], le test [JUnitTestDao] (configuration d&#x27;exécution [spring-webjson-client-generic-JUnitTestDao]) ;</li>
-<li>en [3], le test [JUnitTestPushTheLimits] exécuté côté client (configuration d&#x27;exécution [spring-webjson-client-generic-JUnitTestPushTheLimits]) ;</li>
-<li>en [4], le test [JUnitTestPushTheLimits] exécuté côté serveur (configuration d&#x27;exécution [spring-jpa-generic-JUnitTestPushTheLimits-openpa]) ;</li>
+  <li>en [1], le test [JUnitTestCheckArguments] (configuration d&#x27;exécution [spring-webjson-client-generic-JUnitTestCheckArguments]) ;
+  </li>
+  <li>en [2], le test [JUnitTestDao] (configuration d&#x27;exécution [spring-webjson-client-generic-JUnitTestDao]) ;
+  </li>
+  <li>en [3], le test [JUnitTestPushTheLimits] exécuté côté client (configuration d&#x27;exécution [spring-webjson-client-generic-JUnitTestPushTheLimits]) ;
+  </li>
+  <li>en [4], le test [JUnitTestPushTheLimits] exécuté côté serveur (configuration d&#x27;exécution [spring-jpa-generic-JUnitTestPushTheLimits-openpa]) ;
+  </li>
 </ul>
+
 <p>Pour faire fonctionner les tests, il a fallu apporter des modifications à la couche DAO / JPA. En effet, de façon incompréhensible les méthodes [DaoCategorie.saveEntities] et [DaoProduit.saveEntities] ont bogué sur le remplissage de la base en indiquant que des éléments détachés ne pouvaient être persistés. Un élément détaché est un élément qui a soit :</p>
 <ul>
-<li>une clé primaire non <em>null</em> ;</li>
-<li>une version non <em>null</em> ;</li>
+  <li>une clé primaire non <i>null</i> ;
+  </li>
+  <li>une version non <i>null</i> ;
+  </li>
 </ul>
+
 <p>Aucun des deux cas n&#x27;était vérifié. Ne sachant où chercher, j&#x27;ai dupliqué les entités à persister dans une liste toute neuve et là les tests ont fonctionné. Cette modification aurait pu se faire soit :</p>
 <ul>
-<li>dans la couche [DAO / JPA] ;</li>
-<li>dans la couche [web] qui crée les entités à persister ;</li>
+  <li>dans la couche [DAO / JPA] ;
+  </li>
+  <li>dans la couche [web] qui crée les entités à persister ;
+  </li>
 </ul>
+
 <p>J&#x27;ai choisi de le faire dans la couche [DAO / JPA]. Il y a bien sûr perte de performances mais c&#x27;est parfaitement négligeable comparé aux temps de réponse du SGBD. Les modifications sont les suivantes :</p>
 <p>Dans la classe [DaoCategorie] du projet [spring-jpa-generic] :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-markdown">
@@ -2474,8 +2661,10 @@
 </code></pre></div>
 
 <ul>
-<li>lignes 3-25 : la liste [categories] reçue en paramètre (ligne 2) est dupliquée dans la liste [categories2] (ligne 6). C&#x27;est cette liste qui est persistée et rendue à l&#x27;appelant (ligne 52). Cela a une conséquence importante : on rend une liste différente de la liste passée en paramètres et donc là où on povait écrire auparavant :</li>
+  <li>lignes 3-25 : la liste [categories] reçue en paramètre (ligne 2) est dupliquée dans la liste [categories2] (ligne 6). C&#x27;est cette liste qui est persistée et rendue à l&#x27;appelant (ligne 52). Cela a une conséquence importante : on rend une liste différente de la liste passée en paramètres et donc là où on povait écrire auparavant :
+  </li>
 </ul>
+
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>List&lt;Categorie&gt; categories=...
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>daoCategorie.saveEntities(categories)
 <a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>// exploitation de [categories]
@@ -2521,10 +2710,14 @@
 <h2 id="1810-implementation-du-service-web-json-jpa-eclipselink-postgresql">18.10. Implémentation du service web / jSON / JPA / EclipseLink / PostgreSQL</h2>
 <p>Pour implémenter le service web / jSON / JPA / EclipseLink / PostgresQL, il faut installer :</p>
 <ul>
-<li>le projet [postgresql-config-jdbc] de configuration de la couche JDBC de PostgreSQL ;</li>
-<li>le projet [postresql-config-jpa-eclipselink] de configuration de la couche JPA de PostgreSQL ;</li>
-<li>faite Alt-F5 et régénérer tous les projets Maven ;</li>
+  <li>le projet [postgresql-config-jdbc] de configuration de la couche JDBC de PostgreSQL ;
+  </li>
+  <li>le projet [postresql-config-jpa-eclipselink] de configuration de la couche JPA de PostgreSQL ;
+  </li>
+  <li>faite Alt-F5 et régénérer tous les projets Maven ;
+  </li>
 </ul>
+
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000000FD000000E7C82E48D4.png" style="display:inline-block; margin:4px;width:4.68cm;height:4.279cm;" class="odt-zoomable" data-zoom-src="images/10000000000000FD000000E7C82E48D4.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td></tr></table>
 
 <p>On lance le SGBD PostgreSQL et on lance le service web avec la configuration d&#x27;exécution [spring-webjson-server-jpa-generic-hibernate-eclipselink] déjà utilisée précédemment. Ceci fait, on exécute les trois tests du client générique [spring-webjson-client-generic] :</p>
@@ -2533,10 +2726,14 @@
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000004F80000018CA499A7FD.png" style="display:inline-block; margin:4px;width:16.828cm;height:5.239cm;" class="odt-zoomable" data-zoom-src="images/10000000000004F80000018CA499A7FD.png" /></td></tr></table>
 
 <ul>
-<li>en [1], le test [JUnitTestCheckArguments] (configuration d&#x27;exécution [spring-webjson-client-generic-JUnitTestCheckArguments]) ;</li>
-<li>en [2], le test [JUnitTestDao] (configuration d&#x27;exécution [spring-webjson-client-generic-JUnitTestDao]) ;</li>
-<li>en [3], le test [JUnitTestPushTheLimits] exécuté côté client (configuration d&#x27;exécution [spring-webjson-client-generic-JUnitTestPushTheLimits]) ;</li>
-<li>en [4], le test [JUnitTestPushTheLimits] exécuté côté serveur (configuration d&#x27;exécution [spring-jpa-generic-JUnitTestPushTheLimits-hibernate-eclipselink]) ;</li>
+  <li>en [1], le test [JUnitTestCheckArguments] (configuration d&#x27;exécution [spring-webjson-client-generic-JUnitTestCheckArguments]) ;
+  </li>
+  <li>en [2], le test [JUnitTestDao] (configuration d&#x27;exécution [spring-webjson-client-generic-JUnitTestDao]) ;
+  </li>
+  <li>en [3], le test [JUnitTestPushTheLimits] exécuté côté client (configuration d&#x27;exécution [spring-webjson-client-generic-JUnitTestPushTheLimits]) ;
+  </li>
+  <li>en [4], le test [JUnitTestPushTheLimits] exécuté côté serveur (configuration d&#x27;exécution [spring-jpa-generic-JUnitTestPushTheLimits-hibernate-eclipselink]) ;
+  </li>
 </ul>
 
 

@@ -1084,27 +1084,39 @@
 <p>Spring Data est une branche de Spring qui s&#x27;intéresse à l&#x27;accès aux données, que celles-ci soient logées dans une base de données relationnelles SGBDR, une base NOSQL, ou d&#x27;autres types de dépôt. Nous ne nous intéressons ici qu&#x27;aux SGBDR et à leur accès via JPA. Par la suite il nous arrivera d&#x27;écrire [Spring JPA] pour désigner en fait [Spring Data JPA]. Dans l&#x27;architecture ci-dessus, la couche [Spring Data] amène des facilités à la couche [DAO] pour gérer les entités JPA.</p>
 <p>JPA est en fait une spécification. Nous testerons trois de ses implémentations : </p>
 <ul>
-<li>Hibernate (<a href="http://hibernate.org/">http://hibernate.org/</a>);</li>
-<li>EclipseLink (<a href="http://www.eclipse.org/eclipselink/">http://www.eclipse.org/eclipselink/</a>);</li>
-<li>OpenJpa (<a href="http://openjpa.apache.org/">http://openjpa.apache.org/</a>);</li>
+  <li>Hibernate (<a href="http://hibernate.org/">http://hibernate.org/</a>);
+  </li>
+  <li>EclipseLink (<a href="http://www.eclipse.org/eclipselink/">http://www.eclipse.org/eclipselink/</a>);
+  </li>
+  <li>OpenJpa (<a href="http://openjpa.apache.org/">http://openjpa.apache.org/</a>);
+  </li>
 </ul>
+
 <p><a id="refheading2192302014630537"></a></p>
 <h2 id="51-exemple-01">5.1. Exemple-01</h2>
 <p>Sur le site de Spring existent de nombreux tutoriels pour démarrer avec Spring [<a href="http://spring.io/guides">http://spring.io/guides</a>]. Nous allons utiliser l&#x27;un d&#x27;eux pour introduire Spring Data. Nous utilisons pour cela Spring Tool Suite (STS).</p>
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000003840000014438DE608A.png" style="display:inline-block; margin:4px;width:11.906cm;height:4.286cm;" class="odt-zoomable" data-zoom-src="images/10000000000003840000014438DE608A.png" /></td></tr></table>
 
 <ul>
-<li>en [1], nous importons l&#x27;un des tutoriels de [spring.io/guides] ;</li>
+  <li>en [1], nous importons l&#x27;un des tutoriels de [spring.io/guides] ;
+  </li>
 </ul>
+
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000004C4000002C96B0B451C.png" style="display:inline-block; margin:4px;width:16.14cm;height:9.433cm;" class="odt-zoomable" data-zoom-src="images/10000000000004C4000002C96B0B451C.png" /></td></tr></table>
 
 <ul>
-<li>en [2], on choisit le tutoriel [Accessing Data Jpa] qui montre comment accéder à une base de données avec Spring Data ;</li>
-<li>en [3], on choisit un projet configuré par Maven ;</li>
-<li>en [4], le tutoriel peut être délivré sous deux formes : [initial] qui est une version vide qu&#x27;on remplit en suivant le tutoriel ou [complete] qui est la version finale du tutoriel. Nous choisissons cette dernière ;</li>
-<li>en [5], on peut choisir de visualiser le tutoriel dans un navigateur ;</li>
-<li>en [6], le projet final.</li>
+  <li>en [2], on choisit le tutoriel [Accessing Data Jpa] qui montre comment accéder à une base de données avec Spring Data ;
+  </li>
+  <li>en [3], on choisit un projet configuré par Maven ;
+  </li>
+  <li>en [4], le tutoriel peut être délivré sous deux formes : [initial] qui est une version vide qu&#x27;on remplit en suivant le tutoriel ou [complete] qui est la version finale du tutoriel. Nous choisissons cette dernière ;
+  </li>
+  <li>en [5], on peut choisir de visualiser le tutoriel dans un navigateur ;
+  </li>
+  <li>en [6], le projet final.
+  </li>
 </ul>
+
 <p><a id="refheading2192322014630537"></a></p>
 <h3 id="511-la-configuration-maven-du-projet">5.1.1. La configuration Maven du projet</h3>
 <p><a id="refheading1622671200878134"></a>Les dépendances Maven du projet sont configurées dans le fichier [pom.xml] :</p>
@@ -1140,20 +1152,29 @@
 </code></pre></div>
 
 <ul>
-<li>lignes 5-9 : définissent un projet Maven parent. C&#x27;est lui qui définit l&#x27;essentiel des dépendances du projet. Elles peuvent être suffisantes, auquel cas on n&#x27;en rajoute pas, ou pas, auquel cas on rajoute les dépendances manquantes ;</li>
-<li>lignes 12-15 : définissent une dépendance sur [spring-boot-starter-data-jpa]. Cet artifact contient les classes de Spring Data ;</li>
-<li>lignes 16-19 : définissent une dépendance sur le SGBD H2 qui permet de créer et gérer des bases de données en mémoire.</li>
+  <li>lignes 5-9 : définissent un projet Maven parent. C&#x27;est lui qui définit l&#x27;essentiel des dépendances du projet. Elles peuvent être suffisantes, auquel cas on n&#x27;en rajoute pas, ou pas, auquel cas on rajoute les dépendances manquantes ;
+  </li>
+  <li>lignes 12-15 : définissent une dépendance sur [spring-boot-starter-data-jpa]. Cet artifact contient les classes de Spring Data ;
+  </li>
+  <li>lignes 16-19 : définissent une dépendance sur le SGBD H2 qui permet de créer et gérer des bases de données en mémoire.
+  </li>
 </ul>
+
 <p>Regardons les classes amenées par ces dépendances :</p>
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/100000000000014F00000173C684B02E.png" style="display:inline-block; margin:4px;width:5.609cm;height:6.071cm;" class="odt-zoomable" data-zoom-src="images/100000000000014F00000173C684B02E.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000000F70000010C4CA71FE9.png" style="display:inline-block; margin:4px;width:4.57cm;height:4.96cm;" class="odt-zoomable" data-zoom-src="images/10000000000000F70000010C4CA71FE9.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/1000000000000114000000BD1D144A05.png" style="display:inline-block; margin:4px;width:5.11cm;height:3.5cm;" class="odt-zoomable" data-zoom-src="images/1000000000000114000000BD1D144A05.png" /></td></tr></table>
 
 <p>Elles sont très nombreuses :</p>
 <ul>
-<li>certaines appartiennent à l&#x27;écosystème Spring (celles commençant par spring) ;</li>
-<li>d&#x27;autres appartiennent à l&#x27;écosystème Hibernate (hibernate, jboss) dont on utilise ici l&#x27;implémentation JPA ;</li>
-<li>d&#x27;autres sont des bibliothèques de tests (junit, hamcrest) ;</li>
-<li>d&#x27;autres des bibliothèques de logs (log4j, logback, slf4j) ;</li>
+  <li>certaines appartiennent à l&#x27;écosystème Spring (celles commençant par spring) ;
+  </li>
+  <li>d&#x27;autres appartiennent à l&#x27;écosystème Hibernate (hibernate, jboss) dont on utilise ici l&#x27;implémentation JPA ;
+  </li>
+  <li>d&#x27;autres sont des bibliothèques de tests (junit, hamcrest) ;
+  </li>
+  <li>d&#x27;autres des bibliothèques de logs (log4j, logback, slf4j) ;
+  </li>
 </ul>
+
 <p>Nous allons les garder toutes. Pour une application en production, il faudrait ne garder que celles qui sont nécessaires.</p>
 <p>Ligne 26 du fichier [pom.xml] on trouve la ligne :</p>
 <div class="odt-code-rich" data-linenums="false" style="counter-reset: odtline 0;"><pre><code class="language-xml">
@@ -1220,14 +1241,20 @@
 
 <p>Un client a un identifiant [id], un prénom [firstName] et un nom [lastName]. Chaque instance [Customer] représente une ligne d&#x27;une table de la base de données.</p>
 <ul>
-<li>ligne 8 : annotation JPA qui fait que la persistance des instances [Customer] (Create, Read, Update, Delete) va être gérée par une implémentation JPA. D&#x27;après les dépendances Maven, on voit que c&#x27;est l&#x27;implémentation JPA / Hibernate qui est utilisée ;</li>
-<li>lignes 11-12 : annotations JPA qui associent le champ [id] à la clé primaire de la table des [Customer]. La ligne 12, indique que l&#x27;implémentation JPA utilisera la méthode de génération de clé primaire propre au SGBD utilisé, ici H2 ;</li>
+  <li>ligne 8 : annotation JPA qui fait que la persistance des instances [Customer] (Create, Read, Update, Delete) va être gérée par une implémentation JPA. D&#x27;après les dépendances Maven, on voit que c&#x27;est l&#x27;implémentation JPA / Hibernate qui est utilisée ;
+  </li>
+  <li>lignes 11-12 : annotations JPA qui associent le champ [id] à la clé primaire de la table des [Customer]. La ligne 12, indique que l&#x27;implémentation JPA utilisera la méthode de génération de clé primaire propre au SGBD utilisé, ici H2 ;
+  </li>
 </ul>
+
 <p>Il n&#x27;y a pas d&#x27;autres annotations JPA. Des valeurs par défaut seront alors utilisées :</p>
 <ul>
-<li>la table des [Customer] portera le nom de la classe, ç-à-d [Customer] ;</li>
-<li>les colonnes de cette table porteront le nom des champs de la classe : [id, firstName, lastName] sachant que la casse n&#x27;est pas prise en compte dans le nom d&#x27;une colonne de table ;</li>
+  <li>la table des [Customer] portera le nom de la classe, ç-à-d [Customer] ;
+  </li>
+  <li>les colonnes de cette table porteront le nom des champs de la classe : [id, firstName, lastName] sachant que la casse n&#x27;est pas prise en compte dans le nom d&#x27;une colonne de table ;
+  </li>
 </ul>
+
 <p>On notera qu&#x27;à aucun moment, l&#x27;implémentation JPA utilisée n&#x27;est nommée.</p>
 <p><a id="refheading2192362014630537"></a></p>
 <h3 id="513-la-couche-spring-data">5.1.3. La couche [Spring Data]</h3>
@@ -1284,14 +1311,22 @@
 
 <p>Cette interface définit les opérations CRUD (Create – Read – Update – Delete) qu&#x27;on peut faire sur un type JPA T :</p>
 <ul>
-<li>ligne 8 : la méthode <strong>save</strong> permet de <strong>persister</strong> une entité T en base. Elle rend l&#x27;entité persistée avec la clé primaire que lui a donnée le SGBD. Elle permet également de <strong>mettre à jour</strong> une entité T identifiée par sa clé primaire <em>id</em>. Le choix de l&#x27;une ou l&#x27;autre action se fait selon la valeur de la clé primaire <em>id</em> : si celle-ci vaut <strong>null</strong> c&#x27;est l&#x27;opération de persistance qui a lieu, sinon c&#x27;est l&#x27;opération de mise à jour ;</li>
-<li>ligne 10 : idem mais pour une liste d&#x27;entités ;</li>
-<li>ligne 12 : la méthode <strong>findOne</strong> permet de retrouver une entité T identifiée par sa clé primaire <em>id</em> ;</li>
-<li>ligne 22 : la méthode <strong>delete</strong> permet de supprimer une entité T identifiée par sa clé primaire <em>id</em> ;</li>
-<li>lignes 24-28 : des variantes de la méthode [delete] ;</li>
-<li>ligne 16 : la méthode [findAll] permet de retrouver toutes les entités persistées T ;</li>
-<li>ligne 18 : idem mais limitées aux entités dont on a passé la liste des identifiants ;</li>
+  <li>ligne 8 : la méthode <b>save</b> permet de <b>persister</b> une entité T en base. Elle rend l&#x27;entité persistée avec la clé primaire que lui a donnée le SGBD. Elle permet également de <b>mettre à jour</b> une entité T identifiée par sa clé primaire <i>id</i>. Le choix de l&#x27;une ou l&#x27;autre action se fait selon la valeur de la clé primaire <i>id</i> : si celle-ci vaut <b>null</b> c&#x27;est l&#x27;opération de persistance qui a lieu, sinon c&#x27;est l&#x27;opération de mise à jour ;
+  </li>
+  <li>ligne 10 : idem mais pour une liste d&#x27;entités ;
+  </li>
+  <li>ligne 12 : la méthode <b>findOne</b> permet de retrouver une entité T identifiée par sa clé primaire <i>id</i> ;
+  </li>
+  <li>ligne 22 : la méthode <b>delete</b> permet de supprimer une entité T identifiée par sa clé primaire <i>id</i> ;
+  </li>
+  <li>lignes 24-28 : des variantes de la méthode [delete] ;
+  </li>
+  <li>ligne 16 : la méthode [findAll] permet de retrouver toutes les entités persistées T ;
+  </li>
+  <li>ligne 18 : idem mais limitées aux entités dont on a passé la liste des identifiants ;
+  </li>
 </ul>
+
 <p>Revenons à l&#x27;interface [CustomerRepository] :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
 <span class="odt-code-line"><span style="font-weight:bold;color:#7f0055">package</span><span style="color:#000000"> hello;</span></span>
@@ -1307,8 +1342,10 @@
 </code></pre></div>
 
 <ul>
-<li>la ligne 9 permet de retrouver un [Customer] par son nom [lastName] ;</li>
+  <li>la ligne 9 permet de retrouver un [Customer] par son nom [lastName] ;
+  </li>
 </ul>
+
 <p>Et c&#x27;est tout pour la couche [DAO]. Il n&#x27;y a pas de classe d&#x27;implémentation de l&#x27;interface précédente. Celle-ci est générée à l&#x27;exécution par [Spring Data]. Les méthodes de l&#x27;interface [CrudRepository] sont automatiquement implémentées. Pour les méthodes rajoutées dans l&#x27;interface [CustomerRepository], ça dépend. Revenons à la définition de [Customer] :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-text">
 <span class="odt-code-line"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">private</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">long</span><span style="color:#000000"> </span><span style="color:#0000c0">id</span><span style="color:#000000">;</span></span>
@@ -1389,18 +1426,28 @@
 </code></pre></div>
 
 <ul>
-<li>ligne 9 : la classe implémente l&#x27;interface [CommandLineRunner] qui est une interface [Spring Boot] (ligne 4). Cette interfae n&#x27;a qu&#x27;une méthode, celle de la ligne 19 ;</li>
-<li>ligne 8 : @<strong>SpringBootApplication</strong> est une annotation regroupant plusieurs annotations [Spring Boot] :<ul>
-<li>@<strong>Configuration</strong> : indique que la classe est une classe de configuration ;</li>
-<li>@<strong>EnableAutoConfiguration</strong> : demande à [Spring Boot] de créer lui-même un certain nombre de beans en fonction de diverses propriétés, en particulier le contenu du Classpath du projet. Parce que les bibliothèques Hibernate sont dans le Classpath, le bean [entityManagerFactory] sera implémenté avec Hibernate. Parce que la bibliothèque du SGBD H2 est dans le Classpath, le bean [dataSource] sera implémenté avec H2. Dans le bean [dataSource], on doit définir également l&#x27;utilisateur et son mot de passe. Ici Spring Boot utilisera l&#x27;administrateur par défaut de H2, <strong>sa</strong> sans mot de passe. Parce que la bibliothèque [spring-tx] est dans le Classpath, c&#x27;est le gestionnaire de transactions de Spring qui sera utilisé ;</li>
-<li>@<strong>EnableWebMvc</strong> : si dans le Classpath se trouve la bibliothèque [spring-mvc]. Dans ce cas, une auto-configuration est faite pour l&#x27;application web ;</li>
-<li>@<strong>ComponentScan</strong> : qui dit à Spring où chercher les autres beans, configurations et services. Ici ils sont cherchés par défaut dans le package contenant la classe taguée, ç-à-d le package [hello]. Ainsi les classes [Customer] et [CustomerRepository] vont-elles être trouvées. Parce que la première a l&#x27;annotation [@Entity] elle sera cataloguée comme entité à gérer par Hibernate. Parce que la seconde étend l&#x27;interface [CrudRepository] elle sera enregistrée comme bean Spring ;</li>
+  <li>ligne 9 : la classe implémente l&#x27;interface [CommandLineRunner] qui est une interface [Spring Boot] (ligne 4). Cette interfae n&#x27;a qu&#x27;une méthode, celle de la ligne 19 ;
+  </li>
+  <li>ligne 8 : @<b>SpringBootApplication</b> est une annotation regroupant plusieurs annotations [Spring Boot] :
+    <ul>
+      <li>@<b>Configuration</b> : indique que la classe est une classe de configuration ;
+      </li>
+      <li>@<b>EnableAutoConfiguration</b> : demande à [Spring Boot] de créer lui-même un certain nombre de beans en fonction de diverses propriétés, en particulier le contenu du Classpath du projet. Parce que les bibliothèques Hibernate sont dans le Classpath, le bean [entityManagerFactory] sera implémenté avec Hibernate. Parce que la bibliothèque du SGBD H2 est dans le Classpath, le bean [dataSource] sera implémenté avec H2. Dans le bean [dataSource], on doit définir également l&#x27;utilisateur et son mot de passe. Ici Spring Boot utilisera l&#x27;administrateur par défaut de H2, <b>sa</b> sans mot de passe. Parce que la bibliothèque [spring-tx] est dans le Classpath, c&#x27;est le gestionnaire de transactions de Spring qui sera utilisé ;
+      </li>
+      <li>@<b>EnableWebMvc</b> : si dans le Classpath se trouve la bibliothèque [spring-mvc]. Dans ce cas, une auto-configuration est faite pour l&#x27;application web ;
+      </li>
+      <li>@<b>ComponentScan</b> : qui dit à Spring où chercher les autres beans, configurations et services. Ici ils sont cherchés par défaut dans le package contenant la classe taguée, ç-à-d le package [hello]. Ainsi les classes [Customer] et [CustomerRepository] vont-elles être trouvées. Parce que la première a l&#x27;annotation [@Entity] elle sera cataloguée comme entité à gérer par Hibernate. Parce que la seconde étend l&#x27;interface [CrudRepository] elle sera enregistrée comme bean Spring ;
+      </li>
+    </ul>
+  </li>
+  <li>lignes 11-12 : le bean [CustomerRepository] est injecté dans le code de la classe principale ;
+  </li>
+  <li>ligne 15 : la méthode statique [run] de la classe [SpringApplication] du projet Spring Boot est exécutée. Son paramètre est la classe qui a une annotation [Configuration] ou [EnableAutoConfiguration]. Tout ce qui a été expliqué précédemment va alors se dérouler. Le résultat est un contexte d&#x27;application Spring, ç-à-d un ensemble de beans gérés par Spring ;
+  </li>
+  <li>lignes 19-48 : les opérations qui suivent ne font qu&#x27;utiliser les méthodes du bean implémentant l&#x27;interface [CustomerRepository] ;
+  </li>
 </ul>
-</li>
-<li>lignes 11-12 : le bean [CustomerRepository] est injecté dans le code de la classe principale ;</li>
-<li>ligne 15 : la méthode statique [run] de la classe [SpringApplication] du projet Spring Boot est exécutée. Son paramètre est la classe qui a une annotation [Configuration] ou [EnableAutoConfiguration]. Tout ce qui a été expliqué précédemment va alors se dérouler. Le résultat est un contexte d&#x27;application Spring, ç-à-d un ensemble de beans gérés par Spring ;</li>
-<li>lignes 19-48 : les opérations qui suivent ne font qu&#x27;utiliser les méthodes du bean implémentant l&#x27;interface [CustomerRepository] ;</li>
-</ul>
+
 <p>Les résultats console sont les suivants :</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-3-2"> 2</a></span>
@@ -1493,18 +1540,30 @@
 <a id="__codelineno-3-45" name="__codelineno-3-45"></a><span class="sb">2015-03-10 15:35:47.051  INFO 5784 --- [       Thread-1] org.hibernate.tool.hbm2ddl.SchemaExport  : HHH000230: Schema export complete</span>
 </code></pre></div></td></tr></table></div>
 <ul>
-<li>lignes 1-8 : le logo du projet Spring Boot ;</li>
-<li>ligne 9 : la classe [hello.Application] est exécutée ;</li>
-<li>ligne 10 : [AnnotationConfigApplicationContext] est une classe implémentant l&#x27;interface [ApplicationContext] de Spring. C&#x27;est un conteneur de beans ;</li>
-<li>ligne 11 : le bean [entityManagerFactory] est implémenté avec la classe [LocalContainerEntityManagerFactory], une classe de Spring. Il gère la couche [JPA] ;</li>
-<li>ligne 12 : on voit apparaître [Hibernate]. C&#x27;est cette implémentation JPA qui a été choisie ;</li>
-<li>ligne 19 : un dialecte Hibernate est la variante SQL à utiliser avec le SGBD. Ici le dialecte [H2Dialect] montre qu&#x27;Hibernate va travailler avec le SGBD H2 ;</li>
-<li>lignes 21-22 : la base de données est créée. La table [CUSTOMER] est créée. Cela signifie qu&#x27;Hibernate a été configuré pour générer les tables à partir des définitions JPA, ici la définition JPA de la classe [Customer] ;</li>
-<li>lignes 26-30 : résultat de la méthode [findAll] de l&#x27;interface ;</li>
-<li>ligne 34 : résultat de la méthode [findOne] de l&#x27;interface ;</li>
-<li>lignes 38-39 : résultats de la méthode [findByLastName] ;</li>
-<li>lignes 41 et suivantes : logs de la fermeture du contexte Spring.</li>
+  <li>lignes 1-8 : le logo du projet Spring Boot ;
+  </li>
+  <li>ligne 9 : la classe [hello.Application] est exécutée ;
+  </li>
+  <li>ligne 10 : [AnnotationConfigApplicationContext] est une classe implémentant l&#x27;interface [ApplicationContext] de Spring. C&#x27;est un conteneur de beans ;
+  </li>
+  <li>ligne 11 : le bean [entityManagerFactory] est implémenté avec la classe [LocalContainerEntityManagerFactory], une classe de Spring. Il gère la couche [JPA] ;
+  </li>
+  <li>ligne 12 : on voit apparaître [Hibernate]. C&#x27;est cette implémentation JPA qui a été choisie ;
+  </li>
+  <li>ligne 19 : un dialecte Hibernate est la variante SQL à utiliser avec le SGBD. Ici le dialecte [H2Dialect] montre qu&#x27;Hibernate va travailler avec le SGBD H2 ;
+  </li>
+  <li>lignes 21-22 : la base de données est créée. La table [CUSTOMER] est créée. Cela signifie qu&#x27;Hibernate a été configuré pour générer les tables à partir des définitions JPA, ici la définition JPA de la classe [Customer] ;
+  </li>
+  <li>lignes 26-30 : résultat de la méthode [findAll] de l&#x27;interface ;
+  </li>
+  <li>ligne 34 : résultat de la méthode [findOne] de l&#x27;interface ;
+  </li>
+  <li>lignes 38-39 : résultats de la méthode [findByLastName] ;
+  </li>
+  <li>lignes 41 et suivantes : logs de la fermeture du contexte Spring.
+  </li>
 </ul>
+
 <p><a id="refheading5939178138399"></a></p>
 <h3 id="515-configuration-manuelle-du-projet-spring-data">5.1.5. Configuration manuelle du projet Spring Data</h3>
 <p><a id="refheading1622751200878134"></a>Nous dupliquons le projet précédent dans le projet [gs-accessing-data-jpa-02] :</p>
@@ -1592,17 +1651,26 @@
 </code></pre></div>
 
 <ul>
-<li>lignes 10-14 : le projet Maven parent dont nous allons utiliser les bibliothèques qu&#x27;il définit ;</li>
-<li>lignes 18-21 : Spring Data utilisé pour accéder à la base de données ;</li>
-<li>lignes 23-26 : l&#x27;implémentation Hibernate de la spécification JPA ;</li>
-<li>lignes 28-31 : le SGBD H2 ;</li>
-<li>lignes 33-36 : les bases de données sont souvent utilisées avec des pools de connexions ouvertes qui évitent les ouvertures / fermetures de connexion à répétition. Ici, l&#x27;implémentation utilisée est celle de [tomcat-jdbc] ;</li>
+  <li>lignes 10-14 : le projet Maven parent dont nous allons utiliser les bibliothèques qu&#x27;il définit ;
+  </li>
+  <li>lignes 18-21 : Spring Data utilisé pour accéder à la base de données ;
+  </li>
+  <li>lignes 23-26 : l&#x27;implémentation Hibernate de la spécification JPA ;
+  </li>
+  <li>lignes 28-31 : le SGBD H2 ;
+  </li>
+  <li>lignes 33-36 : les bases de données sont souvent utilisées avec des pools de connexions ouvertes qui évitent les ouvertures / fermetures de connexion à répétition. Ici, l&#x27;implémentation utilisée est celle de [tomcat-jdbc] ;
+  </li>
 </ul>
+
 <p>Dans le nouveau projet, l&#x27;entité [Customer] et l&#x27;interface [CustomerRepository] ne changent pas. On va changer la classe [Application] qui va être scindée en deux classes : </p>
 <ul>
-<li>[Config] qui sera la classe de configuration :</li>
-<li>[Main] qui sera la classe exécutable ;</li>
+  <li>[Config] qui sera la classe de configuration :
+  </li>
+  <li>[Main] qui sera la classe exécutable ;
+  </li>
 </ul>
+
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000000E80000009FB5A3B942.png" style="display:inline-block; margin:4px;width:4.3cm;height:2.94cm;" class="odt-zoomable" data-zoom-src="images/10000000000000E80000009FB5A3B942.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td></tr></table>
 
 <p>La classe exécutable [Application] est désormais la suivante :</p>
@@ -1638,11 +1706,16 @@
 </code></pre></div>
 
 <ul>
-<li>ligne 9 : la classe [Application] n&#x27;a plus d&#x27;annotations de configuration ;</li>
-<li>lignes 3-7 : on notera qu&#x27;il n&#x27;y a plus d&#x27;imports de packages [Spring Boot] ;</li>
-<li>ligne 12 : on instancie les beans Spring. On obtient le contexte de Spring qui contient la référence des beans ainsi créés ;</li>
-<li>ligne 13 : on demande une référence sur le bean de type [<span style="color: #000000">CustomerRepository</span>] ;</li>
+  <li>ligne 9 : la classe [Application] n&#x27;a plus d&#x27;annotations de configuration ;
+  </li>
+  <li>lignes 3-7 : on notera qu&#x27;il n&#x27;y a plus d&#x27;imports de packages [Spring Boot] ;
+  </li>
+  <li>ligne 12 : on instancie les beans Spring. On obtient le contexte de Spring qui contient la référence des beans ainsi créés ;
+  </li>
+  <li>ligne 13 : on demande une référence sur le bean de type [<span style="color: #000000">CustomerRepository</span>] ;
+  </li>
 </ul>
+
 <p>La classe [<a id="springdataconfig"></a>Config] qui configure le projet est la suivante :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
 <span class="odt-code-line"><span style="font-weight:bold;color:#7f0055">package</span><span style="color:#000000"> config;</span></span>
@@ -1716,23 +1789,40 @@
 </code></pre></div>
 
 <ul>
-<li>ligne 17 : l&#x27;annotation [@EnableTransactionManagement] indique que les annotations [@Transactional] doivent être interprétées. Les méthodes des interfaces [CrudRepository] ont ces annotations. Elles se déroulent alors à l&#x27;intérieur d&#x27;une transaction ;</li>
-<li>ligne 18 :  l&#x27;annotation [@EnableJpaRepositories] permet de désigner les dossiers où se trouvent les interfaces Spring Data [CrudRepository]. Ces interfaces vont devenir des composants Spring et être disponibles dans son contexte ;</li>
-<li>ligne 19 : l&#x27;annotation [@Configuration] fait de la classe [Config] une classe de configuration Spring ;</li>
-<li>ligne 20 : l&#x27;annotation [@ComponentScan] permet de lister les dossiers où les composants Spring doivent être recherchés. Les composants Spring sont des classes taguées avec des annotations Spring telles que @<strong>Service</strong>, @<strong>Component</strong>, @<strong>Controller</strong>, ... Ici il n&#x27;y en a pas d&#x27;autres que ceux qui sont définis au sein de la classe [AppConfig], aussi l&#x27;annotation a-t-elle été mise en commentaires ;</li>
-<li>lignes 24-37 : définissent la source de données, la base de données H2. C&#x27;est l&#x27;annotation @Bean de la ligne 25 qui fait de l&#x27;objet créé par cette méthode un composant géré par Spring. Le nom de la méthode peut être ici quelconque. Cependant elle doit être appelée [<strong>dataSource</strong>] si l&#x27;EntityManagerFactory de la ligne 51 est absent et défini par autoconfiguration ;</li>
-<li>ligne 30 : la base de données s&#x27;appellera [demo] et sera générée dans le dossier du projet ;</li>
-<li>lignes 40-47 : définissent l&#x27;implémentation JPA utilisée, ici une implémentation Hibernate. Le nom de la méthode peut être ici quelconque ;</li>
-<li>ligne 43 : pas de logs SQL ;</li>
-<li>ligne 44 : la base de données sera créée si elle n&#x27;existe pas ;</li>
-<li>lignes 50-58 : définissent l&#x27;EntityManagerFactory qui va gérer la persistance JPA. La méthode doit s&#x27;appeler obligatoirement [<strong>entityManagerFactory</strong>] ;</li>
-<li>ligne 51 : la méthode reçoit deux paramètres ayant le type des deux beans définis précédemment. Ceux-ci seront alors construits puis injectés par Spring comme paramètres de la méthode ;</li>
-<li>ligne 53 : fixe l&#x27;implémentation JPA utilisée ;</li>
-<li>ligne 54 : fixent les dossiers où trouver les entités JPA ;</li>
-<li>ligne 55 : fixe la source de données à gérer ;</li>
-<li>lignes 61-66 : le gestionnaire de transactions. La méthode doit s&#x27;appeler obligatoirement [<strong>transactionManager</strong>]. Elle reçoit pour paramètre le bean des lignes 51-58 ;</li>
-<li>ligne 64 : le gestionnaire de transactions est associé à l&#x27;EntityManagerFactory ;</li>
+  <li>ligne 17 : l&#x27;annotation [@EnableTransactionManagement] indique que les annotations [@Transactional] doivent être interprétées. Les méthodes des interfaces [CrudRepository] ont ces annotations. Elles se déroulent alors à l&#x27;intérieur d&#x27;une transaction ;
+  </li>
+  <li>ligne 18 :  l&#x27;annotation [@EnableJpaRepositories] permet de désigner les dossiers où se trouvent les interfaces Spring Data [CrudRepository]. Ces interfaces vont devenir des composants Spring et être disponibles dans son contexte ;
+  </li>
+  <li>ligne 19 : l&#x27;annotation [@Configuration] fait de la classe [Config] une classe de configuration Spring ;
+  </li>
+  <li>ligne 20 : l&#x27;annotation [@ComponentScan] permet de lister les dossiers où les composants Spring doivent être recherchés. Les composants Spring sont des classes taguées avec des annotations Spring telles que @<b>Service</b>, @<b>Component</b>, @<b>Controller</b>, ... Ici il n&#x27;y en a pas d&#x27;autres que ceux qui sont définis au sein de la classe [AppConfig], aussi l&#x27;annotation a-t-elle été mise en commentaires ;
+  </li>
+  <li>lignes 24-37 : définissent la source de données, la base de données H2. C&#x27;est l&#x27;annotation @Bean de la ligne 25 qui fait de l&#x27;objet créé par cette méthode un composant géré par Spring. Le nom de la méthode peut être ici quelconque. Cependant elle doit être appelée [<b>dataSource</b>] si l&#x27;EntityManagerFactory de la ligne 51 est absent et défini par autoconfiguration ;
+  </li>
+  <li>ligne 30 : la base de données s&#x27;appellera [demo] et sera générée dans le dossier du projet ;
+  </li>
+  <li>lignes 40-47 : définissent l&#x27;implémentation JPA utilisée, ici une implémentation Hibernate. Le nom de la méthode peut être ici quelconque ;
+  </li>
+  <li>ligne 43 : pas de logs SQL ;
+  </li>
+  <li>ligne 44 : la base de données sera créée si elle n&#x27;existe pas ;
+  </li>
+  <li>lignes 50-58 : définissent l&#x27;EntityManagerFactory qui va gérer la persistance JPA. La méthode doit s&#x27;appeler obligatoirement [<b>entityManagerFactory</b>] ;
+  </li>
+  <li>ligne 51 : la méthode reçoit deux paramètres ayant le type des deux beans définis précédemment. Ceux-ci seront alors construits puis injectés par Spring comme paramètres de la méthode ;
+  </li>
+  <li>ligne 53 : fixe l&#x27;implémentation JPA utilisée ;
+  </li>
+  <li>ligne 54 : fixent les dossiers où trouver les entités JPA ;
+  </li>
+  <li>ligne 55 : fixe la source de données à gérer ;
+  </li>
+  <li>lignes 61-66 : le gestionnaire de transactions. La méthode doit s&#x27;appeler obligatoirement [<b>transactionManager</b>]. Elle reçoit pour paramètre le bean des lignes 51-58 ;
+  </li>
+  <li>ligne 64 : le gestionnaire de transactions est associé à l&#x27;EntityManagerFactory ;
+  </li>
 </ul>
+
 <p>Les méthodes précédentes peuvent être définies dans un ordre quelconque.</p>
 <p>L&#x27;exécution du projet donne les mêmes résultats. Un nouveau fichier apparaît dans le dossier du projet, celui de la base de données H2 :</p>
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000000F1000000D6F0EB16BE.png" style="display:inline-block; margin:4px;width:4.461cm;height:3.96cm;" class="odt-zoomable" data-zoom-src="images/10000000000000F1000000D6F0EB16BE.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td></tr></table>
@@ -1744,25 +1834,38 @@
 
 <p><a id="refheading569951429907001"></a></p>
 <ul>
-<li>en [1] : on crée une configuration d&#x27;exécution ;</li>
-<li>en [2] : de type [Java Application]</li>
-<li>en [3] : désigne le projet à exécuter (utiliser le bouton <em>Browse</em>) ;</li>
-<li>en [4] : désigne la classe à exécuter ;</li>
-<li>en [5] : le nom de la configuration d&#x27;exécution – peut être quelconque ;</li>
+  <li>en [1] : on crée une configuration d&#x27;exécution ;
+  </li>
+  <li>en [2] : de type [Java Application]
+  </li>
+  <li>en [3] : désigne le projet à exécuter (utiliser le bouton <i>Browse</i>) ;
+  </li>
+  <li>en [4] : désigne la classe à exécuter ;
+  </li>
+  <li>en [5] : le nom de la configuration d&#x27;exécution – peut être quelconque ;
+  </li>
 </ul>
+
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000005200000027E5FBF588A.png" style="display:inline-block; margin:4px;width:17.357cm;height:8.44cm;" class="odt-zoomable" data-zoom-src="images/10000000000005200000027E5FBF588A.png" /></td></tr></table>
 
 <ul>
-<li>en [6] : on exporte le projet ;</li>
-<li>en [7] : sous la forme d&#x27;une archive JAR exécutable ;</li>
-<li>en [8] : indique le chemin et le nom du fichier exécutable à créer ;</li>
-<li>en [9] : le nom de la configuration d&#x27;exécution créée en [5] ;</li>
+  <li>en [6] : on exporte le projet ;
+  </li>
+  <li>en [7] : sous la forme d&#x27;une archive JAR exécutable ;
+  </li>
+  <li>en [8] : indique le chemin et le nom du fichier exécutable à créer ;
+  </li>
+  <li>en [9] : le nom de la configuration d&#x27;exécution créée en [5] ;
+  </li>
 </ul>
-<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;"><b>10</b></p><img src="images/10000000000000F8000000FEA403558A.png" style="display:inline-block; margin:4px;width:4.59cm;height:4.701cm;" class="odt-zoomable" data-zoom-src="images/10000000000000F8000000FEA403558A.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td></tr></table>
+
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><b>10</b></div><img src="images/10000000000000F8000000FEA403558A.png" style="display:inline-block; margin:4px;width:4.59cm;height:4.701cm;" class="odt-zoomable" data-zoom-src="images/10000000000000F8000000FEA403558A.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td></tr></table>
 
 <ul>
-<li>en [10], l&#x27;archive créée ;</li>
+  <li>en [10], l&#x27;archive créée ;
+  </li>
 </ul>
+
 <p>Ceci fait, on ouvre une console dans le dossier contenant l&#x27;archive exécutable :</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>.....\dist&gt;dir
 <a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>12/06/2014  09:11        15 104 869 gs-accessing-data-jpa-02.jar
@@ -1878,24 +1981,36 @@
 
 <p><a id="refheading569971429907001"></a></p>
 <ul>
-<li>en [1], on crée un nouveau projet ;</li>
-<li>en [2] : de type [Spring Starter Project] ;</li>
-<li>le projet généré sera un projet Maven. En [3], on indique le nom du groupe du projet ;</li>
-<li>en [4] : on indique le nom de l&#x27;artifact (un jar ici) qui sera créé par construction du projet ;</li>
-<li>en [5] : le nom Eclipse du projet – peut être quelconque (n&#x27;a pas à être identique à [4]) ;</li>
-<li>en [7] : on indique qu&#x27;on va créer un projet ayant une couche [JPA] avec le SGBD MySQL. Les dépendances nécessaires à un tel projet vont alors être incluses dans le fichier [pom.xml] ;</li>
+  <li>en [1], on crée un nouveau projet ;
+  </li>
+  <li>en [2] : de type [Spring Starter Project] ;
+  </li>
+  <li>le projet généré sera un projet Maven. En [3], on indique le nom du groupe du projet ;
+  </li>
+  <li>en [4] : on indique le nom de l&#x27;artifact (un jar ici) qui sera créé par construction du projet ;
+  </li>
+  <li>en [5] : le nom Eclipse du projet – peut être quelconque (n&#x27;a pas à être identique à [4]) ;
+  </li>
+  <li>en [7] : on indique qu&#x27;on va créer un projet ayant une couche [JPA] avec le SGBD MySQL. Les dépendances nécessaires à un tel projet vont alors être incluses dans le fichier [pom.xml] ;
+  </li>
 </ul>
+
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000002F900000314D27B74C7.png" style="display:inline-block; margin:4px;width:10.068cm;height:10.425cm;" class="odt-zoomable" data-zoom-src="images/10000000000002F900000314D27B74C7.png" /></td></tr></table>
 
 <ul>
-<li>en [8], donner le nom du dossier du projet ;</li>
-<li>en [9], terminer l&#x27;assistant ;</li>
+  <li>en [8], donner le nom du dossier du projet ;
+  </li>
+  <li>en [9], terminer l&#x27;assistant ;
+  </li>
 </ul>
+
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/100000000000021400000160EFCDCF7B.png" style="display:inline-block; margin:4px;width:7.038cm;height:4.657cm;" class="odt-zoomable" data-zoom-src="images/100000000000021400000160EFCDCF7B.png" /></td></tr></table>
 
 <ul>
-<li>en [10] : le projet créé ;</li>
+  <li>en [10] : le projet créé ;
+  </li>
 </ul>
+
 <p>Le fichier [pom.xml] intègre les dépendances nécessaires à un projet JPA :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-xml">
 <span class="odt-code-line"><span style="color:#008080">&lt;?</span><span style="color:#3f7f7f">xml</span> <span style="color:#7f007f">version</span><span style="color:#000000">=</span><span style="font-style:italic;color:#2a00ff">&quot;1.0&quot;</span> <span style="color:#7f007f">encoding</span><span style="color:#000000">=</span><span style="font-style:italic;color:#2a00ff">&quot;UTF-8&quot;</span><span style="color:#008080">?&gt;</span></span>
@@ -1954,11 +2069,16 @@
 </code></pre></div>
 
 <ul>
-<li>lignes 14-19 : le projet Maven parent ;</li>
-<li>lignes 28-31 : la dépendance nécessaire à JPA – va inclure [Spring Data] ;</li>
-<li>lignes 32-36 : la dépendance sur le pilote JDBC de MySQL ;</li>
-<li>lignes 37-41 : les dépendances nécessaires aux tests JUnit intégrés avec Spring ;</li>
+  <li>lignes 14-19 : le projet Maven parent ;
+  </li>
+  <li>lignes 28-31 : la dépendance nécessaire à JPA – va inclure [Spring Data] ;
+  </li>
+  <li>lignes 32-36 : la dépendance sur le pilote JDBC de MySQL ;
+  </li>
+  <li>lignes 37-41 : les dépendances nécessaires aux tests JUnit intégrés avec Spring ;
+  </li>
 </ul>
+
 <p>La classe exécutable [Application] ne fait rien mais est pré-configurée :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
 <span class="odt-code-line"><span style="font-weight:bold;color:#7f0055">package</span><span style="color:#000000"> demo;</span></span>
@@ -1976,8 +2096,10 @@
 </code></pre></div>
 
 <ul>
-<li>l&#x27;annotation [@SpringBootApplication] fait de la classe une classe d&#x27;auto-configuration du projet ;</li>
+  <li>l&#x27;annotation [@SpringBootApplication] fait de la classe une classe d&#x27;auto-configuration du projet ;
+  </li>
 </ul>
+
 <p>La classe de tests [ApplicationTests] ne fait rien mais est pré-configurée :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
 <span class="odt-code-line"><span style="font-weight:bold;color:#7f0055">package</span><span style="color:#000000"> demo;</span></span>
@@ -1999,9 +2121,12 @@
 </code></pre></div>
 
 <ul>
-<li>ligne 9 : l&#x27;annotation [<span style="color: #646464">@SpringApplicationConfiguration</span>] permet d&#x27;exploiter le fichier de configuration [<span style="color: #000000">IntroSpringData01Application</span>]. La classe de test bénéficiera ainsi de tous les beans définis par ce fichier ;</li>
-<li>ligne 8 : l&#x27;annotation [<span style="color: #646464">@RunWith</span>] permet l&#x27;intégration de Spring avec JUnit : la classe va pouvoir être exécutée comme un test JUnit. [<span style="color: #646464">@RunWith</span>] est une annotation JUnit (ligne 4) alors que la classe [<span style="color: #000000">SpringJUnit4ClassRunner</span>] est une classe Spring (ligne 6) ;</li>
+  <li>ligne 9 : l&#x27;annotation [<span style="color: #646464">@SpringApplicationConfiguration</span>] permet d&#x27;exploiter le fichier de configuration [<span style="color: #000000">IntroSpringData01Application</span>]. La classe de test bénéficiera ainsi de tous les beans définis par ce fichier ;
+  </li>
+  <li>ligne 8 : l&#x27;annotation [<span style="color: #646464">@RunWith</span>] permet l&#x27;intégration de Spring avec JUnit : la classe va pouvoir être exécutée comme un test JUnit. [<span style="color: #646464">@RunWith</span>] est une annotation JUnit (ligne 4) alors que la classe [<span style="color: #000000">SpringJUnit4ClassRunner</span>] est une classe Spring (ligne 6) ;
+  </li>
 </ul>
+
 <p>Maintenant que nous avons un squelette d&#x27;application JPA, nous pouvons le compléter.</p>
 
 

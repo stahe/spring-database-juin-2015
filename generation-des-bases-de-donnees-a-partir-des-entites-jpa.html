@@ -1201,13 +1201,17 @@
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000004FE000001BAD94CF18F.png" style="display:inline-block; margin:4px;width:16.907cm;height:5.847cm;" class="odt-zoomable" data-zoom-src="images/10000000000004FE000001BAD94CF18F.png" /></td></tr></table>
 
 <ul>
-<li>en [1], on importe le projet [generic-create-dbproduits] qu&#x27;on trouvera en [&lt;exemples&gt;/spring-database-generic/spring-jpa] [2] ;</li>
+  <li>en [1], on importe le projet [generic-create-dbproduits] qu&#x27;on trouvera en [&lt;exemples&gt;/spring-database-generic/spring-jpa] [2] ;
+  </li>
 </ul>
+
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/100000000000051A000001B77D33E829.png" style="display:inline-block; margin:4px;width:17.277cm;height:5.808cm;" class="odt-zoomable" data-zoom-src="images/100000000000051A000001B77D33E829.png" /></td></tr></table>
 
 <ul>
-<li>en [4], on importe le projet [generic-create-dbproduitscategories] qu&#x27;on trouvera en [&lt;exemples&gt;/spring-database-generic/spring-jpa] [5] ;</li>
+  <li>en [4], on importe le projet [generic-create-dbproduitscategories] qu&#x27;on trouvera en [&lt;exemples&gt;/spring-database-generic/spring-jpa] [5] ;
+  </li>
 </ul>
+
 <p><strong>Note</strong> : faire Alt-F5 et régénérer tous les projets Maven ;</p>
 <p><a id="refheading118623630560624"></a></p>
 <h2 id="92-generation-de-la-base-dbproduitscategories">9.2. Génération de la base [dbproduitscategories]</h2>
@@ -1271,9 +1275,12 @@
 </code></pre></div>
 
 <ul>
-<li>lignes 22-26 : la dépendance sur le projet [spring-jpa-generic] étudié au paragraphe <a href="spring-data-jpa-hibernate.html#refheading107481995711268">6.4</a> ;</li>
-<li>lignes 28-32 : la dépendance sur un weaver qui sera utilisé pour enrichir les entités JPA des implémentations EclipseLink et OpenJpa. Sa dépendance n&#x27;est pas nécessaire dans le fichier [pom.xml] mais son jar sera l&#x27;agent Java utilisé. Mettre la dépendance dans le fichier [pom.xml] nous assure que le jar sera bien disponible ;</li>
+  <li>lignes 22-26 : la dépendance sur le projet [spring-jpa-generic] étudié au paragraphe <a href="spring-data-jpa-hibernate.html#refheading107481995711268">6.4</a> ;
+  </li>
+  <li>lignes 28-32 : la dépendance sur un weaver qui sera utilisé pour enrichir les entités JPA des implémentations EclipseLink et OpenJpa. Sa dépendance n&#x27;est pas nécessaire dans le fichier [pom.xml] mais son jar sera l&#x27;agent Java utilisé. Mettre la dépendance dans le fichier [pom.xml] nous assure que le jar sera bien disponible ;
+  </li>
 </ul>
+
 <p>Au final, les dépendances sont les suivantes :</p>
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/100000000000011E00000089360AFC79.png" style="display:inline-block; margin:4px;width:5.3cm;height:2.54cm;" class="odt-zoomable" data-zoom-src="images/100000000000011E00000089360AFC79.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td></tr></table>
 
@@ -1300,9 +1307,12 @@
 </code></pre></div>
 
 <ul>
-<li>ligne 10 : la classe récupère les beans de la classe [ConfigJpa]. On rappelle que cette cette classe travaille avec les entités JPA de la base de données [dbproduitscategories] (cf paragraphe <a href="spring-data-jpa-hibernate.html#refheading1052902082896917">6.3</a>) ;</li>
-<li>ligne 11 : on déclare que le package [console] doit être scanné pour y trouver des instances [CrudRepository] ;</li>
+  <li>ligne 10 : la classe récupère les beans de la classe [ConfigJpa]. On rappelle que cette cette classe travaille avec les entités JPA de la base de données [dbproduitscategories] (cf paragraphe <a href="spring-data-jpa-hibernate.html#refheading1052902082896917">6.3</a>) ;
+  </li>
+  <li>ligne 11 : on déclare que le package [console] doit être scanné pour y trouver des instances [CrudRepository] ;
+  </li>
 </ul>
+
 <p>Dans la classe [ConfigJpa], on trouve le bean suivant (varie selon l&#x27;implémentation JPA utilisée) :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-text">
 <span class="odt-code-line"><span style="color:#000000">    </span><span style="color:#3f7f5f">// le provider JPA</span></span>
@@ -1360,25 +1370,33 @@
 </code></pre></div>
 
 <ul>
-<li>ligne 11 : on instancie le contexte Spring pour le refermer aussitôt. Dans ce contexte, il y a le bean [ProduitsRepository] qui référence l&#x27;entité JPA [Produit]. C&#x27;est suffisant pour instancier la couche JPA et donc de générer les tables de la base de données [dbproduitscategories]. </li>
+  <li>ligne 11 : on instancie le contexte Spring pour le refermer aussitôt. Dans ce contexte, il y a le bean [ProduitsRepository] qui référence l&#x27;entité JPA [Produit]. C&#x27;est suffisant pour instancier la couche JPA et donc de générer les tables de la base de données [dbproduitscategories]. 
+  </li>
 </ul>
+
 <p><a id="refheading11084735254046"></a></p>
 <h3 id="925-generation-des-tables-avec-eclipselink">9.2.5. Génération des tables avec EclipseLink</h3>
 <p>Nous sommes dans la configuration suivante :</p>
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/1000000000000103000000EB7F068553.png" style="display:inline-block; margin:4px;width:4.8cm;height:4.35cm;" class="odt-zoomable" data-zoom-src="images/1000000000000103000000EB7F068553.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td></tr></table>
 
 <ul>
-<li>la couche [JDBC] est configurée pour la base de données [dbproduitscategories] de MySQL ;</li>
-<li>la couche [JPA] est implémentée avec EclipseLink ;</li>
-<li>la base de données [dbproduitscategories] n&#x27;a pas de tables ;</li>
+  <li>la couche [JDBC] est configurée pour la base de données [dbproduitscategories] de MySQL ;
+  </li>
+  <li>la couche [JPA] est implémentée avec EclipseLink ;
+  </li>
+  <li>la base de données [dbproduitscategories] n&#x27;a pas de tables ;
+  </li>
 </ul>
+
 <p><strong>Note</strong> : faire Alt-F5 et régénérer tous les projets Maven ;</p>
 <p>On utilise la configuration d&#x27;exécution suivante :</p>
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/1000000000000529000001CF508B05D0.png" style="display:inline-block; margin:4px;width:17.477cm;height:6.126cm;" class="odt-zoomable" data-zoom-src="images/1000000000000529000001CF508B05D0.png" /></td></tr></table>
 
 <ul>
-<li>en [1-2], cette configuration d&#x27;exécution nécessite un agent Java pour que le test réussisse. Selon les cas, EclipseLink n&#x27;a pas toujours besoin de cet agent mais ici l&#x27;exécution échoue s&#x27;il n&#x27;est pas là. Cet agent n&#x27;est pas un agent EclipseLink mais un agent Spring. Il est fourni par la dépendance :</li>
+  <li>en [1-2], cette configuration d&#x27;exécution nécessite un agent Java pour que le test réussisse. Selon les cas, EclipseLink n&#x27;a pas toujours besoin de cet agent mais ici l&#x27;exécution échoue s&#x27;il n&#x27;est pas là. Cet agent n&#x27;est pas un agent EclipseLink mais un agent Spring. Il est fourni par la dépendance :
+  </li>
 </ul>
+
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-xml">
 <span class="odt-code-line"><span style="color:#000000">        </span><span style="color:#008080">&lt;</span><span style="color:#3f7f7f">dependency</span><span style="color:#008080">&gt;</span></span>
 <span class="odt-code-line"><span style="color:#000000">            </span><span style="color:#008080">&lt;</span><span style="color:#3f7f7f">groupId</span><span style="color:#008080">&gt;</span><span style="color:#000000">org.springframework</span><span style="color:#008080">&lt;/</span><span style="color:#3f7f7f">groupId</span><span style="color:#008080">&gt;</span></span>
@@ -1452,13 +1470,20 @@
 
 <p>Regardons par exemple le script SQL qui génère la table [PRODUITS] (lignes 15-29) :</p>
 <ul>
-<li>ligne 16 : [ID] est clé primaire (ligne 23) avec l&#x27;attribut [<em>AUTO_INCREMENT</em>] (ligne 5). Cela correspond aux annotations [<em>@Id, @GeneratedValue(strategy = GenerationType.IDENTITY), @Column(name = ConfigJdbc.TAB_JPA_ID)</em>] du champ [id] de l&#x27;entité JPA ;</li>
-<li>ligne 17 : la définition de la colonne [DESCRIPTION] correspond à l&#x27;annotation [<em>@Column(name = ConfigJdbc.TAB_PRODUITS_DESCRIPTION, length = 100)</em>] du champ [description] de l&#x27;entité JPA ;</li>
-<li>ligne 18 : la colonne [CATEGORIE_ID] est clé étrangère de la table [PRODUITS] sur la colonne [CATEGORIES.ID] (ligne 26). Par ailleurs cette clé étrangère a l&#x27;attribut [ON DELETE CASCADE]. Cela correspond aux annotations [<em>@ManyToOne(fetch = FetchType.LAZY), @JoinColumn(name = ConfigJdbc.TAB_PRODUITS_CATEGORIE_ID)</em>] du champ [Produit.categorie] et à l&#x27;annotation [<em>@OneToMany(fetch = FetchType.LAZY, mappedBy = &quot;categorie&quot;, cascade = { CascadeType.ALL }), @CascadeOnDelete</em>] du champ [Categorie.produits] ;</li>
-<li>ligne 19 : la définition de la colonne [NOM] correspond à l&#x27;annotation [<em>@Column(name = ConfigJdbc.TAB_PRODUITS_NOM, unique = true, length = 30, nullable = false)</em>] du champ [Produit.nom] ;</li>
-<li>ligne 20 :  la définition de la colonne [PRIX] correspond à l&#x27;annotation [<em>@Column(name = ConfigJdbc.TAB_PRODUITS_PRIX, nullable = false)</em>] du champ [Produit.prix] ;</li>
-<li>lignes 24-25 : le script crée trois indices pour chacune des colonnes uniques de la table ;</li>
+  <li>ligne 16 : [ID] est clé primaire (ligne 23) avec l&#x27;attribut [<i>AUTO_INCREMENT</i>] (ligne 5). Cela correspond aux annotations [<i>@Id, @GeneratedValue(strategy = GenerationType.IDENTITY), @Column(name = ConfigJdbc.TAB_JPA_ID)</i>] du champ [id] de l&#x27;entité JPA ;
+  </li>
+  <li>ligne 17 : la définition de la colonne [DESCRIPTION] correspond à l&#x27;annotation [<i>@Column(name = ConfigJdbc.TAB_PRODUITS_DESCRIPTION, length = 100)</i>] du champ [description] de l&#x27;entité JPA ;
+  </li>
+  <li>ligne 18 : la colonne [CATEGORIE_ID] est clé étrangère de la table [PRODUITS] sur la colonne [CATEGORIES.ID] (ligne 26). Par ailleurs cette clé étrangère a l&#x27;attribut [ON DELETE CASCADE]. Cela correspond aux annotations [<i>@ManyToOne(fetch = FetchType.LAZY), @JoinColumn(name = ConfigJdbc.TAB_PRODUITS_CATEGORIE_ID)</i>] du champ [Produit.categorie] et à l&#x27;annotation [<i>@OneToMany(fetch = FetchType.LAZY, mappedBy = &quot;categorie&quot;, cascade = { CascadeType.ALL }), @CascadeOnDelete</i>] du champ [Categorie.produits] ;
+  </li>
+  <li>ligne 19 : la définition de la colonne [NOM] correspond à l&#x27;annotation [<i>@Column(name = ConfigJdbc.TAB_PRODUITS_NOM, unique = true, length = 30, nullable = false)</i>] du champ [Produit.nom] ;
+  </li>
+  <li>ligne 20 :  la définition de la colonne [PRIX] correspond à l&#x27;annotation [<i>@Column(name = ConfigJdbc.TAB_PRODUITS_PRIX, nullable = false)</i>] du champ [Produit.prix] ;
+  </li>
+  <li>lignes 24-25 : le script crée trois indices pour chacune des colonnes uniques de la table ;
+  </li>
 </ul>
+
 <p>Les tables générées n&#x27;ont pas de valeur par défaut pour le champ VERSIONING des tables alors que le code Java s&#x27;attend à ce qu&#x27;il y en ait une. Si cette valeur par défaut n&#x27;est pas présente, certains tests ne passent pas. On ajoute cet attribut de la façon suivante :</p>
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/100000000000024F000000ED81C08391.png" style="display:inline-block; margin:4px;width:10.94cm;height:4.39cm;" class="odt-zoomable" data-zoom-src="images/100000000000024F000000ED81C08391.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td></tr></table>
 
@@ -1469,9 +1494,12 @@
 <p>On le fait pour les cinq tables qui ont la colonne [VERSIONING]. La valeur par défaut n&#x27;a pas d&#x27;importance. Il faut simplement qu&#x27;elle existe. Ensuite, elle est incrémentée de 1 à chaque modification de la ligne à laquelle elle appartient.</p>
 <p>Ceci fait, vérifiez que les configurations d&#x27;exécution suivantes passent :</p>
 <ul>
-<li>[spring-jdbc-generic-04.JUnitTestDao] qui teste l&#x27;implémentation JDBC ;</li>
-<li>[spring-jpa-generic-JUnitTestDao-hibernate-eclipselink] qui teste les implémentations JPA Hibernate ou Eclipselink (ici ce sera EclipseLink)</li>
+  <li>[spring-jdbc-generic-04.JUnitTestDao] qui teste l&#x27;implémentation JDBC ;
+  </li>
+  <li>[spring-jpa-generic-JUnitTestDao-hibernate-eclipselink] qui teste les implémentations JPA Hibernate ou Eclipselink (ici ce sera EclipseLink)
+  </li>
 </ul>
+
 <p>Les deux exécutions doivent réussir.</p>
 <p><a id="refheading11084935254046"></a></p>
 <h3 id="926-generation-des-tables-avec-hibernate">9.2.6. Génération des tables avec Hibernate</h3>
@@ -1546,9 +1574,12 @@
 
 <p>Ceci fait, vérifiez que les configurations d&#x27;exécution suivantes passent :</p>
 <ul>
-<li>[spring-jdbc-generic-04.JUnitTestDao] qui teste l&#x27;implémentation JDBC ;</li>
-<li>[spring-jpa-generic-JUnitTestDao-hibernate-eclipselink] qui teste les implémentations JPA Hibernate ou Eclipselink (ici ce sera Hibernate)</li>
+  <li>[spring-jdbc-generic-04.JUnitTestDao] qui teste l&#x27;implémentation JDBC ;
+  </li>
+  <li>[spring-jpa-generic-JUnitTestDao-hibernate-eclipselink] qui teste les implémentations JPA Hibernate ou Eclipselink (ici ce sera Hibernate)
+  </li>
 </ul>
+
 <p>Les deux exécutions doivent réussir.</p>
 <p><a id="refheading118633630560624"></a></p>
 <h3 id="927-generation-des-tables-avec-openjpa">9.2.7. Génération des tables avec OpenJpa</h3>
@@ -1608,14 +1639,19 @@
 </code></pre></div>
 
 <ul>
-<li>lignes 40-41 : on crée une propriété pour OpenJPA qui indique la façon de générer les clés étrangères lors de la génération des tables. Sans cette propriété, les clés étrangères ne sont pas générées. L&#x27;attribut [<span style="color: #2a00ff">ForeignKeyDeleteAction=cascade</span>] permet de générer l&#x27;attribut [ON DELETE CASCADE] sur ces clés étrangères ;</li>
+  <li>lignes 40-41 : on crée une propriété pour OpenJPA qui indique la façon de générer les clés étrangères lors de la génération des tables. Sans cette propriété, les clés étrangères ne sont pas générées. L&#x27;attribut [<span style="color: #2a00ff">ForeignKeyDeleteAction=cascade</span>] permet de générer l&#x27;attribut [ON DELETE CASCADE] sur ces clés étrangères ;
+  </li>
 </ul>
+
 <p>La génération des tables est faite par la configuration d&#x27;exécution nommée [generic-create-dbproduitscategories-openjpa]  qui a deux agents Java ;</p>
 <p><img src="images/10000000000002470000013B404E4D1B.png" style="width:10.8cm;height:5.83cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000002470000013B404E4D1B.png" /></p>
 <ul>
-<li>le premier agent Java est l&#x27;agent Spring déjà utilisé avec EclipseLink ;</li>
-<li>le second agent Java est fourni par OpenJpa ;</li>
+  <li>le premier agent Java est l&#x27;agent Spring déjà utilisé avec EclipseLink ;
+  </li>
+  <li>le second agent Java est fourni par OpenJpa ;
+  </li>
 </ul>
+
 <p>Le script SQL de la base générée est alors le suivant :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-sql">
 <span class="odt-code-line">SET FOREIGN_KEY_CHECKS=0;</span>
@@ -1686,9 +1722,12 @@
 
 <p>C&#x27;est le même qu&#x27;avec EclipseLink. On procèdera donc aux mêmes corrections sur les tables. Ceci fait, vérifiez que les configurations d&#x27;exécution suivantes passent :</p>
 <ul>
-<li>[spring-jdbc-generic-04.JUnitTestDao] qui teste l&#x27;implémentation JDBC ;</li>
-<li>[spring-jpa-generic-JUnitTestDao-openjpa] qui teste une implémentation JPA OpenJpa ;</li>
+  <li>[spring-jdbc-generic-04.JUnitTestDao] qui teste l&#x27;implémentation JDBC ;
+  </li>
+  <li>[spring-jpa-generic-JUnitTestDao-openjpa] qui teste une implémentation JPA OpenJpa ;
+  </li>
 </ul>
+
 <p>Les deux exécutions doivent réussir.</p>
 <p><a id="refheading118635630560624"></a></p>
 <h2 id="93-generation-de-la-base-dbproduits">9.3. Génération de la base [dbproduits]</h2>
@@ -1696,9 +1735,12 @@
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000005030000017604B3B873.png" style="display:inline-block; margin:4px;width:16.974cm;height:4.948cm;" class="odt-zoomable" data-zoom-src="images/10000000000005030000017604B3B873.png" /></td></tr></table>
 
 <ul>
-<li>en [1], les projets Eclipse. On sera dans une configuration MySQL / EclipseLink. Le projet de génération de la base [dbproduits] est [generic-create-dbproduits] ;</li>
-<li>en [2], la table [PRODUITS] à générer ;</li>
+  <li>en [1], les projets Eclipse. On sera dans une configuration MySQL / EclipseLink. Le projet de génération de la base [dbproduits] est [generic-create-dbproduits] ;
+  </li>
+  <li>en [2], la table [PRODUITS] à générer ;
+  </li>
 </ul>
+
 <p><strong>Note</strong> : faire Alt-F5 et régénérer tous les projets Maven ;</p>
 <p><a id="refheading118637630560624"></a></p>
 <h3 id="931-configuration-maven">9.3.1. Configuration Maven</h3>
@@ -1811,11 +1853,16 @@
 </code></pre></div>
 
 <ul>
-<li>ligne 18 : on importe les beans de la classe [ConfigJpa] (paragraphe <a href="spring-data-jpa-eclipselink.html#refheading10529020828969171">7.3</a>) ;</li>
-<li>lignes 22-35 : on redéfinit la source de données [dataSource]. Dans [ConfigJpa] la source de données est la base [dbproduitscategories]. Ici ce sera la base [dbproduits] ;</li>
-<li>ligne 38-46 : on redéfinit le bean [<span style="color: #000000">entityManagerFactory] de la classe [ConfigJpa]. Dans cette classe, les entités JPA étaient [Produit, Categorie]. Ici c&#x27;est seulement [Produit] et elle n&#x27;a pas la même définition que dans le projet qui configure la couche JPA ;</span></li>
-<li><span style="color: #000000">ligne 42 : pour définir cette nouvelle entité JPA, on référence les entités JPA définies dans le fichier [META-INF/persistence.xml] :</span></li>
+  <li>ligne 18 : on importe les beans de la classe [ConfigJpa] (paragraphe <a href="spring-data-jpa-eclipselink.html#refheading10529020828969171">7.3</a>) ;
+  </li>
+  <li>lignes 22-35 : on redéfinit la source de données [dataSource]. Dans [ConfigJpa] la source de données est la base [dbproduitscategories]. Ici ce sera la base [dbproduits] ;
+  </li>
+  <li>ligne 38-46 : on redéfinit le bean [<span style="color: #000000">entityManagerFactory] de la classe [ConfigJpa]. Dans cette classe, les entités JPA étaient [Produit, Categorie]. Ici c&#x27;est seulement [Produit] et elle n&#x27;a pas la même définition que dans le projet qui configure la couche JPA ;</span>
+  </li>
+  <li><span style="color: #000000">ligne 42 : pour définir cette nouvelle entité JPA, on référence les entités JPA définies dans le fichier [META-INF/persistence.xml] :</span>
+  </li>
 </ul>
+
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000000EB000000CD31EB1A97.png" style="display:inline-block; margin:4px;width:4.35cm;height:3.799cm;" class="odt-zoomable" data-zoom-src="images/10000000000000EB000000CD31EB1A97.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td></tr></table>
 
 <p><span style="color: #000000">Le fichier [persistence.xml] est le suivant :</span></p>
@@ -1832,9 +1879,12 @@
 </code></pre></div>
 
 <ul>
-<li><span style="color: #000000">ligne 6 : l&#x27;unique entité JPA ;</span></li>
-<li><span style="color: #000000">ligne 4 : le nom de l&#x27;unité de persistance [generic-jpa-entities-dbproduits] qui est référencée dans le bean [entityManagerFactory] ;</span></li>
+  <li><span style="color: #000000">ligne 6 : l&#x27;unique entité JPA ;</span>
+  </li>
+  <li><span style="color: #000000">ligne 4 : le nom de l&#x27;unité de persistance [generic-jpa-entities-dbproduits] qui est référencée dans le bean [entityManagerFactory] ;</span>
+  </li>
 </ul>
+
 <p><a id="refheading118641630560624"></a></p>
 <h3 id="933-lentite-jpa-produit">9.3.3. L&#x27;entité JPA [Produit]</h3>
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/100000000000012F000000900CCA377E.png" style="display:inline-block; margin:4px;width:5.609cm;height:2.671cm;" class="odt-zoomable" data-zoom-src="images/100000000000012F000000900CCA377E.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td></tr></table>
@@ -1890,10 +1940,14 @@
 
 <p>C&#x27;est une définition JPA devenue maintenant classique. On notera simplement les points suivants :</p>
 <ul>
-<li>ligne 12 : on a donné un nom [Produit1] à l&#x27;entité. Par défaut, le nom d&#x27;une entité est le nom de la classe, ici [Produit]. Or parce qu&#x27;il y a une autre entité JPA [Produit] dans le même projet, une erreur a été signalée avant même toute exécution. On l&#x27;a levée de cette façon ;</li>
-<li>ligne 24 : la catégorie est ici un simple numéro ;</li>
-<li>il n&#x27;y a pas de relations inter-entités. On a donc une situation très simple ;</li>
+  <li>ligne 12 : on a donné un nom [Produit1] à l&#x27;entité. Par défaut, le nom d&#x27;une entité est le nom de la classe, ici [Produit]. Or parce qu&#x27;il y a une autre entité JPA [Produit] dans le même projet, une erreur a été signalée avant même toute exécution. On l&#x27;a levée de cette façon ;
+  </li>
+  <li>ligne 24 : la catégorie est ici un simple numéro ;
+  </li>
+  <li>il n&#x27;y a pas de relations inter-entités. On a donc une situation très simple ;
+  </li>
 </ul>
+
 <p><a id="refheading118643630560624"></a></p>
 <h3 id="934-la-classe-executable">9.3.4. La classe exécutable</h3>
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/100000000000011A000000CCEC88ADFC.png" style="display:inline-block; margin:4px;width:5.219cm;height:3.78cm;" class="odt-zoomable" data-zoom-src="images/100000000000011A000000CCEC88ADFC.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td></tr></table>

@@ -1111,15 +1111,22 @@
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/100000000000032E000002CD2E3A6988.png" style="display:inline-block; margin:4px;width:10.769cm;height:9.486cm;" class="odt-zoomable" data-zoom-src="images/100000000000032E000002CD2E3A6988.png" /></td></tr></table>
 
 <ul>
-<li>en [1], ci-dessus, la séquence n&#x27;a pas été générée par [OpenJpa] mais bien par DB2 lui-même qui l&#x27;utilise de façon interne pour générer des clés primaires ;</li>
+  <li>en [1], ci-dessus, la séquence n&#x27;a pas été générée par [OpenJpa] mais bien par DB2 lui-même qui l&#x27;utilise de façon interne pour générer des clés primaires ;
+  </li>
 </ul>
+
 <p>Maintenant, exécutez les configurations :</p>
 <ul>
-<li>[spring-jdbc-generic-01.IntroJdbc01] ;</li>
-<li>[spring-jdbc-generic-01.IntroJdbc02] ;</li>
-<li>[spring-jdbc-generic-03.JUnitTestDao1] ;</li>
-<li>[spring-jdbc-generic-03.JUnitTestDao2] ;</li>
+  <li>[spring-jdbc-generic-01.IntroJdbc01] ;
+  </li>
+  <li>[spring-jdbc-generic-01.IntroJdbc02] ;
+  </li>
+  <li>[spring-jdbc-generic-03.JUnitTestDao1] ;
+  </li>
+  <li>[spring-jdbc-generic-03.JUnitTestDao2] ;
+  </li>
 </ul>
+
 <p>Elles doivent toutes réussir.</p>
 <p>Générons maintenant la base [dbproduitscategories]. Elle sera appelée ici [DBCAT] pour les raisons déjà évoquées de restriction sur la longueur des noms de base. Refaites pour [DBCAT] la procédure réalisée pour créer [DBPROD].</p>
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000000EB000001E2C6BB35B0.png" style="display:inline-block; margin:4px;width:4.35cm;height:8.931cm;" class="odt-zoomable" data-zoom-src="images/10000000000000EB000001E2C6BB35B0.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td></tr></table>
@@ -1138,9 +1145,12 @@
 <p>L&#x27;opération est à faire pour les cinq tables.</p>
 <p>Maintenant, exécutez les configurations :</p>
 <ul>
-<li>[spring-jdbc-generic-04.JUnitTestDao] ;</li>
-<li>[spring-jpa-generic-JUnitTestDao-openjpa] ;</li>
+  <li>[spring-jdbc-generic-04.JUnitTestDao] ;
+  </li>
+  <li>[spring-jpa-generic-JUnitTestDao-openjpa] ;
+  </li>
 </ul>
+
 <p>Elles doivent réussir toutes les deux.</p>
 <p><a id="refheading12188047764300711"></a></p>
 <h2 id="122-configuration-de-la-couche-jdbc">12.2. Configuration de la couche JDBC</h2>
@@ -1183,8 +1193,10 @@
 </code></pre></div>
 
 <ul>
-<li><span style="color: #000000">lignes 18-22 : le pilote JDBC de DB2 ;</span></li>
+  <li><span style="color: #000000">lignes 18-22 : le pilote JDBC de DB2 ;</span>
+  </li>
 </ul>
+
 <p><span style="color: #000000">La seconde modification est dans la classe [ConfigJdbc] qui définit les identifiants d&#x27;accès aux bases :</span></p>
 <div class="odt-code-rich" data-linenums="false" style="counter-reset: odtline 0;"><pre><code class="language-text">
 <span class="odt-code-line">    <span style="color:#3f7f5f">// paramètres de connexion</span></span>
@@ -1233,8 +1245,10 @@
 </code></pre></div>
 
 <ul>
-<li>ligne 6 : on indique à l&#x27;implémentation JPA qu&#x27;elle va travailler avec une base DB2.  L&#x27;implémentation JPA va alors adopter et les types de données propriétaires et le SQL propriétaire de ce SGBD.</li>
+  <li>ligne 6 : on indique à l&#x27;implémentation JPA qu&#x27;elle va travailler avec une base DB2.  L&#x27;implémentation JPA va alors adopter et les types de données propriétaires et le SQL propriétaire de ce SGBD.
+  </li>
 </ul>
+
 <p>Ces modifications faites, l&#x27;exécution de la configuration [spring-jpa-generic-JUnitTestDao-openjpa] doit réussir.</p>
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/1000000000000125000000B8A3BF793E.png" style="display:inline-block; margin:4px;width:5.42cm;height:3.41cm;" class="odt-zoomable" data-zoom-src="images/1000000000000125000000B8A3BF793E.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000001B80000010A9E59544D.png" style="display:inline-block; margin:4px;width:8.149cm;height:4.93cm;" class="odt-zoomable" data-zoom-src="images/10000000000001B80000010A9E59544D.png" /></td></tr></table>
 

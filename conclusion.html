@@ -951,81 +951,121 @@
 
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000004AF000000FEE9F16F00.png" style="display:inline-block; margin:4px;width:15.863cm;height:3.36cm;" class="odt-zoomable" data-zoom-src="images/10000000000004AF000000FEE9F16F00.png" /></td></tr></table>
 
-<p>La couche [DAO1] a été implémentée avec <strong>Spring JDBC</strong> et la couche [DAO2] avec <strong>Spring JPA. </strong>Les couches [DAO1] et [DAO2] implémentaient la même interface [IDAO] ce qui a permis d&#x27;écrire un test unique [JUnitTestDao] pour tester les deux couches [DAO] ;</p>
+<p>La couche [DAO1] a été implémentée avec <strong>Spring JDBC</strong> et la couche [DAO2] avec <strong>Spring JPA.</strong> Les couches [DAO1] et [DAO2] implémentaient la même interface [IDAO] ce qui a permis d&#x27;écrire un test unique [JUnitTestDao] pour tester les deux couches [DAO] ;</p>
 <p>Ceci fait, nous avons exposé l&#x27;interface [IDAO] sur le web de la façon suivante :</p>
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000004AA00000296328D383D.png" style="display:inline-block; margin:4px;width:15.796cm;height:8.758cm;" class="odt-zoomable" data-zoom-src="images/10000000000004AA00000296328D383D.png" /></td></tr></table>
 
 <ul>
-<li>en [1], la couche [IDAO] a été exposée sur le web au travers d&#x27;une couche web [2] implémentée par <strong>Spring MVC</strong>. C&#x27;est bien l&#x27;interface [IDAO] qui est exposée et nous avons construit deux versions du service web selon que cette interface est implémentée avec une architecture [DAO-JDBC] ou [DAO-JPA-JDBC] ;</li>
-<li>en [B], un client distant utilise les URL exposées par le service web et qui donnent accès aux méthodes de la couche [IDAO-serveur]. On a fait en sorte que la couche [DAO-Client] [3] implémente l&#x27;interface [IDAO-serveur] [1]. Ceci nous a permis d&#x27;utiliser le même test [JUnitTestDao] déjà utilisé deux fois ;</li>
-<li>en [3], la couche [DAO-client] a été implémentée avec <strong>Spring RestTemplate</strong> ;</li>
+  <li>en [1], la couche [IDAO] a été exposée sur le web au travers d&#x27;une couche web [2] implémentée par <b>Spring MVC</b>. C&#x27;est bien l&#x27;interface [IDAO] qui est exposée et nous avons construit deux versions du service web selon que cette interface est implémentée avec une architecture [DAO-JDBC] ou [DAO-JPA-JDBC] ;
+  </li>
+  <li>en [B], un client distant utilise les URL exposées par le service web et qui donnent accès aux méthodes de la couche [IDAO-serveur]. On a fait en sorte que la couche [DAO-Client] [3] implémente l&#x27;interface [IDAO-serveur] [1]. Ceci nous a permis d&#x27;utiliser le même test [JUnitTestDao] déjà utilisé deux fois ;
+  </li>
+  <li>en [3], la couche [DAO-client] a été implémentée avec <b>Spring RestTemplate</b> ;
+  </li>
 </ul>
+
 <p>Ceci fait, nous avons sécurisé l&#x27;accès au service web :</p>
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/100000000000049D0000028A7325823B.png" style="display:inline-block; margin:4px;width:15.625cm;height:8.599cm;" class="odt-zoomable" data-zoom-src="images/100000000000049D0000028A7325823B.png" /></td></tr></table>
 
 <ul>
-<li>en [5], la requête HTTP du client traverse une couche d&#x27;authentification implémentée avec <strong>Spring Security</strong> ;</li>
+  <li>en [5], la requête HTTP du client traverse une couche d&#x27;authentification implémentée avec <b>Spring Security</b> ;
+  </li>
 </ul>
+
 <p>Ceci fait, nous avons fait évoluer l&#x27;architecture précédente vers la suivante :</p>
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/1000000000000490000002863381F4FF.png" style="display:inline-block; margin:4px;width:15.452cm;height:8.546cm;" class="odt-zoomable" data-zoom-src="images/1000000000000490000002863381F4FF.png" /></td></tr></table>
 
 <ul>
-<li>en [3], l&#x27;application client est elle-même une application web délivrée par le serveur web [4]. L&#x27;application cliente présente dans le navigateur un formulaire [5] permettant d&#x27;interroger les URL du service web sécurisé. Les accès HTTP au service web sécurisé se font grâce à une couche [jS] implémentée en Javascript. Cette architecture met en oeuvre ce qu&#x27;on appelle des requêtes inter-domaines :<ul>
-<li>le service web présente des URL de la forme [http://machine1:port1/] ;</li>
-<li>l&#x27;application web cliente est téléchargée à partir d&#x27;une URL [http://machine2:port2/]. Si [http://machine2:port2/] n&#x27;est pas identique à [http://machine1:port1/] (même machine, même port), alors le navigateur client bloquera les appels HTTP de la couche [DAO-client-js]. Pour remédier à ce problème, le service web doit autoriser les requêtes inter-domaines ;</li>
+  <li>en [3], l&#x27;application client est elle-même une application web délivrée par le serveur web [4]. L&#x27;application cliente présente dans le navigateur un formulaire [5] permettant d&#x27;interroger les URL du service web sécurisé. Les accès HTTP au service web sécurisé se font grâce à une couche [jS] implémentée en Javascript. Cette architecture met en oeuvre ce qu&#x27;on appelle des requêtes inter-domaines :
+    <ul>
+      <li>le service web présente des URL de la forme [http://machine1:port1/] ;
+      </li>
+      <li>l&#x27;application web cliente est téléchargée à partir d&#x27;une URL [http://machine2:port2/]. Si [http://machine2:port2/] n&#x27;est pas identique à [http://machine1:port1/] (même machine, même port), alors le navigateur client bloquera les appels HTTP de la couche [DAO-client-js]. Pour remédier à ce problème, le service web doit autoriser les requêtes inter-domaines ;
+      </li>
+    </ul>
+  </li>
 </ul>
-</li>
-</ul>
+
 <p>Les projets présentés ont été testés avec les six bases de données suivantes :</p>
 <ul>
-<li>MySQL 5 Community Edition ;</li>
-<li>SQL Server 2014 Express ;</li>
-<li>PostgreSQL 9.4 ;</li>
-<li>Oracle Express 11g release 2 ;</li>
-<li>IBM DB2 Express-C 10.5 ;</li>
-<li>Firebird 2.5.4 ;</li>
+  <li>MySQL 5 Community Edition ;
+  </li>
+  <li>SQL Server 2014 Express ;
+  </li>
+  <li>PostgreSQL 9.4 ;
+  </li>
+  <li>Oracle Express 11g release 2 ;
+  </li>
+  <li>IBM DB2 Express-C 10.5 ;
+  </li>
+  <li>Firebird 2.5.4 ;
+  </li>
 </ul>
+
 <p>Pour chacun de ces SGBD, on a développé quatre couches [DAO] différentes :</p>
 <ul>
-<li>une couche implémentée avec Spring JDBC ;</li>
-<li>une couche implémentée avec Spring JPA et le fournisseur JPA Hibernate ;</li>
-<li>une couche implémentée avec Spring JPA et le fournisseur JPA EclipseLink ;</li>
-<li>une couche implémentée avec Spring JPA et le fournisseur JPA OpenJPA ;</li>
+  <li>une couche implémentée avec Spring JDBC ;
+  </li>
+  <li>une couche implémentée avec Spring JPA et le fournisseur JPA Hibernate ;
+  </li>
+  <li>une couche implémentée avec Spring JPA et le fournisseur JPA EclipseLink ;
+  </li>
+  <li>une couche implémentée avec Spring JPA et le fournisseur JPA OpenJPA ;
+  </li>
 </ul>
+
 <p>C&#x27;est donc un ensemble de vingt-quatre configuration différentes qui a été présenté. On a fait un grand effort de factorisation :</p>
 <ul>
-<li>l&#x27;essentiel du code n&#x27;est écrit qu&#x27;une fois. Il repose sur deux projets Maven de configuration :<ul>
-<li>l&#x27;un configure la couche JDBC ;</li>
-<li>l&#x27;autre configure la couche JPA ;</li>
+  <li>l&#x27;essentiel du code n&#x27;est écrit qu&#x27;une fois. Il repose sur deux projets Maven de configuration :
+    <ul>
+      <li>l&#x27;un configure la couche JDBC ;
+      </li>
+      <li>l&#x27;autre configure la couche JPA ;
+      </li>
+    </ul>
+  </li>
 </ul>
-</li>
-</ul>
+
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000004AA000000F951F7FE6D.png" style="display:inline-block; margin:4px;width:15.796cm;height:3.295cm;" class="odt-zoomable" data-zoom-src="images/10000000000004AA000000F951F7FE6D.png" /></td></tr></table>
 
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/1000000000000488000000F283F9D213.png" style="display:inline-block; margin:4px;width:15.346cm;height:3.201cm;" class="odt-zoomable" data-zoom-src="images/1000000000000488000000F283F9D213.png" /></td></tr></table>
 
 <p>Le projet Maven de configuration de la couche JDBC [1] d&#x27;un SGBD particulier permet :</p>
 <ul>
-<li>d&#x27;importer l&#x27;archive du pilote JDBC ;</li>
-<li>de définir les identifiants d&#x27;accès à la base de données utilisée et les différents ordres SQL que la couche [DAO1] va émettre vers le pilote JDBC. Bien que SQL soit standardisé, on a rencontré des problèmes de portabilité essentiellement à cause de la présence dans les requêtes de noms de tables / colonnes qui se sont révélés être des mots clés interdits dans certains SGBD (table ROLES pour DB2, colonne PASSWORD pour Firebird). Par ailleurs, bien qu&#x27;un nom de colonne soit normalement insensible à la casse (majuscules / minuscules), on a rencontré un problème avec PostgreSQL avec la colonne ID de la clé primaire des tables. Il a voulu qu&#x27;elle s&#x27;appelle <em>id</em> en minuscules ;</li>
+  <li>d&#x27;importer l&#x27;archive du pilote JDBC ;
+  </li>
+  <li>de définir les identifiants d&#x27;accès à la base de données utilisée et les différents ordres SQL que la couche [DAO1] va émettre vers le pilote JDBC. Bien que SQL soit standardisé, on a rencontré des problèmes de portabilité essentiellement à cause de la présence dans les requêtes de noms de tables / colonnes qui se sont révélés être des mots clés interdits dans certains SGBD (table ROLES pour DB2, colonne PASSWORD pour Firebird). Par ailleurs, bien qu&#x27;un nom de colonne soit normalement insensible à la casse (majuscules / minuscules), on a rencontré un problème avec PostgreSQL avec la colonne ID de la clé primaire des tables. Il a voulu qu&#x27;elle s&#x27;appelle <i>id</i> en minuscules ;
+  </li>
 </ul>
+
 <p>Les trois projet Maven de configuration de la couche JPA [2] d&#x27;un SGBD particulier permettent :</p>
 <ul>
-<li>d&#x27;importer l&#x27;archive de l&#x27;implémentation JPA ;</li>
-<li>de configurer l&#x27;implémentation JPA utilisée pour le SGBD particulier connecté. En effet, c&#x27;est la couche JPA qui émet les ordres SQL vers la couche JDBC. Pour être efficace, elle doit connaître le SGBD afin de lui envoyer les ordres SQL qu&#x27;il reconnaîtra. Ces ordres pourront utiliser le SQL propriétaire de ce SGBD ainsi que les caractéristiques particulières de celui-ci (types de données, séquences, triggers, procédures, génération automatique de clés primaires, ...) ;</li>
+  <li>d&#x27;importer l&#x27;archive de l&#x27;implémentation JPA ;
+  </li>
+  <li>de configurer l&#x27;implémentation JPA utilisée pour le SGBD particulier connecté. En effet, c&#x27;est la couche JPA qui émet les ordres SQL vers la couche JDBC. Pour être efficace, elle doit connaître le SGBD afin de lui envoyer les ordres SQL qu&#x27;il reconnaîtra. Ces ordres pourront utiliser le SQL propriétaire de ce SGBD ainsi que les caractéristiques particulières de celui-ci (types de données, séquences, triggers, procédures, génération automatique de clés primaires, ...) ;
+  </li>
 </ul>
+
 <p>On a ainsi créé vingt-quatre projets (4 configurations x 6 SGBD) Maven de configuration sur lesquels ont reposé tous les autres projets d&#x27;exploitation de la base de données. Dans les schémas ci-dessus, les couches [DAO1] et [DAO2] offrant la même interface, les 24 configurations des deux architectures ci-dessus ont été testées avec l&#x27;unique classe de test [JUnitTestDao]. Une fois ces architectures vérifiées, il n&#x27;y a plus eu de difficultés :</p>
 <ul>
-<li>le projet Maven de publication de la base de données sur le web repose sur ces deux architectures. Il y a donc là également 24 configurations possibles ;</li>
-<li>le projet Maven de sécurisation de l&#x27;accès au service web s&#x27;appuie sur le projet précédent et a lui également 24 configurations possibles ;</li>
-<li><span style="color: #000000">enfin le projet Maven permettant les requêtes inter-domaines au service web sécurisé s&#x27;appuie sur le projet précédent et a lui également 24 configurations possibles ;</span></li>
+  <li>le projet Maven de publication de la base de données sur le web repose sur ces deux architectures. Il y a donc là également 24 configurations possibles ;
+  </li>
+  <li>le projet Maven de sécurisation de l&#x27;accès au service web s&#x27;appuie sur le projet précédent et a lui également 24 configurations possibles ;
+  </li>
+  <li><span style="color: #000000">enfin le projet Maven permettant les requêtes inter-domaines au service web sécurisé s&#x27;appuie sur le projet précédent et a lui également 24 configurations possibles ;</span>
+  </li>
 </ul>
+
 <p>Bien que ne scannant pas toutes les capacités du langage Java ni tous ses domaines d&#x27;application, ce document peut être utilisé comme document d&#x27;apprentissage du langage. Le lecteur ayant assimilé le contenu de ce cours aura atteint un niveau &quot; Java avancé &quot; aussi bien dans l&#x27;utilisation du langage que dans celui du framework Spring. Il pourra alors poursuivre sa formation Java avec les ouvrages suivants :</p>
 <ul>
-<li>[Spring MVC et Thymeleaf par l&#x27;exemple] [<a href="http://tahe.developpez.com/java/springmvc-thymeleaf">http://tahe.developpez.com/java/springmvc-thymeleaf</a>] qui poursuit l&#x27;apprentissage de l&#x27;écosystème Spring en présentant sa branche &#x27;programmation web MVC&#x27;. Il utilise une base de données plus complexe que celle étudiée ici ;</li>
-<li>[Tutoriel AngularJS / Spring MVC] [<a href="http://tahe.developpez.com/angularjs-spring4">http://tahe.developpez.com/angularjs-spring4</a>] qui présente une architecture web client / serveur, où le client est implémenté avec le framework [AngularJS] et le serveur avec [Spring MVC] ;</li>
-<li>[Introduction à Java EE] [<a href="http://tahe.developpez.com/java/javaee">http://tahe.developpez.com/java/javaee</a>] qui quitte le monde Spring pour une architecture web basée sur JSF (Java Server Faces) et les EJB (Enterprise Java Bean) ;</li>
-<li><span style="color: #000000">[Introduction à la programmation des tablettes Android] [<a href="http://tahe.developpez.com/android/exemples-intellij-aa">http://tahe.developpez.com/android/exemples-intellij-aa</a>] qui décrit une architecture client / serveur, où le client est une tablette Android programmée en Java et le serveur un service web implémenté par Spring MVC ;</span></li>
+  <li>[Spring MVC et Thymeleaf par l&#x27;exemple] [<a href="http://tahe.developpez.com/java/springmvc-thymeleaf">http://tahe.developpez.com/java/springmvc-thymeleaf</a>] qui poursuit l&#x27;apprentissage de l&#x27;écosystème Spring en présentant sa branche &#x27;programmation web MVC&#x27;. Il utilise une base de données plus complexe que celle étudiée ici ;
+  </li>
+  <li>[Tutoriel AngularJS / Spring MVC] [<a href="http://tahe.developpez.com/angularjs-spring4">http://tahe.developpez.com/angularjs-spring4</a>] qui présente une architecture web client / serveur, où le client est implémenté avec le framework [AngularJS] et le serveur avec [Spring MVC] ;
+  </li>
+  <li>[Introduction à Java EE] [<a href="http://tahe.developpez.com/java/javaee">http://tahe.developpez.com/java/javaee</a>] qui quitte le monde Spring pour une architecture web basée sur JSF (Java Server Faces) et les EJB (Enterprise Java Bean) ;
+  </li>
+  <li><span style="color: #000000">[Introduction à la programmation des tablettes Android] [<a href="http://tahe.developpez.com/android/exemples-intellij-aa">http://tahe.developpez.com/android/exemples-intellij-aa</a>] qui décrit une architecture client / serveur, où le client est une tablette Android programmée en Java et le serveur un service web implémenté par Spring MVC ;</span>
+  </li>
 </ul>
 
 

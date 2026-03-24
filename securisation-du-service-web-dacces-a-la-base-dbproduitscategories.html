@@ -1377,10 +1377,14 @@
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000000F700000118AA62CEE5.png" style="display:inline-block; margin:4px;width:4.57cm;height:5.181cm;" class="odt-zoomable" data-zoom-src="images/10000000000000F700000118AA62CEE5.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td></tr></table>
 
 <ul>
-<li><span style="color: #000000">les projets [spring-security-*] seront trouvés dans le dossier [&lt;exemples&gt;\spring-database-generic\spring-security] ;</span></li>
-<li><span style="color: #000000">la sécurité va être mise en place pour le SGBD MySQL avec une couche [DAO / JDBC] puis une couche [DAO / JPA / Hibernate] ;</span></li>
-<li><span style="color: #000000">faire Alt-F5 puis régénérer tous les projets Maven ;</span></li>
+  <li><span style="color: #000000">les projets [spring-security-*] seront trouvés dans le dossier [&lt;exemples&gt;\spring-database-generic\spring-security] ;</span>
+  </li>
+  <li><span style="color: #000000">la sécurité va être mise en place pour le SGBD MySQL avec une couche [DAO / JDBC] puis une couche [DAO / JPA / Hibernate] ;</span>
+  </li>
+  <li><span style="color: #000000">faire Alt-F5 puis régénérer tous les projets Maven ;</span>
+  </li>
 </ul>
+
 <p><span style="color: #000000">Nous avons besoin de créer des utilisateurs dans la base [dbproduitscategories]. Pour cela, utilisez la configuration d&#x27;exécution [spring-security-create-users-hibernate-eclipselink] :</span></p>
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/1000000000000151000000DB8023FB3B.png" style="display:inline-block; margin:4px;width:6.241cm;height:4.06cm;" class="odt-zoomable" data-zoom-src="images/1000000000000151000000DB8023FB3B.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/100000000000017E0000012268A9CE0B.png" style="display:inline-block; margin:4px;width:7.07cm;height:5.369cm;" class="odt-zoomable" data-zoom-src="images/100000000000017E0000012268A9CE0B.png" /></td></tr></table>
 
@@ -1407,9 +1411,12 @@
 
 <p><span style="color: #000000">Ci-dessus :</span></p>
 <ul>
-<li><span style="color: #000000">la couche [DAO1] est la couche [DAO] qui gère les tables [PRODUITS] et [CATEGORIES] de la base [dbproduitscategories]. Elle a déjà été écrite ;</span></li>
-<li><span style="color: #000000">la couche [DAO2] est la couche [DAO] qui gère les tables [USERS], [ROLES] et [USERS_ROLES] de la base [dbproduitscategories]. Elle reste à écrire ;</span></li>
+  <li><span style="color: #000000">la couche [DAO1] est la couche [DAO] qui gère les tables [PRODUITS] et [CATEGORIES] de la base [dbproduitscategories]. Elle a déjà été écrite ;</span>
+  </li>
+  <li><span style="color: #000000">la couche [DAO2] est la couche [DAO] qui gère les tables [USERS], [ROLES] et [USERS_ROLES] de la base [dbproduitscategories]. Elle reste à écrire ;</span>
+  </li>
 </ul>
+
 <p><span style="color: #000000"><a id="refheading1623811200878134"></a></span></p>
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000000FB000000EA06FAB0D4.png" style="display:inline-block; margin:4px;width:4.65cm;height:4.33cm;" class="odt-zoomable" data-zoom-src="images/10000000000000FB000000EA06FAB0D4.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td></tr></table>
 
@@ -1466,9 +1473,12 @@
 </code></pre></div>
 
 <ul>
-<li><span style="color: #000000">lignes 29-33 : on reprend l&#x27;existant avec l&#x27;archive du service web / json / jdbc étudié ;</span></li>
-<li><span style="color: #000000">lignes 24-27 : la dépendance qui amène les classes de Spring Security ;</span></li>
+  <li><span style="color: #000000">lignes 29-33 : on reprend l&#x27;existant avec l&#x27;archive du service web / json / jdbc étudié ;</span>
+  </li>
+  <li><span style="color: #000000">lignes 24-27 : la dépendance qui amène les classes de Spring Security ;</span>
+  </li>
 </ul>
+
 <p>Au final, le projet présente les dépendances suivantes sur les autres projets chargés dans Eclipse :</p>
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/100000000000010F000000BBBA2F0A1A.png" style="display:inline-block; margin:4px;width:5.02cm;height:3.461cm;" class="odt-zoomable" data-zoom-src="images/100000000000010F000000BBBA2F0A1A.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td></tr></table>
 
@@ -1478,9 +1488,12 @@
 
 <p><span style="color: #000000">Ci-dessus :</span></p>
 <ul>
-<li><span style="color: #000000">la couche [DAO1] est la couche [DAO] qui gère les tables [PRODUITS] et [CATEGORIES] de la base [dbproduitscategories]. Elle a déjà été écrite ;</span></li>
-<li><span style="color: #000000">la couche [DAO2] est la couche [DAO] qui gère les tables [USERS], [ROLES] et [USERS_ROLES] de la base [dbproduitscategories]. C&#x27;est celle que nous allons écrire maintenant ;</span></li>
+  <li><span style="color: #000000">la couche [DAO1] est la couche [DAO] qui gère les tables [PRODUITS] et [CATEGORIES] de la base [dbproduitscategories]. Elle a déjà été écrite ;</span>
+  </li>
+  <li><span style="color: #000000">la couche [DAO2] est la couche [DAO] qui gère les tables [USERS], [ROLES] et [USERS_ROLES] de la base [dbproduitscategories]. C&#x27;est celle que nous allons écrire maintenant ;</span>
+  </li>
 </ul>
+
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000000FD000000956E161172.png" style="display:inline-block; margin:4px;width:4.68cm;height:2.76cm;" class="odt-zoomable" data-zoom-src="images/10000000000000FD000000956E161172.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td></tr></table>
 
 <p><a id="refheading1623871200878134"></a></p>
@@ -1564,23 +1577,34 @@
 </code></pre></div>
 
 <ul>
-<li><span style="color: #000000">ligne 22 : la classe [AppUserDetails] implémente l&#x27;interface [UserDetails] ;</span></li>
-<li><span style="color: #000000">lignes 29-30 : la classe encapsule un utilisateur (ligne 19) et le repository qui permet d&#x27;avoir les détails de cet utilisateur (ligne 20) ;</span></li>
-<li><span style="color: #000000">ligne 27 : la base de données va être accédée via JDBC au moyen de l&#x27;objet [NamedParameterJdbcTemplate <span style="color: #0000c0">namedParameterJdbcTemplate</span>] défini dans le projet [spring-jdbc-generic-04]. On notera que cet objet n&#x27;est pas injecté par Spring comme il a été souvent fait. Il est fourni au constructeur des lignes 36-39 Pourquoi ? parce que la classe [AppUserDetails] n&#x27;est pas un composant Spring (absence de l&#x27;annotation @Component) et que donc on ne peut y faire d&#x27;injections ;</span></li>
-<li><span style="color: #000000">lignes 36-39 : le constructeur qui instancie la classe avec un utilisateur et son repository ;</span></li>
-<li><span style="color: #000000">lignes 42-49 : implémentation de la méthode [getAuthorities] de l&#x27;interface [UserDetails]. Elle doit construire une collection d&#x27;éléments de type [GrantedAuthority] ou dérivé. Ici, nous utilisons le type dérivé [SimpleGrantedAuthority] (ligne 46) qui encapsule le nom d&#x27;un des rôles de l&#x27;utilisateur de la ligne 29 ;</span></li>
-<li><span style="color: #000000">lignes 45-47 : on parcourt la liste des rôles de l&#x27;utilisateur de la ligne 29 pour construire une liste d&#x27;éléments de type [SimpleGrantedAuthority] ;</span></li>
-<li><span style="color: #000000">ligne 45 : pour obtenir les rôles de l&#x27;utilisateur, on utilise la méthode privée [getRoles] de la ligne 53 ;</span></li>
-<li><span style="color: #000000">ligne 56 : exécute l&#x27;ordre SQL [</span>ConfigJdbc.<em>SELECT_ROLES_BYUSERID</em><span style="color: #000000">] (défini dans [Configjdbc]) suivant :</span></li>
+  <li><span style="color: #000000">ligne 22 : la classe [AppUserDetails] implémente l&#x27;interface [UserDetails] ;</span>
+  </li>
+  <li><span style="color: #000000">lignes 29-30 : la classe encapsule un utilisateur (ligne 19) et le repository qui permet d&#x27;avoir les détails de cet utilisateur (ligne 20) ;</span>
+  </li>
+  <li><span style="color: #000000">ligne 27 : la base de données va être accédée via JDBC au moyen de l&#x27;objet [NamedParameterJdbcTemplate <span style="color: #0000c0">namedParameterJdbcTemplate</span>] défini dans le projet [spring-jdbc-generic-04]. On notera que cet objet n&#x27;est pas injecté par Spring comme il a été souvent fait. Il est fourni au constructeur des lignes 36-39 Pourquoi ? parce que la classe [AppUserDetails] n&#x27;est pas un composant Spring (absence de l&#x27;annotation @Component) et que donc on ne peut y faire d&#x27;injections ;</span>
+  </li>
+  <li><span style="color: #000000">lignes 36-39 : le constructeur qui instancie la classe avec un utilisateur et son repository ;</span>
+  </li>
+  <li><span style="color: #000000">lignes 42-49 : implémentation de la méthode [getAuthorities] de l&#x27;interface [UserDetails]. Elle doit construire une collection d&#x27;éléments de type [GrantedAuthority] ou dérivé. Ici, nous utilisons le type dérivé [SimpleGrantedAuthority] (ligne 46) qui encapsule le nom d&#x27;un des rôles de l&#x27;utilisateur de la ligne 29 ;</span>
+  </li>
+  <li><span style="color: #000000">lignes 45-47 : on parcourt la liste des rôles de l&#x27;utilisateur de la ligne 29 pour construire une liste d&#x27;éléments de type [SimpleGrantedAuthority] ;</span>
+  </li>
+  <li><span style="color: #000000">ligne 45 : pour obtenir les rôles de l&#x27;utilisateur, on utilise la méthode privée [getRoles] de la ligne 53 ;</span>
+  </li>
+  <li><span style="color: #000000">ligne 56 : exécute l&#x27;ordre SQL [</span>ConfigJdbc.<i>SELECT_ROLES_BYUSERID</i><span style="color: #000000">] (défini dans [Configjdbc]) suivant :</span>
+  </li>
 </ul>
+
 <div class="odt-code-rich" data-linenums="false" style="counter-reset: odtline 0;"><pre><code class="language-sql">
 <span class="odt-code-line"><span style="font-weight:bold;color:#7f0055">public</span> <span style="font-weight:bold;color:#7f0055">static</span> <span style="font-weight:bold;color:#7f0055">final</span> String <span style="font-weight:bold;font-style:italic;color:#0000c0">SELECT_ROLES_BYUSERID</span> = <span style="color:#2a00ff">&quot;SELECT DISTINCT r.ID as r_ID, r.VERSIONING as r_VERSIONING, r.NAME as r_NAME FROM ROLES r, USERS u, USERS_ROLES ur WHERE u.ID=</span><span style="background-color:#ff950e;color:#2a00ff">:id</span><span style="color:#2a00ff"> AND ur.USER_ID=u.ID AND ur.ROLE_ID=r.ID&quot;</span><span style="color:#000000">;</span></span>
 </code></pre></div>
 
 <p><span style="color: #000000">Cette requête SQL fait une jointure entre les trois tables [USERS, ROLES, USERS_ROLES] pour obtenir les rôles d&#x27;un utilisateur identifié par sa clé primaire. Elle est paramétrée par la clé primaire [:id] de l&#x27;utilisateur dont on cherche les rôles.</span></p>
 <ul>
-<li><span style="color: #000000">ligne 56 : chaque ligne résultat du [SELECT] est transformée en entité [Role] par la classe [ShortRowMapper] des lignes 66-72 ;</span></li>
+  <li><span style="color: #000000">ligne 56 : chaque ligne résultat du [SELECT] est transformée en entité [Role] par la classe [ShortRowMapper] des lignes 66-72 ;</span>
+  </li>
 </ul>
+
 <p><span style="color: #000000">Revenons au code de la classe [AppUserDetails] :</span></p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-text">
 <span class="odt-code-line"><span style="font-weight:bold;color:#7f0055">package</span> spring.security.dao;</span>
@@ -1652,13 +1676,20 @@
 </code></pre></div>
 
 <ul>
-<li><span style="color: #000000">lignes 35-37 : implémentent la méthode [getPassword] de l&#x27;interface [UserDetails]. On rend le mot de passe  de l&#x27;utilisateur de la ligne 12 ;</span></li>
-<li><span style="color: #000000">lignes 39-42 : implémentent la méthode [getUserName] de l&#x27;interface [UserDetails]. On rend le login  de l&#x27;utilisateur de la ligne 12 ;</span></li>
-<li><span style="color: #000000">lignes 44-47 : le compte de l&#x27;utilisateur n&#x27;expire jamais ;</span></li>
-<li><span style="color: #000000">lignes 49-52 : le compte de l&#x27;utilisateur n&#x27;est jamais bloqué ;</span></li>
-<li><span style="color: #000000">lignes 54-57 : les identifiants de l&#x27;utilisateur n&#x27;expirent jamais ;</span></li>
-<li><span style="color: #000000">lignes 59-62 :  le compte de l&#x27;utilisateur est toujours actif ;</span></li>
+  <li><span style="color: #000000">lignes 35-37 : implémentent la méthode [getPassword] de l&#x27;interface [UserDetails]. On rend le mot de passe  de l&#x27;utilisateur de la ligne 12 ;</span>
+  </li>
+  <li><span style="color: #000000">lignes 39-42 : implémentent la méthode [getUserName] de l&#x27;interface [UserDetails]. On rend le login  de l&#x27;utilisateur de la ligne 12 ;</span>
+  </li>
+  <li><span style="color: #000000">lignes 44-47 : le compte de l&#x27;utilisateur n&#x27;expire jamais ;</span>
+  </li>
+  <li><span style="color: #000000">lignes 49-52 : le compte de l&#x27;utilisateur n&#x27;est jamais bloqué ;</span>
+  </li>
+  <li><span style="color: #000000">lignes 54-57 : les identifiants de l&#x27;utilisateur n&#x27;expirent jamais ;</span>
+  </li>
+  <li><span style="color: #000000">lignes 59-62 :  le compte de l&#x27;utilisateur est toujours actif ;</span>
+  </li>
 </ul>
+
 <p><span style="color: #000000">Spring Security impose également l&#x27;existence d&#x27;une classe implémentant l&#x27;interface [AppUserDetailsService] :</span></p>
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/100000000000019C0000007FEE7FC945.png" style="display:inline-block; margin:4px;width:7.631cm;height:2.35cm;" class="odt-zoomable" data-zoom-src="images/100000000000019C0000007FEE7FC945.png" /></td></tr></table>
 
@@ -1725,24 +1756,34 @@
 </code></pre></div>
 
 <ul>
-<li><span style="color: #000000">ligne 21 : la classe sera un composant Spring ;</span></li>
-<li><span style="color: #000000">lignes 25-26 : la base de données va être accédée via JDBC au moyen de l&#x27;objet [NamedParameterJdbcTemplate <span style="color: #0000c0">namedParameterJdbcTemplate</span>] défini dans les beans du projet [spring-jdbc-generic-04] ;</span></li>
-<li><span style="color: #000000">lignes 31-49 : implémentation de la méthode [loadUserByUsername] de l&#x27;interface [UserDetailsService] (ligne 22). Le paramètre est le login de l&#x27;utilisateur ;</span></li>
-<li><span style="color: #000000">lignes 36-37 : l&#x27;utilisateur est recherché via son login. L&#x27;ordre SQL [ConfigJdbc.<em>SELECT_USER_BYLOGIN</em>] est le suivant :</span></li>
+  <li><span style="color: #000000">ligne 21 : la classe sera un composant Spring ;</span>
+  </li>
+  <li><span style="color: #000000">lignes 25-26 : la base de données va être accédée via JDBC au moyen de l&#x27;objet [NamedParameterJdbcTemplate <span style="color: #0000c0">namedParameterJdbcTemplate</span>] défini dans les beans du projet [spring-jdbc-generic-04] ;</span>
+  </li>
+  <li><span style="color: #000000">lignes 31-49 : implémentation de la méthode [loadUserByUsername] de l&#x27;interface [UserDetailsService] (ligne 22). Le paramètre est le login de l&#x27;utilisateur ;</span>
+  </li>
+  <li><span style="color: #000000">lignes 36-37 : l&#x27;utilisateur est recherché via son login. L&#x27;ordre SQL [ConfigJdbc.<i>SELECT_USER_BYLOGIN</i>] est le suivant :</span>
+  </li>
 </ul>
+
 <div class="odt-code-rich" data-linenums="false" style="counter-reset: odtline 0;"><pre><code class="language-sql">
 <span class="odt-code-line"><span style="font-weight:bold;color:#7f0055">public</span> <span style="font-weight:bold;color:#7f0055">static</span> <span style="font-weight:bold;color:#7f0055">final</span> String <span style="font-weight:bold;font-style:italic;color:#0000c0">SELECT_USER_BYLOGIN</span> = <span style="color:#2a00ff">&quot;SELECT u.ID as u_ID, u.VERSIONING as u_VERSIONING, u.NAME as u_NAME,u.LOGIN as u_LOGIN,u.PASSWORD as u_PASSWORD FROM USERS u WHERE u.LOGIN= </span><span style="background-color:#ff950e;color:#2a00ff">:login</span><span style="color:#2a00ff">&quot;</span>;</span>
 </code></pre></div>
 
 <p><span style="color: #000000">Chaque ligne rendue par le SELECT est transformée en entité [User] par la classe [ShortUserMapper] des lignes 52-58.</span></p>
 <ul>
-<li><span style="color: #000000">lignes 42-44 : s&#x27;il n&#x27;est pas trouvé, une exception est lancée ;</span></li>
-<li><span style="color: #000000">ligne 46 : un objet [AppUserDetails] est construit et rendu. Il est bien de type [UserDetails] (ligne 32). On passe deux informations à son constructeur :</span><ul>
-<li><span style="color: #000000">l&#x27;utilisateur qu&#x27;on a trouvé ;</span></li>
-<li><span style="color: #000000">l&#x27;objet [</span><span style="color: #0000c0">namedParameterJdbcTemplate</span><span style="color: #000000">] qui va permettre à la classe [AppUserDetails] de requêter la base de données ;</span></li>
+  <li><span style="color: #000000">lignes 42-44 : s&#x27;il n&#x27;est pas trouvé, une exception est lancée ;</span>
+  </li>
+  <li><span style="color: #000000">ligne 46 : un objet [AppUserDetails] est construit et rendu. Il est bien de type [UserDetails] (ligne 32). On passe deux informations à son constructeur :</span>
+    <ul>
+      <li><span style="color: #000000">l&#x27;utilisateur qu&#x27;on a trouvé ;</span>
+      </li>
+      <li><span style="color: #000000">l&#x27;objet [</span><span style="color: #0000c0">namedParameterJdbcTemplate</span><span style="color: #000000">] qui va permettre à la classe [AppUserDetails] de requêter la base de données ;</span>
+      </li>
+    </ul>
+  </li>
 </ul>
-</li>
-</ul>
+
 <p><a id="refheading1451291186279333"></a></p>
 <h3 id="2023-la-couche-web">20.2.3. La couche [web]</h3>
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/100000000000044C000001026E8B9324.png" style="display:inline-block; margin:4px;width:14.552cm;height:3.413cm;" class="odt-zoomable" data-zoom-src="images/100000000000044C000001026E8B9324.png" /></td></tr></table>
@@ -1756,7 +1797,7 @@
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/100000000000042E00000106D72DACD7.png" style="display:inline-block; margin:4px;width:14.155cm;height:3.466cm;" class="odt-zoomable" data-zoom-src="images/100000000000042E00000106D72DACD7.png" /></td></tr></table>
 
 <p><span style="color: #000000"><a id="refheading571131429907001"></a>Le projet est configuré par la classe [AppConfig] suivante :</span></p>
-<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;"><b>1</b></p><img src="images/100000000000010A000000FD88BBE4D6.png" style="display:inline-block; margin:4px;width:4.93cm;height:4.68cm;" class="odt-zoomable" data-zoom-src="images/100000000000010A000000FD88BBE4D6.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td></tr></table>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><b>1</b></div><img src="images/100000000000010A000000FD88BBE4D6.png" style="display:inline-block; margin:4px;width:4.93cm;height:4.68cm;" class="odt-zoomable" data-zoom-src="images/100000000000010A000000FD88BBE4D6.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td></tr></table>
 
 <p><span style="color: #000000">Nous avons déjà rencontré une classe de configuration de Spring Security (cg paragraphe <a href="securiser-lacces-a-un-service-web-avec-spring-security.html#refheading9327894989336">19.2.4</a>) :</span></p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
@@ -1786,10 +1827,14 @@
 
 <p><span style="color: #000000">Nous allons suivre la même démarche :</span></p>
 <ul>
-<li><span style="color: #000000">ligne 11 : définir une classe qui étend la classe [WebSecurityConfigurerAdapter] ;</span></li>
-<li><span style="color: #000000">ligne 13 : définir une méthode [configure(HttpSecurity http)] qui définit les droits d&#x27;accès aux différentes URL du service web ;</span></li>
-<li><span style="color: #000000">ligne 19 : définir une méthode [configure(AuthenticationManagerBuilder auth)] qui définit les utilisateurs et leurs rôles ;</span></li>
+  <li><span style="color: #000000">ligne 11 : définir une classe qui étend la classe [WebSecurityConfigurerAdapter] ;</span>
+  </li>
+  <li><span style="color: #000000">ligne 13 : définir une méthode [configure(HttpSecurity http)] qui définit les droits d&#x27;accès aux différentes URL du service web ;</span>
+  </li>
+  <li><span style="color: #000000">ligne 19 : définir une méthode [configure(AuthenticationManagerBuilder auth)] qui définit les utilisateurs et leurs rôles ;</span>
+  </li>
 </ul>
+
 <p><span style="color: #000000">La classe [AppConfig] sera la suivante :</span></p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
 <span class="odt-code-line"><span style="font-weight:bold;color:#7f0055">package</span> spring.security.config;</span>
@@ -1849,30 +1894,46 @@
 </code></pre></div>
 
 <ul>
-<li><span style="color: #000000">ligne 17 : la classe est une classe de configuration Spring ;</span></li>
-<li><span style="color: #000000">ligne 18 : active les éléments de Spring Security ;</span></li>
-<li><span style="color: #000000">ligne 26 : on récupère les composants Spring de la couche [DAO2] et ceux du package [spring.security.service] dont nous parlerons ultérieurement ;</span></li>
-<li><span style="color: #000000">ligne 23 : on importe les beans du projet [spring-webjson-server-jdbc-generic] qui implémente la couche [web]. Parmi ces beans, il y a également ceux de la couche [DAO1] ; </span></li>
-<li><span style="color: #000000">lignes 22-23 : la classe [AppUserDetails] qui donne accès aux utilisateurs de l&#x27;application est injectée ;</span></li>
-<li><span style="color: #000000">ligne 26 : un booléen qui sécurise (true) ou non (false) l&#x27;application web ;</span></li>
-<li><span style="color: #000000">lignes 28-33 : la méthode [configure(HttpSecurity http)] définit les utilisateurs et leurs rôles. Elle reçoit en paramètre un type [AuthenticationManagerBuilder]. Ce paramètre est enrichi de deux informations (ligne 32) :</span><ul>
-<li><span style="color: #000000">une référence sur le service [<span style="color: #0000c0">appUserDetailsService</span>] de la ligne 23 qui donne accès aux utilisateurs enregistrés. On notera ici que le fait qu&#x27;ils soient enregistrés dans une base de données n&#x27;apparaît pas. Ils pourraient donc être dans un cache, délivrés par un service web, ...</span></li>
-<li><span style="color: #000000">le type de cryptage utilisé pour le mot de passe. Nous avons utilisé l&#x27;algorithme BCrypt ;</span></li>
+  <li><span style="color: #000000">ligne 17 : la classe est une classe de configuration Spring ;</span>
+  </li>
+  <li><span style="color: #000000">ligne 18 : active les éléments de Spring Security ;</span>
+  </li>
+  <li><span style="color: #000000">ligne 26 : on récupère les composants Spring de la couche [DAO2] et ceux du package [spring.security.service] dont nous parlerons ultérieurement ;</span>
+  </li>
+  <li><span style="color: #000000">ligne 23 : on importe les beans du projet [spring-webjson-server-jdbc-generic] qui implémente la couche [web]. Parmi ces beans, il y a également ceux de la couche [DAO1] ; </span>
+  </li>
+  <li><span style="color: #000000">lignes 22-23 : la classe [AppUserDetails] qui donne accès aux utilisateurs de l&#x27;application est injectée ;</span>
+  </li>
+  <li><span style="color: #000000">ligne 26 : un booléen qui sécurise (true) ou non (false) l&#x27;application web ;</span>
+  </li>
+  <li><span style="color: #000000">lignes 28-33 : la méthode [configure(HttpSecurity http)] définit les utilisateurs et leurs rôles. Elle reçoit en paramètre un type [AuthenticationManagerBuilder]. Ce paramètre est enrichi de deux informations (ligne 32) :</span>
+    <ul>
+      <li><span style="color: #000000">une référence sur le service [<span style="color: #0000c0">appUserDetailsService</span>] de la ligne 23 qui donne accès aux utilisateurs enregistrés. On notera ici que le fait qu&#x27;ils soient enregistrés dans une base de données n&#x27;apparaît pas. Ils pourraient donc être dans un cache, délivrés par un service web, ...</span>
+      </li>
+      <li><span style="color: #000000">le type de cryptage utilisé pour le mot de passe. Nous avons utilisé l&#x27;algorithme BCrypt ;</span>
+      </li>
+    </ul>
+  </li>
+  <li><span style="color: #000000">lignes 35-53 : la méthode [configure(HttpSecurity http)] définit les droits d&#x27;accès aux URL du service web ;</span>
+  </li>
+  <li><span style="color: #000000">ligne 38 : nous avons vu dans le projet d&#x27;introduction que par défaut Spring Security gérait un jeton CSRF (Cross Site Request Forgery) que l&#x27;utilisateur qui voulait s&#x27;authentifier devait renvoyer au serveur. Ici ce mécanisme est désactivé. Ceci ajouté au booléen (isSecured=false) permet d&#x27;utiliser l&#x27;application web sans sécurité ;</span>
+  </li>
+  <li><span style="color: #000000">ligne 42 : on active le mode d&#x27;authentification par entête HTTP. Le client devra envoyer l&#x27;entête HTTP suivant :</span>
+  </li>
 </ul>
-</li>
-<li><span style="color: #000000">lignes 35-53 : la méthode [configure(HttpSecurity http)] définit les droits d&#x27;accès aux URL du service web ;</span></li>
-<li><span style="color: #000000">ligne 38 : nous avons vu dans le projet d&#x27;introduction que par défaut Spring Security gérait un jeton CSRF (Cross Site Request Forgery) que l&#x27;utilisateur qui voulait s&#x27;authentifier devait renvoyer au serveur. Ici ce mécanisme est désactivé. Ceci ajouté au booléen (isSecured=false) permet d&#x27;utiliser l&#x27;application web sans sécurité ;</span></li>
-<li><span style="color: #000000">ligne 42 : on active le mode d&#x27;authentification par entête HTTP. Le client devra envoyer l&#x27;entête HTTP suivant :</span></li>
-</ul>
+
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>Authorization:Basic code
 </code></pre></div>
 <p><span style="color: #000000">où code est le codage de la chaîne <strong>login:password</strong> par l&#x27;algorithme Base64. Par exemple, le codage Base64 de la chaîne <em>admin:admin</em> est <em>YWRtaW46YWRtaW4=</em>. Donc l&#x27;utilisateur de login [admin] et de mot de passe [admin] enverra l&#x27;entête HTTP suivant pour s&#x27;authentifier :</span></p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>Authorization:Basic YWRtaW46YWRtaW4=
 </code></pre></div>
 <ul>
-<li><span style="color: #000000">lignes 47-49 : indiquent que toutes les URL du service web sont accessibles aux utilisateurs ayant le rôle [ROLE_ADMIN]. Cela veut dire qu&#x27;un utilisateur n&#x27;ayant pas ce rôle ne peut accéder au service web ;</span></li>
-<li><span style="color: #000000">ligne 51 : en mode [session], un utilisateur qui s&#x27;est authentifié une fois n&#x27;a pas besoin de le faire pour ses accès suivants. C&#x27;est la valeur par défaut de Spring Security. La ligne 51 désactive ce mode. Si elle est active l&#x27;utilisateur devra s&#x27;authentifier à chaque accès. Sans session, la réactivité du service web sécurisé est moindre qu&#x27;avec la session, aussi la ligne 51 a-t-elle été mise en commentaires ;</span></li>
+  <li><span style="color: #000000">lignes 47-49 : indiquent que toutes les URL du service web sont accessibles aux utilisateurs ayant le rôle [ROLE_ADMIN]. Cela veut dire qu&#x27;un utilisateur n&#x27;ayant pas ce rôle ne peut accéder au service web ;</span>
+  </li>
+  <li><span style="color: #000000">ligne 51 : en mode [session], un utilisateur qui s&#x27;est authentifié une fois n&#x27;a pas besoin de le faire pour ses accès suivants. C&#x27;est la valeur par défaut de Spring Security. La ligne 51 désactive ce mode. Si elle est active l&#x27;utilisateur devra s&#x27;authentifier à chaque accès. Sans session, la réactivité du service web sécurisé est moindre qu&#x27;avec la session, aussi la ligne 51 a-t-elle été mise en commentaires ;</span>
+  </li>
 </ul>
+
 <p><a id="refheading9353894989336"></a></p>
 <h3 id="2025-tests-du-service-web-securise">20.2.5. Tests du service web sécurisé</h3>
 <p><span style="color: #000000">Nous allons tester le service web avec le client Chrome [Advanced Rest Client]. Nous allons avoir besoin de préciser l&#x27;entête HTTP d&#x27;authentification :</span></p>
@@ -1914,37 +1975,52 @@
 </code></pre></div>
 <p><span style="color: #000000">Nous sommes désormais prêts pour les tests :</span></p>
 <ul>
-<li><span style="color: #000000">le SGBD MySQL doit être lancé ;</span></li>
-<li><span style="color: #000000">nous remplissons les tables [PRODUITS] et [CATEGORIES] avec la configuration d&#x27;exécution nommée [spring-jdbc-generic-04-fillDataBase] :</span></li>
+  <li><span style="color: #000000">le SGBD MySQL doit être lancé ;</span>
+  </li>
+  <li><span style="color: #000000">nous remplissons les tables [PRODUITS] et [CATEGORIES] avec la configuration d&#x27;exécution nommée [spring-jdbc-generic-04-fillDataBase] :</span>
+  </li>
 </ul>
+
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/1000000000000126000000CB4D90FFD9.png" style="display:inline-block; margin:4px;width:5.44cm;height:3.761cm;" class="odt-zoomable" data-zoom-src="images/1000000000000126000000CB4D90FFD9.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td></tr></table>
 
 <ul>
-<li><span style="color: #000000">si ce n&#x27;a pas été déjà fait, nous remplissons les tables [USERS, ROLES, USERS_ROLES] avec la configuration d&#x27;exécution nommée [spring-security-create-users-hibernate-eclipselink] :</span></li>
+  <li><span style="color: #000000">si ce n&#x27;a pas été déjà fait, nous remplissons les tables [USERS, ROLES, USERS_ROLES] avec la configuration d&#x27;exécution nommée [spring-security-create-users-hibernate-eclipselink] :</span>
+  </li>
 </ul>
+
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/1000000000000158000000EB72D4A20C.png" style="display:inline-block; margin:4px;width:6.369cm;height:4.35cm;" class="odt-zoomable" data-zoom-src="images/1000000000000158000000EB72D4A20C.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td></tr></table>
 
 <ul>
-<li><span style="color: #000000">nous lançons le service web sécurisé avec la configuration d&#x27;exécution nommée [spring-security-server-jdbc-generic] :</span></li>
+  <li><span style="color: #000000">nous lançons le service web sécurisé avec la configuration d&#x27;exécution nommée [spring-security-server-jdbc-generic] :</span>
+  </li>
 </ul>
+
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/1000000000000133000000EB3664454F.png" style="display:inline-block; margin:4px;width:5.68cm;height:4.35cm;" class="odt-zoomable" data-zoom-src="images/1000000000000133000000EB3664454F.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td></tr></table>
 
 <p><span style="color: #000000">Puis avec le client Chrome [Advanced Rest Client], nous demandons la version longue des toutes les catégories:</span></p>
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/1000000000000452000001BA8B81436B.png" style="display:inline-block; margin:4px;width:14.631cm;height:5.847cm;" class="odt-zoomable" data-zoom-src="images/1000000000000452000001BA8B81436B.png" /></td></tr></table>
 
 <ul>
-<li><span style="color: #000000">en [1], nous demandons l&#x27;URL des catégories longues ;</span></li>
-<li><span style="color: #000000">en [2], avec une méthode GET ;</span></li>
-<li><span style="color: #000000">en [3], nous donnons l&#x27;entête HTTP de l&#x27;authentification. Le code [YWRtaW46YWRtaW4=] est le codage Base64 de la chaîne [admin:admin] ;</span></li>
-<li><span style="color: #000000">en [4], nous envoyons la commande HTTP ;</span></li>
+  <li><span style="color: #000000">en [1], nous demandons l&#x27;URL des catégories longues ;</span>
+  </li>
+  <li><span style="color: #000000">en [2], avec une méthode GET ;</span>
+  </li>
+  <li><span style="color: #000000">en [3], nous donnons l&#x27;entête HTTP de l&#x27;authentification. Le code [YWRtaW46YWRtaW4=] est le codage Base64 de la chaîne [admin:admin] ;</span>
+  </li>
+  <li><span style="color: #000000">en [4], nous envoyons la commande HTTP ;</span>
+  </li>
 </ul>
+
 <p><span style="color: #000000">La réponse du serveur est la suivante :</span></p>
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000002C8000001EF97F333EE.png" style="display:inline-block; margin:4px;width:9.419cm;height:6.549cm;" class="odt-zoomable" data-zoom-src="images/10000000000002C8000001EF97F333EE.png" /></td></tr></table>
 
 <ul>
-<li><span style="color: #000000">en [1], l&#x27;entête HTTP d&#x27;authentification ;</span></li>
-<li><span style="color: #000000">en [2], le serveur renvoie une réponse jSON ;</span></li>
+  <li><span style="color: #000000">en [1], l&#x27;entête HTTP d&#x27;authentification ;</span>
+  </li>
+  <li><span style="color: #000000">en [2], le serveur renvoie une réponse jSON ;</span>
+  </li>
 </ul>
+
 <p><span style="color: #000000">On obtient bien la liste des catégories :</span></p>
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/100000000000015B000001EBB64A0AD8.png" style="display:inline-block; margin:4px;width:6.421cm;height:9.089cm;" class="odt-zoomable" data-zoom-src="images/100000000000015B000001EBB64A0AD8.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td></tr></table>
 
@@ -1952,14 +2028,18 @@
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/1000000000000434000001CDF2D6DE1A.png" style="display:inline-block; margin:4px;width:14.235cm;height:6.1cm;" class="odt-zoomable" data-zoom-src="images/1000000000000434000001CDF2D6DE1A.png" /></td></tr></table>
 
 <ul>
-<li><span style="color: #000000">en [1] : l&#x27;entête HTTP d&#x27;authentification ;</span></li>
+  <li><span style="color: #000000">en [1] : l&#x27;entête HTTP d&#x27;authentification ;</span>
+  </li>
 </ul>
+
 <p><span style="color: #000000">Nous obtenons la réponse suivante :</span></p>
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/1000000000000318000001226DE38138.png" style="display:inline-block; margin:4px;width:10.478cm;height:3.836cm;" class="odt-zoomable" data-zoom-src="images/1000000000000318000001226DE38138.png" /></td></tr></table>
 
 <ul>
-<li><span style="color: #000000">en [2] : la réponse du service web ;</span></li>
+  <li><span style="color: #000000">en [2] : la réponse du service web ;</span>
+  </li>
 </ul>
+
 <p><span style="color: #000000">Maintenant, essayons l&#x27;utilisateur user / user. Il existe mais n&#x27;a pas accès au service web. Si nous exécutons le programme d&#x27;encodage Base64 avec les deux arguments [user user] :</span></p>
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/100000000000009E000000765D52ED73.png" style="display:inline-block; margin:4px;width:2.93cm;height:2.191cm;" class="odt-zoomable" data-zoom-src="images/100000000000009E000000765D52ED73.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td></tr></table>
 
@@ -1969,13 +2049,17 @@
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000001DB0000010468F7712F.png" style="display:inline-block; margin:4px;width:6.285cm;height:3.44cm;" class="odt-zoomable" data-zoom-src="images/10000000000001DB0000010468F7712F.png" /></td></tr></table>
 
 <ul>
-<li><span style="color: #000000">en [1]  : l&#x27;entête HTTP d&#x27;authentification erroné ;</span></li>
+  <li><span style="color: #000000">en [1]  : l&#x27;entête HTTP d&#x27;authentification erroné ;</span>
+  </li>
 </ul>
+
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000002B7000001062FF0AEE3.png" style="display:inline-block; margin:4px;width:9.195cm;height:3.466cm;" class="odt-zoomable" data-zoom-src="images/10000000000002B7000001062FF0AEE3.png" /></td></tr></table>
 
 <ul>
-<li><span style="color: #000000">en [2] : la réponse du service web. Elle est différente de la précédente qui était [401 Unauthorized]. Cette fois-ci, l&#x27;utilisateur s&#x27;est authentifié correctement mais n&#x27;a pas les droits suffisants pour accéder à l&#x27;URL ;</span></li>
+  <li><span style="color: #000000">en [2] : la réponse du service web. Elle est différente de la précédente qui était [401 Unauthorized]. Cette fois-ci, l&#x27;utilisateur s&#x27;est authentifié correctement mais n&#x27;a pas les droits suffisants pour accéder à l&#x27;URL ;</span>
+  </li>
 </ul>
+
 <p><span style="color: #000000">Un service web sécurisé est maintenant opérationnel.</span></p>
 <p><a id="refheading9355894989336"></a></p>
 <h3 id="2026-une-url-dauthentification">20.2.6. Une URL d&#x27;authentification</h3>
@@ -2002,10 +2086,14 @@
 </code></pre></div>
 
 <ul>
-<li><span style="color: #000000">ligne 9 : la classe [AuthenticateController] est un contrôleur Spring. A ce titre elle expose des URL. L&#x27;annotation [@RestController] indique que les méthodes traitant ces URL rendent elles-mêmes leur réponse au client ;</span></li>
-<li><span style="color: #000000">ligne 11 : expose l&#x27;URL [/authenticate] ;</span></li>
-<li><span style="color: #000000">lignes 12-14 : la méthode se contente de renvoyer un objet [Response] vide mais avec un [status] égal à 0, montrant qu&#x27;il n&#x27;y a pas eu d&#x27;erreur ;</span></li>
+  <li><span style="color: #000000">ligne 9 : la classe [AuthenticateController] est un contrôleur Spring. A ce titre elle expose des URL. L&#x27;annotation [@RestController] indique que les méthodes traitant ces URL rendent elles-mêmes leur réponse au client ;</span>
+  </li>
+  <li><span style="color: #000000">ligne 11 : expose l&#x27;URL [/authenticate] ;</span>
+  </li>
+  <li><span style="color: #000000">lignes 12-14 : la méthode se contente de renvoyer un objet [Response] vide mais avec un [status] égal à 0, montrant qu&#x27;il n&#x27;y a pas eu d&#x27;erreur ;</span>
+  </li>
 </ul>
+
 <p><span style="color: #000000">A quoi sert cette URL ? Lorsque nous voudrons simplement authentifier un utilisateur, nous la demanderons. Nous avons vu que si la couche de sécurité n&#x27;accepte pas cet utilisateur, elle renvoie une exception. Voici un exemple ;</span></p>
 <p><span style="color: #000000">Avec l&#x27;utilisateur [admin:admin] :</span></p>
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/1000000000000136000000A62285CDDF.png" style="display:inline-block; margin:4px;width:5.74cm;height:3.069cm;" class="odt-zoomable" data-zoom-src="images/1000000000000136000000A62285CDDF.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/1000000000000127000000B6AF9092CB.png" style="display:inline-block; margin:4px;width:5.459cm;height:3.371cm;" class="odt-zoomable" data-zoom-src="images/1000000000000127000000B6AF9092CB.png" /></td></tr></table>
@@ -2051,8 +2139,10 @@
 </code></pre></div>
 
 <ul>
-<li>ligne 8 : le 1er paramètre de la méthode [getResponse] est désormais un objet [Credentials] qui encapsule les identifiants d&#x27;un utilisateur :</li>
+  <li>ligne 8 : le 1er paramètre de la méthode [getResponse] est désormais un objet [Credentials] qui encapsule les identifiants d&#x27;un utilisateur :
+  </li>
 </ul>
+
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-text">
 <span class="odt-code-line"><span style="font-weight:bold;color:#7f0055">package</span><span style="color:#000000"> spring.security.client.entities;</span></span>
 <span class="odt-code-line"></span>
@@ -2136,9 +2226,12 @@
 </code></pre></div>
 
 <ul>
-<li><span style="color: #000000">lignes 33-35, 40-42 : si l&#x27;utilisateur [credentials] n&#x27;est pas </span><strong><span style="color: #000000">null</span></strong><span style="color: #000000">, alors on ajoute l&#x27;entête d&#x27;authentification. L&#x27;encodage </span><em><span style="color: #000000">Base64</span></em><span style="color: #000000"> de l&#x27;utilisateur et de son mot de passe est assuré par la méthode [getBase64] des lignes 17-21. On fera attention au fait que cette méthode utilise une classe [Base64] appartenant au JDK 1.8. Notre client HTTP peut fonctionner avec un service web non sécurisé. Il suffit de lui passer un [credentials] égal à </span><em><span style="color: #000000">null</span></em><span style="color: #000000"> ;</span></li>
-<li><span style="color: #000000">en-dehors des lignes précédentes, le code reste inchangé ;</span></li>
+  <li><span style="color: #000000">lignes 33-35, 40-42 : si l&#x27;utilisateur [credentials] n&#x27;est pas </span><b><span style="color: #000000">null</span></b><span style="color: #000000">, alors on ajoute l&#x27;entête d&#x27;authentification. L&#x27;encodage </span><i><span style="color: #000000">Base64</span></i><span style="color: #000000"> de l&#x27;utilisateur et de son mot de passe est assuré par la méthode [getBase64] des lignes 17-21. On fera attention au fait que cette méthode utilise une classe [Base64] appartenant au JDK 1.8. Notre client HTTP peut fonctionner avec un service web non sécurisé. Il suffit de lui passer un [credentials] égal à </span><i><span style="color: #000000">null</span></i><span style="color: #000000"> ;</span>
+  </li>
+  <li><span style="color: #000000">en-dehors des lignes précédentes, le code reste inchangé ;</span>
+  </li>
 </ul>
+
 <p><a id="refheading1451331186279333"></a></p>
 <h3 id="2032-la-couche-dao">20.3.2. La couche [DAO]</h3>
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/1000000000000424000000DA4AA5A50F.png" style="display:inline-block; margin:4px;width:14.023cm;height:2.884cm;" class="odt-zoomable" data-zoom-src="images/1000000000000424000000DA4AA5A50F.png" /></td></tr></table>
@@ -2205,8 +2298,10 @@
 </code></pre></div>
 
 <ul>
-<li>ligne 8 : l&#x27;interface [IDao] étend l&#x27;interface [IAuthenticate] suivante :</li>
+  <li>ligne 8 : l&#x27;interface [IDao] étend l&#x27;interface [IAuthenticate] suivante :
+  </li>
 </ul>
+
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
 <span class="odt-code-line"><span style="font-weight:bold;color:#7f0055">package</span> spring.security.client.dao;</span>
 <span class="odt-code-line"></span>
@@ -2238,8 +2333,10 @@
 </code></pre></div>
 
 <ul>
-<li><span style="color: #000000">la méthode [getShortEntitiesById] reçoit le paramètre [Credentials credentials] (ligne 2) qu&#x27;elle transmet (ligne 9) à la méthode [getShortEntitiesById] de la classe fille ;</span></li>
+  <li><span style="color: #000000">la méthode [getShortEntitiesById] reçoit le paramètre [Credentials credentials] (ligne 2) qu&#x27;elle transmet (ligne 9) à la méthode [getShortEntitiesById] de la classe fille ;</span>
+  </li>
 </ul>
+
 <p><span style="color: #000000">La classe [AbstractDao] a le squelette suivant :</span></p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
 <span class="odt-code-line"><span style="font-weight:bold;color:#7f0055">package</span> spring.security.client.dao;</span>
@@ -2265,9 +2362,12 @@
 </code></pre></div>
 
 <ul>
-<li><span style="color: #000000">ligne 14 : la classe implémente l&#x27;interface [IDao] que nous avons décrite ;</span></li>
-<li><span style="color: #000000">lignes 16-17 : une instance de l&#x27;interface [IAuthenticate] est injectée. Celle-ci est implémentée par la classe [Authenticate] suivante :</span></li>
+  <li><span style="color: #000000">ligne 14 : la classe implémente l&#x27;interface [IDao] que nous avons décrite ;</span>
+  </li>
+  <li><span style="color: #000000">lignes 16-17 : une instance de l&#x27;interface [IAuthenticate] est injectée. Celle-ci est implémentée par la classe [Authenticate] suivante :</span>
+  </li>
 </ul>
+
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
 <span class="odt-code-line"><span style="font-weight:bold;color:#7f0055">package</span> spring.security.client.dao;</span>
 <span class="odt-code-line"></span>
@@ -2291,12 +2391,18 @@
 </code></pre></div>
 
 <ul>
-<li><span style="color: #000000">ligne 9 : la classe [Authenticate] est un composant Spring ;</span></li>
-<li><span style="color: #000000">ligne 10 : qui implémente l&#x27;interface [IAuthenticate] ;</span></li>
-<li><span style="color: #000000">lignes 11-12 : injection du client HTTP qui permet de dialoguer avec le service web sécurisé ;</span></li>
-<li><span style="color: #000000">lignes 15-17 : implémentation de la méthode [authenticate] de l&#x27;interface ;</span></li>
-<li><span style="color: #000000">ligne 16 : une commande HTTP GET est émise vers l&#x27;URL [/authenticate]. L&#x27;usage de cette URL a été montré au paragraphe <a href="#refheading9355894989336">20.2.6</a>. Son principe est que l&#x27;appel se termine par une exception si l&#x27;utilisateur [credentials] est soit inconnu, soit n&#x27;a pas les droits suffisants ;</span></li>
+  <li><span style="color: #000000">ligne 9 : la classe [Authenticate] est un composant Spring ;</span>
+  </li>
+  <li><span style="color: #000000">ligne 10 : qui implémente l&#x27;interface [IAuthenticate] ;</span>
+  </li>
+  <li><span style="color: #000000">lignes 11-12 : injection du client HTTP qui permet de dialoguer avec le service web sécurisé ;</span>
+  </li>
+  <li><span style="color: #000000">lignes 15-17 : implémentation de la méthode [authenticate] de l&#x27;interface ;</span>
+  </li>
+  <li><span style="color: #000000">ligne 16 : une commande HTTP GET est émise vers l&#x27;URL [/authenticate]. L&#x27;usage de cette URL a été montré au paragraphe <a href="#refheading9355894989336">20.2.6</a>. Son principe est que l&#x27;appel se termine par une exception si l&#x27;utilisateur [credentials] est soit inconnu, soit n&#x27;a pas les droits suffisants ;</span>
+  </li>
 </ul>
+
 <p><span style="color: #000000">La classe [AbstractDao] implémente la méthode [authenticate] de l&#x27;interface [IDao] de la façon suivante :</span></p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-text">
 <span class="odt-code-line">    <span style="color:#646464">@Autowired</span></span>
@@ -2309,8 +2415,10 @@
 </code></pre></div>
 
 <ul>
-<li><span style="color: #000000">ligne 7 : le travail est délégué à la méthode [authenticate] de la classe [Authenticate]. On aura donc une exception si l&#x27;utilisateur [Credentials <span style="color: #6a3e3e">credentials</span>] n&#x27;est pas accepté par le service web sécurisé ;</span></li>
+  <li><span style="color: #000000">ligne 7 : le travail est délégué à la méthode [authenticate] de la classe [Authenticate]. On aura donc une exception si l&#x27;utilisateur [Credentials <span style="color: #6a3e3e">credentials</span>] n&#x27;est pas accepté par le service web sécurisé ;</span>
+  </li>
 </ul>
+
 <p><a id="refheading1451351186279333"></a></p>
 <h4 id="20323-les-classes-daocategorie-daoproduit">20.3.2.3. Les classes [DaoCategorie, DaoProduit]</h4>
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000000D3000000B4B1A2A758.png" style="display:inline-block; margin:4px;width:3.911cm;height:3.33cm;" class="odt-zoomable" data-zoom-src="images/10000000000000D3000000B4B1A2A758.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td></tr></table>
@@ -2358,8 +2466,10 @@
 </code></pre></div>
 
 <ul>
-<li><span style="color: #000000">ligne 2 : il faut mettre le package de la nouvelle couche [DAO] ;</span></li>
+  <li><span style="color: #000000">ligne 2 : il faut mettre le package de la nouvelle couche [DAO] ;</span>
+  </li>
 </ul>
+
 <p><a id="refheading9365894989336"></a></p>
 <h3 id="2034-tests-de-la-couche-dao">20.3.4. <span style="color: #000000">Tests de la couche [DAO]</span></h3>
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/1000000000000442000000E4857FE39A.png" style="display:inline-block; margin:4px;width:14.42cm;height:3.016cm;" class="odt-zoomable" data-zoom-src="images/1000000000000442000000E4857FE39A.png" /></td></tr></table>
@@ -2446,13 +2556,18 @@
 </code></pre></div>
 
 <ul>
-<li><span style="color: #000000">lors de l&#x27;initialisation de la classe de test, lignes 29-34, trois utilisateurs sont créés :</span><ul>
-<li><span style="color: #000000">l&#x27;utilisateur [admin] a accès aux URL du service web. Il est testé aux lignes 63-72 ;</span></li>
-<li><span style="color: #000000">l&#x27;utilisateur [user] existe mais n&#x27;est pas autorisé à utiliser les URL du service web. Il est testé aux lignes 37-47 ;</span></li>
-<li><span style="color: #000000">l&#x27;utilisateur [unknown] n&#x27;existe pas. Il est testé aux lignes 50-60 ;</span></li>
+  <li><span style="color: #000000">lors de l&#x27;initialisation de la classe de test, lignes 29-34, trois utilisateurs sont créés :</span>
+    <ul>
+      <li><span style="color: #000000">l&#x27;utilisateur [admin] a accès aux URL du service web. Il est testé aux lignes 63-72 ;</span>
+      </li>
+      <li><span style="color: #000000">l&#x27;utilisateur [user] existe mais n&#x27;est pas autorisé à utiliser les URL du service web. Il est testé aux lignes 37-47 ;</span>
+      </li>
+      <li><span style="color: #000000">l&#x27;utilisateur [unknown] n&#x27;existe pas. Il est testé aux lignes 50-60 ;</span>
+      </li>
+    </ul>
+  </li>
 </ul>
-</li>
-</ul>
+
 <p><span style="color: #000000">On lance le service web sécurisé avec la configuration d&#x27;exécution nommée [spring-security-server-jdbc-generic] [1] :</span></p>
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000004A500000181F580BF76.png" style="display:inline-block; margin:4px;width:15.73cm;height:5.094cm;" class="odt-zoomable" data-zoom-src="images/10000000000004A500000181F580BF76.png" /></td></tr></table>
 
@@ -2564,22 +2679,31 @@
 
 <p><span style="color: #000000">Ci-dessus :</span></p>
 <ul>
-<li><span style="color: #000000">la couche [DAO1] est la couche [DAO] qui gère les tables [PRODUITS] et [CATEGORIES] de la base [dbproduitscategories]. Elle a déjà été écrite ;</span></li>
-<li><span style="color: #000000">la couche [DAO2] est la couche [DAO] qui gère les tables [USERS], [ROLES] et [USERS_ROLES] de la base [dbproduitscategories]. Elle reste à écrire ;</span></li>
+  <li><span style="color: #000000">la couche [DAO1] est la couche [DAO] qui gère les tables [PRODUITS] et [CATEGORIES] de la base [dbproduitscategories]. Elle a déjà été écrite ;</span>
+  </li>
+  <li><span style="color: #000000">la couche [DAO2] est la couche [DAO] qui gère les tables [USERS], [ROLES] et [USERS_ROLES] de la base [dbproduitscategories]. Elle reste à écrire ;</span>
+  </li>
 </ul>
+
 <p><span style="color: #000000">Le projet [spring-security-server-jpa-generic] est d&#x27;abord obtenu par recopie du projet étudié précédemment [spring-security-server-jdbc-generic]. En effet , les couches [web] et [security] ne changent pas car :</span></p>
 <ul>
-<li><span style="color: #000000">la couche [DAO1 / Repositories / JPA] (déjà écrite) a la même interface que la couche [DAO1 / JDBC] ;</span></li>
-<li><span style="color: #000000">la couche [DAO2 / Repositories / JPA] (à écrire) aura la même interface que la couche [DAO2 / JDBC] ;</span></li>
+  <li><span style="color: #000000">la couche [DAO1 / Repositories / JPA] (déjà écrite) a la même interface que la couche [DAO1 / JDBC] ;</span>
+  </li>
+  <li><span style="color: #000000">la couche [DAO2 / Repositories / JPA] (à écrire) aura la même interface que la couche [DAO2 / JDBC] ;</span>
+  </li>
 </ul>
+
 <p><span style="color: #000000">Le projet [spring-security-server-jpa-generic] est le suivant :</span></p>
 <p><span style="color: #000000"> </span></p>
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000000FC0000015953B9E7C7.png" style="display:inline-block; margin:4px;width:4.671cm;height:6.391cm;" class="odt-zoomable" data-zoom-src="images/10000000000000FC0000015953B9E7C7.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td></tr></table>
 
 <ul>
-<li>le package [spring.security.repositories] implémente la couche [repositories] ;</li>
-<li>le package [spring.security.dao] implémente la couche [dao2] ;</li>
+  <li>le package [spring.security.repositories] implémente la couche [repositories] ;
+  </li>
+  <li>le package [spring.security.dao] implémente la couche [dao2] ;
+  </li>
 </ul>
+
 <p><a id="refheading1451451186279333"></a></p>
 <h3 id="2041-le-projet-maven">20.4.1. Le projet Maven</h3>
 <p><span style="color: #000000">Le projet est un projet Maven configuré par le fichier [pom.xml] suivant :</span></p>
@@ -2633,9 +2757,12 @@
 </code></pre></div>
 
 <ul>
-<li><span style="color: #000000">lignes 24-27 : la dépendance pour la couche [security] du projet ;</span></li>
-<li><span style="color: #000000">lignes 29-33 : la dépendance pour la couche [web] du projet. Le projet [spring-webjson-server-jpa-generic] implémente totalement la couche [web]. Celle-ci n&#x27;a pas besoin d&#x27;être écrite ou modifiée ;</span></li>
+  <li><span style="color: #000000">lignes 24-27 : la dépendance pour la couche [security] du projet ;</span>
+  </li>
+  <li><span style="color: #000000">lignes 29-33 : la dépendance pour la couche [web] du projet. Le projet [spring-webjson-server-jpa-generic] implémente totalement la couche [web]. Celle-ci n&#x27;a pas besoin d&#x27;être écrite ou modifiée ;</span>
+  </li>
 </ul>
+
 <p><span style="color: #000000">Au final, les dépendances sont les suivantes :</span></p>
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/100000000000011E000000858E935643.png" style="display:inline-block; margin:4px;width:5.3cm;height:2.461cm;" class="odt-zoomable" data-zoom-src="images/100000000000011E000000858E935643.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td></tr></table>
 
@@ -2654,10 +2781,14 @@
 </code></pre></div>
 
 <ul>
-<li><span style="color: #000000">ligne 3 : on déclare le package qui implémente la couche [repositories] ;</span></li>
-<li><span style="color: #000000">ligne 4 : les packages contenant les beans Spring portent le même nom dans le nouveau projet ;</span></li>
-<li><span style="color: #000000">ligne 5 : dans le projet précédent, la classe [spring.webjson.server.config.AppConfig] était trouvée dans la dépendance [spring-webjson-server-<strong>jdbc</strong>-generic]. Là elle sera trouvée dans la dépendance [spring-webjson-server-<strong>jpa</strong>-generic] ;</span></li>
+  <li><span style="color: #000000">ligne 3 : on déclare le package qui implémente la couche [repositories] ;</span>
+  </li>
+  <li><span style="color: #000000">ligne 4 : les packages contenant les beans Spring portent le même nom dans le nouveau projet ;</span>
+  </li>
+  <li><span style="color: #000000">ligne 5 : dans le projet précédent, la classe [spring.webjson.server.config.AppConfig] était trouvée dans la dépendance [spring-webjson-server-<b>jdbc</b>-generic]. Là elle sera trouvée dans la dépendance [spring-webjson-server-<b>jpa</b>-generic] ;</span>
+  </li>
 </ul>
+
 <p><a id="refheading1398331985289926"></a></p>
 <h3 id="2043-la-couche-jpa">20.4.3. La couche JPA</h3>
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/100000000000044000000113360481E3.png" style="display:inline-block; margin:4px;width:14.393cm;height:3.639cm;" class="odt-zoomable" data-zoom-src="images/100000000000044000000113360481E3.png" /></td></tr></table>
@@ -2668,12 +2799,18 @@
 <p><span style="color: #000000">La classe [User] est l&#x27;image de la table [USERS] :</span></p>
 <p><img src="images/100000000000039B000000AD5219AF12.png" style="width:17.09cm;height:3.2cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000039B000000AD5219AF12.png" /></p>
 <ul>
-<li><span style="color: #000000">ID : clé primaire ;</span></li>
-<li><span style="color: #000000">VERSION : colonne de versioning de la ligne ;</span></li>
-<li><span style="color: #000000">IDENTITY : une identité descriptive de l&#x27;utilisateur ;</span></li>
-<li><span style="color: #000000">LOGIN : le login de l&#x27;utilisateur ;</span></li>
-<li><span style="color: #000000">PASSWORD : son mot de passe ;</span></li>
+  <li><span style="color: #000000">ID : clé primaire ;</span>
+  </li>
+  <li><span style="color: #000000">VERSION : colonne de versioning de la ligne ;</span>
+  </li>
+  <li><span style="color: #000000">IDENTITY : une identité descriptive de l&#x27;utilisateur ;</span>
+  </li>
+  <li><span style="color: #000000">LOGIN : le login de l&#x27;utilisateur ;</span>
+  </li>
+  <li><span style="color: #000000">PASSWORD : son mot de passe ;</span>
+  </li>
 </ul>
+
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
 <span class="odt-code-line"><span style="font-weight:bold;color:#7f0055">package</span> generic.jpa.entities.dbproduitscategories;</span>
 <span class="odt-code-line"></span>
@@ -2746,43 +2883,62 @@
 </code></pre></div>
 
 <ul>
-<li><span style="color: #000000">ligne 23 : la classe implémente l&#x27;interface [AbstractCoreEntity] déjà utilisée pour les autres entités ;</span></li>
-<li><span style="color: #000000">lignes 34-35 : le type de l&#x27;entité. Cette propriété n&#x27;est pas persistée en base [<span style="color: #646464">@Transient</span>] ;</span></li>
-<li><span style="color: #000000">lignes 38-43 : les trois propriétés de base d&#x27;un utilisateur (name, login, password) ;</span></li>
-<li><span style="color: #000000">lignes 46-48 : la liste des rôles de l&#x27;utilisateur. Il peut en avoir plusieurs. De même, nous allons voir qu&#x27;à un rôle peuvent être associés plusieurs utilisateurs. On a donc au sens JPA du terme, une relation [<strong>ManyToMany</strong>] entre les entités [User] et [Role] :</span><ul>
-<li><span style="color: #000000">un utilisateur peut référencer plusieurs rôles ;</span></li>
-<li><span style="color: #000000">un rôle peut référencer plusieurs utilisateurs ;</span></li>
+  <li><span style="color: #000000">ligne 23 : la classe implémente l&#x27;interface [AbstractCoreEntity] déjà utilisée pour les autres entités ;</span>
+  </li>
+  <li><span style="color: #000000">lignes 34-35 : le type de l&#x27;entité. Cette propriété n&#x27;est pas persistée en base [<span style="color: #646464">@Transient</span>] ;</span>
+  </li>
+  <li><span style="color: #000000">lignes 38-43 : les trois propriétés de base d&#x27;un utilisateur (name, login, password) ;</span>
+  </li>
+  <li><span style="color: #000000">lignes 46-48 : la liste des rôles de l&#x27;utilisateur. Il peut en avoir plusieurs. De même, nous allons voir qu&#x27;à un rôle peuvent être associés plusieurs utilisateurs. On a donc au sens JPA du terme, une relation [<b>ManyToMany</b>] entre les entités [User] et [Role] :</span>
+    <ul>
+      <li><span style="color: #000000">un utilisateur peut référencer plusieurs rôles ;</span>
+      </li>
+      <li><span style="color: #000000">un rôle peut référencer plusieurs utilisateurs ;</span>
+      </li>
+    </ul>
+  </li>
 </ul>
-</li>
-</ul>
+
 <p><span style="color: #000000">Cette relation [ManyToMany] est implémentée en base par la table de jointure [USERS_ROLES]. Si un utilisateur U a une relation avec un rôle R, on met dans la table [USERS_ROLES] cette relation en enregistrant le couple de clés primaires des entités (U,R). Côté JPA, la relation [ManyToMany] qui lie les entités [User] et [Role] peut être scindée en deux relations [ManyToOne, OneToMany] :</span></p>
 <ul>
-<li><span style="color: #000000">(suite)</span><ul>
-<li><span style="color: #000000">une relation [ManyToOne] de l&#x27;entité [User] vers l&#x27;entité [UserRole] ;</span></li>
-<li><span style="color: #000000">une relation [OneToMany] de l&#x27;entité [UserRole] vers l&#x27;entité [UserRole] ;</span></li>
+  <li><span style="color: #000000">(suite)</span>
+    <ul>
+      <li><span style="color: #000000">une relation [ManyToOne] de l&#x27;entité [User] vers l&#x27;entité [UserRole] ;</span>
+      </li>
+      <li><span style="color: #000000">une relation [OneToMany] de l&#x27;entité [UserRole] vers l&#x27;entité [UserRole] ;</span>
+      </li>
+    </ul>
+  </li>
 </ul>
-</li>
-</ul>
+
 <p><span style="color: #000000">De même, la relation [ManyToMany] qui lie les entités [Role] et [User] peut être scindée en deux relations [ManyToOne, OneToMany] :</span></p>
 <ul>
-<li>
-<p><span style="color: #000000">(suite)</span></p>
+  <li><span style="color: #000000">(suite)</span>
+    <ul>
+      <li><span style="color: #000000">une relation [ManyToOne] de l&#x27;entité [Role] vers l&#x27;entité [UserRole] ;</span>
+      </li>
+      <li><span style="color: #000000">une relation [OneToMany] de l&#x27;entité [UserRole] vers l&#x27;entité [User] ;</span>
+      </li>
+    </ul>
+  </li>
+</ul>
+
 <ul>
-<li><span style="color: #000000">une relation [ManyToOne] de l&#x27;entité [Role] vers l&#x27;entité [UserRole] ;</span></li>
-<li><span style="color: #000000">une relation [OneToMany] de l&#x27;entité [UserRole] vers l&#x27;entité [User] ;</span></li>
+  <li><span style="color: #000000">ligen 48 : le fait qu&#x27;un utilisateur ait plusieurs rôles est traduit par une relation [OneToMany] vers l&#x27;entité [UserRole] ;</span>
+  </li>
 </ul>
-</li>
-<li>
-<p><span style="color: #000000">ligen 48 : le fait qu&#x27;un utilisateur ait plusieurs rôles est traduit par une relation [OneToMany] vers l&#x27;entité [UserRole] ;</span></p>
-</li>
-</ul>
+
 <p><span style="color: #000000">La classe [Role] est l&#x27;image de la table [ROLES] :</span></p>
 <p><img src="images/10000000000002C700000087B3CC4F79.png" style="width:13.169cm;height:2.499cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000002C700000087B3CC4F79.png" /></p>
 <ul>
-<li><span style="color: #000000">ID : clé primaire ;</span></li>
-<li><span style="color: #000000">VERSION : colonne de versioning de la ligne ;</span></li>
-<li><span style="color: #000000">NAME : nom du rôle. Par défaut, Spring Security attend des noms de la forme ROLE_XX, par exemple ROLE_ADMIN ou ROLE_GUEST ;</span></li>
+  <li><span style="color: #000000">ID : clé primaire ;</span>
+  </li>
+  <li><span style="color: #000000">VERSION : colonne de versioning de la ligne ;</span>
+  </li>
+  <li><span style="color: #000000">NAME : nom du rôle. Par défaut, Spring Security attend des noms de la forme ROLE_XX, par exemple ROLE_ADMIN ou ROLE_GUEST ;</span>
+  </li>
 </ul>
+
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
 <span class="odt-code-line"><span style="font-weight:bold;color:#7f0055">package</span> generic.jpa.entities.dbproduitscategories;</span>
 <span class="odt-code-line"></span>
@@ -2853,17 +3009,24 @@
 </code></pre></div>
 
 <ul>
-<li><span style="color: #000000">lignes 42-44 : le fait qu&#x27;à un rôle peuvent être associés plusieurs utilisateurs, est traduit par une relation [<span style="color: #646464">@OneToMany</span>] vers l&#x27;entité [UserRole] ;</span></li>
+  <li><span style="color: #000000">lignes 42-44 : le fait qu&#x27;à un rôle peuvent être associés plusieurs utilisateurs, est traduit par une relation [<span style="color: #646464">@OneToMany</span>] vers l&#x27;entité [UserRole] ;</span>
+  </li>
 </ul>
+
 <p><span style="color: #000000">La classe [UserRole] est l&#x27;image de la table [USERS_ROLES] :</span></p>
 <p><img src="images/10000000000002F5000000872B0C4E7B.png" style="width:14.019cm;height:2.499cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000002F5000000872B0C4E7B.png" /></p>
 <p><span style="color: #000000">Un utilisateur peut avoir plusieurs rôles, un rôle peut rassembler plusieurs utilisateurs. On a une relation <strong>plusieurs à plusieurs</strong> matérialisée par la table [USERS_ROLES].</span></p>
 <ul>
-<li><span style="color: #000000">ID : clé primaire ;</span></li>
-<li><span style="color: #000000">VERSION : colonne de versioning de la ligne ;</span></li>
-<li><span style="color: #000000">USER_ID : identifiant d&#x27;un utilisateur ;</span></li>
-<li><span style="color: #000000">ROLE_ID : identifiant d&#x27;un rôle ;</span></li>
+  <li><span style="color: #000000">ID : clé primaire ;</span>
+  </li>
+  <li><span style="color: #000000">VERSION : colonne de versioning de la ligne ;</span>
+  </li>
+  <li><span style="color: #000000">USER_ID : identifiant d&#x27;un utilisateur ;</span>
+  </li>
+  <li><span style="color: #000000">ROLE_ID : identifiant d&#x27;un rôle ;</span>
+  </li>
 </ul>
+
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
 <span class="odt-code-line"><span style="font-weight:bold;color:#7f0055">package</span> generic.jpa.entities.dbproduitscategories;</span>
 <span class="odt-code-line"></span>
@@ -2927,9 +3090,12 @@
 </code></pre></div>
 
 <ul>
-<li><span style="color: #000000">lignes 34-36 : matérialisent la clé étrangère de la table [USERS_ROLES] vers la table [USERS] ;</span></li>
-<li><span style="color: #000000">lignes 38-41 : matérialisent la clé étrangère de la table [USERS_ROLES] vers la table [ROLES] ;</span></li>
+  <li><span style="color: #000000">lignes 34-36 : matérialisent la clé étrangère de la table [USERS_ROLES] vers la table [USERS] ;</span>
+  </li>
+  <li><span style="color: #000000">lignes 38-41 : matérialisent la clé étrangère de la table [USERS_ROLES] vers la table [ROLES] ;</span>
+  </li>
 </ul>
+
 <p><a id="refheading1395931505509149"></a></p>
 <h3 id="2044-la-couche-repositories">20.4.4. La couche [repositories]</h3>
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/100000000000044F0000010405030433.png" style="display:inline-block; margin:4px;width:14.593cm;height:3.44cm;" class="odt-zoomable" data-zoom-src="images/100000000000044F0000010405030433.png" /></td></tr></table>
@@ -2962,11 +3128,16 @@
 </code></pre></div>
 
 <ul>
-<li><span style="color: #000000">ligne 9 : l&#x27;interface [UserRepository] étend la l&#x27;interface [CrudRepository] de Spring Data (ligne 7) ;</span></li>
-<li><span style="color: #000000">lignes 12-13 : la méthode [getRoles(long id)] permet d&#x27;avoir tous les rôles d&#x27;un utilisateur identifié par son [id]</span></li>
-<li><span style="color: #000000">lignes 16-17 : idem mais pour un utilisateur identifié pas ses login / mot de passe ;</span></li>
-<li><span style="color: #000000">ligne 20 : pour trouver un utilisateur via son login ;</span></li>
+  <li><span style="color: #000000">ligne 9 : l&#x27;interface [UserRepository] étend la l&#x27;interface [CrudRepository] de Spring Data (ligne 7) ;</span>
+  </li>
+  <li><span style="color: #000000">lignes 12-13 : la méthode [getRoles(long id)] permet d&#x27;avoir tous les rôles d&#x27;un utilisateur identifié par son [id]</span>
+  </li>
+  <li><span style="color: #000000">lignes 16-17 : idem mais pour un utilisateur identifié pas ses login / mot de passe ;</span>
+  </li>
+  <li><span style="color: #000000">ligne 20 : pour trouver un utilisateur via son login ;</span>
+  </li>
 </ul>
+
 <p><span style="color: #000000">L&#x27;interface [RoleRepository] gère les accès aux entités [Role] :</span></p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
 <span class="odt-code-line"><span style="font-weight:bold;color:#7f0055">package</span> spring.security.repositories;</span>
@@ -2984,9 +3155,12 @@
 </code></pre></div>
 
 <ul>
-<li><span style="color: #000000">ligne 7 : l&#x27;interface [RoleRepository] étend l&#x27;interface [CrudRepository] ;</span></li>
-<li><span style="color: #000000">ligne 10 : on peut chercher un rôle via son nom. On rappelle ici que l&#x27;entité [Role] a un champ [name]. La méthode [findEntityByChamp] est automatiquement implémentée par Spring Data. Il n&#x27;y a donc pas lieu ici d&#x27;implémenter la méthode [finRoleByName]. Il faut juste la déclarer dans l&#x27;interface.</span></li>
+  <li><span style="color: #000000">ligne 7 : l&#x27;interface [RoleRepository] étend l&#x27;interface [CrudRepository] ;</span>
+  </li>
+  <li><span style="color: #000000">ligne 10 : on peut chercher un rôle via son nom. On rappelle ici que l&#x27;entité [Role] a un champ [name]. La méthode [findEntityByChamp] est automatiquement implémentée par Spring Data. Il n&#x27;y a donc pas lieu ici d&#x27;implémenter la méthode [finRoleByName]. Il faut juste la déclarer dans l&#x27;interface.</span>
+  </li>
 </ul>
+
 <p><span style="color: #000000">L&#x27;interface [UserRoleRepository] gère les accès aux entités [UserRole] :</span></p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
 <span class="odt-code-line"><span style="font-weight:bold;color:#7f0055">package</span> spring.security.repositories;</span>
@@ -3001,8 +3175,10 @@
 </code></pre></div>
 
 <ul>
-<li><span style="color: #000000">ligne 7 : l&#x27;interface [UserRoleRepository] se contente d&#x27;étendre l&#x27;interface [CrudRepository] sans lui ajouter de nouvelles méthodes ;</span></li>
+  <li><span style="color: #000000">ligne 7 : l&#x27;interface [UserRoleRepository] se contente d&#x27;étendre l&#x27;interface [CrudRepository] sans lui ajouter de nouvelles méthodes ;</span>
+  </li>
 </ul>
+
 <p><a id="refheading1451491186279333"></a></p>
 <h3 id="2045-la-couche-dao2">20.4.5. La couche [DAO2]</h3>
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/100000000000043D00000111BB1A84DC.png" style="display:inline-block; margin:4px;width:14.355cm;height:3.612cm;" class="odt-zoomable" data-zoom-src="images/100000000000043D00000111BB1A84DC.png" /></td></tr></table>
@@ -3068,8 +3244,10 @@
 </code></pre></div>
 
 <ul>
-<li><span style="color: #000000">ligne 31, le constructeur de la classe reçoit comme second paramètre l&#x27;objet [UserRepository] qui permetta à la classe d&#x27;obtenir les rôles d&#x27;un utilisateur donné (ligne 42) ;</span></li>
+  <li><span style="color: #000000">ligne 31, le constructeur de la classe reçoit comme second paramètre l&#x27;objet [UserRepository] qui permetta à la classe d&#x27;obtenir les rôles d&#x27;un utilisateur donné (ligne 42) ;</span>
+  </li>
 </ul>
+
 <p><span style="color: #000000">Le composant Spring [AppUserDetailsService] évolue lui de la façon suivante :</span></p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
 <span class="odt-code-line"><span style="font-weight:bold;color:#7f0055">package</span> spring.security.dao;</span>
@@ -3114,8 +3292,10 @@
 </code></pre></div>
 
 <ul>
-<li><span style="color: #000000">ligne 18 : injection du composant Spring [userRepository] qui va permettre au service de rendre l&#x27;utilisateur identifié par son login, ligne 27 ;</span></li>
+  <li><span style="color: #000000">ligne 18 : injection du composant Spring [userRepository] qui va permettre au service de rendre l&#x27;utilisateur identifié par son login, ligne 27 ;</span>
+  </li>
 </ul>
+
 <p><span style="color: #000000">Au final, on se rend compte qu&#x27;on n&#x27;a besoin que du [userRepository] et pas des deux autres repositories [roleRepository, userRoleRepository]. Ceux-ci vont être utilisés dans le projet suivant qui vise à remplir les tables [USERS, ROLES, USERS_ROLES].</span></p>
 <p><a id="refheading1451511186279333"></a></p>
 <h3 id="2046-les-tests">20.4.6. Les tests</h3>
@@ -3197,9 +3377,12 @@
 </code></pre></div>
 
 <ul>
-<li><span style="color: #000000">lignes 22-25 : dépendance sur le framework Spring Security. L&#x27;algorithme de cryptage des mots de passe est fourni par ce framework</span></li>
-<li><span style="color: #000000">lignes 27-31 : dépendance sur le projet [spring-security-server-jpa-generic] que nous venons de construire. Ce projet implémente les couches [repositories] et [JPA] du projet ;</span></li>
+  <li><span style="color: #000000">lignes 22-25 : dépendance sur le framework Spring Security. L&#x27;algorithme de cryptage des mots de passe est fourni par ce framework</span>
+  </li>
+  <li><span style="color: #000000">lignes 27-31 : dépendance sur le projet [spring-security-server-jpa-generic] que nous venons de construire. Ce projet implémente les couches [repositories] et [JPA] du projet ;</span>
+  </li>
 </ul>
+
 <p><span style="color: #000000">Au final, les dépendances sont les suivantes :</span></p>
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000001100000009DCA437B32.png" style="display:inline-block; margin:4px;width:5.039cm;height:2.91cm;" class="odt-zoomable" data-zoom-src="images/10000000000001100000009DCA437B32.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td></tr></table>
 
@@ -3211,10 +3394,14 @@
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000000ED000000DAA98A5B5B.png" style="display:inline-block; margin:4px;width:4.39cm;height:4.039cm;" class="odt-zoomable" data-zoom-src="images/10000000000000ED000000DAA98A5B5B.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td></tr></table>
 
 <ul>
-<li>[AppConfig] est la classe de configuration Spring du projet ;</li>
-<li>[CreateUsers] est la classe exécutable qui crée des utilisateurs et des rôles ;</li>
-<li>[Base64Encoder] est une classe support pour générer le code Base64 d&#x27;un couple [login, password]. Nous l&#x27;avons déjà utilisée. Elle n&#x27;est pas utile à ce projet ;</li>
+  <li>[AppConfig] est la classe de configuration Spring du projet ;
+  </li>
+  <li>[CreateUsers] est la classe exécutable qui crée des utilisateurs et des rôles ;
+  </li>
+  <li>[Base64Encoder] est une classe support pour générer le code Base64 d&#x27;un couple [login, password]. Nous l&#x27;avons déjà utilisée. Elle n&#x27;est pas utile à ce projet ;
+  </li>
 </ul>
+
 <p>La classe de configuration Spring [AppConfig] est la suivante :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
 <span class="odt-code-line"><span style="font-weight:bold;color:#7f0055">package</span><span style="color:#000000"> spring.security.install;</span></span>
@@ -3233,9 +3420,12 @@
 </code></pre></div>
 
 <ul>
-<li>ligne 10 : on indique où trouver les [repositories] de l&#x27;application. Ils sont trouvés dans le package [<span style="color: #2a00ff">spring.security.repositories</span>] de la dépendance [<span style="color: #000000">spring-security-server-jpa-generic</span>]</li>
-<li>ligne 11 : on importe les beans de la classe [<strong><span style="color: #000000">ConfigJpa</span></strong>] qui configure la couche [JPA] du projet. Cette classe sera trouvée dans la dépendance [mysql-config-jpa-hibernate] :</li>
+  <li>ligne 10 : on indique où trouver les [repositories] de l&#x27;application. Ils sont trouvés dans le package [<span style="color: #2a00ff">spring.security.repositories</span>] de la dépendance [<span style="color: #000000">spring-security-server-jpa-generic</span>]
+  </li>
+  <li>ligne 11 : on importe les beans de la classe [<b><span style="color: #000000">ConfigJpa</span></b>] qui configure la couche [JPA] du projet. Cette classe sera trouvée dans la dépendance [mysql-config-jpa-hibernate] :
+  </li>
 </ul>
+
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/100000000000010300000096603E814F.png" style="display:inline-block; margin:4px;width:4.8cm;height:2.78cm;" class="odt-zoomable" data-zoom-src="images/100000000000010300000096603E814F.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td></tr></table>
 
 <p>La classe [CreateUsers] est la suivante :</p>
@@ -3316,17 +3506,28 @@
 </code></pre></div>
 
 <ul>
-<li>lignes 22-24 : définissent les login, mot de passe et rôle de trois utilisateurs ;</li>
-<li>ligne 27 : le contexte Spring est construit à partir de la classe de configuration [AppConfig] ;</li>
-<li>lignes 28-30 : on récupère les références des trois [Repository] qui peuvent nous être utiles pour créer un utilisateur ;</li>
-<li>ligne 31 : on crée les trois utilisateurs ;</li>
-<li>lignes 33-35 : les informations pour créer l&#x27;utilisateur n° i ;</li>
-<li>ligne 37 : on regarde si le rôle existe déjà ;</li>
-<li>lignes 39-41 : si ce n&#x27;est pas le cas, on le crée en base. Il aura un nom du type [ROLE_XX] ;</li>
-<li>ligne 43 : on regarde si le login existe déjà ;</li>
-<li>lignes 45-52 : si le login n&#x27;existe pas, on le crée en base ;</li>
-<li>ligne 47 : on crypte le mot de passe. On utilise ici, la classe [BCrypt] de Spring Security (ligne 8). On a donc besoin des archives de ce framework. Le fichier [pom.xml] inclut cette dépendance :</li>
+  <li>lignes 22-24 : définissent les login, mot de passe et rôle de trois utilisateurs ;
+  </li>
+  <li>ligne 27 : le contexte Spring est construit à partir de la classe de configuration [AppConfig] ;
+  </li>
+  <li>lignes 28-30 : on récupère les références des trois [Repository] qui peuvent nous être utiles pour créer un utilisateur ;
+  </li>
+  <li>ligne 31 : on crée les trois utilisateurs ;
+  </li>
+  <li>lignes 33-35 : les informations pour créer l&#x27;utilisateur n° i ;
+  </li>
+  <li>ligne 37 : on regarde si le rôle existe déjà ;
+  </li>
+  <li>lignes 39-41 : si ce n&#x27;est pas le cas, on le crée en base. Il aura un nom du type [ROLE_XX] ;
+  </li>
+  <li>ligne 43 : on regarde si le login existe déjà ;
+  </li>
+  <li>lignes 45-52 : si le login n&#x27;existe pas, on le crée en base ;
+  </li>
+  <li>ligne 47 : on crypte le mot de passe. On utilise ici, la classe [BCrypt] de Spring Security (ligne 8). On a donc besoin des archives de ce framework. Le fichier [pom.xml] inclut cette dépendance :
+  </li>
 </ul>
+
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-xml">
 <span class="odt-code-line"><span style="color:#000000">        </span><span style="color:#008080">&lt;</span><span style="color:#3f7f7f">dependency</span><span style="color:#008080">&gt;</span></span>
 <span class="odt-code-line"><span style="color:#000000">            </span><span style="color:#008080">&lt;</span><span style="color:#3f7f7f">groupId</span><span style="color:#008080">&gt;</span><span style="color:#000000">org.springframework.boot</span><span style="color:#008080">&lt;/</span><span style="color:#3f7f7f">groupId</span><span style="color:#008080">&gt;</span></span>
@@ -3335,25 +3536,37 @@
 </code></pre></div>
 
 <ul>
-<li>ligne 49 : l&#x27;utilisateur est persisté en base ;</li>
-<li>ligne 51 : ainsi que la relation qui le lie à son rôle ;</li>
-<li>lignes 55-60 : cas où le login existe déjà – on regarde alors si parmi ses rôles se trouve déjà le rôle qu&#x27;on veut lui attribuer ;</li>
-<li>ligne 62-64 : si le rôle cherché n&#x27;a pas été trouvé, on crée une ligne dans la table [USERS_ROLES] pour relier l&#x27;utilisateur à son rôle ;</li>
-<li>on ne s&#x27;est pas protégé des exceptions éventuelles. C&#x27;est une classe de support pour créer rapidement des utilisateurs ;</li>
+  <li>ligne 49 : l&#x27;utilisateur est persisté en base ;
+  </li>
+  <li>ligne 51 : ainsi que la relation qui le lie à son rôle ;
+  </li>
+  <li>lignes 55-60 : cas où le login existe déjà – on regarde alors si parmi ses rôles se trouve déjà le rôle qu&#x27;on veut lui attribuer ;
+  </li>
+  <li>ligne 62-64 : si le rôle cherché n&#x27;a pas été trouvé, on crée une ligne dans la table [USERS_ROLES] pour relier l&#x27;utilisateur à son rôle ;
+  </li>
+  <li>on ne s&#x27;est pas protégé des exceptions éventuelles. C&#x27;est une classe de support pour créer rapidement des utilisateurs ;
+  </li>
 </ul>
+
 <p>Pour exécuter le projet, on exécutera la configuration d&#x27;exécution nommée [spring-security-create-users-hibernate-eclipselink] :</p>
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/1000000000000165000000F57FE0D1AD.png" style="display:inline-block; margin:4px;width:6.609cm;height:4.54cm;" class="odt-zoomable" data-zoom-src="images/1000000000000165000000F57FE0D1AD.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td></tr></table>
 
 <p>Nous venons de construire deux services web sécurisés :</p>
 <ul>
-<li>l&#x27;un avec une architecture [security / web / JDBC / MySQL] ;</li>
-<li>l&#x27;autre avec une architecture [security / web / Hibernate / MySQL] ;</li>
+  <li>l&#x27;un avec une architecture [security / web / JDBC / MySQL] ;
+  </li>
+  <li>l&#x27;autre avec une architecture [security / web / Hibernate / MySQL] ;
+  </li>
 </ul>
+
 <p>Nous abordons maintenant deux autres architectures :</p>
 <ul>
-<li>une architecture [security / web / EclipseLink / SQL Server 2014 Express] ;</li>
-<li>une architecture [security / web / OpenJpa / Oracle Express] ;</li>
+  <li>une architecture [security / web / EclipseLink / SQL Server 2014 Express] ;
+  </li>
+  <li>une architecture [security / web / OpenJpa / Oracle Express] ;
+  </li>
 </ul>
+
 <p><a id="refheading14539324987110"></a></p>
 <h3 id="2054-architecture-security-web-eclipselink-sql-server">20.5.4. Architecture [security / web / EclipseLink / SQL Server]</h3>
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/100000000000046700000104F5BE091E.png" style="display:inline-block; margin:4px;width:14.91cm;height:3.44cm;" class="odt-zoomable" data-zoom-src="images/100000000000046700000104F5BE091E.png" /></td></tr></table>
@@ -3361,8 +3574,10 @@
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000001C40000018FC6335F1E.png" style="display:inline-block; margin:4px;width:5.98cm;height:5.279cm;" class="odt-zoomable" data-zoom-src="images/10000000000001C40000018FC6335F1E.png" /></td></tr></table>
 
 <ul>
-<li>en [1], on charge les projets configurant une couche [JDBC / SQL Server] et une couche [JPA / EclipseLink / SQL Server] ;</li>
+  <li>en [1], on charge les projets configurant une couche [JDBC / SQL Server] et une couche [JPA / EclipseLink / SQL Server] ;
+  </li>
 </ul>
+
 <p><strong>Note</strong> : faire Alt-F5 puis régénérer tous les projets Maven.</p>
 <p>On suppose que le SGBD SQL Server est lancé et que la base [dbproduitscategories] a été générée. Il nous faut tout d&#x27;abord remplir les tables [USERS, ROLES, USERS_ROLES] de cette base de données. Pour cela exécutez la configuration d&#x27;exécution nommée [spring-security-create-users-hibernate-eclipselink] :</p>
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/100000000000015B000000F0DB9631D9.png" style="display:inline-block; margin:4px;width:6.421cm;height:4.45cm;" class="odt-zoomable" data-zoom-src="images/100000000000015B000000F0DB9631D9.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/100000000000017F00000124D24E698F.png" style="display:inline-block; margin:4px;width:7.091cm;height:5.41cm;" class="odt-zoomable" data-zoom-src="images/100000000000017F00000124D24E698F.png" /></td></tr></table>
@@ -3375,9 +3590,12 @@
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000001F7000000DEA585D8B7.png" style="display:inline-block; margin:4px;width:9.31cm;height:4.11cm;" class="odt-zoomable" data-zoom-src="images/10000000000001F7000000DEA585D8B7.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td></tr></table>
 
 <ul>
-<li>lancez le service web sécurisé avec la configuration nommée [spring-security-server-jpa-generic-hibernate-eclipselink][1] ;</li>
-<li>lancez le test JUnitTestDao avec la configuration nommée [spring-security-client-generic-JUnitTestDao][2]. Il doit réussir [3] ;</li>
+  <li>lancez le service web sécurisé avec la configuration nommée [spring-security-server-jpa-generic-hibernate-eclipselink][1] ;
+  </li>
+  <li>lancez le test JUnitTestDao avec la configuration nommée [spring-security-client-generic-JUnitTestDao][2]. Il doit réussir [3] ;
+  </li>
 </ul>
+
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000004B60000016A766CCADD.png" style="display:inline-block; margin:4px;width:15.954cm;height:4.789cm;" class="odt-zoomable" data-zoom-src="images/10000000000004B60000016A766CCADD.png" /></td></tr></table>
 
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/100000000000026F0000015B12B8FC75.png" style="display:inline-block; margin:4px;width:8.243cm;height:4.591cm;" class="odt-zoomable" data-zoom-src="images/100000000000026F0000015B12B8FC75.png" /></td></tr></table>
@@ -3389,8 +3607,10 @@
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000001870000017019655051.png" style="display:inline-block; margin:4px;width:5.173cm;height:4.868cm;" class="odt-zoomable" data-zoom-src="images/10000000000001870000017019655051.png" /></td></tr></table>
 
 <ul>
-<li>en [1], on charge les projets configurant une couche [JDBC / Oracle Express] et une couche [JPA / OpenJpa / Oracle Express] ;</li>
+  <li>en [1], on charge les projets configurant une couche [JDBC / Oracle Express] et une couche [JPA / OpenJpa / Oracle Express] ;
+  </li>
 </ul>
+
 <p><strong>Note</strong> : faire Alt-F5 puis régénérer tous les projets Maven.</p>
 <p>On suppose que le SGBD Oracle Express est lancé et que la base [dbproduitscategories] a été générée. Il nous faut tout d&#x27;abord remplir les tables [USERS, ROLES, USERS_ROLES] de cette base de données. Pour cela exécutez la configuration d&#x27;exécution nommée [spring-security-create-users-openjpa] :</p>
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/100000000000015A000000F1110C05CB.png" style="display:inline-block; margin:4px;width:6.41cm;height:4.461cm;" class="odt-zoomable" data-zoom-src="images/100000000000015A000000F1110C05CB.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/100000000000022D000001333DB29B40.png" style="display:inline-block; margin:4px;width:10.31cm;height:5.68cm;" class="odt-zoomable" data-zoom-src="images/100000000000022D000001333DB29B40.png" /></td></tr></table>
@@ -3403,9 +3623,12 @@
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000001F3000000CF3361D60E.png" style="display:inline-block; margin:4px;width:9.239cm;height:3.829cm;" class="odt-zoomable" data-zoom-src="images/10000000000001F3000000CF3361D60E.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td></tr></table>
 
 <ul>
-<li>lancez le service web sécurisé avec la configuration nommée [spring-security-server-jpa-generic-openjpa][1-2] ;</li>
-<li>lancez le test JUnitTestDao avec la configuration nommée [spring-security-client-generic-JUnitTestDao][3]. Il doit réussir [4] ;</li>
+  <li>lancez le service web sécurisé avec la configuration nommée [spring-security-server-jpa-generic-openjpa][1-2] ;
+  </li>
+  <li>lancez le test JUnitTestDao avec la configuration nommée [spring-security-client-generic-JUnitTestDao][3]. Il doit réussir [4] ;
+  </li>
 </ul>
+
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/100000000000051E000001CD2C0C60CA.png" style="display:inline-block; margin:4px;width:17.33cm;height:6.1cm;" class="odt-zoomable" data-zoom-src="images/100000000000051E000001CD2C0C60CA.png" /></td></tr></table>
 
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000004CE0000019E9B5C760D.png" style="display:inline-block; margin:4px;width:16.272cm;height:5.477cm;" class="odt-zoomable" data-zoom-src="images/10000000000004CE0000019E9B5C760D.png" /></td></tr></table>

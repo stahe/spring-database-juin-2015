@@ -1259,15 +1259,21 @@
 <h2 id="61-introduction">6.1. Introduction</h2>
 <p>Nous allons reprendre la base [dbproduitscategories] gérée par le projet [spring-jdbc-04] et nous allons implémenter les deux  interfaces [IDao&lt;Categorie&gt;, IDao&lt;Produit&gt;] définies dans ce projet. Cela va nous permettre plusieurs choses :</p>
 <ul>
-<li>comparer les codes d&#x27;implémentation ;</li>
-<li>utiliser la même couche de tests ;</li>
-<li>comparer les performances de deux implémentations ;</li>
+  <li>comparer les codes d&#x27;implémentation ;
+  </li>
+  <li>utiliser la même couche de tests ;
+  </li>
+  <li>comparer les performances de deux implémentations ;
+  </li>
 </ul>
+
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000004A2000000EF6ADB2D89.png" style="display:inline-block; margin:4px;width:15.69cm;height:3.163cm;" class="odt-zoomable" data-zoom-src="images/10000000000004A2000000EF6ADB2D89.png" /></td></tr></table>
 
 <ul>
-<li>la couche [JDBC] est implémentée par le projet [mysql-config-jdbc] étudié au paragraphe <a href="introduction-a-lapi-jdbc.html#refheading1051402082896917">3.3</a> ;</li>
+  <li>la couche [JDBC] est implémentée par le projet [mysql-config-jdbc] étudié au paragraphe <a href="introduction-a-lapi-jdbc.html#refheading1051402082896917">3.3</a> ;
+  </li>
 </ul>
+
 <p>Nous passons maintenant aux autres couches.</p>
 <p><a id="refheading1052882082896917"></a></p>
 <h2 id="62-mise-en-place-de-lenvironnement-de-travail">6.2. Mise en place de l&#x27;environnement de travail</h2>
@@ -1360,13 +1366,20 @@
 </code></pre></div>
 
 <ul>
-<li>lignes 5-7 : l&#x27;artifact Maven généré par ce projet. Les projets de configuration des autres implémentations JPA (Eclipselink et OpenJpa) utiliseront ce même artifact. Cela signifie qu&#x27;un seul de ces projets peut être actif à un moment donné. Il faut donc éviter de les avoir tous présents dans [Package Explorer]. Il n&#x27;en faut qu&#x27;un ;</li>
-<li>lignes 10-14 : le projet Maven parent qui fixe la version de la plupart des dépendances nécessaires au projet ;</li>
-<li>lignes 19-22 : la bibliothèque Hibernate ;</li>
-<li>lignes 25-28 : la bibliothèque Spring Data ;</li>
-<li>lignes 32-34 : le projet de configuration de la couche JPA s&#x27;appuie sur celui de configuration de la couche JDBC qui définit entre autres choses, le pilote JDBC du SGBD utilisé et les coordonnées de la base à utiliser ;</li>
-<li>lignes 35-39 : le projet de configuration de la couche JDBC inclut la bibliothèque [Spring JDBC] qui est ici remplacée par la bibliothèque [Spring Data JPA]. Aussi indique-t-on de ne pas l&#x27;inclure dans les dépendances du projet. Si elle reste, cela ne cause cependant pas d&#x27;erreurs ;</li>
+  <li>lignes 5-7 : l&#x27;artifact Maven généré par ce projet. Les projets de configuration des autres implémentations JPA (Eclipselink et OpenJpa) utiliseront ce même artifact. Cela signifie qu&#x27;un seul de ces projets peut être actif à un moment donné. Il faut donc éviter de les avoir tous présents dans [Package Explorer]. Il n&#x27;en faut qu&#x27;un ;
+  </li>
+  <li>lignes 10-14 : le projet Maven parent qui fixe la version de la plupart des dépendances nécessaires au projet ;
+  </li>
+  <li>lignes 19-22 : la bibliothèque Hibernate ;
+  </li>
+  <li>lignes 25-28 : la bibliothèque Spring Data ;
+  </li>
+  <li>lignes 32-34 : le projet de configuration de la couche JPA s&#x27;appuie sur celui de configuration de la couche JDBC qui définit entre autres choses, le pilote JDBC du SGBD utilisé et les coordonnées de la base à utiliser ;
+  </li>
+  <li>lignes 35-39 : le projet de configuration de la couche JDBC inclut la bibliothèque [Spring JDBC] qui est ici remplacée par la bibliothèque [Spring Data JPA]. Aussi indique-t-on de ne pas l&#x27;inclure dans les dépendances du projet. Si elle reste, cela ne cause cependant pas d&#x27;erreurs ;
+  </li>
 </ul>
+
 <p>Au final, les dépendances du projet sont les suivantes :</p>
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000000E1000000835772EDE4.png" style="display:inline-block; margin:4px;width:4.17cm;height:2.431cm;" class="odt-zoomable" data-zoom-src="images/10000000000000E1000000835772EDE4.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td></tr></table>
 
@@ -1449,26 +1462,44 @@
 </code></pre></div>
 
 <ul>
-<li>ligne 18 : la classe est une classe de configuration Spring ;</li>
-<li>ligne 19 : elle importe les beans définis par la classe de configuration [ConfigJdbc] qui a servi à configurer le projet Spring [mysql-config-jdbc]. Ce sont les filtres jSON ;</li>
-<li>lignes 23-30 : définissent l&#x27;implémentation JPA utilisée, ici l&#x27;implémentation Hibernate (ligne 25) ;</li>
-<li>ligne 26 : on peut ou non faire afficher les opérations SQL exécutées par l&#x27;implémentation Hibernate ;</li>
-<li>ligne 27 : on indique à Hibernate, le SGBD connecté. Cette configuration est importante. Elle permet à Hibernate d&#x27;utiliser le dialecte SQL du SGBD MySQL, son côté propriétaire inclus. Par ailleurs, cela le renseigne sur les types SQL et les objets de SGBD qu&#x27;il va pouvoir utiliser. C&#x27;est cette capacité de l&#x27;implémentation JPA à s&#x27;adapter à un SGBD précis qui lui donne une grande portabilité entre SGBD ;</li>
-<li>ligne 28 : Hibernate peut générer ou non les tables de la base de données cible à partir des entités JPA qu&#x27;il trouvera. Cette génération n&#x27;a lieu que si les tables sont absentes. Si elles sont déjà présentes rien n&#x27;est fait. Nous utiliserons cette capacité à générer les tables lorsque nous présenterons comment ont été générés les script SQL de génération des différentes bases de données utilisées dans ce document ;</li>
-<li>ligne 33 : le package dans lequel se trouve les entités JPA de la base [dbproduitscategories] ;</li>
-<li>lignes 36-49 : la source de données [tomcat-jdbc] liée à la base [dbproduitscategories] ;</li>
-<li>lignes 52-60 : le bean nommé [entityManagerFactory] (il doit s&#x27;appeler comme cela) est le bean qui va créer l&#x27;objet [EntityManager] qui gère le contexte de persistence JPA. Toutes les opérations JPA passent par lui. L&#x27;utilisation de [Spring Data JPA] fait que nous n&#x27;allons jamais utiliser nous-mêmes cet objet. Il nous faut cependant le configurer. Il a besoin de connaître les choses suivantes :<ul>
-<li>l&#x27;implémentation JPA utilisée (ligne 55) ;</li>
-<li>la source de données utilisée (ligne 57) ;</li>
-<li>les entités JPA de cette source (ligne 56) ;</li>
+  <li>ligne 18 : la classe est une classe de configuration Spring ;
+  </li>
+  <li>ligne 19 : elle importe les beans définis par la classe de configuration [ConfigJdbc] qui a servi à configurer le projet Spring [mysql-config-jdbc]. Ce sont les filtres jSON ;
+  </li>
+  <li>lignes 23-30 : définissent l&#x27;implémentation JPA utilisée, ici l&#x27;implémentation Hibernate (ligne 25) ;
+  </li>
+  <li>ligne 26 : on peut ou non faire afficher les opérations SQL exécutées par l&#x27;implémentation Hibernate ;
+  </li>
+  <li>ligne 27 : on indique à Hibernate, le SGBD connecté. Cette configuration est importante. Elle permet à Hibernate d&#x27;utiliser le dialecte SQL du SGBD MySQL, son côté propriétaire inclus. Par ailleurs, cela le renseigne sur les types SQL et les objets de SGBD qu&#x27;il va pouvoir utiliser. C&#x27;est cette capacité de l&#x27;implémentation JPA à s&#x27;adapter à un SGBD précis qui lui donne une grande portabilité entre SGBD ;
+  </li>
+  <li>ligne 28 : Hibernate peut générer ou non les tables de la base de données cible à partir des entités JPA qu&#x27;il trouvera. Cette génération n&#x27;a lieu que si les tables sont absentes. Si elles sont déjà présentes rien n&#x27;est fait. Nous utiliserons cette capacité à générer les tables lorsque nous présenterons comment ont été générés les script SQL de génération des différentes bases de données utilisées dans ce document ;
+  </li>
+  <li>ligne 33 : le package dans lequel se trouve les entités JPA de la base [dbproduitscategories] ;
+  </li>
+  <li>lignes 36-49 : la source de données [tomcat-jdbc] liée à la base [dbproduitscategories] ;
+  </li>
+  <li>lignes 52-60 : le bean nommé [entityManagerFactory] (il doit s&#x27;appeler comme cela) est le bean qui va créer l&#x27;objet [EntityManager] qui gère le contexte de persistence JPA. Toutes les opérations JPA passent par lui. L&#x27;utilisation de [Spring Data JPA] fait que nous n&#x27;allons jamais utiliser nous-mêmes cet objet. Il nous faut cependant le configurer. Il a besoin de connaître les choses suivantes :
+    <ul>
+      <li>l&#x27;implémentation JPA utilisée (ligne 55) ;
+      </li>
+      <li>la source de données utilisée (ligne 57) ;
+      </li>
+      <li>les entités JPA de cette source (ligne 56) ;
+      </li>
+    </ul>
+  </li>
+  <li>ligne 58 : initialise l&#x27;EntityManager avec ces informations ;
+  </li>
+  <li>ligne 59 : rend le singleton [e<span style="color: #000000">ntityManagerFactory</span>] ;
+  </li>
+  <li>lignes 63-68 : définissent le gestionnaire de transactions. Il doit s&#x27;appeler [<span style="color: #000000">transactionManager</span>] ;
+  </li>
+  <li>ligne 65 : un gestionnaire de transactions JPA est créé ;
+  </li>
+  <li>ligne 66 : il est relié à la source de données de la ligne 37 via le bean [<span style="color: #000000">entityManagerFactory</span>] (lignes 53 et 57) ;
+  </li>
 </ul>
-</li>
-<li>ligne 58 : initialise l&#x27;EntityManager avec ces informations ;</li>
-<li>ligne 59 : rend le singleton [e<span style="color: #000000">ntityManagerFactory</span>] ;</li>
-<li>lignes 63-68 : définissent le gestionnaire de transactions. Il doit s&#x27;appeler [<span style="color: #000000">transactionManager</span>] ;</li>
-<li>ligne 65 : un gestionnaire de transactions JPA est créé ;</li>
-<li>ligne 66 : il est relié à la source de données de la ligne 37 via le bean [<span style="color: #000000">entityManagerFactory</span>] (lignes 53 et 57) ;</li>
-</ul>
+
 <p>Seul le bean des lignes 23-30 est dépendant de l&#x27;implémentation JPA utilisée. Les autres beans s&#x27;appuient ensuite sur lui.</p>
 <p><a id="refheading2192502014630537"></a></p>
 <h3 id="633-les-entites-de-la-couche-jpa">6.3.3. Les entités de la couche [JPA]</h3>
@@ -1481,27 +1512,41 @@
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/1000000000000520000001663A1A8171.png" style="display:inline-block; margin:4px;width:17.357cm;height:4.736cm;" class="odt-zoomable" data-zoom-src="images/1000000000000520000001663A1A8171.png" /></td></tr></table>
 
 <ul>
-<li>[ID] : la clé primaire auto-incrémentée de la table [2] ;</li>
-<li>[NOM] : le nom unique du produit [4] ;</li>
-<li>[PRIX] : le prix du produit ;</li>
-<li>[DESCRIPTION] : la description du produit ;</li>
-<li>[VERSIONING] est le n° de version du produit. Sa version initiale est 1 [3]. A chaque fois que le produit sera modifié, son n° de version sera incrémenté par le code exploitant la table ;</li>
-<li>[CATEGORIE_ID] : la clé étrangère sur la table [CATEGORIES] pour désigner la catégorie à laquelle appartient le produit ;</li>
+  <li>[ID] : la clé primaire auto-incrémentée de la table [2] ;
+  </li>
+  <li>[NOM] : le nom unique du produit [4] ;
+  </li>
+  <li>[PRIX] : le prix du produit ;
+  </li>
+  <li>[DESCRIPTION] : la description du produit ;
+  </li>
+  <li>[VERSIONING] est le n° de version du produit. Sa version initiale est 1 [3]. A chaque fois que le produit sera modifié, son n° de version sera incrémenté par le code exploitant la table ;
+  </li>
+  <li>[CATEGORIE_ID] : la clé étrangère sur la table [CATEGORIES] pour désigner la catégorie à laquelle appartient le produit ;
+  </li>
 </ul>
+
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/1000000000000473000000E63803A595.png" style="display:inline-block; margin:4px;width:15.069cm;height:3.043cm;" class="odt-zoomable" data-zoom-src="images/1000000000000473000000E63803A595.png" /></td></tr></table>
 
 <ul>
-<li>en [1-3], la clé étrangère [CATEGORIE_ID] de la table [PRODUITS]. Elle cible la colonne [ID] de la table [CATEGORIES] [4-5] ;</li>
-<li>lorsqu&#x27;une catégorie est supprimée, tous les produits qui lui sont liés le sont également [6]. Ce point est important à noter car il est utilisé dans la construction de la couche [DAO] exploitant la base [dbproduitscategories] ;</li>
+  <li>en [1-3], la clé étrangère [CATEGORIE_ID] de la table [PRODUITS]. Elle cible la colonne [ID] de la table [CATEGORIES] [4-5] ;
+  </li>
+  <li>lorsqu&#x27;une catégorie est supprimée, tous les produits qui lui sont liés le sont également [6]. Ce point est important à noter car il est utilisé dans la construction de la couche [DAO] exploitant la base [dbproduitscategories] ;
+  </li>
 </ul>
+
 <p>La table [CATEGORIES] des catégories est la suivante :</p>
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/100000000000038900000105F5502940.png" style="display:inline-block; margin:4px;width:11.973cm;height:3.454cm;" class="odt-zoomable" data-zoom-src="images/100000000000038900000105F5502940.png" /></td></tr></table>
 
 <ul>
-<li>[ID] : clé primair auto-incrémentée ;</li>
-<li>[VERSIONING] : n° de version de la catégorie ;</li>
-<li>[NOM] : nom unique de la catégorie ;</li>
+  <li>[ID] : clé primair auto-incrémentée ;
+  </li>
+  <li>[VERSIONING] : n° de version de la catégorie ;
+  </li>
+  <li>[NOM] : nom unique de la catégorie ;
+  </li>
 </ul>
+
 <p>Nous allons décrire maintenant les entités JPA [Produit] et [Categorie] images des tables [PRODUITS] et [CATEGORIES].</p>
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/1000000000000133000000E9D4B78466.png" style="display:inline-block; margin:4px;width:5.65cm;height:4.611cm;" class="odt-zoomable" data-zoom-src="images/1000000000000133000000E9D4B78466.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td></tr></table>
 
@@ -1660,45 +1705,75 @@
 </code></pre></div>
 
 <ul>
-<li>ligne 21 : l&#x27;annotation [@Entity] fait de la classe [Produit] une entité gérée par la couche [JPA]. On peut écrire également [@Entity(name=&quot;MonProduit&quot;)] qui donne le nom [MonProduit] a l&#x27;entité. En l&#x27;absence de cette information, le nom de l&#x27;entité est le nom de la classe, ici [Produit]. Ce nommage devient nécessaire lorsque parmi les entités il y a deux classes de packages différents qui portent le même nom ;</li>
-<li>ligne 22 : l&#x27;annotation [@Table(name = &quot;PRODUITS&quot;)] indique que la classe [Produit] est l&#x27;image objet d&#x27;une ligne de la table [PRODUITS] de la base de données ;</li>
-<li>ligne 23 : le nom du filtre jSON à appliquer à l&#x27;entité. Nous allons voir que la propriété [<span style="color: #0000c0">categorie</span>] de la ligne 58 n&#x27;est pas toujours disponible. Il faut alors l&#x27;exclure de la représentation jSON de l&#x27;objet. Pour cela nous avons besoin d&#x27;un filtre. C&#x27;est donc dans un filtre nommé [<span style="color: #2a00ff">jsonFilterCategorie</span>] que nous indiquerons si on veut ou non la propriété [<span style="color: #0000c0">categorie</span>] ;</li>
-<li>ligne 26 : l&#x27;annotation [@Id] fait du champ annoté le champ associé à la clé primaire de la table de la ligne 19 ;</li>
-<li>ligne 27 : l&#x27;annotation [<span style="color: #646464">@GeneratedValue</span><span style="color: #000000">(strategy = GenerationType.</span><strong><em><span style="color: #0000c0">IDENTITY</span></em></strong><span style="color: #000000">)</span>] fixe le mode de génération automatique de la clé primaire dans la table [PRODUITS]. C&#x27;est l&#x27;attribut [<span style="color: #000000">strategy</span>] qui le fixe. Il y a différents modes :</li>
+  <li>ligne 21 : l&#x27;annotation [@Entity] fait de la classe [Produit] une entité gérée par la couche [JPA]. On peut écrire également [@Entity(name=&quot;MonProduit&quot;)] qui donne le nom [MonProduit] a l&#x27;entité. En l&#x27;absence de cette information, le nom de l&#x27;entité est le nom de la classe, ici [Produit]. Ce nommage devient nécessaire lorsque parmi les entités il y a deux classes de packages différents qui portent le même nom ;
+  </li>
+  <li>ligne 22 : l&#x27;annotation [@Table(name = &quot;PRODUITS&quot;)] indique que la classe [Produit] est l&#x27;image objet d&#x27;une ligne de la table [PRODUITS] de la base de données ;
+  </li>
+  <li>ligne 23 : le nom du filtre jSON à appliquer à l&#x27;entité. Nous allons voir que la propriété [<span style="color: #0000c0">categorie</span>] de la ligne 58 n&#x27;est pas toujours disponible. Il faut alors l&#x27;exclure de la représentation jSON de l&#x27;objet. Pour cela nous avons besoin d&#x27;un filtre. C&#x27;est donc dans un filtre nommé [<span style="color: #2a00ff">jsonFilterCategorie</span>] que nous indiquerons si on veut ou non la propriété [<span style="color: #0000c0">categorie</span>] ;
+  </li>
+  <li>ligne 26 : l&#x27;annotation [@Id] fait du champ annoté le champ associé à la clé primaire de la table de la ligne 19 ;
+  </li>
+  <li>ligne 27 : l&#x27;annotation [<span style="color: #646464">@GeneratedValue</span><span style="color: #000000">(strategy = GenerationType.</span><i><b><span style="color: #0000c0">IDENTITY</span></b></i><span style="color: #000000">)</span>] fixe le mode de génération automatique de la clé primaire dans la table [PRODUITS]. C&#x27;est l&#x27;attribut [<span style="color: #000000">strategy</span>] qui le fixe. Il y a différents modes :
+  </li>
 </ul>
+
 <p><img src="images/100000000000038F000000F6013302D5.png" style="width:16.87cm;height:4.56cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000038F000000F6013302D5.png" /></p>
 <p>La stratégie [IDENTITY] n&#x27;est pas disponible pour tous les SGBD. Parmi les six SGBD testés, elle a été disponible pour les SGBD [MySQL 5, PostgreSQL 9.4, SQL Server 2014, DB2 Express-C10.5]. Pour les deux autres [Oracle Express 11g Release 2, Firebird 2.5.4] c&#x27;est la stratégie [SEQUENCE] qui a du être utilisée. Pour la portabilité entre implémentations JPA, il ne faut pas prendre la statégie [AUTO] qui laisse au bon vouloir de l&#x27;implémentation JPA le choix de la stratégie de génération de la clé primaire. Ainsi avec MySQL 5 et la stratégie [AUTO] :</p>
 <ul>
-<li>Hibernate choisit la statégie [IDENTITY] avec le mode [AUTO_INCREMENT] de la clé primaire ;</li>
-<li>EclipseLink choisit la statégie [TABLE] qui crée une table appelée par défaut [SEQUENCE] qu&#x27;on doit requêter pour avoir les clés primaires.</li>
+  <li>Hibernate choisit la statégie [IDENTITY] avec le mode [AUTO_INCREMENT] de la clé primaire ;
+  </li>
+  <li>EclipseLink choisit la statégie [TABLE] qui crée une table appelée par défaut [SEQUENCE] qu&#x27;on doit requêter pour avoir les clés primaires.
+  </li>
 </ul>
+
 <p>Au final, la structure de la base de donnée gérée par ces deux implémentations JPA n&#x27;est pas la même. Si elle a été générée par Hibernate, elle ne sera pas utilisable par EclipseLink et vice-versa.</p>
 <ul>
-<li>ligne 28 : l&#x27;annotation [@Column(name=&quot;ID&quot;] fixe le nom de la colonne de la table [PRODUITS] à associer au champ [id] ;</li>
-<li>ligne 29 : on utilise le type [Long] plutôt que [long] pour la clé primaire. En effet, les clés primaires [null] ont une signification particulière pour JPA. On préfèrera donc utiliser ici un type objet plutôt qu&#x27;un type simple ;</li>
-<li>ligne 31 : <span style="color: #000000">l&#x27;annotation [</span><span style="color: #646464">@Version</span><span style="color: #000000">] indique que le champ [version] est associé à une colonne de versioning. L&#x27;implémentation JPA va incrémenter ce n° de version à chaque fois que l&#x27;entité sera modifiée. Ce n° sert à empêcher la mise à jour simultanée de l&#x27;entité par deux utilisateur différents : deux utilisateurs U1 et U2 lisent l&#x27;entité E avec un n° de version égal à V1. U1 modifie E et persiste cette modification en base : le n° de version passe alors à V1+1. U2 modifie E à son tour et persiste cette modification en base : il recevra une exception car il possède une version (V1) différente de celle en base (V1+1) ;</span></li>
-<li><span style="color: #000000">ligne 36 : le type de l&#x27;entité. On en aura deux : POJO et PROXY. Par défaut, l&#x27;instance produit sera un POJO (Plain Old Java Object). Dans certains cas, les instances [Produit] ramenées de la base seront de type [PROXY].  Ce sera le cas où la propriété [Categorie categorie] de la ligne 58 n&#x27;aura pas été initialisée avec une catégorie à cause de l&#x27;attribut [fetch = FetchType.</span><strong><em><span style="color: #0000c0">LAZY</span></em></strong><span style="color: #000000">] de la ligne 56. Dans ce cas, les implémentations JPA qui vont être testées diffèrent :</span><ul>
-<li><span style="color: #000000">[Hibernate, OpenJPA] : accéder à la catégorie d&#x27;un produit de type [PROXY] provoque une exception. Hibernate parle de proxy pour désigner une instance JPA obtenue en mode [LAZY]. C&#x27;est pourquoi j&#x27;ai utilisé ce terme pour désigner ce type d&#x27;entité ;</span></li>
-<li><span style="color: #000000">[EclipseLink] :  accéder à la catégorie d&#x27;un produit de type [PROXY] provoque la recherche de cette catégorie en base et il n&#x27;y a pas d&#x27;exception ;</span></li>
+  <li>ligne 28 : l&#x27;annotation [@Column(name=&quot;ID&quot;] fixe le nom de la colonne de la table [PRODUITS] à associer au champ [id] ;
+  </li>
+  <li>ligne 29 : on utilise le type [Long] plutôt que [long] pour la clé primaire. En effet, les clés primaires [null] ont une signification particulière pour JPA. On préfèrera donc utiliser ici un type objet plutôt qu&#x27;un type simple ;
+  </li>
+  <li>ligne 31 : <span style="color: #000000">l&#x27;annotation [</span><span style="color: #646464">@Version</span><span style="color: #000000">] indique que le champ [version] est associé à une colonne de versioning. L&#x27;implémentation JPA va incrémenter ce n° de version à chaque fois que l&#x27;entité sera modifiée. Ce n° sert à empêcher la mise à jour simultanée de l&#x27;entité par deux utilisateur différents : deux utilisateurs U1 et U2 lisent l&#x27;entité E avec un n° de version égal à V1. U1 modifie E et persiste cette modification en base : le n° de version passe alors à V1+1. U2 modifie E à son tour et persiste cette modification en base : il recevra une exception car il possède une version (V1) différente de celle en base (V1+1) ;</span>
+  </li>
+  <li><span style="color: #000000">ligne 36 : le type de l&#x27;entité. On en aura deux : POJO et PROXY. Par défaut, l&#x27;instance produit sera un POJO (Plain Old Java Object). Dans certains cas, les instances [Produit] ramenées de la base seront de type [PROXY].  Ce sera le cas où la propriété [Categorie categorie] de la ligne 58 n&#x27;aura pas été initialisée avec une catégorie à cause de l&#x27;attribut [fetch = FetchType.</span><i><b><span style="color: #0000c0">LAZY</span></b></i><span style="color: #000000">] de la ligne 56. Dans ce cas, les implémentations JPA qui vont être testées diffèrent :</span>
+    <ul>
+      <li><span style="color: #000000">[Hibernate, OpenJPA] : accéder à la catégorie d&#x27;un produit de type [PROXY] provoque une exception. Hibernate parle de proxy pour désigner une instance JPA obtenue en mode [LAZY]. C&#x27;est pourquoi j&#x27;ai utilisé ce terme pour désigner ce type d&#x27;entité ;</span>
+      </li>
+      <li><span style="color: #000000">[EclipseLink] :  accéder à la catégorie d&#x27;un produit de type [PROXY] provoque la recherche de cette catégorie en base et il n&#x27;y a pas d&#x27;exception ;</span>
+      </li>
+    </ul>
+  </li>
 </ul>
-</li>
-</ul>
+
 <p><span style="color: #000000">Parce que je voulais avoir une couche de tests indépendante de l&#x27;implémentation JPA utilisée, j&#x27;ai souhaité connaître le  type de chaque entité : POJO ou PROXY. C&#x27;est pourquoi j&#x27;ai ajouté le champ [entityType] aux entités JPA ;</span></p>
 <ul>
-<li><span style="color: #000000">ligne 35 : l&#x27;annotation [</span><span style="color: #646464">@Transient</span><span style="color: #000000">] indique que l&#x27;implémentation JPA doit ignorer ce champ. En effet, il n&#x27;existe pas dans les tables du SGBD ;</span></li>
-<li><span style="color: #000000">ligne 40 : la classe [Produit] lance une exception de type [ProxyException] qui a besoin du nom de la classe ;</span></li>
-<li><span style="color: #000000">ligne 38 : comme précédemment on indique que l&#x27;implémentation JPA doit ignorer ce champ ;</span></li>
-<li><span style="color: #000000">ligne 39 : l&#x27;annotation [</span><span style="color: #646464">@JsonIgnore</span><span style="color: #000000">] indique que le sérialiseur / désérialiseur jSON d&#x27;une instance [Produit] doit ignorer ce champ ;</span></li>
-<li>ligne 43 : l&#x27;annotation [@Column] associe le champ [nom] à la colonne [NOM] de la table [PRODUITS]. Lorsque le champ porte le même nom que la colonne associée (insensible à la casse), l&#x27;annotation [@Column] peut être omise. Ce serait le cas ici. Les attributs [<span style="color: #000000">unique = </span><strong><span style="color: #7f0055">true</span></strong><span style="color: #000000">, length = 30, nullable = </span><strong><span style="color: #7f0055">false</span></strong>] ne sont utilisés que lorsque l&#x27;implémentation JPA est amenée à générer la table [CATEGORIES] à partir de l&#x27;entité [Produit]. Elles seront traduites par les attributs SQL [UNIQUE, VARCHAR(30), NOT NULL] qui font que la colonne [NOM] aura au plus 30 caractères, sera unique dans la table et ne peut avoir la valeur NULL ;</li>
-<li>lignes 46-47 : le champ [idCategorie] lié à la colonne [CATEGORIE_ID] de la colonne. On reviendra sur ses attributs un peu plus loin ;</li>
-<li>lignes 49-50 : le champ [prix] est associé à la colonne [PRIX] ;</li>
-<li>lignes 52-53 : le champ [description] est associé à la colonne [DESCRIPTION] ;</li>
-<li>lignes 56-58 : la catégorie du produit ;</li>
-<li>ligne 56 : l&#x27;annotation [<span style="color: #646464">@ManyToOne</span>] indique que la colonne de l&#x27;annotation de la ligne 57 [<span style="color: #646464">@JoinColumn</span><span style="color: #000000">(name = </span><span style="color: #2a00ff">&quot;CATEGORIE_ID&quot;</span><span style="color: #000000">)</span>] est clé étrangère de la table [PRODUITS] de l&#x27;entité [Produit] sur la table [CATEGORIES] associée à l&#x27;entité de la ligne 58. Cette annotation doit annoter une entité JPA. Ainsi la classe de  la ligne 58 doit être une entité JPA ;</li>
-<li>ligne 56 : l&#x27;annotation [<span style="color: #000000">fetch = FetchType.</span><strong><em><span style="color: #0000c0">LAZY</span></em></strong>] demande à ce que lorsqu&#x27;on ramène un produit de la table [PRODUITS], sa catégorie (ligne 58) ne soit pas ramenée immédiatement (lazy loading). Elle est alors obtenue lors du premier appel à la méthode [getCategorie]. Pour cela, à l&#x27;exécution, la couche JPA <strong>enrichit</strong> la méthode [getCategorie] initiale (qui se contente de rendre le champ <em>categorie</em>) par un appel au SGBD pour aller chercher la catégorie une technique appelée &#x27;proxying&#x27;. Les implémentations JPA diffèrent dans leur implémentation de cette caractéristique comme nous l&#x27;avons dit plus haut. Cet attribut <strong>n&#x27;est pas contraignant</strong>. L&#x27;implémentation JPA utilisée a le droit de l&#x27;ignorer. C&#x27;est parce que la propriété [<span style="color: #0000c0">categorie</span>] peut être présente ou non que nous avons introduit le filtre jSON de la ligne 23. La colonne de jointure [CATEGORIE_ID] de la table [PRODUITS] est mise à jour automatiquement lors de l&#x27;insertion ou la mise à jour du produit. Elle reçoit la valeur de [categorie.getId()] où [categorie] est le champ de la ligne 58. La spécification JPA impose que cette colonne de jointure ne puisse être mise à jour par un autre moyen. Aussi impose-t-elle les attributs [<span style="color: #000000">insertable = </span><strong><span style="color: #7f0055">false</span></strong><span style="color: #000000">, updatable = </span><strong><span style="color: #7f0055">false</span></strong>] de la ligne 46, qui font que la colonne [CATEGORIE_ID] (la colonne de jointure donc) associée au champ [idCategorie] ne puisse être modifiée par le champ [idCategorie]. Seule le transfert de la colonne [CATEGORIE_ID] dans le champ [idCategorie] sera possible ;</li>
-<li>lignes 91-104 : l&#x27;égalité entre entités [Produit] est définie comme étant l&#x27;égalité entre leurs clés primaires [id] ;</li>
-<li>lignes 108-115 : pour rendre notre couche de tests portable, on va gérer de façon uniforme les entités [PROXY] des trois implémentations JPA [Hibernate, EclipseLink, OpenJpa]. Pour un type [Produit] de type [PROXY], on interdira de changer la valeur du champ [categorie]. La classe [ProxyException] est la suivante :</li>
+  <li><span style="color: #000000">ligne 35 : l&#x27;annotation [</span><span style="color: #646464">@Transient</span><span style="color: #000000">] indique que l&#x27;implémentation JPA doit ignorer ce champ. En effet, il n&#x27;existe pas dans les tables du SGBD ;</span>
+  </li>
+  <li><span style="color: #000000">ligne 40 : la classe [Produit] lance une exception de type [ProxyException] qui a besoin du nom de la classe ;</span>
+  </li>
+  <li><span style="color: #000000">ligne 38 : comme précédemment on indique que l&#x27;implémentation JPA doit ignorer ce champ ;</span>
+  </li>
+  <li><span style="color: #000000">ligne 39 : l&#x27;annotation [</span><span style="color: #646464">@JsonIgnore</span><span style="color: #000000">] indique que le sérialiseur / désérialiseur jSON d&#x27;une instance [Produit] doit ignorer ce champ ;</span>
+  </li>
+  <li>ligne 43 : l&#x27;annotation [@Column] associe le champ [nom] à la colonne [NOM] de la table [PRODUITS]. Lorsque le champ porte le même nom que la colonne associée (insensible à la casse), l&#x27;annotation [@Column] peut être omise. Ce serait le cas ici. Les attributs [<span style="color: #000000">unique = </span><b><span style="color: #7f0055">true</span></b><span style="color: #000000">, length = 30, nullable = </span><b><span style="color: #7f0055">false</span></b>] ne sont utilisés que lorsque l&#x27;implémentation JPA est amenée à générer la table [CATEGORIES] à partir de l&#x27;entité [Produit]. Elles seront traduites par les attributs SQL [UNIQUE, VARCHAR(30), NOT NULL] qui font que la colonne [NOM] aura au plus 30 caractères, sera unique dans la table et ne peut avoir la valeur NULL ;
+  </li>
+  <li>lignes 46-47 : le champ [idCategorie] lié à la colonne [CATEGORIE_ID] de la colonne. On reviendra sur ses attributs un peu plus loin ;
+  </li>
+  <li>lignes 49-50 : le champ [prix] est associé à la colonne [PRIX] ;
+  </li>
+  <li>lignes 52-53 : le champ [description] est associé à la colonne [DESCRIPTION] ;
+  </li>
+  <li>lignes 56-58 : la catégorie du produit ;
+  </li>
+  <li>ligne 56 : l&#x27;annotation [<span style="color: #646464">@ManyToOne</span>] indique que la colonne de l&#x27;annotation de la ligne 57 [<span style="color: #646464">@JoinColumn</span><span style="color: #000000">(name = </span><span style="color: #2a00ff">&quot;CATEGORIE_ID&quot;</span><span style="color: #000000">)</span>] est clé étrangère de la table [PRODUITS] de l&#x27;entité [Produit] sur la table [CATEGORIES] associée à l&#x27;entité de la ligne 58. Cette annotation doit annoter une entité JPA. Ainsi la classe de  la ligne 58 doit être une entité JPA ;
+  </li>
+  <li>ligne 56 : l&#x27;annotation [<span style="color: #000000">fetch = FetchType.</span><i><b><span style="color: #0000c0">LAZY</span></b></i>] demande à ce que lorsqu&#x27;on ramène un produit de la table [PRODUITS], sa catégorie (ligne 58) ne soit pas ramenée immédiatement (lazy loading). Elle est alors obtenue lors du premier appel à la méthode [getCategorie]. Pour cela, à l&#x27;exécution, la couche JPA <b>enrichit</b> la méthode [getCategorie] initiale (qui se contente de rendre le champ <i>categorie</i>) par un appel au SGBD pour aller chercher la catégorie une technique appelée &#x27;proxying&#x27;. Les implémentations JPA diffèrent dans leur implémentation de cette caractéristique comme nous l&#x27;avons dit plus haut. Cet attribut <b>n&#x27;est pas contraignant</b>. L&#x27;implémentation JPA utilisée a le droit de l&#x27;ignorer. C&#x27;est parce que la propriété [<span style="color: #0000c0">categorie</span>] peut être présente ou non que nous avons introduit le filtre jSON de la ligne 23. La colonne de jointure [CATEGORIE_ID] de la table [PRODUITS] est mise à jour automatiquement lors de l&#x27;insertion ou la mise à jour du produit. Elle reçoit la valeur de [categorie.getId()] où [categorie] est le champ de la ligne 58. La spécification JPA impose que cette colonne de jointure ne puisse être mise à jour par un autre moyen. Aussi impose-t-elle les attributs [<span style="color: #000000">insertable = </span><b><span style="color: #7f0055">false</span></b><span style="color: #000000">, updatable = </span><b><span style="color: #7f0055">false</span></b>] de la ligne 46, qui font que la colonne [CATEGORIE_ID] (la colonne de jointure donc) associée au champ [idCategorie] ne puisse être modifiée par le champ [idCategorie]. Seule le transfert de la colonne [CATEGORIE_ID] dans le champ [idCategorie] sera possible ;
+  </li>
+  <li>lignes 91-104 : l&#x27;égalité entre entités [Produit] est définie comme étant l&#x27;égalité entre leurs clés primaires [id] ;
+  </li>
+  <li>lignes 108-115 : pour rendre notre couche de tests portable, on va gérer de façon uniforme les entités [PROXY] des trois implémentations JPA [Hibernate, EclipseLink, OpenJpa]. Pour un type [Produit] de type [PROXY], on interdira de changer la valeur du champ [categorie]. La classe [ProxyException] est la suivante :
+  </li>
 </ul>
+
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/100000000000012D0000009410BCD312.png" style="display:inline-block; margin:4px;width:5.611cm;height:2.759cm;" class="odt-zoomable" data-zoom-src="images/100000000000012D0000009410BCD312.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td></tr></table>
 
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
@@ -1722,9 +1797,12 @@
 
 <p>Pour terminer l&#x27;étude de cette entité, il faut noter que les annotations et leurs attributs sont utilisés dans deux cas bien distincts :</p>
 <ul>
-<li>pour <strong>créer</strong> les tables de la base ;</li>
-<li>pour les <strong>exploiter</strong>. Dans ce cas, l&#x27;implémentation JPA s&#x27;attend à trouver les tables telles qu&#x27;elle les aurait générées elle-même. On ne peut donc associer à l&#x27;entité [Produit] précédente n&#x27;importe quelle table [PRODUITS]. Il faut que celle-ci ait au moins (elle peut en avoir d&#x27;autres) les caractéristiques de la table [PRODUITS] qu&#x27;elle aurait générée. Lorsqu&#x27;on travaille avec JPA, l&#x27;idéal est de partir d&#x27;une base vide dans laquelle on laisse JPA générer les tables. Nous aborderons cette génération un peu plus tard. Le script SQL fourni pour le SGBD MySQL a été généré à partir des tables générées par JPA.</li>
+  <li>pour <b>créer</b> les tables de la base ;
+  </li>
+  <li>pour les <b>exploiter</b>. Dans ce cas, l&#x27;implémentation JPA s&#x27;attend à trouver les tables telles qu&#x27;elle les aurait générées elle-même. On ne peut donc associer à l&#x27;entité [Produit] précédente n&#x27;importe quelle table [PRODUITS]. Il faut que celle-ci ait au moins (elle peut en avoir d&#x27;autres) les caractéristiques de la table [PRODUITS] qu&#x27;elle aurait générée. Lorsqu&#x27;on travaille avec JPA, l&#x27;idéal est de partir d&#x27;une base vide dans laquelle on laisse JPA générer les tables. Nous aborderons cette génération un peu plus tard. Le script SQL fourni pour le SGBD MySQL a été généré à partir des tables générées par JPA.
+  </li>
 </ul>
+
 <p>Tous les attributs de l&#x27;entité [Produit] sont utilisés pour la génération de la table [PRODUITS]. Lorsque ceci est fait, des attributs de génération tels que [<span style="color: #000000">unique = </span><strong><span style="color: #7f0055">true</span></strong><span style="color: #000000">, length = 30, nullable = </span><strong><span style="color: #7f0055">false]</span></strong> ne sont plus utilisés lors de l&#x27;exploitation des tables.</p>
 <p><a id="refheading1961181114084373"></a></p>
 <h4 id="6333-lentite-jpa-categorie">6.3.3.3. L&#x27;entité JPA [Categorie]</h4>
@@ -1852,21 +1930,36 @@
 </code></pre></div>
 
 <ul>
-<li>ligne 24 : la classe est une entité JPA ;</li>
-<li>ligne 25 : associée à la table [CATEGORIES] ;</li>
-<li>ligne 26 : la représentation jSON de l&#x27;entité [Categorie] est commandée par le filtre nommé [<span style="color: #2a00ff">jsonFilterCategorie</span>]. Celui-ci devra être configuré avant toute demande de représentation jSON de l&#x27;entité. Le filtre [<span style="color: #2a00ff">jsonFilterCategorie</span>] sera utilisé pour exclure on non de la représentation jSON de l&#x27;entité [Categorie] le champ [produits] de la ligne 40 ;</li>
-<li>lignes 29-32 : le champ [id] est associé à la clé primaire [ID] de la table [CATEGORIES]. Le mode de génération choisi est le mode [IDENTITY], donc le mode [AUTO_INCREMENT] pour MySQL ;</li>
-<li>lignes 34-36 : le champ [version] est lié à la colonne de versioning [VERSIONING] de la table [CATEGORIES] ;</li>
-<li>lignes 38-39 : le type de l&#x27;entité [Categorie] ;</li>
-<li>lignes 41-43 : le nom simple de la classe [Categorie] ;</li>
-<li>lignes 46-47 : le champ [nom] est lié à la colonne [NOM] de la table [CATEGORIES]. On lui donne les attributs JPA [<span style="color: #000000">unique = </span><strong><span style="color: #7f0055">true</span></strong><span style="color: #000000">, length = 30, nullable=</span><strong><span style="color: #7f0055">false</span></strong>] pour qu&#x27;à la génération de la table [CATEGORIES], la colonne [NOM] ait les attributs SQL [UNIQUE, VARCHAR(30), NOT NULL] ;</li>
-<li>lignes 50-51 : les produits qui appartiennent à la catégorie ;</li>
-<li>ligne 50 : l&#x27;annotation [<span style="color: #646464">@OneToMany</span>] est la <strong>relation inverse</strong> de la relation [@ManyToOne] que nous avons rencontrée dans l&#x27;entité [Produit]. L&#x27;attribut [<span style="color: #000000">mappedBy = </span><span style="color: #2a00ff">&quot;categorie&quot;</span>] indique le champ de l&#x27;entité [Produit] annoté par la relation inverse [@ManyToOne]. L&#x27;attribut [<span style="color: #000000">cascade = { CascadeType.</span><strong><em><span style="color: #0000c0">ALL</span></em></strong><span style="color: #000000"> }</span>] demande à ce que les opérations (persist, merge, remove) faites sur une @Entity [Categorie] soient cascadées sur les [produits] de la ligne 51. On peut indiquer des cascades partielles avec les constantes [<span style="color: #000000">CascadeType.</span><strong><em><span style="color: #0000c0">PERSIST</span></em></strong><span style="color: #0000c0">, </span><span style="color: #000000">CascadeType.</span><strong><em><span style="color: #0000c0">MERGE</span></em></strong><em><span style="color: #0000c0">, </span></em><span style="color: #000000">CascadeType.</span><strong><em><span style="color: #0000c0">REMOVE</span></em></strong>] ;</li>
-<li>ligne 50 : l&#x27;attribut [<span style="color: #000000">fetch = FetchType.</span><strong><em><span style="color: #0000c0">LAZY</span></em></strong>] demande à ce que lorsqu&#x27;on ramène une catégorie de la table [CATEGORIES], ses produits ne soient pas immédiatement ramenés. Ils le sont alors lors du premier appel à la méthode [getProduits]. Pour cela, à l&#x27;exécution, la couche JPA enrichit la méthode [getProduits] initiale (qui se contente de rendre le champ <em>produits</em>) par un appel au SGBD pour aller chercher les produits de la catégorie. Cet attribut <strong>est contraignant</strong>. L&#x27;implémentation JPA ne peut l&#x27;ignorer. Parce que la propriété [produits] peut être ou non initialisée, nous avons introduit le filtre jSON de la ligne 26 qui nous permettra d&#x27;indiquer si on veut ou non cette propriété et le type de l&#x27;entité ligne 39 ;</li>
-<li>lignes 71-88 : la méthode [addProduit] permet d&#x27;ajouter un produit à la catégorie ;</li>
-<li>lignes 73-76 : pour uniformiser la gestion des proxies entre implémentations JPA différentes, on a décidé qu&#x27;on ne pouvait ajouter de produits à une entité [Categorie] de type PROXY ;</li>
-<li>lignes 92-112 : deux entités [Categorie] seront dites égales si elles ont la même clé primaire [id] ;</li>
+  <li>ligne 24 : la classe est une entité JPA ;
+  </li>
+  <li>ligne 25 : associée à la table [CATEGORIES] ;
+  </li>
+  <li>ligne 26 : la représentation jSON de l&#x27;entité [Categorie] est commandée par le filtre nommé [<span style="color: #2a00ff">jsonFilterCategorie</span>]. Celui-ci devra être configuré avant toute demande de représentation jSON de l&#x27;entité. Le filtre [<span style="color: #2a00ff">jsonFilterCategorie</span>] sera utilisé pour exclure on non de la représentation jSON de l&#x27;entité [Categorie] le champ [produits] de la ligne 40 ;
+  </li>
+  <li>lignes 29-32 : le champ [id] est associé à la clé primaire [ID] de la table [CATEGORIES]. Le mode de génération choisi est le mode [IDENTITY], donc le mode [AUTO_INCREMENT] pour MySQL ;
+  </li>
+  <li>lignes 34-36 : le champ [version] est lié à la colonne de versioning [VERSIONING] de la table [CATEGORIES] ;
+  </li>
+  <li>lignes 38-39 : le type de l&#x27;entité [Categorie] ;
+  </li>
+  <li>lignes 41-43 : le nom simple de la classe [Categorie] ;
+  </li>
+  <li>lignes 46-47 : le champ [nom] est lié à la colonne [NOM] de la table [CATEGORIES]. On lui donne les attributs JPA [<span style="color: #000000">unique = </span><b><span style="color: #7f0055">true</span></b><span style="color: #000000">, length = 30, nullable=</span><b><span style="color: #7f0055">false</span></b>] pour qu&#x27;à la génération de la table [CATEGORIES], la colonne [NOM] ait les attributs SQL [UNIQUE, VARCHAR(30), NOT NULL] ;
+  </li>
+  <li>lignes 50-51 : les produits qui appartiennent à la catégorie ;
+  </li>
+  <li>ligne 50 : l&#x27;annotation [<span style="color: #646464">@OneToMany</span>] est la <b>relation inverse</b> de la relation [@ManyToOne] que nous avons rencontrée dans l&#x27;entité [Produit]. L&#x27;attribut [<span style="color: #000000">mappedBy = </span><span style="color: #2a00ff">&quot;categorie&quot;</span>] indique le champ de l&#x27;entité [Produit] annoté par la relation inverse [@ManyToOne]. L&#x27;attribut [<span style="color: #000000">cascade = { CascadeType.</span><i><b><span style="color: #0000c0">ALL</span></b></i><span style="color: #000000"> }</span>] demande à ce que les opérations (persist, merge, remove) faites sur une @Entity [Categorie] soient cascadées sur les [produits] de la ligne 51. On peut indiquer des cascades partielles avec les constantes [<span style="color: #000000">CascadeType.</span><i><b><span style="color: #0000c0">PERSIST</span></b></i><span style="color: #0000c0">, </span><span style="color: #000000">CascadeType.</span><i><b><span style="color: #0000c0">MERGE</span></b></i><i><span style="color: #0000c0">, </span></i><span style="color: #000000">CascadeType.</span><i><b><span style="color: #0000c0">REMOVE</span></b></i>] ;
+  </li>
+  <li>ligne 50 : l&#x27;attribut [<span style="color: #000000">fetch = FetchType.</span><i><b><span style="color: #0000c0">LAZY</span></b></i>] demande à ce que lorsqu&#x27;on ramène une catégorie de la table [CATEGORIES], ses produits ne soient pas immédiatement ramenés. Ils le sont alors lors du premier appel à la méthode [getProduits]. Pour cela, à l&#x27;exécution, la couche JPA enrichit la méthode [getProduits] initiale (qui se contente de rendre le champ <i>produits</i>) par un appel au SGBD pour aller chercher les produits de la catégorie. Cet attribut <b>est contraignant</b>. L&#x27;implémentation JPA ne peut l&#x27;ignorer. Parce que la propriété [produits] peut être ou non initialisée, nous avons introduit le filtre jSON de la ligne 26 qui nous permettra d&#x27;indiquer si on veut ou non cette propriété et le type de l&#x27;entité ligne 39 ;
+  </li>
+  <li>lignes 71-88 : la méthode [addProduit] permet d&#x27;ajouter un produit à la catégorie ;
+  </li>
+  <li>lignes 73-76 : pour uniformiser la gestion des proxies entre implémentations JPA différentes, on a décidé qu&#x27;on ne pouvait ajouter de produits à une entité [Categorie] de type PROXY ;
+  </li>
+  <li>lignes 92-112 : deux entités [Categorie] seront dites égales si elles ont la même clé primaire [id] ;
+  </li>
 </ul>
+
 <p><a id="refheading107479995711268"></a></p>
 <h3 id="634-le-fichier-persistencexml">6.3.4. Le fichier [persistence.xml]</h3>
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000000EE000000DCC3B12641.png" style="display:inline-block; margin:4px;width:4.41cm;height:4.069cm;" class="odt-zoomable" data-zoom-src="images/10000000000000EE000000DCC3B12641.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td></tr></table>
@@ -1881,14 +1974,20 @@
 </code></pre></div>
 
 <ul>
-<li>lignes 1-5 : un fichier [persistence.xml] doit avoir une balise racine &lt;persistence&gt;. Les attributs de la balise de la ligne 2 ne seront pas exploités dans cette application ;</li>
-<li>un fichier de persistance peut définir une ou plusieurs unités de persistance avec la balise &lt;persistence-unit&gt; (ligne 4). Une unité de persistance gère l&#x27;accès à une base de données particulière. Si l&#x27;application gère deux bases simutanément, elle aura deux unités de persistance ;</li>
-<li>ligne 4 : une unité de persistance a un nom [attribut name], supporte un type de transaction [attribut transaction-type], a des propriétés et définit les entités associées aux tables de la base de données gérée par l&#x27;unité de persistance. Ici comme les accès à la base vont être gérés par [Spring JPA Hibernate], ces deux dernières informations peuvent être placées ailleurs. Il y a deux types de transaction :<ul>
-<li>[RESOURCE_LOCAL] : les transactions sont gérées par l&#x27;application elle-même. C&#x27;est le cas ici, où c&#x27;est Spring qui gèrera les transactions ;</li>
-<li>[JTA] (Java Transaction API) : c&#x27;est le conteneur EJB (Enterprise Java Bean) qui exécute l&#x27;application qui va gérer automatiquement les transactions en fonction d&#x27;annotations Java trouvées dans le code. On n&#x27;est pas dans cette configuration ici ;</li>
+  <li>lignes 1-5 : un fichier [persistence.xml] doit avoir une balise racine &lt;persistence&gt;. Les attributs de la balise de la ligne 2 ne seront pas exploités dans cette application ;
+  </li>
+  <li>un fichier de persistance peut définir une ou plusieurs unités de persistance avec la balise &lt;persistence-unit&gt; (ligne 4). Une unité de persistance gère l&#x27;accès à une base de données particulière. Si l&#x27;application gère deux bases simutanément, elle aura deux unités de persistance ;
+  </li>
+  <li>ligne 4 : une unité de persistance a un nom [attribut name], supporte un type de transaction [attribut transaction-type], a des propriétés et définit les entités associées aux tables de la base de données gérée par l&#x27;unité de persistance. Ici comme les accès à la base vont être gérés par [Spring JPA Hibernate], ces deux dernières informations peuvent être placées ailleurs. Il y a deux types de transaction :
+    <ul>
+      <li>[RESOURCE_LOCAL] : les transactions sont gérées par l&#x27;application elle-même. C&#x27;est le cas ici, où c&#x27;est Spring qui gèrera les transactions ;
+      </li>
+      <li>[JTA] (Java Transaction API) : c&#x27;est le conteneur EJB (Enterprise Java Bean) qui exécute l&#x27;application qui va gérer automatiquement les transactions en fonction d&#x27;annotations Java trouvées dans le code. On n&#x27;est pas dans cette configuration ici ;
+      </li>
+    </ul>
+  </li>
 </ul>
-</li>
-</ul>
+
 <p>Nous verrons par la suite, que le contenu de ce fichier [persistence.xml] est dépendant de l&#x27;implémentation JPA utilisée.</p>
 <p><a id="refheading107481995711268"></a></p>
 <h2 id="64-le-projet-spring-jpa-generic">6.4. Le projet [spring-jpa-generic]</h2>
@@ -1897,14 +1996,20 @@
 
 <p>dans laquelle la couche [DAO] implémenterait l&#x27;interface [IDao&lt;Produit&gt;, IDao&lt;Categorie&gt;] étudiée au chapitre <a href="introduction-a-spring-jdbc.html#refheading1051982082896917">4</a>. Il s&#x27;agit de comparer deux implémentations de cette interface :</p>
 <ul>
-<li>l&#x27;une construite avec Spring JDBC ;</li>
-<li>l&#x27;autre construite avec Spring JPA ;</li>
+  <li>l&#x27;une construite avec Spring JDBC ;
+  </li>
+  <li>l&#x27;autre construite avec Spring JPA ;
+  </li>
 </ul>
+
 <p>Dans l&#x27;architecture ci-dessus :</p>
 <ul>
-<li>la couche [JDBC] est implémentée par le projet [mysql-config-jdbc] étudié au paragraphe <a href="introduction-a-lapi-jdbc.html#refheading1051402082896917">3.3</a> ;</li>
-<li>la couche [JPA] est implémentée par le projet [mysql-config-jpa-hibernate] étudié au paragraphe <a href="#refheading1052902082896917">6.3</a>;</li>
+  <li>la couche [JDBC] est implémentée par le projet [mysql-config-jdbc] étudié au paragraphe <a href="introduction-a-lapi-jdbc.html#refheading1051402082896917">3.3</a> ;
+  </li>
+  <li>la couche [JPA] est implémentée par le projet [mysql-config-jpa-hibernate] étudié au paragraphe <a href="#refheading1052902082896917">6.3</a>;
+  </li>
 </ul>
+
 <p>Le projet [spring-jpa-generic] assure l&#x27;implémentation des couches [DAO] et [Spring Data].</p>
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000000E9000000CDCF467FA2.png" style="display:inline-block; margin:4px;width:4.309cm;height:3.799cm;" class="odt-zoomable" data-zoom-src="images/10000000000000E9000000CDCF467FA2.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td></tr></table>
 
@@ -1959,12 +2064,16 @@
 </code></pre></div>
 
 <ul>
-<li>lignes 22-26 : le projet n&#x27;a qu&#x27;une unique dépendance, celle sur le projet qui configure la couche [JPA] de l&#x27;application et que nous venons d&#x27;étudier. C&#x27;est une application générique :<ul>
-<li>on change de SGBD en changeant le projet de configuration de la couche [JDBC] ;</li>
-<li>on change d&#x27;implémentation JPA en changeant le projet de configuration de la couche [JPA] ;</li>
+  <li>lignes 22-26 : le projet n&#x27;a qu&#x27;une unique dépendance, celle sur le projet qui configure la couche [JPA] de l&#x27;application et que nous venons d&#x27;étudier. C&#x27;est une application générique :
+    <ul>
+      <li>on change de SGBD en changeant le projet de configuration de la couche [JDBC] ;
+      </li>
+      <li>on change d&#x27;implémentation JPA en changeant le projet de configuration de la couche [JPA] ;
+      </li>
+    </ul>
+  </li>
 </ul>
-</li>
-</ul>
+
 <p>Au final, les dépendances sont les suivantes :</p>
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000000F60000009C62A687FA.png" style="display:inline-block; margin:4px;width:4.56cm;height:2.889cm;" class="odt-zoomable" data-zoom-src="images/10000000000000F60000009C62A687FA.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td></tr></table>
 
@@ -1993,11 +2102,16 @@
 </code></pre></div>
 
 <ul>
-<li>ligne 11 : la classe est une classe de configuration Spring ;</li>
-<li>ligne 10 : l&#x27;annotation [@<span style="color: #646464">EnableJpaRepositories</span>] sert à désigner les packages contenant les interfaces [CrudRepository] de Spring Data. Cela en fait des composants Spring qui peuvent être injectés dans d&#x27;autres composants Spring ;</li>
-<li>ligne 12 : l&#x27;annotation [@<span style="color: #646464">ComponentScan</span>] indique que le package [<span style="color: #2a00ff">spring.data.dao</span>] doit être exploré pour y chercher des composants Spring. Seront trouvés les composants [DaoCategorie] et [DaoProduit] ;</li>
-<li>ligne 13 : les beans de la classe de configuration [ConfigJpa] sont importés. On y trouvera le bean de l&#x27;implémentation JPA utilisée (Hibernate, Eclipselink, OpenJpa), la source de données à exploiter, l&#x27;EntityManager qui va gérer les opération JPA, le gestionnaire de transactions ;</li>
+  <li>ligne 11 : la classe est une classe de configuration Spring ;
+  </li>
+  <li>ligne 10 : l&#x27;annotation [@<span style="color: #646464">EnableJpaRepositories</span>] sert à désigner les packages contenant les interfaces [CrudRepository] de Spring Data. Cela en fait des composants Spring qui peuvent être injectés dans d&#x27;autres composants Spring ;
+  </li>
+  <li>ligne 12 : l&#x27;annotation [@<span style="color: #646464">ComponentScan</span>] indique que le package [<span style="color: #2a00ff">spring.data.dao</span>] doit être exploré pour y chercher des composants Spring. Seront trouvés les composants [DaoCategorie] et [DaoProduit] ;
+  </li>
+  <li>ligne 13 : les beans de la classe de configuration [ConfigJpa] sont importés. On y trouvera le bean de l&#x27;implémentation JPA utilisée (Hibernate, Eclipselink, OpenJpa), la source de données à exploiter, l&#x27;EntityManager qui va gérer les opération JPA, le gestionnaire de transactions ;
+  </li>
 </ul>
+
 <p><a id="refheading2192522014630537"></a></p>
 <h3 id="643-la-couche-spring-data">6.4.3. La couche [Spring Data]</h3>
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000004D60000010050035B88.png" style="display:inline-block; margin:4px;width:16.378cm;height:3.387cm;" class="odt-zoomable" data-zoom-src="images/10000000000004D60000010050035B88.png" /></td></tr></table>
@@ -2048,29 +2162,45 @@
 </code></pre></div>
 
 <ul>
-<li>ligne 10 : l&#x27;interface [CrudRepository] a été utilisée et expliquée paragraphe <a href="introduction-a-spring-data-jpa.html#crudrepository">5.1.3</a> . On rappelle que :<ul>
-<li>le 1er type de paramètre de l&#x27;interface est l&#x27;entité JPA gérée pour des accès CRUD (findOne, findAll, save, delete, deleteAll),</li>
-<li>le second type de paramètre de l&#x27;interface est celui de la clé primaire de l&#x27;entité JPA, ici un entier [Long] ;</li>
+  <li>ligne 10 : l&#x27;interface [CrudRepository] a été utilisée et expliquée paragraphe <a href="introduction-a-spring-data-jpa.html#crudrepository">5.1.3</a> . On rappelle que :
+    <ul>
+      <li>le 1er type de paramètre de l&#x27;interface est l&#x27;entité JPA gérée pour des accès CRUD (findOne, findAll, save, delete, deleteAll),
+      </li>
+      <li>le second type de paramètre de l&#x27;interface est celui de la clé primaire de l&#x27;entité JPA, ici un entier [Long] ;
+      </li>
+    </ul>
+  </li>
 </ul>
-</li>
-</ul>
+
 <p>Les méthodes de l&#x27;interface sont implémentées par des requêtes JPQL (Java Persistence Query Language). Celle-ci requête des entités JPA. Dans une telle requête :</p>
 <ul>
-<li>les tables sont remplacées par leurs entités JPA associées ;</li>
-<li>les colonnes sont remplacées par des champs des entités JPA utilisées dans la requête ;</li>
+  <li>les tables sont remplacées par leurs entités JPA associées ;
+  </li>
+  <li>les colonnes sont remplacées par des champs des entités JPA utilisées dans la requête ;
+  </li>
 </ul>
+
 <p>Prenons l&#x27;exemple des lignes 31-32 : la méthode de la ligne 32 ramène toutes les catégories de la base dans leur version courte. Elle est implémentée par la requête JPQL (Java Persistence Query Language) de la ligne 31 qui ressemble fort à son homologue SQL. Pour approfondir JPQL, on pourra lire [<strong>ref2</strong>] (cf paragraphe <a href="introduction.html#ref2">1.2</a>).</p>
 <p>Les méthodes de l&#x27;interface [CategoriesRepository] sont les suivantes :</p>
 <ul>
-<li>lignes 13-14 : la méthode [<span style="color: #000000">getLongCategorieById</span>] ramène la version longue d&#x27;une catégorie référencée par sa clé primaire [id], ç-à-d la catégorie avec ses produits. On se rappelle que dans l&#x27;entité [Categorie], le champ [produits] avait l&#x27;attribut [fetch = FetchType.LAZY] (lazy loading). Dans la requête JPQL, on force le chargement des produits avec le mot clé [fetch]. Le paramètre ?1 de la requête sera remplacé à l&#x27;exécution par la valeur du 1er paramètre de la méthode de la ligne 12, donc par le paramètre [Long id] ;</li>
-<li>lignes 16-17 : la méthode [<span style="color: #000000">getLongCategorieByName</span>] ramène la version longue d&#x27;une catégorie référencée par son nom [nom] ;</li>
-<li>lignes 19-20 : la méthode [<span style="color: #000000">getShortCategoriesByName</span>] ramène les versions courtes de catégories référencées par leurs noms. Le champ [produits] de ces catégories n&#x27;est pas <em>null</em>. Il contient la référence d&#x27;un proxy (une classe créée par l&#x27;implémentation JPA) dont le rôle est de ramener les produits de la catégorie lorsqu&#x27;il est appelé. Son appel en-dehors du contexte de persistance JPA provoque une exception (Hibernate et OpenJpa mais pas EclipseLink). Pour cette raison, nous n&#x27;utiliserons pas le champ [produits] de la version courte d&#x27;une catégorie ;</li>
-<li>lignes 22-23 : la méthode [<span style="color: #000000">getShortCategoriesById</span>] ramène les versions courtes de catégories référencées par leurs clés primaires [id] ;</li>
-<li>lignes 25-26 : la méthode [<span style="color: #000000">getLongCategoriesById</span>] ramène les versions longues de catégories référencées par leurs clés primaires [id] ;</li>
-<li>lignes [28-29] : la méthode [<span style="color: #000000">getLongCategoriesByName</span>] ramène les versions longues de catégories référencées par leurs noms ;</li>
-<li>lignes 31-32 : la méthode [<span style="color: #000000">getAllShortCategories</span>] ramène les versions courtes de toutes les catégories ;</li>
-<li>lignes 34-35 : la méthode [<span style="color: #000000">getAllLongCategories</span>] ramène les versions longues de toutes les catégories ;</li>
+  <li>lignes 13-14 : la méthode [<span style="color: #000000">getLongCategorieById</span>] ramène la version longue d&#x27;une catégorie référencée par sa clé primaire [id], ç-à-d la catégorie avec ses produits. On se rappelle que dans l&#x27;entité [Categorie], le champ [produits] avait l&#x27;attribut [fetch = FetchType.LAZY] (lazy loading). Dans la requête JPQL, on force le chargement des produits avec le mot clé [fetch]. Le paramètre ?1 de la requête sera remplacé à l&#x27;exécution par la valeur du 1er paramètre de la méthode de la ligne 12, donc par le paramètre [Long id] ;
+  </li>
+  <li>lignes 16-17 : la méthode [<span style="color: #000000">getLongCategorieByName</span>] ramène la version longue d&#x27;une catégorie référencée par son nom [nom] ;
+  </li>
+  <li>lignes 19-20 : la méthode [<span style="color: #000000">getShortCategoriesByName</span>] ramène les versions courtes de catégories référencées par leurs noms. Le champ [produits] de ces catégories n&#x27;est pas <i>null</i>. Il contient la référence d&#x27;un proxy (une classe créée par l&#x27;implémentation JPA) dont le rôle est de ramener les produits de la catégorie lorsqu&#x27;il est appelé. Son appel en-dehors du contexte de persistance JPA provoque une exception (Hibernate et OpenJpa mais pas EclipseLink). Pour cette raison, nous n&#x27;utiliserons pas le champ [produits] de la version courte d&#x27;une catégorie ;
+  </li>
+  <li>lignes 22-23 : la méthode [<span style="color: #000000">getShortCategoriesById</span>] ramène les versions courtes de catégories référencées par leurs clés primaires [id] ;
+  </li>
+  <li>lignes 25-26 : la méthode [<span style="color: #000000">getLongCategoriesById</span>] ramène les versions longues de catégories référencées par leurs clés primaires [id] ;
+  </li>
+  <li>lignes [28-29] : la méthode [<span style="color: #000000">getLongCategoriesByName</span>] ramène les versions longues de catégories référencées par leurs noms ;
+  </li>
+  <li>lignes 31-32 : la méthode [<span style="color: #000000">getAllShortCategories</span>] ramène les versions courtes de toutes les catégories ;
+  </li>
+  <li>lignes 34-35 : la méthode [<span style="color: #000000">getAllLongCategories</span>] ramène les versions longues de toutes les catégories ;
+  </li>
 </ul>
+
 <p><strong>Note</strong> : les implémentations JPA n&#x27;acceptent pas toutes la même syntaxe JPQL. Ainsi la syntaxe suivante est acceptée par Hibernate et EclipseLink mais pas par OpenJpa :</p>
 <div class="odt-code-rich" data-linenums="false" style="counter-reset: odtline 0;"><pre><code class="language-python">
 <span class="odt-code-line"><span style="color:#646464">@Query</span><span style="color:#000000">(</span><span style="color:#2a00ff">&quot;select c from Categorie c left join fetch c.produits </span><span style="background-color:#ff950e;color:#2a00ff">p</span><span style="color:#2a00ff"> where c.nom=?1&quot;</span><span style="color:#000000">)</span></span>
@@ -2122,15 +2252,24 @@
 </code></pre></div>
 
 <ul>
-<li>lignes [15-16] : la méthode [<span style="color: #000000">getLongProduitById</span>] ramène la version longue d&#x27;un produit identifié par sa clé primaire [id], donc avec sa catégorie. On se rappelle que dans l&#x27;entité [Produit], le champ [categorie] avait l&#x27;attribut [fetch = FetchType.LAZY] (lazy loading). Dans la requête JPQL, on force le chargement de la catégorie avec le mot clé [fetch] ;</li>
-<li>lignes 18-19 : la méthode [<span style="color: #000000">getLongProduitByName</span>] ramène la version longue d&#x27;un produit identifié par son nom ;</li>
-<li>lignes 21-22 : la méthode [<span style="color: #000000">getShortProduitsById</span>] ramène la version courte des produits identifiés par leur clé primaire [id]. Dans cette version courte, le champ [categorie] n&#x27;a pas la valeur <em>null</em>. Il contient la référence d&#x27;un proxy généré par l&#x27;implémentation JPA, qui, s&#x27;il est appelé va aller chercher la catégorie du produit. Cet appel ne peut se faire que dans le contexte de persistance JPA. Le faire ailleurs provoque une exception (Hibernate et OpenJpa mais pas EclipseLink). Donc dans la couche [DAO] ou ailleurs, nous n&#x27;utiliserons pas le champ [categorie] d&#x27;un produit dans sa version courte. Dans la version courte du produit le champ [idCategorie] est initialisé. Il a pour valeur la clé primaire de la catégorie à laquelle appartient le produit. Cela permet ultérieurement de demander cette catégorie à la couche [DAO] via la méthode [DaoCategorie. <span style="color: #000000">getShortCategoriesById(idCategorie)] ;</span></li>
-<li><span style="color: #000000">lignes 24-25 : la méthode [getShortProduitsByName] ramène la version courte des produits identifiés par leurs noms ;</span></li>
-<li><span style="color: #000000">lignes 27-28 : la méthode [getLongProduitsById] ramène la version longue des produits identifiés par leurs clés primaires ;</span></li>
-<li><span style="color: #000000">lignes 30-31 : la méthode [getLongProduitsByName] ramène la version longue des produits identifiés par leurs noms ;</span></li>
-<li><span style="color: #000000">lignes 33-34 :  la méthode [getAllLongProduits] ramène la version longue de tous les produits ;</span></li>
-<li>lignes 36-37 : <span style="color: #000000">la méthode [getAllShortProduits] ramène la version courte de tous les produits ;</span></li>
+  <li>lignes [15-16] : la méthode [<span style="color: #000000">getLongProduitById</span>] ramène la version longue d&#x27;un produit identifié par sa clé primaire [id], donc avec sa catégorie. On se rappelle que dans l&#x27;entité [Produit], le champ [categorie] avait l&#x27;attribut [fetch = FetchType.LAZY] (lazy loading). Dans la requête JPQL, on force le chargement de la catégorie avec le mot clé [fetch] ;
+  </li>
+  <li>lignes 18-19 : la méthode [<span style="color: #000000">getLongProduitByName</span>] ramène la version longue d&#x27;un produit identifié par son nom ;
+  </li>
+  <li>lignes 21-22 : la méthode [<span style="color: #000000">getShortProduitsById</span>] ramène la version courte des produits identifiés par leur clé primaire [id]. Dans cette version courte, le champ [categorie] n&#x27;a pas la valeur <i>null</i>. Il contient la référence d&#x27;un proxy généré par l&#x27;implémentation JPA, qui, s&#x27;il est appelé va aller chercher la catégorie du produit. Cet appel ne peut se faire que dans le contexte de persistance JPA. Le faire ailleurs provoque une exception (Hibernate et OpenJpa mais pas EclipseLink). Donc dans la couche [DAO] ou ailleurs, nous n&#x27;utiliserons pas le champ [categorie] d&#x27;un produit dans sa version courte. Dans la version courte du produit le champ [idCategorie] est initialisé. Il a pour valeur la clé primaire de la catégorie à laquelle appartient le produit. Cela permet ultérieurement de demander cette catégorie à la couche [DAO] via la méthode [DaoCategorie. <span style="color: #000000">getShortCategoriesById(idCategorie)] ;</span>
+  </li>
+  <li><span style="color: #000000">lignes 24-25 : la méthode [getShortProduitsByName] ramène la version courte des produits identifiés par leurs noms ;</span>
+  </li>
+  <li><span style="color: #000000">lignes 27-28 : la méthode [getLongProduitsById] ramène la version longue des produits identifiés par leurs clés primaires ;</span>
+  </li>
+  <li><span style="color: #000000">lignes 30-31 : la méthode [getLongProduitsByName] ramène la version longue des produits identifiés par leurs noms ;</span>
+  </li>
+  <li><span style="color: #000000">lignes 33-34 :  la méthode [getAllLongProduits] ramène la version longue de tous les produits ;</span>
+  </li>
+  <li>lignes 36-37 : <span style="color: #000000">la méthode [getAllShortProduits] ramène la version courte de tous les produits ;</span>
+  </li>
 </ul>
+
 <p>Ces interfaces vont être implémentées par des classes générées par l&#x27;implémentation JPA au moment de l&#x27;exécution du projet. On appelle de telles classes des classes [proxy]. Par défaut, les méthodes de l&#x27;interface [<span style="color: #000000">CrudRepository</span>] <strong>s&#x27;exécutent dans une transaction</strong>. Le fait que les interfaces [ProduitsRepository, CategoriesRepository] étendent la classe [<span style="color: #000000">CrudRepository</span>] font d&#x27;elles des composants Spring. A ce titre, elles peuvent être injectées dans d&#x27;autres composants Spring.</p>
 <p><a id="refheading2192542014630537"></a></p>
 <h3 id="644-la-couche-dao">6.4.4. La couche [DAO]</h3>
@@ -2202,9 +2341,12 @@
 
 <p>La classe abstraite [AbstractDao] est la classe parent des classes implémentant la couche [DAO] :</p>
 <ul>
-<li>la classe [DaoProduit] qui implémente l&#x27;interface [IDao&lt;Produit&gt;] et gère les accès à la table [PRODUITS] ;</li>
-<li>la classe [DaoCategorie] qui implémente l&#x27;interface [IDao&lt;Categorie&gt;] et gère les accès à la table [CATEGORIES] ;</li>
+  <li>la classe [DaoProduit] qui implémente l&#x27;interface [IDao&lt;Produit&gt;] et gère les accès à la table [PRODUITS] ;
+  </li>
+  <li>la classe [DaoCategorie] qui implémente l&#x27;interface [IDao&lt;Categorie&gt;] et gère les accès à la table [CATEGORIES] ;
+  </li>
 </ul>
+
 <p>Son code est celui décrit au paragraphe <a href="introduction-a-spring-jdbc.html#refheading1052102082896917">4.8</a>, au détail près suivant : aucune méthode n&#x27;a l&#x27;attribut [@Transactional] qui fait que la méthode s&#x27;exécute dans une transaction. On utilise le fait ici que les interfaces [CrudRepository] de Spring Data s&#x27;exécutent par défaut dans une transaction.</p>
 <p><a id="refheading107668995711268"></a></p>
 <h4 id="6443-la-classe-daocategorie">6.4.4.3. La classe [DaoCategorie]</h4>
@@ -2334,12 +2476,18 @@
 </code></pre></div>
 
 <ul>
-<li>ligne 17 : l&#x27;annotation [@Component] fait de la classe [DaoCategorie] un composant Spring ;</li>
-<li>ligne 18 : la classe [DaoCategorie] étend la classe [<span style="color: #000000">AbstractDao&lt;Categorie&gt;</span>] ce qui fait qu&#x27;elle implémente l&#x27;interface [IDao&lt;Categorie&gt;] ;</li>
-<li>lignes 20-24 : injection des références sur les deux interfaces [CrudRepository] de [Spring Data]. Cette injection aura lieu lors de l&#x27;instanciation des objets Spring, en général au début de l&#x27;exécution du projet Spring ;</li>
-<li>toutes les méthodes de la classe délèguent le travail aux méthodes de mêmes noms des interfaces [CrudRepository] ;</li>
-<li>toutes les méthodes qui ramènent les entités dans leur version courte l&#x27;indiquent en mettant le type de l&#x27;entité à [EntityType.PROXY] (lignes 29, 63, 72) ;</li>
+  <li>ligne 17 : l&#x27;annotation [@Component] fait de la classe [DaoCategorie] un composant Spring ;
+  </li>
+  <li>ligne 18 : la classe [DaoCategorie] étend la classe [<span style="color: #000000">AbstractDao&lt;Categorie&gt;</span>] ce qui fait qu&#x27;elle implémente l&#x27;interface [IDao&lt;Categorie&gt;] ;
+  </li>
+  <li>lignes 20-24 : injection des références sur les deux interfaces [CrudRepository] de [Spring Data]. Cette injection aura lieu lors de l&#x27;instanciation des objets Spring, en général au début de l&#x27;exécution du projet Spring ;
+  </li>
+  <li>toutes les méthodes de la classe délèguent le travail aux méthodes de mêmes noms des interfaces [CrudRepository] ;
+  </li>
+  <li>toutes les méthodes qui ramènent les entités dans leur version courte l&#x27;indiquent en mettant le type de l&#x27;entité à [EntityType.PROXY] (lignes 29, 63, 72) ;
+  </li>
 </ul>
+
 <p>La méthode [saveEntities] mérite une explication :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-text">
 <span class="odt-code-line">@Override</span>
@@ -2375,12 +2523,18 @@
 </code></pre></div>
 
 <ul>
-<li>ligne 2 : les catégories passées en paramètres sont aussi bien des catégories à insérer [id==null] qu&#x27;à modifier [id!=null] ;</li>
-<li>ligne 20 : on persiste les catégories avec la méthode [<span style="color: #0000c0">categoriesRepository</span><span style="color: #000000">.save(</span><span style="color: #6a3e3e">entities</span><span style="color: #000000">)</span>]. Aux tests, on constate que le champ [idCategorie] des produits persistés (id==null) n&#x27;est pas renseigné. Pour remédier à ce problème, on note lignes 4-17 les produits qui vont être insérés et une fois persistés, on renseigne leur champ [idCategorie] (lignes 25-27) ;</li>
-<li>lignes 5-17 : on parcourt la liste des catégories ;</li>
-<li>lignes 8-16 : on parcourt pour chaque catégorie sa liste de produits. Là il y a une difficulté. La méthode [saveEntities] est utilisée aussi bien pour persister que pour modifier une catégorie. Dans ce dernier cas, la catégorie peut avoir été obtenue dans sa version courte, avec donc la référence d&#x27;une méthode proxy dans le champ [produits]. L&#x27;utiliser avec Hibernate provoque alors une exception, car la catégorie exploitée n&#x27;est plus dans le contexte de persistence JPA qui a été fermé avec la fin de la transaction de la méthode qui a ramené les versions courtes des catégories. On utilise alors le champ [EntityType] de l&#x27;entité [Categorie] ligne 8 pour savoir si on peut ou non accéder à la liste des produits de la catégorie ;</li>
-<li>ligne 14 : on relie le produit à sa catégorie. Normalement ce devrait être déjà le cas. Mais on ne sait pas comment ce produit a été construit et s&#x27;il a été relié à sa catégorie. Alors pour éviter tout problème (pour gérer l&#x27;entité [Produit], JPA a besoin que celle-ci référence l&#x27;entité [Categorie] à laquelle elle est reliée), nous faisons cette liaison nous-mêmes.</li>
+  <li>ligne 2 : les catégories passées en paramètres sont aussi bien des catégories à insérer [id==null] qu&#x27;à modifier [id!=null] ;
+  </li>
+  <li>ligne 20 : on persiste les catégories avec la méthode [<span style="color: #0000c0">categoriesRepository</span><span style="color: #000000">.save(</span><span style="color: #6a3e3e">entities</span><span style="color: #000000">)</span>]. Aux tests, on constate que le champ [idCategorie] des produits persistés (id==null) n&#x27;est pas renseigné. Pour remédier à ce problème, on note lignes 4-17 les produits qui vont être insérés et une fois persistés, on renseigne leur champ [idCategorie] (lignes 25-27) ;
+  </li>
+  <li>lignes 5-17 : on parcourt la liste des catégories ;
+  </li>
+  <li>lignes 8-16 : on parcourt pour chaque catégorie sa liste de produits. Là il y a une difficulté. La méthode [saveEntities] est utilisée aussi bien pour persister que pour modifier une catégorie. Dans ce dernier cas, la catégorie peut avoir été obtenue dans sa version courte, avec donc la référence d&#x27;une méthode proxy dans le champ [produits]. L&#x27;utiliser avec Hibernate provoque alors une exception, car la catégorie exploitée n&#x27;est plus dans le contexte de persistence JPA qui a été fermé avec la fin de la transaction de la méthode qui a ramené les versions courtes des catégories. On utilise alors le champ [EntityType] de l&#x27;entité [Categorie] ligne 8 pour savoir si on peut ou non accéder à la liste des produits de la catégorie ;
+  </li>
+  <li>ligne 14 : on relie le produit à sa catégorie. Normalement ce devrait être déjà le cas. Mais on ne sait pas comment ce produit a été construit et s&#x27;il a été relié à sa catégorie. Alors pour éviter tout problème (pour gérer l&#x27;entité [Produit], JPA a besoin que celle-ci référence l&#x27;entité [Categorie] à laquelle elle est reliée), nous faisons cette liaison nous-mêmes.
+  </li>
 </ul>
+
 <p>En comparant ce code à celui de la classe [DaoProduit] de l&#x27;implémentation Spring JDBC (cf paragraphe <a href="introduction-a-spring-jdbc.html#refheading1052122082896917">4.9</a>) on peut constater que la bibliothèque Spring Data JPA facilite énormément l&#x27;écriture de la couche [DAO].</p>
 <p><a id="refheading11081935254046"></a></p>
 <h4 id="6444-la-classe-daoproduit">6.4.4.4. La classe [DaoProduit]</h4>
@@ -2534,9 +2688,12 @@
 
 <p>Le code est analogue à celui de la classe [DaoCategorie] :</p>
 <ul>
-<li>pour les versions longues des catégories, on constate aux tests que le champ [idCategorie] des produits n&#x27;est pas renseigné. La méthode [<span style="color: #000000">linkLongProduitsToCategories</span>] des lignes 96-105 remédie à ce problème ;</li>
-<li>la méthode [saveEntities] des lignes 108-121 insèrent de nouveaux produits ou modifient des produits existants. La couche JPA exige que chaque entité [Produit] soit reliée à une entité [Categorie]. Comme on ignore si l&#x27;utilisateur l&#x27;a fait, on le fait nous-mêmes aux lignes 110-113. Il suffit de relier le [Produit] à une entité [Categorie] ayant sa clé primaire égale au champ [idCategorie] du [Produit]. Aux tests, on constate qu&#x27;on a une erreur si on met <em>null</em> pour la version de la catégorie. Aussi lui met-on ici la valeur 0 mais on peut mettre ce qu&#x27;on veut. En-dehors de la clé primaire, aucun champ de l&#x27;entité [Categorie] n&#x27;est nécessaire à la couche JPA pour insérer / modifier une entité [Produit] ;</li>
+  <li>pour les versions longues des catégories, on constate aux tests que le champ [idCategorie] des produits n&#x27;est pas renseigné. La méthode [<span style="color: #000000">linkLongProduitsToCategories</span>] des lignes 96-105 remédie à ce problème ;
+  </li>
+  <li>la méthode [saveEntities] des lignes 108-121 insèrent de nouveaux produits ou modifient des produits existants. La couche JPA exige que chaque entité [Produit] soit reliée à une entité [Categorie]. Comme on ignore si l&#x27;utilisateur l&#x27;a fait, on le fait nous-mêmes aux lignes 110-113. Il suffit de relier le [Produit] à une entité [Categorie] ayant sa clé primaire égale au champ [idCategorie] du [Produit]. Aux tests, on constate qu&#x27;on a une erreur si on met <i>null</i> pour la version de la catégorie. Aussi lui met-on ici la valeur 0 mais on peut mettre ce qu&#x27;on veut. En-dehors de la clé primaire, aucun champ de l&#x27;entité [Categorie] n&#x27;est nécessaire à la couche JPA pour insérer / modifier une entité [Produit] ;
+  </li>
 </ul>
+
 <p><a id="refheading10881435254046"></a></p>
 <h3 id="645-la-couche-de-tests">6.4.5. La couche de tests</h3>
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000004BB000000EA81E2145A.png" style="display:inline-block; margin:4px;width:16.021cm;height:3.096cm;" class="odt-zoomable" data-zoom-src="images/10000000000004BB000000EA81E2145A.png" /></td></tr></table>
@@ -2545,10 +2702,14 @@
 
 <p>Les tests ci-dessus sont identiques à ceux de l&#x27;implémentation Spring JDBC. On se reportera aux pages suivantes si nécessaire :</p>
 <ul>
-<li>[JUnitTestCheckArguments] : paragraphe <a href="introduction-a-spring-jdbc.html#refheading1052502082896917">4.11.1</a> ;</li>
-<li>[JUnitTestDao] : paragraphe <a href="introduction-a-spring-jdbc.html#refheading1052522082896917">4.11.2</a> ;</li>
-<li>[JUnitTestPushTheLimits] : paragraphe <a href="introduction-a-spring-jdbc.html#refheading1052702082896917">4.11.3</a> ;</li>
+  <li>[JUnitTestCheckArguments] : paragraphe <a href="introduction-a-spring-jdbc.html#refheading1052502082896917">4.11.1</a> ;
+  </li>
+  <li>[JUnitTestDao] : paragraphe <a href="introduction-a-spring-jdbc.html#refheading1052522082896917">4.11.2</a> ;
+  </li>
+  <li>[JUnitTestPushTheLimits] : paragraphe <a href="introduction-a-spring-jdbc.html#refheading1052702082896917">4.11.3</a> ;
+  </li>
 </ul>
+
 <p>Nous utilisons les configurations d&#x27;exécution suivantes :</p>
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/1000000000000160000000C80C0F5CDE.png" style="display:inline-block; margin:4px;width:6.519cm;height:3.701cm;" class="odt-zoomable" data-zoom-src="images/1000000000000160000000C80C0F5CDE.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/100000000000015D000000BEA4E1BF1D.png" style="display:inline-block; margin:4px;width:6.459cm;height:3.521cm;" class="odt-zoomable" data-zoom-src="images/100000000000015D000000BEA4E1BF1D.png" /></td></tr></table>
 

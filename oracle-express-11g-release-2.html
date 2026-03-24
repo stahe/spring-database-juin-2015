@@ -1113,36 +1113,49 @@
 <p><strong>Note</strong> : faire [Alt-F5] pour régénérer l&#x27;ensemble des projets Maven.</p>
 <p>Lancez Oracle Express et son client [OraManager] (cf paragraphe <a href="annexes.html#refheading39807804107930">23.6</a>). Nous allons générer :</p>
 <ul>
-<li>la bases [dbproduits] avec le projet [generic-create-dbproduits] ;</li>
-<li>la base [dbproduitscategories] avec le projet [generic-create-dbproduitscategories] ;</li>
+  <li>la bases [dbproduits] avec le projet [generic-create-dbproduits] ;
+  </li>
+  <li>la base [dbproduitscategories] avec le projet [generic-create-dbproduitscategories] ;
+  </li>
 </ul>
+
 <p><a id="refheading121874477643007"></a></p>
 <h3 id="1012-creation-dutilisateurs">10.1.2. Création d&#x27;utilisateurs</h3>
 <p>Tout se passe maintenant dans [OraManager]. Le SGBD Oracle doit être lancé. On utilise les identifiants <strong>system</strong> / <strong>system</strong> pour l&#x27;administrateur système (il faut l&#x27;avoir configuré auparavant). Nous allons créer deux utilisateurs :</p>
 <ul>
-<li>[DBPRODUITS / dbproduits] qui sera propriétaire de la base [dbproduits] ;</li>
-<li>[DBPRODUITSCATEGORIES / dbproduitscategories] qui sera propriétaire de la base [dbproduits] ;</li>
+  <li>[DBPRODUITS / dbproduits] qui sera propriétaire de la base [dbproduits] ;
+  </li>
+  <li>[DBPRODUITSCATEGORIES / dbproduitscategories] qui sera propriétaire de la base [dbproduits] ;
+  </li>
 </ul>
+
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/100000000000046D00000165A9C7BD6F.png" style="display:inline-block; margin:4px;width:14.99cm;height:4.724cm;" class="odt-zoomable" data-zoom-src="images/100000000000046D00000165A9C7BD6F.png" /></td></tr></table>
 
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/1000000000000522000001FE81228101.png" style="display:inline-block; margin:4px;width:17.383cm;height:6.747cm;" class="odt-zoomable" data-zoom-src="images/1000000000000522000001FE81228101.png" /></td></tr></table>
 
 <ul>
-<li>en [6-7], les identifiants sont [system / system] ;</li>
+  <li>en [6-7], les identifiants sont [system / system] ;
+  </li>
 </ul>
+
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000004F80000027C1E56856B.png" style="display:inline-block; margin:4px;width:16.828cm;height:8.414cm;" class="odt-zoomable" data-zoom-src="images/10000000000004F80000027C1E56856B.png" /></td></tr></table>
 
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/100000000000050600000184DA47715A.png" style="display:inline-block; margin:4px;width:17.013cm;height:5.133cm;" class="odt-zoomable" data-zoom-src="images/100000000000050600000184DA47715A.png" /></td></tr></table>
 
 <ul>
-<li>en [14] : mettre <em>dbproduits</em> ;</li>
-<li>en [16], l&#x27;utilisateur a été créé mais il n&#x27;a pas les droits suffisants pour se connecter. On va les lui donner à l&#x27;aide d&#x27;un script SQL [17-18] ;</li>
+  <li>en [14] : mettre <i>dbproduits</i> ;
+  </li>
+  <li>en [16], l&#x27;utilisateur a été créé mais il n&#x27;a pas les droits suffisants pour se connecter. On va les lui donner à l&#x27;aide d&#x27;un script SQL [17-18] ;
+  </li>
 </ul>
+
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/1000000000000320000000E8EF3C58D9.png" style="display:inline-block; margin:4px;width:10.583cm;height:3.069cm;" class="odt-zoomable" data-zoom-src="images/1000000000000320000000E8EF3C58D9.png" /></td></tr></table>
 
 <ul>
-<li>en [19], mettre l&#x27;utilisateur en majuscules ;</li>
+  <li>en [19], mettre l&#x27;utilisateur en majuscules ;
+  </li>
 </ul>
+
 <p>On refait la même chose pour créer l&#x27;utilisateur [DBPRODUITSCATEGORIES / dbproduitscategories] :</p>
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000001CE000000FB9BC05534.png" style="display:inline-block; margin:4px;width:7.26cm;height:3.919cm;" class="odt-zoomable" data-zoom-src="images/10000000000001CE000000FB9BC05534.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000002770000009969867492.png" style="display:inline-block; margin:4px;width:9.68cm;height:2.35cm;" class="odt-zoomable" data-zoom-src="images/10000000000002770000009969867492.png" /></td></tr></table>
 
@@ -1173,9 +1186,12 @@
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/100000000000050A0000021F025A1461.png" style="display:inline-block; margin:4px;width:17.066cm;height:7.184cm;" class="odt-zoomable" data-zoom-src="images/100000000000050A0000021F025A1461.png" /></td></tr></table>
 
 <ul>
-<li>en [6], mettre <em>dbproduits</em> ;</li>
-<li>en [9], la base [DBPRODUITS] que nous allons exploiter ;</li>
+  <li>en [6], mettre <i>dbproduits</i> ;
+  </li>
+  <li>en [9], la base [DBPRODUITS] que nous allons exploiter ;
+  </li>
 </ul>
+
 <p>Dans la classe [ConfigJdbc] du projet [oracle-config-jdbc], les paramètres de connexion utilisés sont les suivants :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-text">
 <span class="odt-code-line"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">public</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">final</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">static</span><span style="color:#000000"> String </span><span style="font-weight:bold;font-style:italic;color:#0000c0">DRIVER_CLASSNAME</span><span style="color:#000000"> = </span><span style="color:#2a00ff">&quot;oracle.jdbc.OracleDriver&quot;</span><span style="color:#000000">;</span></span>
@@ -1227,18 +1243,25 @@
 </code></pre></div>
 
 <ul>
-<li>lignes 18-19 : la stratégie de génération de la clé primaire de la table [PRODUITS] est [<span style="color: #000000">strategy=GenerationType.</span><strong><em><span style="color: #0000c0">SEQUENCE</span></em></strong>]. Pour MySQL, on avait utilisé la stratégie [@GeneratedValue(strategy = GenerationType.IDENTITY)]. Avec Oracle Express 11g, cette stratégie n&#x27;est pas utilisable ;</li>
-<li>ligne 18 : on indique que la clé primaire sera obtenue via un générateur de nombres qu&#x27;on appelle souvent des séquences ;</li>
-<li>ligne 19 : le générateur de séquences (l&#x27;attribut <em>name</em> référence le générateur de la ligne 18) va créer une séquence appelée [PRODUITS_SEQUENCE] dans la base [dbproduits]. Parce qu&#x27;on veut la portabilité entre implémentations JPA, il est important de nommer la séquence. Sinon, en l&#x27;absence de la ligne 19, les trois implémentations JPA vont créer des séquences qui n&#x27;auront pas le même nom rendant impossible l&#x27;exploitation par JPA2 d&#x27;une base créée par JPA1 ;</li>
+  <li>lignes 18-19 : la stratégie de génération de la clé primaire de la table [PRODUITS] est [<span style="color: #000000">strategy=GenerationType.</span><i><b><span style="color: #0000c0">SEQUENCE</span></b></i>]. Pour MySQL, on avait utilisé la stratégie [@GeneratedValue(strategy = GenerationType.IDENTITY)]. Avec Oracle Express 11g, cette stratégie n&#x27;est pas utilisable ;
+  </li>
+  <li>ligne 18 : on indique que la clé primaire sera obtenue via un générateur de nombres qu&#x27;on appelle souvent des séquences ;
+  </li>
+  <li>ligne 19 : le générateur de séquences (l&#x27;attribut <i>name</i> référence le générateur de la ligne 18) va créer une séquence appelée [PRODUITS_SEQUENCE] dans la base [dbproduits]. Parce qu&#x27;on veut la portabilité entre implémentations JPA, il est important de nommer la séquence. Sinon, en l&#x27;absence de la ligne 19, les trois implémentations JPA vont créer des séquences qui n&#x27;auront pas le même nom rendant impossible l&#x27;exploitation par JPA2 d&#x27;une base créée par JPA1 ;
+  </li>
 </ul>
+
 <p>Nous sommes prêts pour exécuter la configuration [generic-create-dbproduits-eclipselink] :</p>
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000000FD000000ACBC77B44F.png" style="display:inline-block; margin:4px;width:4.68cm;height:3.191cm;" class="odt-zoomable" data-zoom-src="images/10000000000000FD000000ACBC77B44F.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/100000000000023A00000119702AC2BD.png" style="display:inline-block; margin:4px;width:10.56cm;height:5.2cm;" class="odt-zoomable" data-zoom-src="images/100000000000023A00000119702AC2BD.png" /></td></tr></table>
 
 <p>L&#x27;exécution de cette configuration crée deux objets :</p>
 <ul>
-<li>une table [PRODUITS] ;</li>
-<li>une séquence appelée [PRODUITS_SEQUENCE]</li>
+  <li>une table [PRODUITS] ;
+  </li>
+  <li>une séquence appelée [PRODUITS_SEQUENCE]
+  </li>
 </ul>
+
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/100000000000011D000001D3414E6F4B.png" style="display:inline-block; margin:4px;width:5.279cm;height:8.65cm;" class="odt-zoomable" data-zoom-src="images/100000000000011D000001D3414E6F4B.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/1000000000000194000000B32F0214C8.png" style="display:inline-block; margin:4px;width:7.481cm;height:3.311cm;" class="odt-zoomable" data-zoom-src="images/1000000000000194000000B32F0214C8.png" /></td></tr></table>
 
 <p>La DDL de la table [PRODUITS] est la suivante :</p>
@@ -1248,18 +1271,26 @@
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/100000000000054000000336D9299BD4.png" style="display:inline-block; margin:4px;width:17.78cm;height:10.874cm;" class="odt-zoomable" data-zoom-src="images/100000000000054000000336D9299BD4.png" /></td></tr></table>
 
 <ul>
-<li>en [6], le trigger [PRODUITS_ID_TRIGGER] [4] sera exécuté avant chaque insertion ;</li>
-<li>en [7], une procédure stockée propre au SGBD Oracle. Elle indique que le champ [ID] de la ligne qui va être insérée doit être initialisé avec la valeur suivante du générateur nommé [PRODUITS_SEQUENCE] ;</li>
+  <li>en [6], le trigger [PRODUITS_ID_TRIGGER] [4] sera exécuté avant chaque insertion ;
+  </li>
+  <li>en [7], une procédure stockée propre au SGBD Oracle. Elle indique que le champ [ID] de la ligne qui va être insérée doit être initialisé avec la valeur suivante du générateur nommé [PRODUITS_SEQUENCE] ;
+  </li>
 </ul>
+
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/100000000000018C00000110DC2A2797.png" style="display:inline-block; margin:4px;width:7.331cm;height:5.039cm;" class="odt-zoomable" data-zoom-src="images/100000000000018C00000110DC2A2797.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td></tr></table>
 
 <p>La base [dbproduits] est désormais prête. Exécutez les configurations suivantes :</p>
 <ul>
-<li>[spring-jdbc-generic-01.IntroJdbc01] ;</li>
-<li>[spring-jdbc-generic-01.IntroJdbc02] ;</li>
-<li>[spring-jdbc-generic-03.JUnitTestDao1] ;</li>
-<li>[spring-jdbc-generic-03.JUnitTestDao2] ;</li>
+  <li>[spring-jdbc-generic-01.IntroJdbc01] ;
+  </li>
+  <li>[spring-jdbc-generic-01.IntroJdbc02] ;
+  </li>
+  <li>[spring-jdbc-generic-03.JUnitTestDao1] ;
+  </li>
+  <li>[spring-jdbc-generic-03.JUnitTestDao2] ;
+  </li>
 </ul>
+
 <p>Elles doivent toutes réussir.</p>
 <p><a id="refheading121878477643007"></a></p>
 <h3 id="1015-generation-de-la-base-de-donnees-dbproduitscategories">10.1.5. Génération de la base de données [dbproduitscategories]</h3>
@@ -1348,7 +1379,7 @@
 </div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div markdown="block">
 <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>Séquence
 </code></pre></div>
-</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;">CATEGORIES</p></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;">CATEGORIES_ID_TRIGGER</p></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;">CATEGORIES_SEQUENCE</p></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;">PRODUITS</p></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;">PRODUITS_ID_TRIGGER</p></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;">PRODUITS_SEQUENCE</p></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;">ROLES</p></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;">ROLES_ID_TRIGGER</p></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;">ROLES_SEQUENCE</p></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;">USERS</p></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;">USERS_ID_TRIGGER</p></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;">USERS_SEQUENCE</p></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;">USERS_ROLES</p></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;">USERS_ROLES_ID_TRIGGER</p></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;">USERS_ROLES_SEQUENCE</p></td></tr></table>
+</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">CATEGORIES</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">CATEGORIES_ID_TRIGGER</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">CATEGORIES_SEQUENCE</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">PRODUITS</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">PRODUITS_ID_TRIGGER</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">PRODUITS_SEQUENCE</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">ROLES</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">ROLES_ID_TRIGGER</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">ROLES_SEQUENCE</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">USERS</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">USERS_ID_TRIGGER</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">USERS_SEQUENCE</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">USERS_ROLES</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">USERS_ROLES_ID_TRIGGER</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">USERS_ROLES_SEQUENCE</div></td></tr></table>
 
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/1000000000000113000000EAC0642B9E.png" style="display:inline-block; margin:4px;width:5.091cm;height:4.33cm;" class="odt-zoomable" data-zoom-src="images/1000000000000113000000EAC0642B9E.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td></tr></table>
 
@@ -1358,9 +1389,12 @@
 <p>On fait cela pour les cinq tables.</p>
 <p>Maintenant, exécutez les configurations :</p>
 <ul>
-<li>[spring-jdbc-generic-04.JUnitTestDao] ;</li>
-<li>[spring-jpa-generic-JUnitTestDao-hibernate-eclipselink] ;</li>
+  <li>[spring-jdbc-generic-04.JUnitTestDao] ;
+  </li>
+  <li>[spring-jpa-generic-JUnitTestDao-hibernate-eclipselink] ;
+  </li>
 </ul>
+
 <p>Elles doivent réussir toutes les deux.</p>
 <p><a id="refheading121880477643007"></a></p>
 <h2 id="102-configuration-de-la-couche-jdbc">10.2. Configuration de la couche JDBC</h2>
@@ -1402,8 +1436,10 @@
 </code></pre></div>
 
 <ul>
-<li><span style="color: #000000">lignes 18-22 : le pilote JDBC d&#x27;Oracle remplace celui de MySQL ;</span></li>
+  <li><span style="color: #000000">lignes 18-22 : le pilote JDBC d&#x27;Oracle remplace celui de MySQL ;</span>
+  </li>
 </ul>
+
 <p><span style="color: #000000">La seconde modification est dans la classe [ConfigJdbc] qui définit les identifiants d&#x27;accès aux bases :</span></p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-text">
 <span class="odt-code-line"><span style="color:#000000">    </span><span style="color:#3f7f5f">// paramètres de connexion</span></span>
@@ -1447,8 +1483,10 @@
 </code></pre></div>
 
 <ul>
-<li>ligne 7 : on indique à l&#x27;implémentation JPA qu&#x27;elle va travailler avec une base Oracle.  L&#x27;implémentation JPA va alors adopter et les types de données propriétaires et le SQL propriétaire d&#x27;Oracle.</li>
+  <li>ligne 7 : on indique à l&#x27;implémentation JPA qu&#x27;elle va travailler avec une base Oracle.  L&#x27;implémentation JPA va alors adopter et les types de données propriétaires et le SQL propriétaire d&#x27;Oracle.
+  </li>
 </ul>
+
 <p>La seconde modification est dans la stratégie de génération des clés primaires. La nouvelle stratégie a été présentée au paragraphe <a href="#refheading110825352540461">10.1</a>.</p>
 <p><a id="refheading122466477643007"></a></p>
 <h2 id="104-configuration-de-la-couche-jpa-hibernate">10.4. Configuration de la couche JPA Hibernate</h2>

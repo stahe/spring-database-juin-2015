@@ -1092,31 +1092,43 @@
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000004C9000002BACE55EB6F.png" style="display:inline-block; margin:4px;width:16.207cm;height:9.234cm;" class="odt-zoomable" data-zoom-src="images/10000000000004C9000002BACE55EB6F.png" /></td></tr></table>
 
 <ul>
-<li>en [1], on chargera le script SQL [&lt;exemples&gt;\spring-database-config\postgresql\databases\dbproduits.sql] ;</li>
+  <li>en [1], on chargera le script SQL [&lt;exemples&gt;\spring-database-config\postgresql\databases\dbproduits.sql] ;
+  </li>
 </ul>
+
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/1000000000000164000000CF0AA2FF82.png" style="display:inline-block; margin:4px;width:6.59cm;height:3.829cm;" class="odt-zoomable" data-zoom-src="images/1000000000000164000000CF0AA2FF82.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000000FC000000ED8342DA36.png" style="display:inline-block; margin:4px;width:4.671cm;height:4.39cm;" class="odt-zoomable" data-zoom-src="images/10000000000000FC000000ED8342DA36.png" /></td></tr></table>
 
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000001D600000348B553927E.png" style="display:inline-block; margin:4px;width:6.218cm;height:11.113cm;" class="odt-zoomable" data-zoom-src="images/10000000000001D600000348B553927E.png" /></td></tr></table>
 
 <ul>
-<li>en [2], comme pour Oracle, les couches JPA utilisent des séquences pour générer les clés primaires. Ici, la séquence [produits_sequence] génère les clés primaires de la table [produits] ;</li>
+  <li>en [2], comme pour Oracle, les couches JPA utilisent des séquences pour générer les clés primaires. Ici, la séquence [produits_sequence] génère les clés primaires de la table [produits] ;
+  </li>
 </ul>
+
 <p>Maintenant, exécutez les configurations :</p>
 <ul>
-<li>[spring-jdbc-generic-01.IntroJdbc01] ;</li>
-<li>[spring-jdbc-generic-01.IntroJdbc02] ;</li>
-<li>[spring-jdbc-generic-03.JUnitTestDao1] ;</li>
-<li>[spring-jdbc-generic-03.JUnitTestDao2] ;</li>
+  <li>[spring-jdbc-generic-01.IntroJdbc01] ;
+  </li>
+  <li>[spring-jdbc-generic-01.IntroJdbc02] ;
+  </li>
+  <li>[spring-jdbc-generic-03.JUnitTestDao1] ;
+  </li>
+  <li>[spring-jdbc-generic-03.JUnitTestDao2] ;
+  </li>
 </ul>
+
 <p>Elles doivent toutes réussir.</p>
 <p>Générons maintenant la base [dbproduitscategories]. Refaites pour [dbproduitscategories] la procédure réalisée pour créer [dbproduits]. Le script SQL à charger est à l&#x27;emplacement [&lt;exemples&gt;\spring-database-config\postgresql\databases\ dbproduitscategories.sql] ;</p>
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000001240000023F69C07EFA.png" style="display:inline-block; margin:4px;width:5.611cm;height:11.049cm;" class="odt-zoomable" data-zoom-src="images/10000000000001240000023F69C07EFA.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td></tr></table>
 
 <p>Maintenant, exécutez les configurations :</p>
 <ul>
-<li>[spring-jdbc-generic-04.JUnitTestDao] ;</li>
-<li>[spring-jpa-generic-JUnitTestDao-openjpa] ;</li>
+  <li>[spring-jdbc-generic-04.JUnitTestDao] ;
+  </li>
+  <li>[spring-jpa-generic-JUnitTestDao-openjpa] ;
+  </li>
 </ul>
+
 <p>Elles doivent réussir toutes les deux.</p>
 <p><a id="refheading1218804776430071"></a></p>
 <h2 id="112-configuration-de-la-couche-jdbc">11.2. Configuration de la couche JDBC</h2>
@@ -1158,8 +1170,10 @@
 </code></pre></div>
 
 <ul>
-<li><span style="color: #000000">lignes 18-22 : le pilote JDBC de PostgreSQL ;</span></li>
+  <li><span style="color: #000000">lignes 18-22 : le pilote JDBC de PostgreSQL ;</span>
+  </li>
 </ul>
+
 <p><span style="color: #000000">La seconde modification est dans la classe [ConfigJdbc] qui définit les identifiants d&#x27;accès aux bases :</span></p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-text">
 <span class="odt-code-line">    <span style="color:#3f7f5f">// paramètres de connexion</span></span>
@@ -1227,8 +1241,10 @@
 </code></pre></div>
 
 <ul>
-<li>ligne 6 : on indique à l&#x27;implémentation JPA qu&#x27;elle va travailler avec une base PostgreSQL.  L&#x27;implémentation JPA va alors adopter et les types de données propriétaires ainsi que le SQL propriétaire de ce SGBD.</li>
+  <li>ligne 6 : on indique à l&#x27;implémentation JPA qu&#x27;elle va travailler avec une base PostgreSQL.  L&#x27;implémentation JPA va alors adopter et les types de données propriétaires ainsi que le SQL propriétaire de ce SGBD.
+  </li>
 </ul>
+
 <p>Ces modifications faites, l&#x27;exécution de la configuration [spring-jpa-generic-JUnitTestDao-openjpa] doit réussir.</p>
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/1000000000000125000000B8A3BF793E.png" style="display:inline-block; margin:4px;width:5.42cm;height:3.41cm;" class="odt-zoomable" data-zoom-src="images/1000000000000125000000B8A3BF793E.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000001B80000010A9E59544D.png" style="display:inline-block; margin:4px;width:8.149cm;height:4.93cm;" class="odt-zoomable" data-zoom-src="images/10000000000001B80000010A9E59544D.png" /></td></tr></table>
 

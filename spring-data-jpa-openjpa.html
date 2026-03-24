@@ -1161,13 +1161,20 @@
 </code></pre></div>
 
 <ul>
-<li>lignes 5-7 : l&#x27;artifact Maven généré par ce projet. C&#x27;est le même que celui du projet [mysql-config-jpa-hibernate]. Cela signifie qu&#x27;un seul de ces projets peut être actif à un moment donné ;</li>
-<li>lignes 10-14 : le projet Maven parent qui fixe la version de la plupart des dépendances nécessaires au projet ;</li>
-<li>lignes 19-23 : la bibliothèque OpenJpa ;</li>
-<li>lignes 26-29 : la bibliothèque Spring Data ;</li>
-<li>lignes 32-34 : le projet de configuration de la couche JPA s&#x27;appuie sur celui de configuration de la couche JDBC qui définit entre autres choses, le pilote JDBC du SGBD utilisé et les coordonnées de la base à utiliser ;</li>
-<li>lignes 35-40 : le projet de configuration de la couche JDBC inclut la bibliothèque [Spring JDBC] qui est ici remplacée par la bibliothèque [Spring Data JPA]. Aussi indique-t-on de ne pas l&#x27;inclure dans les dépendances du projet. Si elle reste, cela ne cause cependant pas d&#x27;erreurs ;</li>
+  <li>lignes 5-7 : l&#x27;artifact Maven généré par ce projet. C&#x27;est le même que celui du projet [mysql-config-jpa-hibernate]. Cela signifie qu&#x27;un seul de ces projets peut être actif à un moment donné ;
+  </li>
+  <li>lignes 10-14 : le projet Maven parent qui fixe la version de la plupart des dépendances nécessaires au projet ;
+  </li>
+  <li>lignes 19-23 : la bibliothèque OpenJpa ;
+  </li>
+  <li>lignes 26-29 : la bibliothèque Spring Data ;
+  </li>
+  <li>lignes 32-34 : le projet de configuration de la couche JPA s&#x27;appuie sur celui de configuration de la couche JDBC qui définit entre autres choses, le pilote JDBC du SGBD utilisé et les coordonnées de la base à utiliser ;
+  </li>
+  <li>lignes 35-40 : le projet de configuration de la couche JDBC inclut la bibliothèque [Spring JDBC] qui est ici remplacée par la bibliothèque [Spring Data JPA]. Aussi indique-t-on de ne pas l&#x27;inclure dans les dépendances du projet. Si elle reste, cela ne cause cependant pas d&#x27;erreurs ;
+  </li>
 </ul>
+
 <p>Au final, les dépendances sont les suivantes :</p>
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000000FA0000006AC0FC5129.png" style="display:inline-block; margin:4px;width:4.63cm;height:1.96cm;" class="odt-zoomable" data-zoom-src="images/10000000000000FA0000006AC0FC5129.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td></tr></table>
 
@@ -1250,8 +1257,10 @@
 
 <p>Cette configuration est analogue à celle détaillée au paragraphe <a href="spring-data-jpa-hibernate.html#refheading1052942082896917">6.3.2</a>, pour l&#x27;implémentation JPA Hibernate. Nous ne détaillons que les différences :</p>
 <ul>
-<li>lignes 23-30 : le bean [jpaVendorAdapter] est désormais implémenté avec OpenJpa ;</li>
+  <li>lignes 23-30 : le bean [jpaVendorAdapter] est désormais implémenté avec OpenJpa ;
+  </li>
 </ul>
+
 <p><a id="refheading11083935254046"></a></p>
 <h2 id="84-le-fichier-persistencexml">8.4. Le fichier [persistence.xml]</h2>
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000000EE000000C8EA873F9B.png" style="display:inline-block; margin:4px;width:4.41cm;height:3.701cm;" class="odt-zoomable" data-zoom-src="images/10000000000000EE000000C8EA873F9B.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td></tr></table>
@@ -1278,10 +1287,14 @@
 </code></pre></div>
 
 <ul>
-<li>ligne 4 : l&#x27;unité de persistance liée à la base [dbproduitscategories]. Elle peut porter un nom quelconque (attribut <em>name</em>) ;</li>
-<li>lignes 6-10 : les cinq entités JPA à gérer ;</li>
-<li>lignes 13-17 : une autre unité de persistance liée elle à la base [dbproduits]. OpenJpa permet d&#x27;avoir un fichier de persistance avec plusieurs unités de persistance. EclipseLink ne le permet pas. On rappelle qu&#x27;avec Hibernate, on n&#x27;a pas utilisé de fichier de persistance ;</li>
+  <li>ligne 4 : l&#x27;unité de persistance liée à la base [dbproduitscategories]. Elle peut porter un nom quelconque (attribut <i>name</i>) ;
+  </li>
+  <li>lignes 6-10 : les cinq entités JPA à gérer ;
+  </li>
+  <li>lignes 13-17 : une autre unité de persistance liée elle à la base [dbproduits]. OpenJpa permet d&#x27;avoir un fichier de persistance avec plusieurs unités de persistance. EclipseLink ne le permet pas. On rappelle qu&#x27;avec Hibernate, on n&#x27;a pas utilisé de fichier de persistance ;
+  </li>
 </ul>
+
 <p><a id="refheading11084135254046"></a></p>
 <h2 id="85-la-couche-de-tests">8.5. La couche de tests</h2>
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/100000000000049D000000EE65368E9E.png" style="display:inline-block; margin:4px;width:15.625cm;height:3.149cm;" class="odt-zoomable" data-zoom-src="images/100000000000049D000000EE65368E9E.png" /></td></tr></table>
@@ -1290,11 +1303,16 @@
 
 <p>Les tests ci-dessus sont identiques à ceux des implémentations Spring JDBC, Spring JPA Hibernate et Spring JPA EclipseLink. On se reportera aux pages suivantes si nécessaire :</p>
 <ul>
-<li>[JUnitTestCheckArguments] : paragraphe <a href="introduction-a-spring-jdbc.html#refheading1052502082896917">4.11.1</a> ;</li>
-<li>[JUnitTestDao] : paragraphe <a href="introduction-a-spring-jdbc.html#refheading1052522082896917">4.11.2</a> ;</li>
-<li>[JUnitTestPushTheLimits] : paragraphe <a href="introduction-a-spring-jdbc.html#refheading1052702082896917">4.11.3</a> ;</li>
-<li>[JUnitTestProxies] : paragraphe <a href="spring-data-jpa-hibernate.html#refheading10881435254046">6.4.5</a> ;</li>
+  <li>[JUnitTestCheckArguments] : paragraphe <a href="introduction-a-spring-jdbc.html#refheading1052502082896917">4.11.1</a> ;
+  </li>
+  <li>[JUnitTestDao] : paragraphe <a href="introduction-a-spring-jdbc.html#refheading1052522082896917">4.11.2</a> ;
+  </li>
+  <li>[JUnitTestPushTheLimits] : paragraphe <a href="introduction-a-spring-jdbc.html#refheading1052702082896917">4.11.3</a> ;
+  </li>
+  <li>[JUnitTestProxies] : paragraphe <a href="spring-data-jpa-hibernate.html#refheading10881435254046">6.4.5</a> ;
+  </li>
 </ul>
+
 <p>Les configuration d&#x27;exécution à utiliser sont les suivantes :</p>
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/1000000000000162000000BDC3721779.png" style="display:inline-block; margin:4px;width:6.549cm;height:3.5cm;" class="odt-zoomable" data-zoom-src="images/1000000000000162000000BDC3721779.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/100000000000012A000000BD9304E52A.png" style="display:inline-block; margin:4px;width:5.519cm;height:3.5cm;" class="odt-zoomable" data-zoom-src="images/100000000000012A000000BD9304E52A.png" /></td></tr></table>
 
@@ -1304,8 +1322,10 @@
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000004C40000019536B4F670.png" style="display:inline-block; margin:4px;width:16.14cm;height:5.359cm;" class="odt-zoomable" data-zoom-src="images/10000000000004C40000019536B4F670.png" /></td></tr></table>
 
 <ul>
-<li>dans l&#x27;onglet [Arguments] [1], on donne la référence de l&#x27;agent Java à la JVM selon la syntaxe [2]. L&#x27;agent Java est l&#x27;archive [openjpa-&lt;version&gt;.jar] qu&#x27;on trouve dans le dossier [&lt;m2-repo&gt;/org/apache/openjpa/&lt;version&gt;]. Le dossier &lt;m2-repo&gt; est indiqué dans la configuration d&#x27;Eclipse ([3] ci-dessous) :</li>
+  <li>dans l&#x27;onglet [Arguments] [1], on donne la référence de l&#x27;agent Java à la JVM selon la syntaxe [2]. L&#x27;agent Java est l&#x27;archive [openjpa-&lt;version&gt;.jar] qu&#x27;on trouve dans le dossier [&lt;m2-repo&gt;/org/apache/openjpa/&lt;version&gt;]. Le dossier &lt;m2-repo&gt; est indiqué dans la configuration d&#x27;Eclipse ([3] ci-dessous) :
+  </li>
 </ul>
+
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000003C9000002D7240A4BDE.png" style="display:inline-block; margin:4px;width:12.82cm;height:9.618cm;" class="odt-zoomable" data-zoom-src="images/10000000000003C9000002D7240A4BDE.png" /></td></tr></table>
 
 <p>En [2], ci-dessus, on a utilisé une variable [M2_REPO] définie par l&#x27;utilisateur :</p>
@@ -1320,11 +1340,16 @@
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/1000000000000277000001420FED6384.png" style="display:inline-block; margin:4px;width:8.348cm;height:4.26cm;" class="odt-zoomable" data-zoom-src="images/1000000000000277000001420FED6384.png" /></td></tr></table>
 
 <ul>
-<li>en [1], [JUnitTestPushTheLimits-EclipseLink] : 70,583 s ;</li>
-<li>en [2], [JUnitTestPushTheLimits-Hibernate] : 78,945 s ;</li>
-<li>en [3], [JUnitTestPushTheLimits-JDBC] : 36,09 s ;</li>
-<li>en [4], [JUnitTestPushTheLimits-OpenJpa] : 80,394 s ;</li>
+  <li>en [1], [JUnitTestPushTheLimits-EclipseLink] : 70,583 s ;
+  </li>
+  <li>en [2], [JUnitTestPushTheLimits-Hibernate] : 78,945 s ;
+  </li>
+  <li>en [3], [JUnitTestPushTheLimits-JDBC] : 36,09 s ;
+  </li>
+  <li>en [4], [JUnitTestPushTheLimits-OpenJpa] : 80,394 s ;
+  </li>
 </ul>
+
 <p>Les résultats console obtenus pour le test [JUnitTestProxies] sont les suivants :</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-0-2"> 2</a></span>

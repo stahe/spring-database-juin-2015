@@ -1783,10 +1783,16 @@
 <p>Dans l&#x27;architecture ci-dessus, l&#x27;exploitation d&#x27;une base de données par le programme console comporte les étapes suivantes :</p>
 <ol>
 <li>chargement du pilote JDBC de la base de données ;</li>
-<li>ouverture d&#x27;une connexion avec la base ;</li>
-<li>émission d&#x27;un ordre SQL sur la base et traitement des résultats de l&#x27;ordre SQL ;</li>
-<li>fermeture de la connexion ;</li>
 </ol>
+<ol start="2">
+  <li>ouverture d&#x27;une connexion avec la base ;
+  </li>
+  <li>émission d&#x27;un ordre SQL sur la base et traitement des résultats de l&#x27;ordre SQL ;
+  </li>
+  <li>fermeture de la connexion ;
+  </li>
+</ol>
+
 <p>L&#x27;étape 1 ne se fait qu&#x27;une fois. Les étapes 2-4 se font de façon répétée. On notera qu&#x27;on ne laisse pas une connexion ouverte. On la ferme dès qu&#x27;on en n&#x27;a plus besoin.</p>
 <p><a id="refheading59271820156038"></a></p>
 <h3 id="321-etape-1-chargement-en-memoire-du-pilote-jdbc">3.2.1. étape 1 - chargement en mémoire du pilote JDBC</h3>
@@ -1841,15 +1847,22 @@
 </code></pre></div>
 
 <ul>
-<li>lignes 3-7 : les classes d&#x27;implémentation de l&#x27;interface JDBC sont toutes dans le package [java.sql]. Par ailleurs, en cas d&#x27;erreur elles lancent toutes une exception de type [SQLException] (ligne 19, 27). Cette exception dérive de la classe [Exception] et est une exception dite contrôlée : on est obligé de mettre un try / catch pour la gérer ou de façon alternative de ne pas la gérer et d&#x27;indiquer que la méthode laisse sortir l&#x27;exception en complétant la signature de la méthode par [throws SQLException] ;</li>
-<li>ligne 17, [DriverManager.getConnection] est une méthode statique qui attend trois paramètres :<ul>
-<li>[url] : l&#x27;URL de la base de données. C&#x27;est une chaîne de caractères dépendante de la BD utilisée. Pour MySQL, elle est de la forme [<em><span style="color: #2a00ff">jdbc:mysql://localhost:3306/nom_de_la_bd</span></em>];</li>
-<li>[user] : le propriétaire de la connexion ;</li>
-<li>[passwd] : son mot de passe ;</li>
+  <li>lignes 3-7 : les classes d&#x27;implémentation de l&#x27;interface JDBC sont toutes dans le package [java.sql]. Par ailleurs, en cas d&#x27;erreur elles lancent toutes une exception de type [SQLException] (ligne 19, 27). Cette exception dérive de la classe [Exception] et est une exception dite contrôlée : on est obligé de mettre un try / catch pour la gérer ou de façon alternative de ne pas la gérer et d&#x27;indiquer que la méthode laisse sortir l&#x27;exception en complétant la signature de la méthode par [throws SQLException] ;
+  </li>
+  <li>ligne 17, [DriverManager.getConnection] est une méthode statique qui attend trois paramètres :
+    <ul>
+      <li>[url] : l&#x27;URL de la base de données. C&#x27;est une chaîne de caractères dépendante de la BD utilisée. Pour MySQL, elle est de la forme [<i><span style="color: #2a00ff">jdbc:mysql://localhost:3306/nom_de_la_bd</span></i>];
+      </li>
+      <li>[user] : le propriétaire de la connexion ;
+      </li>
+      <li>[passwd] : son mot de passe ;
+      </li>
+    </ul>
+  </li>
+  <li>lignes 24-30 : la connexion doit être fermée dans la clause [finally] afin qu&#x27;elle soit fermée qu&#x27;il y ait exception ou non.
+  </li>
 </ul>
-</li>
-<li>lignes 24-30 : la connexion doit être fermée dans la clause [finally] afin qu&#x27;elle soit fermée qu&#x27;il y ait exception ou non.</li>
-</ul>
+
 <p><a id="refheading59311820156038"></a></p>
 <h3 id="323-etape-3-emission-dordres-sql-select">3.2.3. étape 3 - émission d&#x27;ordres SQL [SELECT]</h3>
 <p>Une fois obtenue une connexion, on peut émettre des ordres SQL. La façon de gérer des ordres de lecture [SELECT] diffère de celle utilisée pour les opérations de mise à jour [UPDATE, INSERT, DELETE]. Nous commençons par les ordres SQL [SELECT] :</p>
@@ -1888,10 +1901,14 @@
 </code></pre></div>
 
 <ul>
-<li>lignes 8, 10 : ouverture d&#x27;une transaction (ligne 8) en mode lecture seule (ligne 10). Une transaction est une séquence d&#x27;ordes SQL qui soit tous réussissent soit tous échouent. Ainsi dans une transaction comportant N ordres SQL, si l&#x27;ordre I+1 échoue, alors les I précédents seront annulés. Pour une opération de lecture, une transaction n&#x27;est pas nécessaire. Néanmoins créer une transaction en lecture seule peut permettre à certains SGBD de faire certaines optimisations ;</li>
-<li>ligne 12 : utilisation d&#x27;un [PreparedStatement]. Un [PreparedStatement] a normalement des paramètres notés par le caractère ?. Ici il n&#x27;en a pas. Un [PreparedStatement] est un ordre préparé par le SGBD. Cette préparation a un coût et elle n&#x27;est faite qu&#x27;une fois. Ensuite cet ordre préparé est exécuté par le SGBD avec différents paramètres effectifs qui vont venir remplacer les paramètres formels ?. A noter qu&#x27;il est préférable de nommer les colonnes désirées plutôt que d&#x27;utiliser la notation * pour obtenir toutes les colonnes. En précisant le nom des colonnes on peut ensuite obtenir leurs valeurs à partir de leur position dans la requête SELECT ;</li>
-<li>ligne 13 : exécution du [PreparedStatement]. On récupère un objet de type [ResultSet] ;</li>
+  <li>lignes 8, 10 : ouverture d&#x27;une transaction (ligne 8) en mode lecture seule (ligne 10). Une transaction est une séquence d&#x27;ordes SQL qui soit tous réussissent soit tous échouent. Ainsi dans une transaction comportant N ordres SQL, si l&#x27;ordre I+1 échoue, alors les I précédents seront annulés. Pour une opération de lecture, une transaction n&#x27;est pas nécessaire. Néanmoins créer une transaction en lecture seule peut permettre à certains SGBD de faire certaines optimisations ;
+  </li>
+  <li>ligne 12 : utilisation d&#x27;un [PreparedStatement]. Un [PreparedStatement] a normalement des paramètres notés par le caractère ?. Ici il n&#x27;en a pas. Un [PreparedStatement] est un ordre préparé par le SGBD. Cette préparation a un coût et elle n&#x27;est faite qu&#x27;une fois. Ensuite cet ordre préparé est exécuté par le SGBD avec différents paramètres effectifs qui vont venir remplacer les paramètres formels ?. A noter qu&#x27;il est préférable de nommer les colonnes désirées plutôt que d&#x27;utiliser la notation * pour obtenir toutes les colonnes. En précisant le nom des colonnes on peut ensuite obtenir leurs valeurs à partir de leur position dans la requête SELECT ;
+  </li>
+  <li>ligne 13 : exécution du [PreparedStatement]. On récupère un objet de type [ResultSet] ;
+  </li>
 </ul>
+
 <p>Un objet de type [ResultSet] représente une table, c’est à dire un ensemble de lignes et de colonnes. A un moment donné, on n’a accès qu’à une ligne de la table appelée ligne courante. Lors de la création initiale du [ResultSet], il n&#x27;y a pas de ligne courante. Il faut faire une opération [ResultSet.next()] pour l&#x27;obtenir. La signature de la méthode <em>next</em> est la suivante :</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>    boolean next()
 </code></pre></div>
@@ -1900,10 +1917,14 @@
 <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">SELECT</span><span class="w"> </span><span class="n">ID</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">myId</span><span class="p">,</span><span class="w"> </span><span class="n">NOM</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">myNom</span><span class="p">,</span><span class="w"> </span><span class="n">CATEGORIE</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">myCategorie</span><span class="p">,</span><span class="w"> </span><span class="n">PRIX</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">myPrix</span><span class="p">,</span><span class="w"> </span><span class="n">DESCRIPTION</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">myDescription</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">PRODUITS</span>
 </code></pre></div>
 <ul>
-<li>la colonne [ID] ira dans une colonne du [ResultSet] nommée [myId] ;</li>
-<li>la colonne [NOM] ira dans une colonne du [ResultSet] nommée [myNom] ;</li>
-<li>...</li>
+  <li>la colonne [ID] ira dans une colonne du [ResultSet] nommée [myId] ;
+  </li>
+  <li>la colonne [NOM] ira dans une colonne du [ResultSet] nommée [myNom] ;
+  </li>
+  <li>...
+  </li>
 </ul>
+
 <p>Ci-dessus, les identifiants [myCol] sont appelés des <strong>labels de colonne</strong>. En l&#x27;absence de ces labels, les noms des colonnes du [ResultSet] sont dépendants du SGBD. Lorsque le [SELECT] opère sur une unique table, les labels des colonnes seront par défaut les noms des colonnes demandées par le SELECT. Le problème surgit lorsque le [SELECT] opère sur plusieurs tables et que dans celles-ci on trouve des noms de colonnes identiques comme dans l&#x27;exemple suivant :</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="k">SELECT</span><span class="w"> </span><span class="n">PRODUITS</span><span class="p">.</span><span class="n">NOM</span><span class="p">,</span><span class="w"> </span><span class="n">CATEGORIES</span><span class="p">.</span><span class="n">NOM</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">PRODUITS</span><span class="p">,</span><span class="w"> </span><span class="n">CATEGORIES</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">PRODUITS</span><span class="p">.</span><span class="n">CATEGORIE_ID</span><span class="o">=</span><span class="n">CATEGORIES</span><span class="p">.</span><span class="n">ID</span>
 </code></pre></div>
@@ -1920,10 +1941,14 @@
 </code></pre></div>
 <p>où i est l’indice de la colonne désirée (i&gt;=1).</p>
 <ul>
-<li>lignes 15-17 : récupération des valeurs lues dans la BD ;</li>
-<li>ligne 19 : la transaction est validée (on dit également committée). Cela la termine et libère les ressources que le SGBD avait mobilisées pour elle ;</li>
-<li>ligne 25 : les ressources sont libérées dans le [finally]. Celui-ci appelle la méthode [doFinally] suivante :</li>
+  <li>lignes 15-17 : récupération des valeurs lues dans la BD ;
+  </li>
+  <li>ligne 19 : la transaction est validée (on dit également committée). Cela la termine et libère les ressources que le SGBD avait mobilisées pour elle ;
+  </li>
+  <li>ligne 25 : les ressources sont libérées dans le [finally]. Celui-ci appelle la méthode [doFinally] suivante :
+  </li>
 </ul>
+
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-text">
 <span class="odt-code-line"><span style="font-weight:bold;color:#7f0055">private</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">void</span><span style="color:#000000"> doFinally(ResultSet </span><span style="color:#6a3e3e">rs</span><span style="color:#000000">, PreparedStatement </span><span style="color:#6a3e3e">ps</span><span style="color:#000000">, Connection </span><span style="color:#6a3e3e">connexion</span><span style="color:#000000">) {</span></span>
 <span class="odt-code-line"><span style="color:#000000">        </span><span style="color:#3f7f5f">// fermeture ResultSet</span></span>
@@ -1954,14 +1979,20 @@
 </code></pre></div>
 
 <ul>
-<li>lignes 3-9 : fermeture du [ResultSet] ;</li>
-<li>lignes 11-17 : fermeture du [PreparedStatement] ;</li>
-<li>lignes 18-27 : fermeture de la connexion ;</li>
+  <li>lignes 3-9 : fermeture du [ResultSet] ;
+  </li>
+  <li>lignes 11-17 : fermeture du [PreparedStatement] ;
+  </li>
+  <li>lignes 18-27 : fermeture de la connexion ;
+  </li>
 </ul>
+
 <p>Les fermetures des lignes 3-17 semblent redondantes dans la mesure on ferme la connexion lignes 18-25. En fait, dans certains cas elles ne le sont pas et il est conseillé de les laisser [<a href="http://stackoverflow.com/questions/4507440/must-jdbc-resultsets-and-statements-be-closed-separately-although-the-connection">http://stackoverflow.com/questions/4507440/must-jdbc-resultsets-and-statements-be-closed-separately-although-the-connection</a>].</p>
 <ul>
-<li>ligne 22 : l&#x27;exception est traitée par la méthode [doCatchException] suivante :</li>
+  <li>ligne 22 : l&#x27;exception est traitée par la méthode [doCatchException] suivante :
+  </li>
 </ul>
+
 <div class="odt-code-rich" data-linenums="false" style="counter-reset: odtline 0;"><pre><code class="language-text">
 <span class="odt-code-line"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">private</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">static</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">void</span><span style="color:#000000"> doCatchException(Connection </span><span style="color:#6a3e3e">connexion</span><span style="color:#000000">, Throwable </span><span style="color:#6a3e3e">th</span><span style="color:#000000">) {</span></span>
 <span class="odt-code-line"><span style="color:#000000">        </span><span style="color:#3f7f5f">// annulation transaction</span></span>
@@ -1976,8 +2007,10 @@
 </code></pre></div>
 
 <ul>
-<li>lignes 4-6 : la transaction est annulée. Cela la termine et le SGBD va pouvoir relâcher les ressources mobilisées pour elle ;</li>
+  <li>lignes 4-6 : la transaction est annulée. Cela la termine et le SGBD va pouvoir relâcher les ressources mobilisées pour elle ;
+  </li>
 </ul>
+
 <p><a id="refheading59331820156038"></a></p>
 <h3 id="324-etape-3-emission-dordres-sql-insert-update-delete">3.2.4. étape 3 - émission d&#x27;ordres SQL [INSERT, UPDATE, DELETE]</h3>
 <p>Les ordres SQL [INSERT, UPDATE, DELETE] sont des opérations de mise à jour : elles modifient la base de données mais ne ramènent aucune ligne. La seule information rendue est le nombre de lignes affectées par l&#x27;opération de mise à jour.</p>
@@ -2011,12 +2044,18 @@
 </code></pre></div>
 
 <ul>
-<li>ligne 9 : la connexion est utilisée en lecture et écriture ;</li>
-<li>ligne 11 : un [PreparedStatement] avec 1 paramètre (symbolisé par ?). On peut avoir plusieurs paramètres. Ils sont numérotés à partir de 1 ;</li>
-<li>ligne 13 : on affecte sa valeur à l&#x27;unique paramètre. Le 1er paramètre de [setType] est la position du paramètre dans le [PreparedStatement] (1, 2, ...) et le second la valeur qui lui est attribuée. On peut utiliser les méthodes [setInt, setLong, setFloat, setDouble, setString, setDate, ...] ;</li>
-<li>ligne 15 : on utilise la méthode [executeUpdate] et non [executeQuery] réservée aux ordres SELECT. La méthode rend le nombre de lignes affectées par l&#x27;opération. Peut être 0.</li>
-<li>ligne 17 : la transaction est validée ;</li>
+  <li>ligne 9 : la connexion est utilisée en lecture et écriture ;
+  </li>
+  <li>ligne 11 : un [PreparedStatement] avec 1 paramètre (symbolisé par ?). On peut avoir plusieurs paramètres. Ils sont numérotés à partir de 1 ;
+  </li>
+  <li>ligne 13 : on affecte sa valeur à l&#x27;unique paramètre. Le 1er paramètre de [setType] est la position du paramètre dans le [PreparedStatement] (1, 2, ...) et le second la valeur qui lui est attribuée. On peut utiliser les méthodes [setInt, setLong, setFloat, setDouble, setString, setDate, ...] ;
+  </li>
+  <li>ligne 15 : on utilise la méthode [executeUpdate] et non [executeQuery] réservée aux ordres SELECT. La méthode rend le nombre de lignes affectées par l&#x27;opération. Peut être 0.
+  </li>
+  <li>ligne 17 : la transaction est validée ;
+  </li>
 </ul>
+
 <p><a id="refheading59351820156038"></a></p>
 <h3 id="325-etape-4-fermeture-de-la-connexion">3.2.5. étape 4 - fermeture de la connexion</h3>
 <p>Une connexion doit être fermée le plus vite possible dans un contexte multi-utilisateurs car un SGBD accepte un nombre limité de connexions ouvertes. Dans les exemples précédents, elle était fermée dans la clause [finally] des opérations SQL afin qu&#x27;elle soit fermée qu&#x27;il y ait eu exception ou pas.</p>
@@ -2112,16 +2151,26 @@
 
 <p>On a regroupé dans cette configuration Maven, un certain nombre d&#x27;archives qui sont nécessaires soit au projet [mysql-config-jdbc] soit aux projets qui vont s&#x27;appuyer dessus :</p>
 <ul>
-<li>lignes 4-6 : l&#x27;artifact Maven généré par le projet. Comme il a déjà été dit, tous les projets du type [*-config-jdbc] génèrent ce même artifact. Il ne faut donc pas que deux projets de type [*-config-jdbc] soient chargés en même temps ;</li>
-<li>lignes 9-13 : le projet Maven parent de celui-ci. Il définit les versions d&#x27;un grand nombre d&#x27;archives utilisées par l&#x27;écosystème Spring. Cela évite de préciser celles-ci dans les projets qui en dérivent ;</li>
-<li>lignes 18-21 : l&#x27;archive du pilote JDBC du SGBD MySQL5. C&#x27;est la seule archive nécessaire au projet [spring-jdbc-01] ;</li>
-<li>lignes 24-27 : l&#x27;artifact [tomcat-jdbc] amène une archive nécessaire aux projets JDBC [spring-jdbc-02 à 04] ;</li>
-<li>lignes 29-36 : amènent les bibliothèques nécessaires à la gestion du jSON. Utilisées dans quasiment tous les projets du document ;</li>
-<li>lignes 38-42 : Google Guava est une bibliothèque de gestion de collections. Utilisée dans quasiment tous les projets du document ;</li>
-<li>lignes 43-52 : les bibliothèques permettant l&#x27;écriture de tests intégrant Spring et JUnit. Utilisées dans quasiment tous les projets du document ;</li>
-<li>lignes 54-57 : les bibliothèques de logs. Utilisées dans quasiment tous les projets du document ;</li>
-<li>lignes 67-71 : le plugin permettant d&#x27;installer l&#x27;artifact du projet [mysql-config-jdbc] dans le dépôt Maven local ;</li>
+  <li>lignes 4-6 : l&#x27;artifact Maven généré par le projet. Comme il a déjà été dit, tous les projets du type [*-config-jdbc] génèrent ce même artifact. Il ne faut donc pas que deux projets de type [*-config-jdbc] soient chargés en même temps ;
+  </li>
+  <li>lignes 9-13 : le projet Maven parent de celui-ci. Il définit les versions d&#x27;un grand nombre d&#x27;archives utilisées par l&#x27;écosystème Spring. Cela évite de préciser celles-ci dans les projets qui en dérivent ;
+  </li>
+  <li>lignes 18-21 : l&#x27;archive du pilote JDBC du SGBD MySQL5. C&#x27;est la seule archive nécessaire au projet [spring-jdbc-01] ;
+  </li>
+  <li>lignes 24-27 : l&#x27;artifact [tomcat-jdbc] amène une archive nécessaire aux projets JDBC [spring-jdbc-02 à 04] ;
+  </li>
+  <li>lignes 29-36 : amènent les bibliothèques nécessaires à la gestion du jSON. Utilisées dans quasiment tous les projets du document ;
+  </li>
+  <li>lignes 38-42 : Google Guava est une bibliothèque de gestion de collections. Utilisée dans quasiment tous les projets du document ;
+  </li>
+  <li>lignes 43-52 : les bibliothèques permettant l&#x27;écriture de tests intégrant Spring et JUnit. Utilisées dans quasiment tous les projets du document ;
+  </li>
+  <li>lignes 54-57 : les bibliothèques de logs. Utilisées dans quasiment tous les projets du document ;
+  </li>
+  <li>lignes 67-71 : le plugin permettant d&#x27;installer l&#x27;artifact du projet [mysql-config-jdbc] dans le dépôt Maven local ;
+  </li>
 </ul>
+
 <p><a id="refheading1051442082896917"></a></p>
 <h3 id="333-la-classe-de-configuration-configjdbc">3.3.3. La classe de configuration [ConfigJdbc]</h3>
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/1000000000000131000000CBCC53D42D.png" style="display:inline-block; margin:4px;width:5.611cm;height:3.734cm;" class="odt-zoomable" data-zoom-src="images/1000000000000131000000CBCC53D42D.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td></tr></table>
@@ -2170,20 +2219,30 @@
 
 <p>La classe [ConfigJdbc] sert à configurer la couche JDBC des quatre projets [spring-jdbc-01 à 04]. La majeure partie de la configuration concerne le projet [spring-jdbc-04]. Nous présenterons cette partie lorsqu&#x27;on étudiera ce projet. On n&#x27;a gardé ci-dessus que la configuration des projets [spring-jdbc-01 à 03].</p>
 <ul>
-<li>lignes 14-17 : les paramètres de connexion à la base MySQL5 [dbproduits] ;</li>
-<li>lignes 20-25 : les ordres SQL utilisés dans les projets [spring-jdbc-01 et 02] ;</li>
-<li>lignes 28-34 : les ordres SQL utilisés dans le projet [spring-jdbc-03] ;</li>
+  <li>lignes 14-17 : les paramètres de connexion à la base MySQL5 [dbproduits] ;
+  </li>
+  <li>lignes 20-25 : les ordres SQL utilisés dans les projets [spring-jdbc-01 et 02] ;
+  </li>
+  <li>lignes 28-34 : les ordres SQL utilisés dans le projet [spring-jdbc-03] ;
+  </li>
 </ul>
+
 <p>Ces ordres SQL exploitent la table [PRODUITS] de la base MySQL5 [dbproduits] dont la structure est la suivante :</p>
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/100000000000022B000000C48010611E.png" style="display:inline-block; margin:4px;width:10.329cm;height:3.63cm;" class="odt-zoomable" data-zoom-src="images/100000000000022B000000C48010611E.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td></tr></table>
 
 <ul>
-<li>[ID] : clé primaire en mode AUTO_INCREMENT (si on ne donne pas de clé primaire, le SGBD la génère) ;</li>
-<li>[NOM] : nom d&#x27;un produit - unique ;</li>
-<li>[CATEGORIE] : n° de sa catégorie ;</li>
-<li>[PRIX] : son prix ;</li>
-<li>[DESCRIPTION] : une description du produit ;</li>
+  <li>[ID] : clé primaire en mode AUTO_INCREMENT (si on ne donne pas de clé primaire, le SGBD la génère) ;
+  </li>
+  <li>[NOM] : nom d&#x27;un produit - unique ;
+  </li>
+  <li>[CATEGORIE] : n° de sa catégorie ;
+  </li>
+  <li>[PRIX] : son prix ;
+  </li>
+  <li>[DESCRIPTION] : une description du produit ;
+  </li>
 </ul>
+
 <p><a id="refheading854441326982365"></a></p>
 <h3 id="334-la-classe-produit">3.3.4. La classe [Produit]</h3>
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/1000000000000136000000EF955B4B9A.png" style="display:inline-block; margin:4px;width:5.74cm;height:4.431cm;" class="odt-zoomable" data-zoom-src="images/1000000000000136000000EF955B4B9A.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td></tr></table>
@@ -2236,12 +2295,18 @@
 </code></pre></div>
 
 <ul>
-<li>ligne 3 : la méthode [equals] reçoit un objet <strong>o</strong> qu&#x27;elle doit comparer à l&#x27;objet <strong>this</strong> ;</li>
-<li>lignes 5-7 : les cas simples où on peut dire tout de suite que les deux objets ne sont pas égaux. [Object].getClass() fournit une instance du type [Class], un type qui représente la classe réelle de l&#x27;objet ;</li>
-<li>ligne 8 : l&#x27;objet <strong>o</strong> est converti en produit <strong>p</strong> ;</li>
-<li>ligne 9 : si les deux références o et p sur un produit sont égales, alors il s&#x27;agit physiquement du même produit ;</li>
-<li>ligne 9 : si <strong>o</strong> et <strong>p</strong> sont deux références différentes sur deux produits ayant les mêmes champs, on dira qu&#x27;ils sont égaux. Parce que le prix est de type [double] et qu&#x27;il n&#x27;y a pas de représentation exacte des réels en informatique, nous considèrerons que deux prix sont identiques s&#x27;ils sont égaux à 10-6 près ;</li>
+  <li>ligne 3 : la méthode [equals] reçoit un objet <b>o</b> qu&#x27;elle doit comparer à l&#x27;objet <b>this</b> ;
+  </li>
+  <li>lignes 5-7 : les cas simples où on peut dire tout de suite que les deux objets ne sont pas égaux. [Object].getClass() fournit une instance du type [Class], un type qui représente la classe réelle de l&#x27;objet ;
+  </li>
+  <li>ligne 8 : l&#x27;objet <b>o</b> est converti en produit <b>p</b> ;
+  </li>
+  <li>ligne 9 : si les deux références o et p sur un produit sont égales, alors il s&#x27;agit physiquement du même produit ;
+  </li>
+  <li>ligne 9 : si <b>o</b> et <b>p</b> sont deux références différentes sur deux produits ayant les mêmes champs, on dira qu&#x27;ils sont égaux. Parce que le prix est de type [double] et qu&#x27;il n&#x27;y a pas de représentation exacte des réels en informatique, nous considèrerons que deux prix sont identiques s&#x27;ils sont égaux à 10-6 près ;
+  </li>
 </ul>
+
 <p>Par ailleurs, nous redéfinirons la méthode [hasCode] de la classe [Object] :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-text">
 <span class="odt-code-line"><span style="color:#000000">    </span><span style="color:#3f7f5f">// hashcode</span></span>
@@ -2260,8 +2325,10 @@
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/1000000000000448000000F4E0D94478.png" style="display:inline-block; margin:4px;width:14.499cm;height:3.228cm;" class="odt-zoomable" data-zoom-src="images/1000000000000448000000F4E0D94478.png" /></td></tr></table>
 
 <ul>
-<li>la couche [JDBC] lance des exceptions de type [SQLException]. Cette exception doit remonter les couches jusqu&#x27;à atteindre la couche la plus haute, ici la couche de tests ;</li>
+  <li>la couche [JDBC] lance des exceptions de type [SQLException]. Cette exception doit remonter les couches jusqu&#x27;à atteindre la couche la plus haute, ici la couche de tests ;
+  </li>
 </ul>
+
 <p>La couche [DAO] pourrait se contenter de laisser remonter la [SQLException] jusqu&#x27;à la couche de tests. Mais comme cette exception est non contrôlée (dérive directement de [Exception]), cela impliquerait que l&#x27;interface [IDao] de la couche [DAO] soit la suivante :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-javascript">
 <span class="odt-code-line"><span style="font-weight:bold;color:#7f0055">public</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">interface</span><span style="color:#000000"> IDao {</span></span>
@@ -2380,13 +2447,20 @@
 </code></pre></div>
 
 <ul>
-<li>ligne 12 : la classe dérive de [RuntimeException] et est donc un type d&#x27;exception non contrôlée. Elle servira à encapsuler une exception contrôlée (SQLException) dans un type d&#x27;exception non contrôlée (Unchecked<span style="color: #000000">Exception</span>) ;</li>
-<li>pour différencier les exceptions de type [<span style="color: #000000">UncheckedException</span>] entre-elles, on pourra leur affecter un code qui sera mémorisé par le champ privé de la ligne 18. Un code Java interceptant une exception de type [<span style="color: #000000">UncheckedException</span>] aura accès à ce code d&#x27;erreur grâce à la méthode [getCode] (lignes 80 et au-delà) ;</li>
-<li>ligne 20 : stocke les messages d&#x27;erreurs de la pile de l&#x27;exception encapsulée ;</li>
-<li>lignes 23-43 : les différentes façons de construire un objet de type [<span style="color: #000000">UncheckedException</span>] ;</li>
-<li>lignes 56-67 : une méthode privée qui permet de construire la liste des erreurs de la ligne 20 à partir d&#x27;un objet [Throwable] ou dérivé, en particulier le type [Exception] ;</li>
-<li>lignes 69-78 : la méthode [toString] rend une chaîne de caractères représentant l&#x27;exception. Pour afficher la liste des erreurs de la ligne 20, elle utilise une bibliothèque jSON. Celle-ci est présente dans les dépendances Maven du projet :</li>
+  <li>ligne 12 : la classe dérive de [RuntimeException] et est donc un type d&#x27;exception non contrôlée. Elle servira à encapsuler une exception contrôlée (SQLException) dans un type d&#x27;exception non contrôlée (Unchecked<span style="color: #000000">Exception</span>) ;
+  </li>
+  <li>pour différencier les exceptions de type [<span style="color: #000000">UncheckedException</span>] entre-elles, on pourra leur affecter un code qui sera mémorisé par le champ privé de la ligne 18. Un code Java interceptant une exception de type [<span style="color: #000000">UncheckedException</span>] aura accès à ce code d&#x27;erreur grâce à la méthode [getCode] (lignes 80 et au-delà) ;
+  </li>
+  <li>ligne 20 : stocke les messages d&#x27;erreurs de la pile de l&#x27;exception encapsulée ;
+  </li>
+  <li>lignes 23-43 : les différentes façons de construire un objet de type [<span style="color: #000000">UncheckedException</span>] ;
+  </li>
+  <li>lignes 56-67 : une méthode privée qui permet de construire la liste des erreurs de la ligne 20 à partir d&#x27;un objet [Throwable] ou dérivé, en particulier le type [Exception] ;
+  </li>
+  <li>lignes 69-78 : la méthode [toString] rend une chaîne de caractères représentant l&#x27;exception. Pour afficher la liste des erreurs de la ligne 20, elle utilise une bibliothèque jSON. Celle-ci est présente dans les dépendances Maven du projet :
+  </li>
 </ul>
+
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-xml">
 <span class="odt-code-line"><span style="color:#000000">        </span><span style="color:#3f5fbf">&lt;!-- bibliothèque jSON --&gt;</span></span>
 <span class="odt-code-line"><span style="color:#000000">        </span><span style="color:#008080">&lt;</span><span style="color:#3f7f7f">dependency</span><span style="color:#008080">&gt;</span></span>
@@ -2400,9 +2474,12 @@
 </code></pre></div>
 
 <ul>
-<li>lignes 45-48 : redéfinissent la méthode [getMessage] de la classe parent [RuntimeException]. Celle-ci rend ici, la signature [toString] de la classe ;</li>
-<li>lignes 50-53 : redéfinissent la méthode [printStackTrace] de la classe parent [RuntimeException]. C&#x27;est  la signature [toString] de la classe qui sera affichée ;</li>
+  <li>lignes 45-48 : redéfinissent la méthode [getMessage] de la classe parent [RuntimeException]. Celle-ci rend ici, la signature [toString] de la classe ;
+  </li>
+  <li>lignes 50-53 : redéfinissent la méthode [printStackTrace] de la classe parent [RuntimeException]. C&#x27;est  la signature [toString] de la classe qui sera affichée ;
+  </li>
 </ul>
+
 <p>La classe [<span style="color: #000000">UncheckedException</span>] enregistre dans le champ de la ligne 20, une liste d&#x27;exceptions décrites par le type [ShortException] suivant :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-text">
 <span class="odt-code-line"><span style="font-weight:bold;color:#7f0055">package</span><span style="color:#000000"> pam.dao.exceptions;</span></span>
@@ -2429,9 +2506,12 @@
 </code></pre></div>
 
 <ul>
-<li>ligne 6 : le nom de la classe de l&#x27;exception qui s&#x27;est produite ;</li>
-<li>ligne 7 : le message d&#x27;erreur associé ;</li>
+  <li>ligne 6 : le nom de la classe de l&#x27;exception qui s&#x27;est produite ;
+  </li>
+  <li>ligne 7 : le message d&#x27;erreur associé ;
+  </li>
 </ul>
+
 <p>Examinons le constructeur suivant de la classe [<span style="color: #000000">UncheckedException</span>] :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-text">
 <span class="odt-code-line"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">public</span><span style="color:#000000"> UncheckedException(</span><span style="font-weight:bold;color:#7f0055">int</span><span style="color:#000000"> </span><span style="color:#6a3e3e">code</span><span style="color:#000000">, Throwable </span><span style="color:#6a3e3e">e</span><span style="color:#000000">, String </span><span style="color:#6a3e3e">simpleClassName</span><span style="color:#000000">) {</span></span>
@@ -2454,22 +2534,34 @@
 </code></pre></div>
 
 <ul>
-<li>ligne 1, les paramètres sont les suivants :<ul>
-<li>[code] : un code d&#x27;erreur ;</li>
-<li>[e] : l&#x27;exception qu&#x27;on encapsule. [Throwable] est la classe parent de la classe [Exception] et dérive directement de la classe [Object]. C&#x27;est la classe parent de toutes les classes C avec lesquelles on peut écrire [throw c;] où c est une instance de C ;</li>
-<li>[simpleClassName] : le nom simple de la classe du code utilisateur où l&#x27;exception <strong>e</strong> a été détectée ;</li>
+  <li>ligne 1, les paramètres sont les suivants :
+    <ul>
+      <li>[code] : un code d&#x27;erreur ;
+      </li>
+      <li>[e] : l&#x27;exception qu&#x27;on encapsule. [Throwable] est la classe parent de la classe [Exception] et dérive directement de la classe [Object]. C&#x27;est la classe parent de toutes les classes C avec lesquelles on peut écrire [throw c;] où c est une instance de C ;
+      </li>
+      <li>[simpleClassName] : le nom simple de la classe du code utilisateur où l&#x27;exception <b>e</b> a été détectée ;
+      </li>
+    </ul>
+  </li>
+  <li>ligne 4 : le code d&#x27;erreur est enregistré ;
+  </li>
+  <li>ligne 5 : la liste de [ShortException] est construite à partir du [Throwable e] passé en paramètre ;
+  </li>
+  <li>lignes 7-16 : on examine ce qu&#x27;on appelle les traces de l&#x27;exception. Une exception initiale se produit à un endroit précis du code puis remonte à la méthode qui a appelé celle où s&#x27;est produite l&#x27;exception, et ainsi de suite jusqu&#x27;à ce qu&#x27;un try / catch l&#x27;arrête. Dans cette remontée, l&#x27;exception initiale laisse des traces mémorisées dans le tableau [e.stackTrace] de l&#x27;exception e. Celles-ci sont ici obtenues ligne 8, à partir  du [Throwable e] passé en paramètre. Chaque élément de type [StackTraceElement] est un objet ayant parmi ses champs, les suivants :
+    <ul>
+      <li>[fileName] : le nom du fichier Java où s&#x27;est produite l&#x27;exception ;
+      </li>
+      <li>[lineNumber] : le n° de ligne dans ce fichier, où s&#x27;est produite l&#x27;exception ;
+      </li>
+      <li>[methodName] : la nom de la méthode dans ce fichier, où s&#x27;est produite l&#x27;exception ;
+      </li>
+    </ul>
+  </li>
+  <li>les lignes 10-16 recherchent dans le tableau des traces de l&#x27;exception passée en paramètre, la première occurrence de la condition [trace.fileName==simpleClassName.java] où [simpleClassName] est le 3ième paramètre du constructeur. L&#x27;idée est de mémoriser où s&#x27;est produit l&#x27;exception dans le code utilisateur. Celui-ci encapsulera une exception de la façon suivante :
+  </li>
 </ul>
-</li>
-<li>ligne 4 : le code d&#x27;erreur est enregistré ;</li>
-<li>ligne 5 : la liste de [ShortException] est construite à partir du [Throwable e] passé en paramètre ;</li>
-<li>lignes 7-16 : on examine ce qu&#x27;on appelle les traces de l&#x27;exception. Une exception initiale se produit à un endroit précis du code puis remonte à la méthode qui a appelé celle où s&#x27;est produite l&#x27;exception, et ainsi de suite jusqu&#x27;à ce qu&#x27;un try / catch l&#x27;arrête. Dans cette remontée, l&#x27;exception initiale laisse des traces mémorisées dans le tableau [e.stackTrace] de l&#x27;exception e. Celles-ci sont ici obtenues ligne 8, à partir  du [Throwable e] passé en paramètre. Chaque élément de type [StackTraceElement] est un objet ayant parmi ses champs, les suivants :<ul>
-<li>[fileName] : le nom du fichier Java où s&#x27;est produite l&#x27;exception ;</li>
-<li>[lineNumber] : le n° de ligne dans ce fichier, où s&#x27;est produite l&#x27;exception ;</li>
-<li>[methodName] : la nom de la méthode dans ce fichier, où s&#x27;est produite l&#x27;exception ;</li>
-</ul>
-</li>
-<li>les lignes 10-16 recherchent dans le tableau des traces de l&#x27;exception passée en paramètre, la première occurrence de la condition [trace.fileName==simpleClassName.java] où [simpleClassName] est le 3ième paramètre du constructeur. L&#x27;idée est de mémoriser où s&#x27;est produit l&#x27;exception dans le code utilisateur. Celui-ci encapsulera une exception de la façon suivante :</li>
-</ul>
+
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-6-1">1</a></span>
 <span class="normal"><a href="#__codelineno-6-2">2</a></span>
 <span class="normal"><a href="#__codelineno-6-3">3</a></span>
@@ -2485,8 +2577,10 @@
 <a id="__codelineno-6-7" name="__codelineno-6-7"></a>}
 </code></pre></div></td></tr></table></div>
 <ul>
-<li>ligne 13 : on crée une chaîne de caractères de type [fileName, methodName, lineNumber] caractérisant l&#x27;endroit du code utilisateur où l&#x27;exception e a été arrêtée ;</li>
+  <li>ligne 13 : on crée une chaîne de caractères de type [fileName, methodName, lineNumber] caractérisant l&#x27;endroit du code utilisateur où l&#x27;exception e a été arrêtée ;
+  </li>
 </ul>
+
 <p>Maintenant, examinons le code qui enregistre la liste des exceptions de la pile d&#x27;exception de l&#x27;exception [Throwable th] encapsulée par le constructeur précédent :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-text">
 <span class="odt-code-line"><span style="color:#000000">    </span><span style="color:#3f7f5f">// liste des messages d&#x27;erreur d&#x27;une exception</span></span>
@@ -2506,12 +2600,16 @@
 
 <p>Au cours de sa remontée vers la méthode qui l&#x27;a arrêtée par un try / catch, l&#x27;exception initiale <strong>e</strong> a pu être encapsulée dans une exception. C&#x27;est alors cette dernière qui effectue sa remontée vers la méthode qui l&#x27;arrêtera définitivement. Elle peut donc elle aussi subir une encapsulation. Au final, lorsqu&#x27;une méthode décide d&#x27;arrêter une exception <strong>th</strong> et de l&#x27;exploiter, elle trouvera l&#x27;exception initiale <strong>e</strong> enfouie au fond d&#x27;une pile d&#x27;exceptions. Ainsi, ci-dessus, le paramètre [Throwable th] n&#x27;est que la partie visible de l&#x27;iceberg des exceptions. Son attribut [th.cause] permet de connaître l&#x27;exception qu&#x27;elle même encapsule. Et ainsi de suite. Lorsqu&#x27;une exception <strong>e</strong> est telle que [e.getCause()==null] c&#x27;est que <strong>e</strong> est l&#x27;exception initiale.</p>
 <ul>
-<li>ligne 8 : pour chaque exception de la pile des exceptions de [Throwable th], on mémorise deux informations :<ul>
-<li>[getClass().getName()] : le nom complet de l&#x27;exception ;</li>
-<li>[getMessage()] : le message d&#x27;erreur associé ;</li>
+  <li>ligne 8 : pour chaque exception de la pile des exceptions de [Throwable th], on mémorise deux informations :
+    <ul>
+      <li>[getClass().getName()] : le nom complet de l&#x27;exception ;
+      </li>
+      <li>[getMessage()] : le message d&#x27;erreur associé ;
+      </li>
+    </ul>
+  </li>
 </ul>
-</li>
-</ul>
+
 <p><a id="refheading59371820156038"></a></p>
 <h2 id="34-exemple-01">3.4. Exemple-01</h2>
 <p><a id="refheading1051462082896917"></a></p>
@@ -2574,14 +2672,18 @@
 </code></pre></div>
 
 <ul>
-<li>lignes 28-32 : le projet utilise l&#x27;artifact [generic-config-jdbc] du projet [mysql-config-jdbc] que nous venons d&#x27;étudier. Le projet [spring-jdbc-01] a donc accès à tous les éléments du projet [mysql-config-jdbc] ;</li>
+  <li>lignes 28-32 : le projet utilise l&#x27;artifact [generic-config-jdbc] du projet [mysql-config-jdbc] que nous venons d&#x27;étudier. Le projet [spring-jdbc-01] a donc accès à tous les éléments du projet [mysql-config-jdbc] ;
+  </li>
 </ul>
+
 <p>On peut voir ce dernier point de deux façons en inspectant les dépendances Maven du projet :</p>
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/1000000000000348000001903AE04F56.png" style="display:inline-block; margin:4px;width:11.113cm;height:5.292cm;" class="odt-zoomable" data-zoom-src="images/1000000000000348000001903AE04F56.png" /></td></tr></table>
 
 <ul>
-<li>en [2], on voit que le projet [mysql-config-jdbc] est dans les dépendances Maven du projet. Comme ces dernières sont dans le Classpath du projet, cela signifie que le projet [mysql-config-jdbc] est lui aussi dans ce Classpath et que donc ses classes et interfaces sont visibles dans le projet [spring-jdbc-01] ;</li>
+  <li>en [2], on voit que le projet [mysql-config-jdbc] est dans les dépendances Maven du projet. Comme ces dernières sont dans le Classpath du projet, cela signifie que le projet [mysql-config-jdbc] est lui aussi dans ce Classpath et que donc ses classes et interfaces sont visibles dans le projet [spring-jdbc-01] ;
+  </li>
 </ul>
+
 <p>Le projet Maven [mysql-config-jdbc] n&#x27;a pas besoin d&#x27;être  présent dans l&#x27;onglet [Package Explorer] pour être utilisable par d&#x27;autres projets Maven. Il lui suffit d&#x27;être présent dans le dépôt local Maven. Contrairement à un IDE comme Netbeans, cette présence n&#x27;est pas automatique avec Eclipse. Il faut la forcer :</p>
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000003CF000004B42C5F9353.png" style="display:inline-block; margin:4px;width:12.899cm;height:15.928cm;" class="odt-zoomable" data-zoom-src="images/10000000000003CF000004B42C5F9353.png" /></td></tr></table>
 
@@ -2589,16 +2691,21 @@
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000004F5000001C5F15A68BD.png" style="display:inline-block; margin:4px;width:16.789cm;height:5.994cm;" class="odt-zoomable" data-zoom-src="images/10000000000004F5000001C5F15A68BD.png" /></td></tr></table>
 
 <ul>
-<li>il ne faut pas cocher [3] qui supprime physiquement le projet du disque le rendant alors irrécupérable ;</li>
+  <li>il ne faut pas cocher [3] qui supprime physiquement le projet du disque le rendant alors irrécupérable ;
+  </li>
 </ul>
+
 <p>Cette opération relance le calcul des dépendances Maven des projets qui dépendent du projet sorti du [Package Explorer]. Cela change la branche [Maven Dependencies] de ces projets. Par exemple pour le projet [spring-jdbc-01], la branche [Maven Dependencies] devient la suivante :</p>
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000001CA0000022FFA1A12C5.png" style="display:inline-block; margin:4px;width:6.059cm;height:7.396cm;" class="odt-zoomable" data-zoom-src="images/10000000000001CA0000022FFA1A12C5.png" /></td></tr></table>
 
 <p>Cette fois-ci, la dépendance n&#x27;est plus sur un projet mais sur l&#x27;artifact Maven de celui-ci, ici l&#x27;artifact [generic-config-jdbc] [1]. On voit qu&#x27;on a bien accès à toutes les classes et interfaces de cet artifact. Comme il a été dit, cet artifact sera généré par tous les projets [*-config-jdbc]. Pour éviter les erreurs, nous :</p>
 <ul>
-<li>garderons toujours un unique projet [*-config-jdbc] dans l&#x27;onglet [Package Explorer] ;</li>
-<li>mettrons à jour la configuration Maven de tous les projets de l&#x27;onglet [Package Explorer] (Alt-F5) pour que ceux-ci fassent apparaître dans leurs dépendances Maven, le projet [*-config-jdbc] utilisé ;</li>
+  <li>garderons toujours un unique projet [*-config-jdbc] dans l&#x27;onglet [Package Explorer] ;
+  </li>
+  <li>mettrons à jour la configuration Maven de tous les projets de l&#x27;onglet [Package Explorer] (Alt-F5) pour que ceux-ci fassent apparaître dans leurs dépendances Maven, le projet [*-config-jdbc] utilisé ;
+  </li>
 </ul>
+
 <p><a id="refheading59471820156038"></a></p>
 <h3 id="343-le-squelette-de-la-classe-principale">3.4.3. Le squelette de la classe principale</h3>
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000000E8000000B220AEBCF6.png" style="display:inline-block; margin:4px;width:4.3cm;height:3.3cm;" class="odt-zoomable" data-zoom-src="images/10000000000000E8000000B220AEBCF6.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td></tr></table>
@@ -2765,16 +2872,24 @@
 </code></pre></div>
 
 <ul>
-<li>lignes 23-29 : chargement du pilote JDBC du SGBD. Ligne 25, on utilise la constante [ConfigJdbc.<em>DRIVER_CLASSNAME</em>] définie dans le projet [mysql-config-jdbc] ;</li>
-<li>lignes 136-147 : la méthode [getErreursFromThrowable] rend la liste des messages d&#x27;erreur encapsulés dans un objet de type [Throwable] qui est la classe parent de la classe [Exception]. Une exception peut en contenir une autre qu&#x27;on obtient avec la méthode [Throwable].getCause(). On passe ainsi en revue toutes les exceptions encapsulées dans l&#x27;objet [Throwable] ;</li>
-<li>lignes 149-156 : la méthode [<span style="color: #000000">show(String </span><span style="color: #6a3e3e">title</span><span style="color: #000000">, List&lt;String&gt; </span><span style="color: #6a3e3e">messages</span><span style="color: #000000">)</span>] affiche les messages précédés du texte [title] ;</li>
-<li>lignes 122-134 : la méthode [<span style="color: #6a3e3e">doCatchException(String title, Connection connexion, Throwable th)</span><span style="color: #000000">)</span>] gère les exceptions rencontrées par les méthodes de la classe. L&#x27;exception gérée est représentée par le paramètre [Throwable th]. L&#x27;objectif de la méthode est :<ul>
-<li>d&#x27;annuler la transaction en cours de l&#x27;objet [<span style="color: #6a3e3e">Connection connexion</span>] (lignes 127-129) ;</li>
-<li>d&#x27;écrire les messages d&#x27;erreur encapsulées dans l&#x27;exception [<span style="color: #6a3e3e">Throwable th</span>] (lignes 124, 132) ;</li>
+  <li>lignes 23-29 : chargement du pilote JDBC du SGBD. Ligne 25, on utilise la constante [ConfigJdbc.<i>DRIVER_CLASSNAME</i>] définie dans le projet [mysql-config-jdbc] ;
+  </li>
+  <li>lignes 136-147 : la méthode [getErreursFromThrowable] rend la liste des messages d&#x27;erreur encapsulés dans un objet de type [Throwable] qui est la classe parent de la classe [Exception]. Une exception peut en contenir une autre qu&#x27;on obtient avec la méthode [Throwable].getCause(). On passe ainsi en revue toutes les exceptions encapsulées dans l&#x27;objet [Throwable] ;
+  </li>
+  <li>lignes 149-156 : la méthode [<span style="color: #000000">show(String </span><span style="color: #6a3e3e">title</span><span style="color: #000000">, List&lt;String&gt; </span><span style="color: #6a3e3e">messages</span><span style="color: #000000">)</span>] affiche les messages précédés du texte [title] ;
+  </li>
+  <li>lignes 122-134 : la méthode [<span style="color: #6a3e3e">doCatchException(String title, Connection connexion, Throwable th)</span><span style="color: #000000">)</span>] gère les exceptions rencontrées par les méthodes de la classe. L&#x27;exception gérée est représentée par le paramètre [Throwable th]. L&#x27;objectif de la méthode est :
+    <ul>
+      <li>d&#x27;annuler la transaction en cours de l&#x27;objet [<span style="color: #6a3e3e">Connection connexion</span>] (lignes 127-129) ;
+      </li>
+      <li>d&#x27;écrire les messages d&#x27;erreur encapsulées dans l&#x27;exception [<span style="color: #6a3e3e">Throwable th</span>] (lignes 124, 132) ;
+      </li>
+    </ul>
+  </li>
+  <li>lignes 93-120 : la méthode [<span style="color: #000000">doFinally(ResultSet </span><span style="color: #6a3e3e">rs</span><span style="color: #000000">, PreparedStatement </span><span style="color: #6a3e3e">ps</span><span style="color: #000000">, Connection </span><span style="color: #6a3e3e">connexion</span><span style="color: #000000">)</span>] gère la branche [finally] des méthodes d&#x27;accès au SGBD. Elle a pour objectif de libérer les ressources mobilisées par la connexion ;
+  </li>
 </ul>
-</li>
-<li>lignes 93-120 : la méthode [<span style="color: #000000">doFinally(ResultSet </span><span style="color: #6a3e3e">rs</span><span style="color: #000000">, PreparedStatement </span><span style="color: #6a3e3e">ps</span><span style="color: #000000">, Connection </span><span style="color: #6a3e3e">connexion</span><span style="color: #000000">)</span>] gère la branche [finally] des méthodes d&#x27;accès au SGBD. Elle a pour objectif de libérer les ressources mobilisées par la connexion ;</li>
-</ul>
+
 <p><a id="refheading59491820156038"></a></p>
 <h3 id="344-suppression-du-contenu-de-la-table-des-produits">3.4.4. Suppression du contenu de la table des produits</h3>
 <p>La méthode [delete] supprime le contenu de la table :</p>
@@ -2819,10 +2934,14 @@
 
 <p>La méthode [delete] utilise des transactions. Une transaction permet de regrouper des ordres SQL qui doivent être tous réussis ou tous annulés. Il y a quatre opérations à connaître :</p>
 <ul>
-<li>début d&#x27;une transaction : [<strong><span style="color: #6a3e3e">connexion</span></strong><strong><span style="color: #000000">.setAutoCommit(</span></strong><strong><span style="color: #7f0055">false</span></strong><strong><span style="color: #000000">)</span></strong><span style="color: #000000">] ;</span></li>
-<li><span style="color: #000000">fin d&#x27;une transaction avec succès : [</span><strong><span style="color: #6a3e3e">connexion</span></strong><strong><span style="color: #000000">.commit()</span></strong><span style="color: #000000">]. Dans ce cas, toutes les opérations faites sur la BD lors de la transaction sont validées ;</span></li>
-<li><span style="color: #000000">fin d&#x27;une transaction avec échec  : [</span><strong><span style="color: #6a3e3e">connexion</span></strong><strong><span style="color: #000000">.rollback()</span></strong><span style="color: #000000">]. Dans ce cas, toutes les opérations faites sur la BD lors de la transaction sont annulées ;</span></li>
+  <li>début d&#x27;une transaction : [<b><span style="color: #6a3e3e">connexion</span></b><b><span style="color: #000000">.setAutoCommit(</span></b><b><span style="color: #7f0055">false</span></b><b><span style="color: #000000">)</span></b><span style="color: #000000">] ;</span>
+  </li>
+  <li><span style="color: #000000">fin d&#x27;une transaction avec succès : [</span><b><span style="color: #6a3e3e">connexion</span></b><b><span style="color: #000000">.commit()</span></b><span style="color: #000000">]. Dans ce cas, toutes les opérations faites sur la BD lors de la transaction sont validées ;</span>
+  </li>
+  <li><span style="color: #000000">fin d&#x27;une transaction avec échec  : [</span><b><span style="color: #6a3e3e">connexion</span></b><b><span style="color: #000000">.rollback()</span></b><span style="color: #000000">]. Dans ce cas, toutes les opérations faites sur la BD lors de la transaction sont annulées ;</span>
+  </li>
 </ul>
+
 <p>Dans nos exemples, à chaque fois que se produit une exception, nous annulons la transaction dans la méthode [<em><span style="color: #000000">doCatchException</span></em>] :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-text">
 <span class="odt-code-line"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">private</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">static</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">void</span><span style="color:#000000"> doCatchException(String </span><span style="color:#6a3e3e">title</span><span style="color:#000000">, Connection </span><span style="color:#6a3e3e">connexion</span><span style="color:#000000">, Throwable </span><span style="color:#6a3e3e">th</span><span style="color:#000000">) {</span></span>
@@ -3061,13 +3180,18 @@
 </code></pre></div>
 
 <ul>
-<li>ligne 30 : <strong>avant</strong> l&#x27;insertion des deux produits de même clé primaire, la table est vide ;</li>
-<li>ligne 35 : <strong>après</strong> l&#x27;insertion des deux produits de même clé primaire, la table est vide. Ceci montre le rôle de la transaction :<ul>
-<li>la première insertion réussit. Elle n&#x27;a aucune raison d&#x27;échouer ;</li>
-<li>la seconde insertion échoue (ligne 32). Du coup, parce que ces deux insertions sont au sein de la même transaction, tous les ordres SQL de celle-ci sont annulés, dont la première insertion.</li>
+  <li>ligne 30 : <b>avant</b> l&#x27;insertion des deux produits de même clé primaire, la table est vide ;
+  </li>
+  <li>ligne 35 : <b>après</b> l&#x27;insertion des deux produits de même clé primaire, la table est vide. Ceci montre le rôle de la transaction :
+    <ul>
+      <li>la première insertion réussit. Elle n&#x27;a aucune raison d&#x27;échouer ;
+      </li>
+      <li>la seconde insertion échoue (ligne 32). Du coup, parce que ces deux insertions sont au sein de la même transaction, tous les ordres SQL de celle-ci sont annulés, dont la première insertion.
+      </li>
+    </ul>
+  </li>
 </ul>
-</li>
-</ul>
+
 <p><a id="refheading1051482082896917"></a></p>
 <h3 id="3410-conclusion">3.4.10. Conclusion</h3>
 <p>Ce qui est remarquable dans les codes précédents, c&#x27;est la grande place prise par la gestion de l&#x27;exception [SQLException]. Toute opération JDBC étant susceptible de la lancer, on a de nombreux try / catch dans le code.</p>
@@ -3077,10 +3201,14 @@
 <p><img src="images/100000000000036C0000025CA9CF067E.png" style="width:17.729cm;height:12.224cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000036C0000025CA9CF067E.png" /></p>
 <p>Nous allons utiliser une source de données implémentée par la classe [org.apache.tomcat.jdbc.pool.DataSource]. Cette classe utilise un pool de connexions ç-à-d un ensemble de connexions ouvertes :</p>
 <ul>
-<li>lorsque le pool est instancié, un certain nombre de connexions est ouvert avec la base de données. Ce nombre est configurable ;</li>
-<li>lorsque le code Java ouvre une connexion, celle-ci est fournie par le pool ;</li>
-<li>lorsque le code Java ferme une connexion, celle-ci est rendue au pool ;</li>
+  <li>lorsque le pool est instancié, un certain nombre de connexions est ouvert avec la base de données. Ce nombre est configurable ;
+  </li>
+  <li>lorsque le code Java ouvre une connexion, celle-ci est fournie par le pool ;
+  </li>
+  <li>lorsque le code Java ferme une connexion, celle-ci est rendue au pool ;
+  </li>
 </ul>
+
 <p>Au final, les connexions ne sont ouvertes qu&#x27;une fois, ce qui améliore la performance d&#x27;accès à la base de données. La source de données sera définie dans une classe de configuration Spring</p>
 <p><a id="refheading1051502082896917"></a></p>
 <h3 id="351-larchitecture-du-projet">3.5.1. L&#x27;architecture du projet</h3>
@@ -3151,8 +3279,10 @@
 </code></pre></div>
 
 <ul>
-<li>lignes 28-33 : la dépendance Maven sur le projet [mysql-config-jdbc] ;</li>
+  <li>lignes 28-33 : la dépendance Maven sur le projet [mysql-config-jdbc] ;
+  </li>
 </ul>
+
 <p>C&#x27;est le projet [mysql-config-jdbc] qui amène dans ses dépendances Maven la bibliothèque fournissant une implémentation d&#x27;une source de données de type [javax.sql.DataSource] (cf paragraphe <a href="#refheading161811876445518">3.3.2</a>) :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-xml">
 <span class="odt-code-line"><span style="color:#000000">        </span><span style="color:#3f5fbf">&lt;!-- Tomcat JDBC --&gt;</span></span>
@@ -3200,13 +3330,20 @@
 </code></pre></div>
 
 <ul>
-<li>ligne 10 : [AppConfig] est une classe de configuration Spring ;</li>
-<li>ligne 11 : import de la classe de configuration [<span style="color: #000000">generic.jdbc.config.ConfigJdbc.</span><strong><span style="color: #7f0055">class</span></strong>] définie dans le projet [mysql-config-jdbc]. Cela signifie qu&#x27;on dispose de tous les beans définis par ce fichier de configuration ;</li>
-<li>lignes 14-27 : le bean Spring définissant la source de données ;</li>
-<li>ligne 17 : création de la source de données encore non configurée ;</li>
-<li>lignes 19-22 : les informations qui permettent à la source de données de se connecter à la base de données ;</li>
-<li>ligne 24 : crée un pool de 5 connexions. On n&#x27;en a besoin que d&#x27;une ici. Il n&#x27;y a jamais plusieurs connexions simultanées ;</li>
+  <li>ligne 10 : [AppConfig] est une classe de configuration Spring ;
+  </li>
+  <li>ligne 11 : import de la classe de configuration [<span style="color: #000000">generic.jdbc.config.ConfigJdbc.</span><b><span style="color: #7f0055">class</span></b>] définie dans le projet [mysql-config-jdbc]. Cela signifie qu&#x27;on dispose de tous les beans définis par ce fichier de configuration ;
+  </li>
+  <li>lignes 14-27 : le bean Spring définissant la source de données ;
+  </li>
+  <li>ligne 17 : création de la source de données encore non configurée ;
+  </li>
+  <li>lignes 19-22 : les informations qui permettent à la source de données de se connecter à la base de données ;
+  </li>
+  <li>ligne 24 : crée un pool de 5 connexions. On n&#x27;en a besoin que d&#x27;une ici. Il n&#x27;y a jamais plusieurs connexions simultanées ;
+  </li>
 </ul>
+
 <p><a id="refheading59651820156038"></a></p>
 <h3 id="355-la-classe-principale">3.5.5. La classe principale</h3>
 <p>La classe principale [IntroJdbc02] est la suivante :</p>
@@ -3285,11 +3422,16 @@
 </code></pre></div>
 
 <ul>
-<li>ligne 25 : la source de données. On notera qu&#x27;elle est de type [javax.sql.DataSource] (ligne 13) qui est une interface ;</li>
-<li>ligne 31 : instanciation des objets Spring ;</li>
-<li>ligne 32 : obtention d&#x27;une référence sur la source de données. On notera qu&#x27;à aucun moment on ne cite la classe réellement utilisée. Ainsi ici, rien ne laisse supposer qu&#x27;on utilise une implémentation [TomcatJdbc] ;</li>
-<li>ligne 49 : obtention d&#x27;une connexion ouverte. C&#x27;est comme cela, que les différentes méthodes de [IntroJdbc02] obtiennent une connexion à la base de données. Le reste du code est identique à celui de la classe [IntroJdbc01] ;</li>
+  <li>ligne 25 : la source de données. On notera qu&#x27;elle est de type [javax.sql.DataSource] (ligne 13) qui est une interface ;
+  </li>
+  <li>ligne 31 : instanciation des objets Spring ;
+  </li>
+  <li>ligne 32 : obtention d&#x27;une référence sur la source de données. On notera qu&#x27;à aucun moment on ne cite la classe réellement utilisée. Ainsi ici, rien ne laisse supposer qu&#x27;on utilise une implémentation [TomcatJdbc] ;
+  </li>
+  <li>ligne 49 : obtention d&#x27;une connexion ouverte. C&#x27;est comme cela, que les différentes méthodes de [IntroJdbc02] obtiennent une connexion à la base de données. Le reste du code est identique à celui de la classe [IntroJdbc01] ;
+  </li>
 </ul>
+
 <p><a id="refheading14308991201477"></a></p>
 <h3 id="356-les-tests">3.5.6. Les tests</h3>
 <p>On exécute la configuration d&#x27;exécution nommée [spring-jdbc-generic-02.IntroJdbc02] :</p>
@@ -3310,10 +3452,14 @@
 
 <p>Les différents packages ont les rôles suivants :</p>
 <ul>
-<li>[spring.jdbc.config] : configuration du projet Spring ;</li>
-<li>[spring.jdbc.dao] : implémentation de la couche [DAO] ;</li>
-<li>[spring.jdbc.infrastructure] : implémente l&#x27;exception non contrôlée [DaoException] ;</li>
+  <li>[spring.jdbc.config] : configuration du projet Spring ;
+  </li>
+  <li>[spring.jdbc.dao] : implémentation de la couche [DAO] ;
+  </li>
+  <li>[spring.jdbc.infrastructure] : implémente l&#x27;exception non contrôlée [DaoException] ;
+  </li>
 </ul>
+
 <p><a id="refheading1051622082896917"></a></p>
 <h3 id="363-configuration-maven">3.6.3. Configuration Maven</h3>
 <p>Le projet Maven est configuré par le fichier [pom.xml] suivant :</p>
@@ -3467,8 +3613,10 @@
 </code></pre></div>
 
 <ul>
-<li>ligne 11 : le package [spring.jdbc.dao] sera scanné pour y trouver d&#x27;autres composants Spring que ceux définis dans ce fichier de configuration ;</li>
+  <li>ligne 11 : le package [spring.jdbc.dao] sera scanné pour y trouver d&#x27;autres composants Spring que ceux définis dans ce fichier de configuration ;
+  </li>
 </ul>
+
 <p><a id="refheading1051682082896917"></a></p>
 <h3 id="367-implementation-de-la-couche-dao">3.6.7. Implémentation de la couche [DAO]</h3>
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/100000000000044A000000FBE02E9C72.png" style="display:inline-block; margin:4px;width:14.526cm;height:3.321cm;" class="odt-zoomable" data-zoom-src="images/100000000000044A000000FBE02E9C72.png" /></td></tr></table>
@@ -3592,13 +3740,20 @@
 </code></pre></div>
 
 <ul>
-<li>ligne 20 : la classe [Dao] est un composant Spring nommé [dao1]. Ce nom est facultatif. Lorsqu&#x27;il n&#x27;est pas présent, le nom utilisé est le nom de la classe avec la 1ère majuscule passée en minuscule ;</li>
-<li>ligne 24 : le nom de la classe. On évite d&#x27;écrire en dur [Dao] pour laisser la possibilité de renommer la classe sans avoir à redéfinir ce champ qui reste ainsi toujours valide ;</li>
-<li>lignes 26-27 : injection de la source de données [tomcat-jdbc] définie dans la classe de configuration [AppConfig] ;</li>
-<li>lignes 36-68 : implémentation de l&#x27;interface [IDao] ;</li>
-<li>lignes 78-80 : gestion centralisée du <em>catch</em> des différentes méthodes ;</li>
-<li>lignes 72-75 : gestion centralisée du <em>finally</em> des différentes méthodes ;</li>
+  <li>ligne 20 : la classe [Dao] est un composant Spring nommé [dao1]. Ce nom est facultatif. Lorsqu&#x27;il n&#x27;est pas présent, le nom utilisé est le nom de la classe avec la 1ère majuscule passée en minuscule ;
+  </li>
+  <li>ligne 24 : le nom de la classe. On évite d&#x27;écrire en dur [Dao] pour laisser la possibilité de renommer la classe sans avoir à redéfinir ce champ qui reste ainsi toujours valide ;
+  </li>
+  <li>lignes 26-27 : injection de la source de données [tomcat-jdbc] définie dans la classe de configuration [AppConfig] ;
+  </li>
+  <li>lignes 36-68 : implémentation de l&#x27;interface [IDao] ;
+  </li>
+  <li>lignes 78-80 : gestion centralisée du <i>catch</i> des différentes méthodes ;
+  </li>
+  <li>lignes 72-75 : gestion centralisée du <i>finally</i> des différentes méthodes ;
+  </li>
 </ul>
+
 <p>Le <em>catch</em> des différentes méthodes est géré de la façon suivante :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-text">
 <span class="odt-code-line"><span style="color:#000000">    </span><span style="color:#3f7f5f">// gestion catch</span></span>
@@ -3617,15 +3772,22 @@
 </code></pre></div>
 
 <ul>
-<li>ligne 2 : la méthode est déclarée [protected] ce qui permet aux classes filles de l&#x27;utiliser sans qu&#x27;elle soit pour autant publique. Elle reçoit les paramètres suivants :<ul>
-<li>[<span style="color: #000000">Connection </span><span style="color: #6a3e3e">connexion</span>] : la connexion avec le SGBD - peut-être <em>null</em> ;</li>
-<li>[Throwable th] : l&#x27;exception qui s&#x27;est produite et qu&#x27;on va encapsuler dans un type [DaoException] ;</li>
-<li>[<strong><span style="color: #7f0055">int</span></strong><strong><span style="color: #000000"> </span></strong><strong><span style="color: #6a3e3e">code</span></strong>] : un code d&#x27;erreur à utiliser si la méthode crée une nouvelle [<span style="color: #000000">DaoException</span>] ;</li>
+  <li>ligne 2 : la méthode est déclarée [protected] ce qui permet aux classes filles de l&#x27;utiliser sans qu&#x27;elle soit pour autant publique. Elle reçoit les paramètres suivants :
+    <ul>
+      <li>[<span style="color: #000000">Connection </span><span style="color: #6a3e3e">connexion</span>] : la connexion avec le SGBD - peut-être <i>null</i> ;
+      </li>
+      <li>[Throwable th] : l&#x27;exception qui s&#x27;est produite et qu&#x27;on va encapsuler dans un type [DaoException] ;
+      </li>
+      <li>[<b><span style="color: #7f0055">int</span></b><b><span style="color: #000000"> </span></b><b><span style="color: #6a3e3e">code</span></b>] : un code d&#x27;erreur à utiliser si la méthode crée une nouvelle [<span style="color: #000000">DaoException</span>] ;
+      </li>
+    </ul>
+  </li>
+  <li>lignes 4-7 : le rôle premier de cette méthode est d&#x27;annuler la transaction liée à la connexion passée en paramètre 1 ;
+  </li>
+  <li>lignes 8-10 : si l&#x27;annulation de la transaction s&#x27;est mal passée, on écrit la trace de l&#x27;exception sur la console. On ne peut pas faire grand chose d&#x27;autre dans la mesure où on va lancer une exception ligne 12 ;
+  </li>
 </ul>
-</li>
-<li>lignes 4-7 : le rôle premier de cette méthode est d&#x27;annuler la transaction liée à la connexion passée en paramètre 1 ;</li>
-<li>lignes 8-10 : si l&#x27;annulation de la transaction s&#x27;est mal passée, on écrit la trace de l&#x27;exception sur la console. On ne peut pas faire grand chose d&#x27;autre dans la mesure où on va lancer une exception ligne 12 ;</li>
-</ul>
+
 <p>Le <em>finally</em> des différentes méthodes est géré de la façon suivante :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-text">
 <span class="odt-code-line">// gestion finally</span>
@@ -3664,18 +3826,28 @@
 </code></pre></div>
 
 <ul>
-<li>ligne 2 : cette méthode est elle aussi déclarée [protected]. Elle reçoit les paramètres suivants :<ul>
-<li>[<span style="color: #000000">ResultSet </span><span style="color: #6a3e3e">rs</span>] : l&#x27;éventuel [<span style="color: #000000">ResultSet</span>] si une opération [SELECT] a été exécutée - peut-être <em>null</em> ;</li>
-<li>[<span style="color: #000000">PreparedStatement </span><span style="color: #6a3e3e">ps</span>] : le [<span style="color: #000000">PreparedStatement</span>] qui a été exécuté - peut-être <em>null</em> ;</li>
-<li>[<span style="color: #000000">Connection </span><span style="color: #6a3e3e">connexion</span>] : la connexion avec le SGBD - peut-être <em>null</em> ;</li>
-<li>[<strong><span style="color: #7f0055">int</span></strong><strong><span style="color: #000000"> </span></strong><strong><span style="color: #6a3e3e">code</span></strong>] : un code d&#x27;erreur à utiliser si la méthode crée une nouvelle [<span style="color: #000000">DaoException</span>] ;</li>
-<li>[<span style="color: #000000">DaoException </span><span style="color: #6a3e3e">daoException</span>] : l&#x27;éventuelle [<span style="color: #000000">DaoException</span>] si il y a eu une exception avant le <em>finally</em>- peut-être <em>null</em> ;</li>
+  <li>ligne 2 : cette méthode est elle aussi déclarée [protected]. Elle reçoit les paramètres suivants :
+    <ul>
+      <li>[<span style="color: #000000">ResultSet </span><span style="color: #6a3e3e">rs</span>] : l&#x27;éventuel [<span style="color: #000000">ResultSet</span>] si une opération [SELECT] a été exécutée - peut-être <i>null</i> ;
+      </li>
+      <li>[<span style="color: #000000">PreparedStatement </span><span style="color: #6a3e3e">ps</span>] : le [<span style="color: #000000">PreparedStatement</span>] qui a été exécuté - peut-être <i>null</i> ;
+      </li>
+      <li>[<span style="color: #000000">Connection </span><span style="color: #6a3e3e">connexion</span>] : la connexion avec le SGBD - peut-être <i>null</i> ;
+      </li>
+      <li>[<b><span style="color: #7f0055">int</span></b><b><span style="color: #000000"> </span></b><b><span style="color: #6a3e3e">code</span></b>] : un code d&#x27;erreur à utiliser si la méthode crée une nouvelle [<span style="color: #000000">DaoException</span>] ;
+      </li>
+      <li>[<span style="color: #000000">DaoException </span><span style="color: #6a3e3e">daoException</span>] : l&#x27;éventuelle [<span style="color: #000000">DaoException</span>] si il y a eu une exception avant le <i>finally</i>- peut-être <i>null</i> ;
+      </li>
+    </ul>
+  </li>
+  <li>lignes 21-30 : l&#x27;objectif premier de cette méthode est de fermer la connexion (ligne 23) ;
+  </li>
+  <li>lignes 24-29 : si lors de cette fermeture, il y a exception, alors on regarde l&#x27;état du paramètre [<span style="color: #000000">DaoException </span><span style="color: #6a3e3e">daoException</span>] qu&#x27;on nous a passé : si [<span style="color: #6a3e3e">daoException</span><span style="color: #000000"> == </span><b><span style="color: #7f0055">null</span></b>] alors on crée une nouvelle [<span style="color: #000000">DaoException</span>] avec le code passé en paramètre ;
+  </li>
+  <li>ligne 32 : l&#x27;ancienne ou la nouvelle [<span style="color: #000000">DaoException</span>] est rendue comme résultat ;
+  </li>
 </ul>
-</li>
-<li>lignes 21-30 : l&#x27;objectif premier de cette méthode est de fermer la connexion (ligne 23) ;</li>
-<li>lignes 24-29 : si lors de cette fermeture, il y a exception, alors on regarde l&#x27;état du paramètre [<span style="color: #000000">DaoException </span><span style="color: #6a3e3e">daoException</span>] qu&#x27;on nous a passé : si [<span style="color: #6a3e3e">daoException</span><span style="color: #000000"> == </span><strong><span style="color: #7f0055">null</span></strong>] alors on crée une nouvelle [<span style="color: #000000">DaoException</span>] avec le code passé en paramètre ;</li>
-<li>ligne 32 : l&#x27;ancienne ou la nouvelle [<span style="color: #000000">DaoException</span>] est rendue comme résultat ;</li>
-</ul>
+
 <p>Nous n&#x27;allons pas présenter toutes les méthodes de la classe [Dao] mais seulement quelques unes. Elles se ressemblent toutes.</p>
 <p><a id="refheading1051702082896917"></a></p>
 <h4 id="3671-la-methode-getproduitbyid">3.6.7.1. La méthode [getProduitById]</h4>
@@ -3726,27 +3898,40 @@
 </code></pre></div>
 
 <ul>
-<li><span style="color: #000000">ligne 10 : le produit à rendre est mis à </span><em><span style="color: #000000">null</span></em><span style="color: #000000"> ;</span></li>
-<li><span style="color: #000000">ligne 19 : l&#x27;ordre SQL [</span>ConfigJdbc.<em>V2_SELECT_PRODUIT_BYID</em><span style="color: #000000">] est le suivant :</span></li>
+  <li><span style="color: #000000">ligne 10 : le produit à rendre est mis à </span><i><span style="color: #000000">null</span></i><span style="color: #000000"> ;</span>
+  </li>
+  <li><span style="color: #000000">ligne 19 : l&#x27;ordre SQL [</span>ConfigJdbc.<i>V2_SELECT_PRODUIT_BYID</i><span style="color: #000000">] est le suivant :</span>
+  </li>
 </ul>
+
 <div class="odt-code-rich" data-linenums="false" style="counter-reset: odtline 0;"><pre><code class="language-sql">
 <span class="odt-code-line"><span style="font-weight:bold;color:#7f0055">public</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">final</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">static</span><span style="color:#000000"> String </span><span style="font-weight:bold;font-style:italic;color:#0000c0">V2_SELECT_PRODUIT_BYID</span><span style="color:#000000"> = </span><span style="color:#2a00ff">&quot;SELECT NOM, CATEGORIE, PRIX, DESCRIPTION FROM PRODUITS WHERE ID=?&quot;</span><span style="color:#000000">;</span></span>
 </code></pre></div>
 
 <p><span style="color: #000000">    </span></p>
 <ul>
-<li><span style="color: #000000">lignes 22-24 : si le [ResultSet] a une ligne, on l&#x27;utilise pour créer le produit à rendre, sinon le produit à rendre reste à </span><em><span style="color: #000000">null</span></em><span style="color: #000000"> ;</span></li>
-<li><span style="color: #000000">ligne 41 : on rend le produit ;</span></li>
-<li><span style="color: #000000">ligne 8 : l&#x27;exception [DaoException] de la méthode est initialisée à </span><em><span style="color: #000000">null</span></em><span style="color: #000000"> ;</span></li>
-<li><span style="color: #000000">ligne 31 : la méthode [doCatchException] crée une exception [DaoException] ;</span></li>
-<li><span style="color: #000000">ligne 34 : le paramètre [daoException] de la méthode [doFinally] est soit </span><em><span style="color: #000000">null,</span></em><span style="color: #000000"> soit l&#x27;exception créée par la méthode [doCatchException]. La méthode [doFinally] :</span><ul>
-<li><span style="color: #000000">laisse ce paramètre en l&#x27;état si elle arrive à fermer la connexion ;</span></li>
-<li><span style="color: #000000">laisse ce paramètre en l&#x27;état si elle n&#x27;arrive pas à fermer la connexion et qu&#x27;il y a déjà eu une [DaoException] auparavant ;</span></li>
-<li><span style="color: #000000">crée une nouvelle [DaoException] si elle n&#x27;arrive pas à fermer la connexion et qu&#x27;il y a pas eu de [DaoException] auparavant ;</span></li>
+  <li><span style="color: #000000">lignes 22-24 : si le [ResultSet] a une ligne, on l&#x27;utilise pour créer le produit à rendre, sinon le produit à rendre reste à </span><i><span style="color: #000000">null</span></i><span style="color: #000000"> ;</span>
+  </li>
+  <li><span style="color: #000000">ligne 41 : on rend le produit ;</span>
+  </li>
+  <li><span style="color: #000000">ligne 8 : l&#x27;exception [DaoException] de la méthode est initialisée à </span><i><span style="color: #000000">null</span></i><span style="color: #000000"> ;</span>
+  </li>
+  <li><span style="color: #000000">ligne 31 : la méthode [doCatchException] crée une exception [DaoException] ;</span>
+  </li>
+  <li><span style="color: #000000">ligne 34 : le paramètre [daoException] de la méthode [doFinally] est soit </span><i><span style="color: #000000">null,</span></i><span style="color: #000000"> soit l&#x27;exception créée par la méthode [doCatchException]. La méthode [doFinally] :</span>
+    <ul>
+      <li><span style="color: #000000">laisse ce paramètre en l&#x27;état si elle arrive à fermer la connexion ;</span>
+      </li>
+      <li><span style="color: #000000">laisse ce paramètre en l&#x27;état si elle n&#x27;arrive pas à fermer la connexion et qu&#x27;il y a déjà eu une [DaoException] auparavant ;</span>
+      </li>
+      <li><span style="color: #000000">crée une nouvelle [DaoException] si elle n&#x27;arrive pas à fermer la connexion et qu&#x27;il y a pas eu de [DaoException] auparavant ;</span>
+      </li>
+    </ul>
+  </li>
+  <li><span style="color: #000000">lignes 37-39 : si l&#x27;exception locale [daoException] ne vaut pas <i>null</i>, alors on la lance sinon on rend le résultat demandé (ligne 41) ;</span>
+  </li>
 </ul>
-</li>
-<li><span style="color: #000000">lignes 37-39 : si l&#x27;exception locale [daoException] ne vaut pas <em>null</em>, alors on la lance sinon on rend le résultat demandé (ligne 41) ;</span></li>
-</ul>
+
 <p><a id="refheading1051722082896917"></a></p>
 <h4 id="3672-la-methode-deleteproduits">3.6.7.2. La méthode [deleteProduits]</h4>
 <p><span style="color: #000000">La méthode [deleteProduits] supprime les produits dont on lui passe les clés primaires en paramètre. Elle rend le nombre de produits supprimés.</span></p>
@@ -3796,18 +3981,24 @@
 </code></pre></div>
 
 <ul>
-<li><span style="color: #000000">ligne 18, l&#x27;ordre SQL [ConfigJdbc.<em>V2_DELETE_PRODUITS</em>] est le suivant :</span></li>
+  <li><span style="color: #000000">ligne 18, l&#x27;ordre SQL [ConfigJdbc.<i>V2_DELETE_PRODUITS</i>] est le suivant :</span>
+  </li>
 </ul>
+
 <div class="odt-code-rich" data-linenums="false" style="counter-reset: odtline 0;"><pre><code class="language-sql">
 <span class="odt-code-line"><span style="font-weight:bold;color:#7f0055">public</span> <span style="font-weight:bold;color:#7f0055">final</span> <span style="font-weight:bold;color:#7f0055">static</span> String <span style="font-weight:bold;font-style:italic;color:#0000c0">V2_DELETE_PRODUITS</span> = <span style="color:#2a00ff">&quot;DELETE FROM PRODUITS WHERE ID=?&quot;</span>;</span>
 </code></pre></div>
 
 <p><span style="color: #000000">    </span></p>
 <ul>
-<li><span style="color: #000000">lignes 18-24 : le code de suppression des produits. On voit que l&#x27;ordre SQL est préparé 1 fois (ligne 18) et exécuté n fois (lignes 19-24). C&#x27;est l&#x27;intérêt de l&#x27;objet [PreparedStatement] ;</span></li>
-<li><span style="color: #000000">ligne 23 : la méthode [PreparedStatement].executeUpdate() rend le nombre de lignes affectées par l&#x27;opération de mise à jour ;</span></li>
-<li><span style="color: #000000">ligne 41 : on rend le nombre de produits mis à jour ;</span></li>
+  <li><span style="color: #000000">lignes 18-24 : le code de suppression des produits. On voit que l&#x27;ordre SQL est préparé 1 fois (ligne 18) et exécuté n fois (lignes 19-24). C&#x27;est l&#x27;intérêt de l&#x27;objet [PreparedStatement] ;</span>
+  </li>
+  <li><span style="color: #000000">ligne 23 : la méthode [PreparedStatement].executeUpdate() rend le nombre de lignes affectées par l&#x27;opération de mise à jour ;</span>
+  </li>
+  <li><span style="color: #000000">ligne 41 : on rend le nombre de produits mis à jour ;</span>
+  </li>
 </ul>
+
 <p><a id="refheading1051742082896917"></a></p>
 <h4 id="3673-la-methode-updateproduits">3.6.7.3. La méthode [updateProduits]</h4>
 <p><span style="color: #000000">La méthode [updateProduits] met à jour en base les produits qu&#x27;on lui passe en paramètres. Elle rend le nombre de produits mis à jour.</span></p>
@@ -3861,15 +4052,19 @@
 </code></pre></div>
 
 <ul>
-<li><span style="color: #000000">ligne 18 : l&#x27;ordre SQL [ConfigJdbc.<em>V2_UPDATE_PRODUITS</em>] est le suivant :</span></li>
+  <li><span style="color: #000000">ligne 18 : l&#x27;ordre SQL [ConfigJdbc.<i>V2_UPDATE_PRODUITS</i>] est le suivant :</span>
+  </li>
 </ul>
+
 <div class="odt-code-rich" data-linenums="false" style="counter-reset: odtline 0;"><pre><code class="language-sql">
 <span class="odt-code-line"><span style="font-weight:bold;color:#7f0055">public</span> <span style="font-weight:bold;color:#7f0055">final</span> <span style="font-weight:bold;color:#7f0055">static</span> String <span style="font-weight:bold;font-style:italic;color:#0000c0">V2_UPDATE_PRODUITS</span> = <span style="color:#2a00ff">&quot;UPDATE PRODUITS SET NOM=?, PRIX=?, CATEGORIE=?, DESCRIPTION=? WHERE ID=?&quot;</span>;</span>
 </code></pre></div>
 
 <ul>
-<li><span style="color: #000000">lignes 19-28 : le code de mise à jour des produits ;</span></li>
+  <li><span style="color: #000000">lignes 19-28 : le code de mise à jour des produits ;</span>
+  </li>
 </ul>
+
 <p><a id="refheading1051762082896917"></a></p>
 <h4 id="3674-la-methode-addproduits">3.6.7.4. La méthode [addProduits]</h4>
 <p><span style="color: #000000">La méthode [addProduits] ajoute en base les produits qu&#x27;on lui passe en paramètres. Elle rend ces mêmes produits avec leurs clés primaires (avant la mise en base, les produits n&#x27;ont pas de clé primaire).</span></p>
@@ -3929,21 +4124,30 @@
 </code></pre></div>
 
 <ul>
-<li><span style="color: #000000">ligne 16, l&#x27;ordre SQL [ConfigJdbc.<em>V2_INSERT_PRODUITS</em>] est le suivant :</span></li>
+  <li><span style="color: #000000">ligne 16, l&#x27;ordre SQL [ConfigJdbc.<i>V2_INSERT_PRODUITS</i>] est le suivant :</span>
+  </li>
 </ul>
+
 <div class="odt-code-rich" data-linenums="false" style="counter-reset: odtline 0;"><pre><code class="language-sql">
 <span class="odt-code-line"><span style="font-weight:bold;color:#7f0055">public</span> <span style="font-weight:bold;color:#7f0055">final</span> <span style="font-weight:bold;color:#7f0055">static</span> String <span style="font-weight:bold;font-style:italic;color:#0000c0">V2_INSERT_PRODUITS</span> = <span style="color:#2a00ff">&quot;INSERT INTO PRODUITS(NOM, CATEGORIE, PRIX, DESCRIPTION) VALUES (?, ?, ?, ?)&quot;</span>;</span>
 </code></pre></div>
 
 <p><span style="color: #000000">Ci-dessus, la commande d&#x27;insertion d&#x27;un produit n&#x27;inclut pas la clé primaire [ID]. Comme la clé primaire de la base MySQL a l&#x27;attribut [AUTOINCREMENT], le SGBD va alors générer une clé primaire pour chaque insertion. Se pose le problème de récupérer celle-ci. C&#x27;est un point important car les opérations sur les produits se font via leurs clés primaires. Il faut donc connaître celles-ci ;</span></p>
 <ul>
-<li><span style="color: #000000">lignes 17-33 : la boucle d&#x27;insertion des produits ;</span></li>
-<li><span style="color: #000000">ligne 16 : une forme particulière de la méthode [prepareStatement]. Le second paramètre [</span><strong><em><span style="color: #6a3e3e">generatedColumns</span></em></strong><span style="color: #000000">] est un tableau de noms de colonnes dont on veut récupérer les valeurs après l&#x27;insertion. Ligne 16, nous avons indiqué que nous voulions récupérer la valeur de la colonne [id]. On notera ici que bien que le nom des colonnes d&#x27;une table soit insensible à la casse (majuscules / minuscules], le SGBD PostgreSQL a voulu que ce nom soit en minuscules. C&#x27;est typiquement le genre de problèmes qu&#x27;on trouve lors des portages d&#x27;un code d&#x27;un SGBD à un autre ;</span></li>
-<li><span style="color: #000000">ligne 24 : insertion dans la base d&#x27;une ligne ;</span></li>
-<li><span style="color: #000000">ligne 26 : on récupère la liste des valeurs des colonnes précisées ligne 16 dans un [ResultSet]. Ici, pour 1 insertion, le [ResultSet] aura 1 ligne et cette ligne aura 1 unique colonne qui contient la clé primaire ;</span></li>
-<li><span style="color: #000000">ligne 28 : on récupère la clé primaire générée par le SGBD ;</span></li>
-<li><span style="color: #000000">lignes 29-32 : si on n&#x27;obtient pas la clé primaire générée, on lance une [RuntimeException] qui sera encapsulée dans une [DaoException] lignes 38-40 ;</span></li>
+  <li><span style="color: #000000">lignes 17-33 : la boucle d&#x27;insertion des produits ;</span>
+  </li>
+  <li><span style="color: #000000">ligne 16 : une forme particulière de la méthode [prepareStatement]. Le second paramètre [</span><i><b><span style="color: #6a3e3e">generatedColumns</span></b></i><span style="color: #000000">] est un tableau de noms de colonnes dont on veut récupérer les valeurs après l&#x27;insertion. Ligne 16, nous avons indiqué que nous voulions récupérer la valeur de la colonne [id]. On notera ici que bien que le nom des colonnes d&#x27;une table soit insensible à la casse (majuscules / minuscules], le SGBD PostgreSQL a voulu que ce nom soit en minuscules. C&#x27;est typiquement le genre de problèmes qu&#x27;on trouve lors des portages d&#x27;un code d&#x27;un SGBD à un autre ;</span>
+  </li>
+  <li><span style="color: #000000">ligne 24 : insertion dans la base d&#x27;une ligne ;</span>
+  </li>
+  <li><span style="color: #000000">ligne 26 : on récupère la liste des valeurs des colonnes précisées ligne 16 dans un [ResultSet]. Ici, pour 1 insertion, le [ResultSet] aura 1 ligne et cette ligne aura 1 unique colonne qui contient la clé primaire ;</span>
+  </li>
+  <li><span style="color: #000000">ligne 28 : on récupère la clé primaire générée par le SGBD ;</span>
+  </li>
+  <li><span style="color: #000000">lignes 29-32 : si on n&#x27;obtient pas la clé primaire générée, on lance une [RuntimeException] qui sera encapsulée dans une [DaoException] lignes 38-40 ;</span>
+  </li>
 </ul>
+
 <p><a id="refheading1051782082896917"></a></p>
 <h3 id="368-la-classe-dao2">3.6.8. La classe [Dao2]</h3>
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/1000000000000459000000F65B5FFE39.png" style="display:inline-block; margin:4px;width:14.725cm;height:3.254cm;" class="odt-zoomable" data-zoom-src="images/1000000000000459000000F65B5FFE39.png" /></td></tr></table>
@@ -3960,8 +4164,10 @@
 <a id="__codelineno-7-4" name="__codelineno-7-4"></a>...
 </code></pre></div></td></tr></table></div>
 <ul>
-<li>[resource] est une ressource qui implémente l&#x27;interface [java.lang.AutoCloseable]. Toutes les ressources qu&#x27;on libère avec la méthode [close] en font partie. Cette syntaxe assure que ligne 4, la ressource [resource] sera fermée. Cela évite d&#x27;écrire une clause [finally] pour faire ce travail de fermeture ;</li>
+  <li>[resource] est une ressource qui implémente l&#x27;interface [java.lang.AutoCloseable]. Toutes les ressources qu&#x27;on libère avec la méthode [close] en font partie. Cette syntaxe assure que ligne 4, la ressource [resource] sera fermée. Cela évite d&#x27;écrire une clause [finally] pour faire ce travail de fermeture ;
+  </li>
 </ul>
+
 <p>Prenons comme exemple, la méthode [<span style="color: #000000">getAllProduits</span>] de la classe [Dao2] :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-sql">
 <span class="odt-code-line"><span style="color:#000000">    </span><span style="color:#646464">@Override</span></span>
@@ -4006,11 +4212,16 @@
 </code></pre></div>
 
 <ul>
-<li>ligne 7 : <strong><span style="color: #7f0055">try</span></strong> avec la ressource [<span style="color: #000000">Connection</span>]. Ligne 27, on est assuré que celle-ci est fermée ;</li>
-<li>ligne 13 : <strong><span style="color: #7f0055">try</span></strong> avec la ressource [<span style="color: #000000">PreparedStatement</span>]. Ligne 23, on est assuré que celle-ci est fermée ;</li>
-<li>ligne 14 : <strong><span style="color: #7f0055">try</span></strong> avec la ressource [<span style="color: #000000">ResultSet</span>]. Ligne 19, on est assuré que celle-ci est fermée ;</li>
-<li>ligne 25 : la transaction est annulée de la façon suivante :</li>
+  <li>ligne 7 : <b><span style="color: #7f0055">try</span></b> avec la ressource [<span style="color: #000000">Connection</span>]. Ligne 27, on est assuré que celle-ci est fermée ;
+  </li>
+  <li>ligne 13 : <b><span style="color: #7f0055">try</span></b> avec la ressource [<span style="color: #000000">PreparedStatement</span>]. Ligne 23, on est assuré que celle-ci est fermée ;
+  </li>
+  <li>ligne 14 : <b><span style="color: #7f0055">try</span></b> avec la ressource [<span style="color: #000000">ResultSet</span>]. Ligne 19, on est assuré que celle-ci est fermée ;
+  </li>
+  <li>ligne 25 : la transaction est annulée de la façon suivante :
+  </li>
 </ul>
+
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-text">
 <span class="odt-code-line"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">private</span><span style="color:#000000"> DaoException doRollback(Connection </span><span style="color:#6a3e3e">connexion</span><span style="color:#000000">, Throwable </span><span style="color:#6a3e3e">e1</span><span style="color:#000000">, </span><span style="font-weight:bold;color:#7f0055">int</span><span style="color:#000000"> </span><span style="color:#6a3e3e">code</span><span style="color:#000000">) {</span></span>
 <span class="odt-code-line"><span style="color:#000000">        </span><span style="font-weight:bold;color:#7f0055">try</span><span style="color:#000000"> {</span></span>
@@ -4035,13 +4246,20 @@
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000001080000010656DBC99A.png" style="display:inline-block; margin:4px;width:4.89cm;height:4.851cm;" class="odt-zoomable" data-zoom-src="images/10000000000001080000010656DBC99A.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td></tr></table>
 
 <ul>
-<li><span style="color: #000000">le test [JUnitTestDao1] est un test JUnit de la classe [Dao1] ;</span></li>
-<li><span style="color: #000000">le test [JUnitTestDao2] est un test JUnit de la classe [Dao2] ;</span></li>
-<li><span style="color: #000000">[AbstractJUnitTestDao] est la classe parent des deux classes de test précédentes ;</span></li>
-<li><span style="color: #000000">[MainTestDao1] est une classe console de test de la classe [Dao1] ;</span></li>
-<li><span style="color: #000000">[MainTestDao2] est une classe console de test de la classe [Dao2] ;</span></li>
-<li><span style="color: #000000">[AbstractMainTestDao] est la classe parent des deux classes précédentes. Elle reprend le code des classes console [IntroJdbc01, IntroJdbc02] déjà présentées, aussi n&#x27;étudierons-nous pas ces classes console ;</span></li>
+  <li><span style="color: #000000">le test [JUnitTestDao1] est un test JUnit de la classe [Dao1] ;</span>
+  </li>
+  <li><span style="color: #000000">le test [JUnitTestDao2] est un test JUnit de la classe [Dao2] ;</span>
+  </li>
+  <li><span style="color: #000000">[AbstractJUnitTestDao] est la classe parent des deux classes de test précédentes ;</span>
+  </li>
+  <li><span style="color: #000000">[MainTestDao1] est une classe console de test de la classe [Dao1] ;</span>
+  </li>
+  <li><span style="color: #000000">[MainTestDao2] est une classe console de test de la classe [Dao2] ;</span>
+  </li>
+  <li><span style="color: #000000">[AbstractMainTestDao] est la classe parent des deux classes précédentes. Elle reprend le code des classes console [IntroJdbc01, IntroJdbc02] déjà présentées, aussi n&#x27;étudierons-nous pas ces classes console ;</span>
+  </li>
 </ul>
+
 <p><span style="color: #000000">Le classe [JUnitTestDao1] est la suivante :</span></p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
 <span class="odt-code-line"><span style="font-weight:bold;color:#7f0055">package</span> spring.jdbc.tests;</span>
@@ -4073,11 +4291,16 @@
 </code></pre></div>
 
 <ul>
-<li><span style="color: #000000">les annotations des lignes 12-13 ont été présentées au paragraphe <a href="introduction-au-framework-spring.html#refheading840651126111057">2.5.5</a>. Elles permettent à un test Junit d&#x27;avoir un accès simple au contexte Spring et ses beans. Ce contexte est configuré par la classe [AppConfig] (ligne 12) étudiée au paragraphe <a href="introduction-au-framework-spring.html#refheading78451838046689">2.4.3</a> ;</span></li>
-<li><span style="color: #000000">ligne 14 : la classe étend la classe [AbstractJUnitTestDao] que nous allons présenter. C&#x27;est dans cette classe que se trouvent les méthodes de test JUnit ;</span></li>
-<li><span style="color: #000000">lignes 17-19 : le bean nommé [dao1] (ligne 18) est injecté (ligne 17). C&#x27;est donc une instance de la classe [Dao1] qui est ici injectée ;</span></li>
-<li><span style="color: #000000">lignes 21-24 : la méthode [getDao] redéfinit la méthode de même nom dans la classe parent ;</span></li>
+  <li><span style="color: #000000">les annotations des lignes 12-13 ont été présentées au paragraphe <a href="introduction-au-framework-spring.html#refheading840651126111057">2.5.5</a>. Elles permettent à un test Junit d&#x27;avoir un accès simple au contexte Spring et ses beans. Ce contexte est configuré par la classe [AppConfig] (ligne 12) étudiée au paragraphe <a href="introduction-au-framework-spring.html#refheading78451838046689">2.4.3</a> ;</span>
+  </li>
+  <li><span style="color: #000000">ligne 14 : la classe étend la classe [AbstractJUnitTestDao] que nous allons présenter. C&#x27;est dans cette classe que se trouvent les méthodes de test JUnit ;</span>
+  </li>
+  <li><span style="color: #000000">lignes 17-19 : le bean nommé [dao1] (ligne 18) est injecté (ligne 17). C&#x27;est donc une instance de la classe [Dao1] qui est ici injectée ;</span>
+  </li>
+  <li><span style="color: #000000">lignes 21-24 : la méthode [getDao] redéfinit la méthode de même nom dans la classe parent ;</span>
+  </li>
 </ul>
+
 <p><span style="color: #000000">Au final, le but de cette classe est de rendre à la classe parent, une référence sur la couche [DAO] qui doit être testée, ici une instance de [Dao1]. De la même façon la classe [JUnitTestDao2] rend à la classe parent [AbstractJUnitTestDao] une instance de la classe [Dao2].</span></p>
 <p><span style="color: #000000">La classe [AbstractJUnitTestDao] est une classe de tests JUnit :</span></p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
@@ -4160,11 +4383,16 @@
 </code></pre></div>
 
 <ul>
-<li><span style="color: #000000">ligne 19, la classe [AbstractJUnitTestDao] est abstraite ;</span></li>
-<li><span style="color: #000000">ligne 22 : la méthode abstraite [getDao] qui permet d&#x27;avoir la référence sur la couche [DAO] à tester. Cette méthode est implémentée par les classes filles ;</span></li>
-<li><span style="color: #000000">ligne 25 : un mappeur jSON qui va nous permettre d&#x27;afficher sur la console la valeur jSON de produits ;</span></li>
-<li><span style="color: #000000">lignes 27-32 : avant chaque test (ligne 27), la table [PRODUITS] est vidée ;</span></li>
+  <li><span style="color: #000000">ligne 19, la classe [AbstractJUnitTestDao] est abstraite ;</span>
+  </li>
+  <li><span style="color: #000000">ligne 22 : la méthode abstraite [getDao] qui permet d&#x27;avoir la référence sur la couche [DAO] à tester. Cette méthode est implémentée par les classes filles ;</span>
+  </li>
+  <li><span style="color: #000000">ligne 25 : un mappeur jSON qui va nous permettre d&#x27;afficher sur la console la valeur jSON de produits ;</span>
+  </li>
+  <li><span style="color: #000000">lignes 27-32 : avant chaque test (ligne 27), la table [PRODUITS] est vidée ;</span>
+  </li>
 </ul>
+
 <p><a id="refheading1051842082896917"></a></p>
 <h4 id="3692-la-methode-privee-fill">3.6.9.2. La méthode privée [fill]</h4>
 <p>La méthode privée [fill] est utilisée pour mettre des produits dans la table [PRODUITS].</p>
@@ -4192,18 +4420,24 @@
 </code></pre></div>
 
 <ul>
-<li>ligne 1 : la méthode [fill] insère [nbProduits] dans la table [PRODUITS] supposée vide ;</li>
-<li>lignes 3-10 : création d&#x27;une liste de produits de la forme :</li>
+  <li>ligne 1 : la méthode [fill] insère [nbProduits] dans la table [PRODUITS] supposée vide ;
+  </li>
+  <li>lignes 3-10 : création d&#x27;une liste de produits de la forme :
+  </li>
 </ul>
+
 <div class="odt-code-rich" data-linenums="false" style="counter-reset: odtline 0;"><pre><code class="language-text">
 <span class="odt-code-line"><span style="font-weight:bold;color:#7f0055">new</span><span style="color:#000000"> Produit(0, String.</span><span style="font-style:italic;color:#000000">format</span><span style="color:#000000">(</span><span style="color:#2a00ff">&quot;NOM%s&quot;</span><span style="color:#000000">, </span><span style="color:#6a3e3e">n</span><span style="color:#000000">), </span><span style="color:#6a3e3e">n</span><span style="color:#000000"> / 5 + 1, 100 * (1 + (</span><span style="font-weight:bold;color:#7f0055">double</span><span style="color:#000000">) </span><span style="color:#6a3e3e">i</span><span style="color:#000000"> / 100), String.</span><span style="font-style:italic;color:#000000">format</span><span style="color:#000000">(</span><span style="color:#2a00ff">&quot;DESC%s&quot;</span><span style="color:#000000">, </span><span style="color:#6a3e3e">n</span><span style="color:#000000">)));</span></span>
 </code></pre></div>
 
 <p>qui utilise le constructeur Produit(<span style="color: #3f7f5f">int id, String nom, int categorie, double prix, String description</span>). La valeur du premier paramètre [id] (clé primaire de la table [PRODUITS]) n&#x27;a pas d&#x27;importance puisque la méthode [addProduits] de la ligne 10 ne l&#x27;insère pas dans la base et laisse le SGBD générer sa valeur ;</p>
 <ul>
-<li>ligne 12 : la liste des produits est persistée en base. Chacun des produits de cette liste se voit enrichie d&#x27;une clé primaire [id] nouvelle. La méthode [addProduits] rend pour résultat son paramètre [produits]. On aurait pu donc ne pas récupérer le résultat ;</li>
-<li>lignes 15-17 : on met les produits dans un dictionnaire :</li>
+  <li>ligne 12 : la liste des produits est persistée en base. Chacun des produits de cette liste se voit enrichie d&#x27;une clé primaire [id] nouvelle. La méthode [addProduits] rend pour résultat son paramètre [produits]. On aurait pu donc ne pas récupérer le résultat ;
+  </li>
+  <li>lignes 15-17 : on met les produits dans un dictionnaire :
+  </li>
 </ul>
+
 <div class="odt-code-rich" data-linenums="false" style="counter-reset: odtline 0;"><pre><code class="language-text">
 <span class="odt-code-line"><span style="color:#000000">    </span><span style="color:#3f7f5f">// dictionnaire des produits</span></span>
 <span class="odt-code-line"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">private</span><span style="color:#000000"> Map&lt;Integer, Produit&gt; </span><span style="color:#0000c0">mapProduits</span><span style="color:#000000"> = </span><span style="font-weight:bold;color:#7f0055">new</span><span style="color:#000000"> HashMap&lt;Integer, Produit&gt;();</span></span>
@@ -4211,8 +4445,10 @@
 
 <p>La clé du dictionnaire est la clé primaire du produit et la valeur associée, le produit lui-même ;</p>
 <ul>
-<li>ligne 19 : on rend la liste des produits ;</li>
+  <li>ligne 19 : on rend la liste des produits ;
+  </li>
 </ul>
+
 <p><a id="refheading1051862082896917"></a></p>
 <h4 id="3693-le-test-getproduits">3.6.9.3. Le test [getProduits]</h4>
 <p><span style="color: #000000">Celui-ci est le suivant :</span></p>
@@ -4238,15 +4474,24 @@
 </code></pre></div>
 
 <ul>
-<li><span style="color: #000000">ligne 4 : 10 produits sont mis dans la base ;</span></li>
-<li><span style="color: #000000">ligne 7 : ceci fait, on demande à voir tous les produits de la base ;</span></li>
-<li><span style="color: #000000">ligne 8 : on les affiche. Le but est de voir que les produits ont bien été enregistrés et qu&#x27;ils ont une clé primaire ;</span></li>
-<li><span style="color: #000000">lignes 10-13 : on vérifie que les produits retrouvés sont identiques à ceux qu&#x27;on a persistés et qu&#x27;on peut retrouver dans le dictionnaire [mapProduits] ;</span></li>
-<li><span style="color: #000000">ligne 11 : on récupère dans le dictionnaire le produit ayant la même clé primaire que celui ramené de la base. Cela montre  que les produits persistés ont bien récupéré une clé primaire ;</span></li>
-<li><span style="color: #000000">ligne 12 : on s&#x27;assure que les deux produits sont identiques. On rappelle que la classe [Produit] a défini une méthode [equals] (cf paragraphe <a href="#refheading854441326982365">3.3.4</a>) ;</span></li>
-<li><span style="color: #000000">ligne 13 : on supprime du dictionnaire l&#x27;élément trouvé ;</span></li>
-<li><span style="color: #000000">ligne 16 : on vérifie que le dictionnaire des produits initiaux est bien vide signifiant par là que ces produits initiaux étaient tous présents dans la liste des produits ramenés de la base ;</span></li>
+  <li><span style="color: #000000">ligne 4 : 10 produits sont mis dans la base ;</span>
+  </li>
+  <li><span style="color: #000000">ligne 7 : ceci fait, on demande à voir tous les produits de la base ;</span>
+  </li>
+  <li><span style="color: #000000">ligne 8 : on les affiche. Le but est de voir que les produits ont bien été enregistrés et qu&#x27;ils ont une clé primaire ;</span>
+  </li>
+  <li><span style="color: #000000">lignes 10-13 : on vérifie que les produits retrouvés sont identiques à ceux qu&#x27;on a persistés et qu&#x27;on peut retrouver dans le dictionnaire [mapProduits] ;</span>
+  </li>
+  <li><span style="color: #000000">ligne 11 : on récupère dans le dictionnaire le produit ayant la même clé primaire que celui ramené de la base. Cela montre  que les produits persistés ont bien récupéré une clé primaire ;</span>
+  </li>
+  <li><span style="color: #000000">ligne 12 : on s&#x27;assure que les deux produits sont identiques. On rappelle que la classe [Produit] a défini une méthode [equals] (cf paragraphe <a href="#refheading854441326982365">3.3.4</a>) ;</span>
+  </li>
+  <li><span style="color: #000000">ligne 13 : on supprime du dictionnaire l&#x27;élément trouvé ;</span>
+  </li>
+  <li><span style="color: #000000">ligne 16 : on vérifie que le dictionnaire des produits initiaux est bien vide signifiant par là que ces produits initiaux étaient tous présents dans la liste des produits ramenés de la base ;</span>
+  </li>
 </ul>
+
 <p><span style="color: #000000">La méthode [affiche] de la ligne 8, est la méthode privée suivante :</span></p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-text">
 <span class="odt-code-line">    <span style="color:#3f7f5f">// affichage liste de produits</span></span>
@@ -4258,8 +4503,10 @@
 </code></pre></div>
 
 <ul>
-<li><span style="color: #000000">ligne 2 : la méthode [affiche] est une méthode <strong>générique</strong>. Elle est paramétrée par un type T noté syntaxiquement &lt;T&gt;. Si elle était paramétrée par deux types T1 et T2, on écrirait &lt;T1,T2&gt;. La syntaxe d&#x27;une méthode <strong>m</strong> paramétrée par un type T est la suivante :</span></li>
+  <li><span style="color: #000000">ligne 2 : la méthode [affiche] est une méthode <b>générique</b>. Elle est paramétrée par un type T noté syntaxiquement &lt;T&gt;. Si elle était paramétrée par deux types T1 et T2, on écrirait &lt;T1,T2&gt;. La syntaxe d&#x27;une méthode <b>m</b> paramétrée par un type T est la suivante :</span>
+  </li>
 </ul>
+
 <div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>portée &lt;T&gt; type_résultat m(... , T value1, ...){
 <a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>...
 <a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>    T value2=...
@@ -4322,10 +4569,14 @@
 </code></pre></div>
 
 <ul>
-<li><span style="color: #000000">ligne 6 : la méthode [getProduitByName] de l&#x27;interface [IDao] est utilisée pour ramener le produit de nom [NOM3] ;</span></li>
-<li><span style="color: #000000">ligne 7 :  la méthode [getProduitById] de l&#x27;interface [IDao] est ensuite utilisée pour ramener le même produit identifié cette fois par sa clé primaire ;</span></li>
-<li><span style="color: #000000">lignes 8-10 : on vérifie que [produit2] et [produit] ont les mêmes caractéristiques ;</span></li>
+  <li><span style="color: #000000">ligne 6 : la méthode [getProduitByName] de l&#x27;interface [IDao] est utilisée pour ramener le produit de nom [NOM3] ;</span>
+  </li>
+  <li><span style="color: #000000">ligne 7 :  la méthode [getProduitById] de l&#x27;interface [IDao] est ensuite utilisée pour ramener le même produit identifié cette fois par sa clé primaire ;</span>
+  </li>
+  <li><span style="color: #000000">lignes 8-10 : on vérifie que [produit2] et [produit] ont les mêmes caractéristiques ;</span>
+  </li>
 </ul>
+
 <p><a id="refheading1051902082896917"></a></p>
 <h4 id="3695-le-test-doinsertsintransaction">3.6.9.5. Le test [<span style="color: #000000">doInsertsInTransaction</span>]</h4>
 <p><span style="color: #000000">Celui-ci est le suivant :</span></p>
@@ -4351,11 +4602,16 @@
 </code></pre></div>
 
 <ul>
-<li><span style="color: #000000">lignes 5-7 : on crée une liste de deux produits ayant le même nom [x] ;</span></li>
-<li><span style="color: #000000">ligne 10 : ces deux produits sont insérés dans la table [PRODUITS] qui est vide (méthode [clean] annotée avec [@Before]). La première insertion va se faire mais pas la deuxième car la table [PRODUITS] a une contrainte d&#x27;unicité sur le nom des produits. Il doit donc se produire une exception. Celle-ci est testée ligne 15 ;</span></li>
-<li><span style="color: #000000">parce que toutes les méthodes de l&#x27;interface [IDao] se font à l&#x27;intérieur d&#x27;une transaction, le fait que la deuxième insertion échoue va faire annuler la totalité de la transaction donc la première insertion. Au final, aucune insertion ne doit se faire dans la table [PRODUITS] ;</span></li>
-<li><span style="color: #000000">lignes 16-17 : on vérifie ce point en demandant la liste des produits contenus dans la table [PRODUITS] et en vérifiant que cette liste est vide ;</span></li>
+  <li><span style="color: #000000">lignes 5-7 : on crée une liste de deux produits ayant le même nom [x] ;</span>
+  </li>
+  <li><span style="color: #000000">ligne 10 : ces deux produits sont insérés dans la table [PRODUITS] qui est vide (méthode [clean] annotée avec [@Before]). La première insertion va se faire mais pas la deuxième car la table [PRODUITS] a une contrainte d&#x27;unicité sur le nom des produits. Il doit donc se produire une exception. Celle-ci est testée ligne 15 ;</span>
+  </li>
+  <li><span style="color: #000000">parce que toutes les méthodes de l&#x27;interface [IDao] se font à l&#x27;intérieur d&#x27;une transaction, le fait que la deuxième insertion échoue va faire annuler la totalité de la transaction donc la première insertion. Au final, aucune insertion ne doit se faire dans la table [PRODUITS] ;</span>
+  </li>
+  <li><span style="color: #000000">lignes 16-17 : on vérifie ce point en demandant la liste des produits contenus dans la table [PRODUITS] et en vérifiant que cette liste est vide ;</span>
+  </li>
 </ul>
+
 <p><a id="refheading1051922082896917"></a></p>
 <h4 id="3696-le-test-updateproduits">3.6.9.6. Le test [updateProduits]</h4>
 <p><span style="color: #000000">Celui-ci est le suivant :</span></p>
@@ -4389,14 +4645,22 @@
 </code></pre></div>
 
 <ul>
-<li><span style="color: #000000">ligne 4 : on met 10 produits dans la base ;</span></li>
-<li><span style="color: #000000">ligne 7 : on les récupère ;</span></li>
-<li><span style="color: #000000">lignes 9-18 : on augmente de 10% les prix des produits de la catégorie n° 1 ;</span></li>
-<li><span style="color: #000000">ligne 19 : ces modifications sont inscrites dans la base ;</span></li>
-<li><span style="color: #000000">lignes 22-25 : on parcourt en mémoire la liste des produits qui a servi à la mise à jour. Pour chacun d&#x27;entre-eux, on va chercher en base le produit de même clé primaire et on vérifie que la mise à jour du prix a bien eu lieu ;</span></li>
-<li><span style="color: #000000">ligne 19 : on récupère le nombre de produits mis à jour par l&#x27;opération [updateProduits] ;</span></li>
-<li><span style="color: #000000">ligne 21 : on vérifie que ce nombre est bien celui attendu. Ce test passe pour tous les SGBD sauf pour le SGBD DB2. On l&#x27;a donc mis en commentaires ;</span></li>
+  <li><span style="color: #000000">ligne 4 : on met 10 produits dans la base ;</span>
+  </li>
+  <li><span style="color: #000000">ligne 7 : on les récupère ;</span>
+  </li>
+  <li><span style="color: #000000">lignes 9-18 : on augmente de 10% les prix des produits de la catégorie n° 1 ;</span>
+  </li>
+  <li><span style="color: #000000">ligne 19 : ces modifications sont inscrites dans la base ;</span>
+  </li>
+  <li><span style="color: #000000">lignes 22-25 : on parcourt en mémoire la liste des produits qui a servi à la mise à jour. Pour chacun d&#x27;entre-eux, on va chercher en base le produit de même clé primaire et on vérifie que la mise à jour du prix a bien eu lieu ;</span>
+  </li>
+  <li><span style="color: #000000">ligne 19 : on récupère le nombre de produits mis à jour par l&#x27;opération [updateProduits] ;</span>
+  </li>
+  <li><span style="color: #000000">ligne 21 : on vérifie que ce nombre est bien celui attendu. Ce test passe pour tous les SGBD sauf pour le SGBD DB2. On l&#x27;a donc mis en commentaires ;</span>
+  </li>
 </ul>
+
 <p><a id="refheading1051942082896917"></a></p>
 <h4 id="3697-le-test-deleteproduits">3.6.9.7. Le test [deleteProduits]</h4>
 <p><span style="color: #000000">Celui-ci est le suivant :</span></p>
@@ -4421,11 +4685,16 @@
 </code></pre></div>
 
 <ul>
-<li><span style="color: #000000">ligne 4 : on met 10 produits dans la base ;</span></li>
-<li><span style="color: #000000">lignes 7-11 : on récupère tous les produits dans la base et on supprime de celle-ci les produits récupérés en positions 0 et 5 ;</span></li>
-<li><span style="color: #000000">lignes 14-16 : on vérifie que les deux produits ne sont plus dans la base et que celle-ci a deux produits de moins ;</span></li>
-<li><span style="color: #000000">le test de la ligne 13 ne passe pas avec le SGBD DB2. Il passe avec les autres SGBD ;</span></li>
+  <li><span style="color: #000000">ligne 4 : on met 10 produits dans la base ;</span>
+  </li>
+  <li><span style="color: #000000">lignes 7-11 : on récupère tous les produits dans la base et on supprime de celle-ci les produits récupérés en positions 0 et 5 ;</span>
+  </li>
+  <li><span style="color: #000000">lignes 14-16 : on vérifie que les deux produits ne sont plus dans la base et que celle-ci a deux produits de moins ;</span>
+  </li>
+  <li><span style="color: #000000">le test de la ligne 13 ne passe pas avec le SGBD DB2. Il passe avec les autres SGBD ;</span>
+  </li>
 </ul>
+
 <p><a id="refheading1051962082896917"></a></p>
 <h4 id="3698-les-tests-de-performance">3.6.9.8. Les tests de performance</h4>
 <p><span style="color: #000000">On a inclus dans les tests trois méthodes qui n&#x27;ont d&#x27;autre but que d&#x27;évaluer les performances du SGBD :</span></p>
@@ -4467,10 +4736,14 @@
 </code></pre></div>
 
 <ul>
-<li>lignes 1-5 : insertion de 10000 produits ;</li>
-<li>lignes 8-20 : insertion de 10000 produits puis modification de ceux-ci via leurs clés primaires ;</li>
-<li>lignes 23-34 : insertion de 10000 produits puis suppression de ceux-ci via leurs clés primaires ;</li>
+  <li>lignes 1-5 : insertion de 10000 produits ;
+  </li>
+  <li>lignes 8-20 : insertion de 10000 produits puis modification de ceux-ci via leurs clés primaires ;
+  </li>
+  <li>lignes 23-34 : insertion de 10000 produits puis suppression de ceux-ci via leurs clés primaires ;
+  </li>
 </ul>
+
 <p>Pour exécuter les tests [JUnitTestDao1] et [JUnitTestDao2], on pourra utiliser les configurations d&#x27;exécution suivantes :</p>
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/1000000000000132000000B44C5DCAB1.png" style="display:inline-block; margin:4px;width:5.669cm;height:3.33cm;" class="odt-zoomable" data-zoom-src="images/1000000000000132000000B44C5DCAB1.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/1000000000000127000000BC0C17175B.png" style="display:inline-block; margin:4px;width:5.459cm;height:3.48cm;" class="odt-zoomable" data-zoom-src="images/1000000000000127000000BC0C17175B.png" /></td></tr></table>
 
@@ -4479,11 +4752,16 @@
 
 <p>En [1] les résultats de [JUnitTestDao1] et en [2] ceux de [JUnitTestDao2]. Il n&#x27;y a pas de différences significatives entre-eux. En [1] :</p>
 <ul>
-<li>le test est réussi ;</li>
-<li>l&#x27;insertion de 10000 produits dure 3,15 secondes ;</li>
-<li>l&#x27;insertion de 10000 produits suivie de leur modification dure 4,80 secondes ;</li>
-<li>l&#x27;insertion de 10000 produits suivie de leur suppression dure 4,40 secondes ;</li>
-<li>donc le plus coûteux est l&#x27;insertion ;</li>
+  <li>le test est réussi ;
+  </li>
+  <li>l&#x27;insertion de 10000 produits dure 3,15 secondes ;
+  </li>
+  <li>l&#x27;insertion de 10000 produits suivie de leur modification dure 4,80 secondes ;
+  </li>
+  <li>l&#x27;insertion de 10000 produits suivie de leur suppression dure 4,40 secondes ;
+  </li>
+  <li>donc le plus coûteux est l&#x27;insertion ;
+  </li>
 </ul>
 
 
